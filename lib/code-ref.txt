@@ -1,0 +1,34 @@
+// Static Database for internal Data
+// Category Name
+
+const data = {
+    propertyForSaleCat : [
+        {
+            apartment : Apartment,
+            villa :Villa,
+            townhouse : Townhouse,
+        }
+    ]
+}
+
+======================================
+
+export async function getServerSideProps() {
+  //connecting db
+  await db.connect();
+
+  //setting data constant for the result for database
+  const data = await SaleProperty.find();
+  await db.disconnect();
+  const allProperties = JSON.parse(JSON.stringify(data));;
+
+  //setting props for frontend
+  return {
+    props: { allProperties }
+  };
+}
+
+=====================================================
+image aws 
+============
+ <img className="md:h-auto object-cover md:w-[96] rounded-t-lg md:rounded-none md:rounded-l-lg" key={s3fileKey} src={`https://dutao.s3.me-south-1.amazonaws.com/${stateCv}`} alt="" />
