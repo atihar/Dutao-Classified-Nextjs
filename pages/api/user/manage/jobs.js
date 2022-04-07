@@ -14,14 +14,14 @@ handler.get(async (req, res) => {
 
 handler.delete(async (req, res) => {
   await db.connect();
-  const product = await Jobs.findById(req.query.id);
-  if (product) {
-    await product.remove();
+  const job = await Jobs.findById(req.query.id);
+  if (job) {
+    await job.remove();
     await db.disconnect();
-    res.send({ message: 'Product Deleted' });
+    res.send({ message: 'Job Removed from Database' });
   } else {
     await db.disconnect();
-    res.status(404).send({ message: 'Product Not Found' });
+    res.status(404).send({ message: 'Job Not Found' });
   }
 });
 

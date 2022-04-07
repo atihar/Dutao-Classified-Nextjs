@@ -192,9 +192,28 @@ export default function Header({ children }) {
               </div>
             </div>
           </div>
-            <p>Special Products</p>
+
+          <div className="relative group">
+            <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+            <Link href={'/motors'}><span>Special Products</span></Link>
+            </button>
+
+            <div className="absolute z-20 hidden w-40 bg-grey-200 group-hover:block">       
+              <div className="px-2 pt-2 pb-4 bg-white-500 bg-gray-50 shadow-lg">
+                <div className="flex-column text-left text-xs space-y-4 p-2 rounded">
+                    <Link href={'/special-products/list?category=cars'}><li className='list-none cursor-pointer'>Cars Offers</li></Link>
+                    <Link href={'/special-products/list?category=motorcycle'}><li className='list-none cursor-pointer'>Home Items</li></Link>
+                    <Link href={'/special-products/list?category=accessories'}><li className='list-none cursor-pointer'>Rare Collections</li></Link>
+                    <Link href={'/special-products/list?category=heavy&vehicles'}><li className='list-none cursor-pointer'>Weekly Deals</li></Link>
+                    <Link href={'/special-products/list?category=boats'}><li className='list-none cursor-pointer'>Entertainment</li></Link>
+                    <Link href={'/special-products/list?category=boats'}><li className='list-none cursor-pointer'>VIP Coupns</li></Link>
+                    <Link href={'/spacial-products/list?category=boats'}><li className='list-none cursor-pointer'>Hotel Deals</li></Link>
+                </div>
+              </div>
+            </div>
+          </div>
           
-            <div className="relative group">
+          <div className="relative group">
             <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
             <Link href={'/jobs'}><span>Jobs</span></Link>
             </button>
@@ -216,8 +235,50 @@ export default function Header({ children }) {
             </div>
           </div>
 
-            <p>Community</p>
-            <p>Used Items</p>
+          <div className="relative group">
+            <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+            <Link href={'/community'}><span>Community</span></Link>
+            </button>
+
+            <div className="absolute z-20 hidden w-60 bg-grey-200 group-hover:block">       
+              <div className="px-2 pt-2 pb-4 bg-white-500 bg-gray-50 shadow-lg">
+                <div className="flex-column text-left text-xs space-y-4 p-2 rounded">
+                    <Link href={'/jobs/list?category=auto-service'}><li className='list-none cursor-pointer'>Auto Service</li></Link>
+                    <Link href={'/jobs/list?category=event-management'}><li className='list-none cursor-pointer'>Event Management</li></Link>
+                    <Link href={'/jobs/list?category=human-freelancers'}><li className='list-none cursor-pointer'>Freelancers</li></Link>
+                    <Link href={'/jobs/list?category=health-service'}><li className='list-none cursor-pointer'>Health Service</li></Link>
+                    <Link href={'/jobs/list?category=home-maintenance'}><li className='list-none cursor-pointer'>Home Maintenancel</li></Link>
+                    <Link href={'/jobs/list?category=movers'}><li className='list-none cursor-pointer'>Movers & Removals</li></Link>
+                    <Link href={'/jobs/list?category=restoration-service'}><li className='list-none cursor-pointer'>Restoration & Repair</li></Link>
+                    <Link href={'/jobs/list?category=tutor-services'}><li className='list-none cursor-pointer'>Tutor service</li></Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div className="relative group">
+            <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+            <Link href={'/community'}><span>Used Items</span></Link>
+            </button>
+
+            <div className="absolute z-20 hidden w-60 bg-grey-200 group-hover:block">       
+              <div className="px-2 pt-2 pb-4 bg-white-500 bg-gray-50 shadow-lg">
+                <div className="flex-column text-left text-xs space-y-4 p-2 rounded">
+                    <Link href={'/used-items/list?category=electronics'}><li className='list-none cursor-pointer'>Electronics</li></Link>
+                    <Link href={'/used-items/list?category=home-appliances'}><li className='list-none cursor-pointer'>Home Appliances</li></Link>
+                    <Link href={'/used-items/list?category=clothing-accessories'}><li className='list-none cursor-pointer'>CLothing & Accessories</li></Link>
+                    <Link href={'/used-items/list?category=jewerly-wacthes'}><li className='list-none cursor-pointer'>Jewelry watches</li></Link>
+                    <Link href={'/used-items/list?category=music-instruments'}><li className='list-none cursor-pointer'>Music Instruments</li></Link>
+                    <Link href={'/used-items/list?category=gaming'}><li className='list-none cursor-pointer'>Gaming</li></Link>
+                    <Link href={'/used-items/list?category=furniture'}><li className='list-none cursor-pointer'>Furniture</li></Link>
+                    <Link href={'/used-items/list?category=books'}><li className='list-none cursor-pointer'>Books</li></Link>
+                    <Link href={'/used-items/list?category=tickets-vouchers'}><li className='list-none cursor-pointer'>Ticket & Vouchers</li></Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
             <p>VVIP Membership</p>
           </div>
         </div>

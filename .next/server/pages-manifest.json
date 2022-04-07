@@ -1,0 +1,9 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/jobs/[id]": "pages/jobs/[id].js",
+  "/api/user/profile-data": "pages/api/user/profile-data.js",
+  "/api/jobs/apply": "pages/api/jobs/apply.js",
+  "/jobs/list": "pages/jobs/list.js"
+}

@@ -11,7 +11,7 @@ import { Store } from '../../lib/Store'
 import axios from 'axios'
 
 
-export default function singlePropertySale({job}){
+export default function singleJobs({job}){
     // moment configuration for posted date 
     const postedDate = moment(job.createdAt).format('MMM Do YY');
     // moment configuration for expire date , current value + 30 days
@@ -47,8 +47,13 @@ export default function singlePropertySale({job}){
                 .then(function (response){
                     const applicantionData = response.data
 
-                    const y = applicantionData.applications.find(x => ( x && x.applicantsUserId !== userInfo._id)) ? "true" :"false"
+                    if(applicantionData){
+                    const y = applicantionData.applications.find(x => ( x && x.applicantsUserId == userInfo._id)) ? "true" :"false"
                     setAppliedThisJob(y)
+                    }
+                    else {
+                    const y = true
+                    }
                 })
 
                 setLoading(false)
@@ -264,9 +269,10 @@ export default function singlePropertySale({job}){
                                     { 
                                         (appliedThisJob == "true") ? 
                                         
-                                        <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-sm">
+                                        <div className="w-full bg-red-500 text-sm text-white p-5 rounded-lg">You Have Already Applied !</div> 
+                                        : <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-sm">
                                         Apply Now
-                                        </button> : <div className="w-full bg-red-500 text-sm text-white p-5 rounded-lg">You Have Already Applied !</div>  
+                                        </button>  
                                     }       
                                     
                                     {/* For test commenting above logic and uncommenting below button  */}

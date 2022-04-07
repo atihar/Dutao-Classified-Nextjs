@@ -16,17 +16,17 @@ handler.get(async (req, res) => {
 // Direct product api delete is using for deletion ... need to be secured and passed through middleware 
 // ==========================
 // =========================
-// handler.delete(async (req, res) => {
-//   await db.connect();
-//   const product = await PropertyForSale.findById(req.query.id);
-//   if (product) {
-//     await product.remove();
-//     await db.disconnect();
-//     res.send({ message: 'Product Deleted' });
-//   } else {
-//     await db.disconnect();
-//     res.status(404).send({ message: 'Product Not Found' });
-//   }
-// });
+handler.delete(async (req, res) => {
+  await db.connect();
+  const product = await PropertyForSale.findById(req.query.id);
+  if (product) {
+    await product.remove();
+    await db.disconnect();
+    res.send({ message: 'Product Deleted' });
+  } else {
+    await db.disconnect();
+    res.status(404).send({ message: 'Product Not Found' });
+  }
+});
 
 export default handler;
