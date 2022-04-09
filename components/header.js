@@ -195,7 +195,7 @@ export default function Header({ children }) {
 
           <div className="relative group">
             <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-            <Link href={'/motors'}><span>Special Products</span></Link>
+            <Link href={'/special-products'}><span>Special Products</span></Link>
             </button>
 
             <div className="absolute z-20 hidden w-40 bg-grey-200 group-hover:block">       
@@ -243,14 +243,14 @@ export default function Header({ children }) {
             <div className="absolute z-20 hidden w-60 bg-grey-200 group-hover:block">       
               <div className="px-2 pt-2 pb-4 bg-white-500 bg-gray-50 shadow-lg">
                 <div className="flex-column text-left text-xs space-y-4 p-2 rounded">
-                    <Link href={'/jobs/list?category=auto-service'}><li className='list-none cursor-pointer'>Auto Service</li></Link>
-                    <Link href={'/jobs/list?category=event-management'}><li className='list-none cursor-pointer'>Event Management</li></Link>
-                    <Link href={'/jobs/list?category=human-freelancers'}><li className='list-none cursor-pointer'>Freelancers</li></Link>
-                    <Link href={'/jobs/list?category=health-service'}><li className='list-none cursor-pointer'>Health Service</li></Link>
-                    <Link href={'/jobs/list?category=home-maintenance'}><li className='list-none cursor-pointer'>Home Maintenancel</li></Link>
-                    <Link href={'/jobs/list?category=movers'}><li className='list-none cursor-pointer'>Movers & Removals</li></Link>
-                    <Link href={'/jobs/list?category=restoration-service'}><li className='list-none cursor-pointer'>Restoration & Repair</li></Link>
-                    <Link href={'/jobs/list?category=tutor-services'}><li className='list-none cursor-pointer'>Tutor service</li></Link>
+                    <Link href={'/community/list?category=auto-service'}><li className='list-none cursor-pointer'>Auto Service</li></Link>
+                    <Link href={'/community/list?category=event-management'}><li className='list-none cursor-pointer'>Event Management</li></Link>
+                    <Link href={'/community/list?category=human-freelancers'}><li className='list-none cursor-pointer'>Freelancers</li></Link>
+                    <Link href={'/community/list?category=health-service'}><li className='list-none cursor-pointer'>Health Service</li></Link>
+                    <Link href={'/community/list?category=home-maintenance'}><li className='list-none cursor-pointer'>Home Maintenancel</li></Link>
+                    <Link href={'/community/list?category=movers'}><li className='list-none cursor-pointer'>Movers & Removals</li></Link>
+                    <Link href={'/community/list?category=restoration-service'}><li className='list-none cursor-pointer'>Restoration & Repair</li></Link>
+                    <Link href={'/community/list?category=tutor-services'}><li className='list-none cursor-pointer'>Tutor service</li></Link>
                 </div>
               </div>
             </div>
@@ -259,7 +259,7 @@ export default function Header({ children }) {
 
           <div className="relative group">
             <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-            <Link href={'/community'}><span>Used Items</span></Link>
+            <Link href={'/used-items'}><span>Used Items</span></Link>
             </button>
 
             <div className="absolute z-20 hidden w-60 bg-grey-200 group-hover:block">       
@@ -279,7 +279,82 @@ export default function Header({ children }) {
             </div>
           </div>
 
-            <p>VVIP Membership</p>
+          <div className="relative group">
+            <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+            <Link href={'/info-center'}><span>Info Center</span></Link>
+            </button>
+
+            <div className="absolute z-20 hidden w-[1000px] bg-grey-200 right-0 group-hover:block">       
+              <div className="px-4 pt-2 pb-4 bg-white-500 bg-gray-50 rounded shadow-lg">
+                {/* <div className="flex-column text-left text-xs space-y-4 p-2 rounded">
+                    <Link href={'/used-items/list?category=electronics'}><li className='list-none cursor-pointer'>Electronics</li></Link>
+                    <Link href={'/used-items/list?category=home-appliances'}><li className='list-none cursor-pointer'>Home Appliances</li></Link>
+                    <Link href={'/used-items/list?category=clothing-accessories'}><li className='list-none cursor-pointer'>CLothing & Accessories</li></Link>
+                    <Link href={'/used-items/list?category=jewerly-wacthes'}><li className='list-none cursor-pointer'>Jewelry watches</li></Link>
+                    <Link href={'/used-items/list?category=music-instruments'}><li className='list-none cursor-pointer'>Music Instruments</li></Link>
+                    <Link href={'/used-items/list?category=gaming'}><li className='list-none cursor-pointer'>Gaming</li></Link>
+                    <Link href={'/used-items/list?category=furniture'}><li className='list-none cursor-pointer'>Furniture</li></Link>
+                    <Link href={'/used-items/list?category=books'}><li className='list-none cursor-pointer'>Books</li></Link>
+                    <Link href={'/used-items/list?category=tickets-vouchers'}><li className='list-none cursor-pointer'>Ticket & Vouchers</li></Link>
+                </div> */}
+                <p className='text-left text-base py-4'>Find your location to see whats nearby</p>
+                <div className='flex text-left space-x-16'>
+                  <div className='text-left space-y-1'>
+                    <h6 className='text-base font-bold'>Dubai</h6>
+                    <hr/>
+                    <p>Business Bay</p>
+                    <p>Marina</p>
+                    <p>Al Barsha</p>
+                    <p>Deira</p>
+                  </div>
+                  <div className='text-left space-y-1'>
+                    <h6 className='text-base font-bold'>Abu Dhabi</h6>
+                    <hr/>
+                    <p>Business Bay</p>
+                    <p>Marina</p>
+                    <p>Al Barsha</p>
+                    <p>Deira</p>
+                  </div>
+                  <div className='text-left space-y-1'>
+                    <h6 className='text-base font-bold'>Ajman</h6>
+                    <hr/>
+                    <p>Business Bay</p>
+                    <p>Marina</p>
+                    <p>Al Barsha</p>
+                    <p>Deira</p>
+                  </div>
+                  <div className='text-left space-y-1'>
+                    <h6 className='text-base font-bold'>Ras al Khaimah</h6>
+                    <hr/>
+                    <p>Business Bay</p>
+                    <p>Marina</p>
+                    <p>Al Barsha</p>
+                    <p>Deira</p>
+                  </div>
+                  <div className='text-left space-y-1'>
+                    <h6 className='text-base font-bold'>Fujiran</h6>
+                    <hr/>
+                    <p>Business Bay</p>
+                    <p>Marina</p>
+                    <p>Al Barsha</p>
+                    <p>Deira</p>
+                  </div>
+                   <div className='text-left space-y-1'>
+                        <a className="inline-flex items-center px-8 py-3 text-red-500  focus:ring" href="/info-center">
+                          <span className="text-sm font-medium">
+                            view more
+                          </span>
+
+                          <svg className="w-5 h-5 ml-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </header>

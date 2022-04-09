@@ -47,7 +47,6 @@ export default function managePropertyForSale() {
         setPosts(response.data)
         setPostCount(response.data.length)
         // handle success
-        console.log(response);
       })
       .catch(function (error) {
         // handle error
@@ -112,6 +111,7 @@ export default function managePropertyForSale() {
                           <Link href={'/profile/manage/property-for-rent'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">Property (Rent)</li></Link>
                           <Link href={'/profile/manage/motors'}><li className="py-2 px-4 rounded-lg text-white active">Motors</li></Link>
                           <Link href={'/profile/manage/community'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">Community</li></Link>
+                          <Link href={'/profile/manage/used-items'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">Used Items</li></Link>
                       </ul>
                 </div>
                 <div>

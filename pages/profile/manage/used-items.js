@@ -42,7 +42,7 @@ export default function managePropertyForSale() {
 
     //doing CSR for fetching users posts using axios and setting data to state to render it
     const userEmail = userInfo.email
-    axios.get(`/api/user/manage/property-for-rent/?userEmail=${userEmail}`)
+    axios.get(`/api/user/manage/used-items/?userEmail=${userEmail}`)
       .then(function (response) {
         setPosts(response.data)
         setPostCount(response.data.length)
@@ -81,7 +81,7 @@ export default function managePropertyForSale() {
     try {
       dispatch({ type: 'DELETE_REQUEST' });
       await deletePhoto(productImages);
-      await axios.delete(`/api/user/manage/property-for-sale/${productId}`);
+      await axios.delete(`/api/user/manage/motors/?id=${productId}`);
       dispatch({ type: 'DELETE_SUCCESS' });
     } catch (err) {
       dispatch({ type: 'DELETE_FAIL' });
@@ -96,12 +96,11 @@ export default function managePropertyForSale() {
         <h2 className="font-bold py-5"> Dutao User Dashboard</h2>
             <div className="grid grid-cols-[1fr_1fr_4fr] gap-4">
                 <div>
-                <ul className="text-base space-y-4">
+                    <ul className="text-base space-y-4">
                           <Link href={'/profile'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Profile</li></Link>
-                          <Link href={'/profile/manage/property-for-sale'}><li className="py-2 px-4 rounded-lg text-white active">My Ads</li></Link>
-                          <Link href={'/profile/manage/job'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Manage Recruitments</li></Link>
+                          <Link href={'/profile/my-ads'}><li className="py-2 px-4 rounded-lg text-white active">My Ads</li></Link>
+                          <Link href={'/profile/manage/jobs'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Manage Recruitments</li></Link>
                           <Link href={'/profile/my-information'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Information</li></Link>
-                          
                           <li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Searches</li>
                           <li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Settings</li>
                           <li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Subscription</li>
@@ -110,10 +109,10 @@ export default function managePropertyForSale() {
                 <div>
                   <ul className="text-base space-y-4">
                           <Link href={'/profile/manage/property-for-sale'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Property (Sale)</li></Link>
-                          <Link href={'/profile/manage/property-for-rent'}><li className=" py-2 px-4 rounded-lg text-white active">Property (Rent)</li></Link>
-                          <Link href={'/profile/manage/motors'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Motors</li></Link>
-                          <Link href={'/profile/manage/community'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">Community</li></Link>
-                          <Link href={'/profile/manage/used-items'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">Used Items</li></Link>
+                          <Link href={'/profile/manage/property-for-rent'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">Property (Rent)</li></Link>
+                          <Link href={'/profile/manage/motors'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">Motors</li></Link>
+                          <Link href={'/profile/manage/community'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Community</li></Link>
+                          <Link href={'/profile/manage/used-items'}><li className="py-2 px-4 rounded-lg text-white active">Used Items</li></Link>
                       </ul>
                 </div>
                 <div>
@@ -123,10 +122,10 @@ export default function managePropertyForSale() {
                   </div> 
                   
                   <hr></hr>
-                {posts && posts.map((property) => (
-                <div className=" flex justify-center' py-2" key={property._id} >
+                {posts && posts.map((ad) => (
+                <div className=" flex justify-center' py-2" key={ad._id} >
                   <div className="flex w-full rounded-lg bg-white shadow-lg">
-                  <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " src={"https://dutao.s3.me-south-1.amazonaws.com/"+ property.images[0]} alt="" />
+                  <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " src={"https://dutao.s3.me-south-1.amazonaws.com/"+ ad.images[0]} alt="" />
                     {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}
                     
                     <div className="py-4 px-6 w-full">
@@ -137,11 +136,11 @@ export default function managePropertyForSale() {
                                 line={2}
                                 element="span"
                                 truncateText="…"
-                                text={property.title}
+                                text={ad.title}
                             /></h5>
                         </div>
                         <div>
-                        <Link href={'/property-for-sale/'+ property._id}>
+                        <Link href={'/property-for-sale/'+ ad._id}>
                         <p className="flex border ml-5 r-0 border-red-600 text-red-600 uppercase px-3 py-2 rounded-full text-[9px] tracking-wide hover:cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-square" viewBox="0 0 16 16">
                             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
@@ -157,22 +156,20 @@ export default function managePropertyForSale() {
                         <p className="flex border mt-2 ml-5 r-0 border-red-600 text-white bg-red-600 uppercase px-3 py-2 rounded-full text-[9px] tracking-wide hover:cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash-fill" viewBox="0 0 16 16">
                             <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                            </svg><button onClick={() => deleteHandler(property._id, property.images)} className='pl-2'>Delete</button></p>
+                            </svg><button onClick={() => deleteHandler(ad._id, ad.images)} className='pl-2'>Delete</button></p>
                         </div>       
                       </div>
                       
 
-                      <p className="mb-1 text-lg font-bold text-red-600">AED {property.price}</p>
+                      <p className="mb-1 text-lg font-bold text-red-600">AED {ad.price}</p>
 
                       <p className="text-gray-400 py-1 text-xs">Last updated 3 mins ago</p>
-
-                      <p className="mb-2 text-sm pt-1 text-gray-500">{property.bedroom} Bed - {property.bathroom} Baths - {property.size}sqft</p>
 
                         <p className='flex text-sm py-1 text-gray-500'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="18" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                             <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
                             </svg>
-                            {property.address}
+                            {ad.address}
                         </p>  
                         
                     </div>

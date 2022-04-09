@@ -81,7 +81,7 @@ export default function managePropertyForSale() {
     try {
       dispatch({ type: 'DELETE_REQUEST' });
       await deletePhoto(productImages);
-      await axios.delete(`/api/user/manage/motors/?id=${productId}`);
+      await axios.delete(`/api/user/manage/community/?id=${productId}`);
       dispatch({ type: 'DELETE_SUCCESS' });
     } catch (err) {
       dispatch({ type: 'DELETE_FAIL' });
@@ -112,6 +112,7 @@ export default function managePropertyForSale() {
                           <Link href={'/profile/manage/property-for-rent'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">Property (Rent)</li></Link>
                           <Link href={'/profile/manage/motors'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">Motors</li></Link>
                           <Link href={'/profile/manage/community'}><li className="py-2 px-4 rounded-lg text-white active">Community</li></Link>
+                          <Link href={'/profile/manage/used-items'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Used Items</li></Link>
                       </ul>
                 </div>
                 <div>

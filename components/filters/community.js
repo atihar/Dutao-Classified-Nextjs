@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import { useRouter } from 'next/router'
 
 
-export default function filter() {
+export default function communityFilter() {
 
     const router = useRouter();
 
@@ -71,7 +71,7 @@ export default function filter() {
                     </svg>
                     </div>
 
-                    <input type="text" placeholder="Search by listing, location, bedroom number..." 
+                    <input type="text" placeholder="Search by service name, product name..." 
                     className="pl-16 pr-8 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                     {...register("searchQuery")}/>
                     </div>

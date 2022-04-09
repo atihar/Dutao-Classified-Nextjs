@@ -1,20 +1,20 @@
 import nc from 'next-connect';
 import db from '../../../../lib/dbConnect';
-import Community from '../../../../models/community'
+import UsedItems from '../../../../models/usedItems'
 
 const handler = nc();
 
 handler.get(async (req, res) => {
   await db.connect();
   const userEmail = req.query.userEmail
-  const community = await Community.find({userEmail:userEmail});
+  const items = await UsedItems.find({userEmail:userEmail});
   await db.disconnect();
-  res.send(community);
+  res.send(items);
 });
 
 handler.delete(async (req, res) => {
   await db.connect();
-  const job = await Jobs.findById(req.query.id);
+  const job = await UsedItems.findById(req.query.id);
   if (job) {
     await job.remove();
     await db.disconnect();

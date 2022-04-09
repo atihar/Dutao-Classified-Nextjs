@@ -46,7 +46,7 @@ export default function communityList(props) {
     <section>
           <div className="max-w-screen-xl w-full px-4 mx-auto sm:px-6 lg:px-6">
           <Filter></Filter>
-            <p className='text-sm text-gray-500 py-3'>Total {props.countProducts} properties found</p>
+            <p className='text-sm text-gray-500 py-3'>Total {props.countProducts} used items found based on your search</p>
           <div className='grid grid-cols-[3fr_1fr] gap-4'>
             <div className=''>
                 {products && products.map((property) => (

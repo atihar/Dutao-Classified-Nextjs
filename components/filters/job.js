@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import { useRouter } from 'next/router'
 
 
-export default function filter() {
+export default function jobFilter() {
 
     const router = useRouter();
 

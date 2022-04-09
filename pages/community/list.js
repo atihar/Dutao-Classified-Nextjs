@@ -1,5 +1,5 @@
 import db from '../../lib/dbConnect';
-import Community from '../../models/usedItems';
+import Community from '../../models/community';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import TextTruncate from 'react-text-truncate';
@@ -46,7 +46,7 @@ export default function communityList(props) {
     <section>
           <div className="max-w-screen-xl w-full px-4 mx-auto sm:px-6 lg:px-6">
           <Filter></Filter>
-            <p className='text-sm text-gray-500 py-3'>Total {props.countProducts} properties found</p>
+            <p className='text-sm text-gray-500 py-3'>Total {props.countProducts} offerings in the community found</p>
           <div className='grid grid-cols-[3fr_1fr] gap-4'>
             <div className=''>
                 {products && products.map((property) => (
@@ -80,8 +80,6 @@ export default function communityList(props) {
                       <p className="mb-1 text-lg font-bold text-red-600">AED {property.price}</p>
 
                       <p className="text-gray-400 py-1 text-xs">Last updated 3 mins ago</p>
-
-                      <p className="mb-2 text-sm pt-1 text-gray-500">{property.bedroom} Bed - {property.bathroom} Baths - {property.size}sqft</p>
 
                         <p className='flex text-sm py-1 text-gray-500'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="18" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
