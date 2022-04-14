@@ -8,10 +8,37 @@ import db from '../../lib/dbConnect'
 import Community from '../../models/community'
 
 export default function CommunityMain({communityItems}) {
+
+  const cat = [{
+    name : "Auto Service",
+    image : "https://images.pexels.com/photos/4489749/pexels-photo-4489749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+},
+{
+    name : "Freelancers",
+    image : "https://images.pexels.com/photos/3184459/pexels-photo-3184459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+},
+{
+    name : "Tutor Service",
+    image: "https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+},
+{
+    name : "Maintenance",
+    image : "https://images.pexels.com/photos/3770215/pexels-photo-3770215.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+},
+{
+    name : "Restoration",
+    image : "https://images.pexels.com/photos/5095282/pexels-photo-5095282.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+},
+{
+    name : "Health Service",
+    image: "https://images.pexels.com/photos/4021779/pexels-photo-4021779.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+}
+]
+
   return (
       <>
       <Header></Header>
-      <CategorySlider></CategorySlider>
+      <CategorySlider data={cat}></CategorySlider>
       <FeaturedPlace></FeaturedPlace>
       <FeaturedProducts title={"Community"} data={communityItems}></FeaturedProducts>
       <Footer></Footer>

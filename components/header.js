@@ -155,7 +155,7 @@ export default function Header({ children }) {
           </div>
           <div className="relative group">
             <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-              <span>Property for rent</span>
+            <Link href={"/property-for-rent"}>Property for Rent</Link>
             </button>
 
             <div className="absolute z-20 hidden w-40 bg-grey-200 group-hover:block">       
@@ -198,7 +198,7 @@ export default function Header({ children }) {
             <Link href={'/special-products'}><span>Special Products</span></Link>
             </button>
 
-            <div className="absolute z-20 hidden w-40 bg-grey-200 group-hover:block">       
+            {/* <div className="absolute z-20 hidden w-40 bg-grey-200 group-hover:block">       
               <div className="px-2 pt-2 pb-4 bg-white-500 bg-gray-50 shadow-lg">
                 <div className="flex-column text-left text-xs space-y-4 p-2 rounded">
                     <Link href={'/special-products/list?category=cars'}><li className='list-none cursor-pointer'>Cars Offers</li></Link>
@@ -210,7 +210,7 @@ export default function Header({ children }) {
                     <Link href={'/spacial-products/list?category=boats'}><li className='list-none cursor-pointer'>Hotel Deals</li></Link>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
           
           <div className="relative group">
@@ -351,8 +351,8 @@ export default function Header({ children }) {
                         </a>
                     </div>
                   </div>
-                </div>
               </div>
+            </div>
             </div>
 
           </div>

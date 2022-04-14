@@ -7,14 +7,14 @@ import db from '../../lib/dbConnect'
 import RentProperty from '../../models/motors'
 
 
-function propertyForSale({property}) {
+export default function motors({property}) {
   return (
       <>
       <Header></Header>
       <section className="overflow-hidden max-w-screen-xl m-auto text-gray-700">
-        <div className="h-[400px] py-2 lg:pt-21">
+        <div className="h-[400px] p-2 lg:pt-21">
             <h1 className="py-4 font-bold">Search for your next car on Dutao</h1>
-            <img className="rounded-xl" src="https://images.pexels.com/photos/3311574/pexels-photo-3311574.jpeg" width={1240} height={400}></img>
+            <img className="rounded-xl" src="https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"></img>
         </div>
         </section>
 
@@ -24,8 +24,6 @@ function propertyForSale({property}) {
       </>
   )
 }
-
-export default propertyForSale
 
 
 

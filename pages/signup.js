@@ -43,6 +43,11 @@ export default function Signup() {
           );
         dispatch({ type: 'USER_LOGIN', payload: data });
         Cookies.set('userInfo', data);
+        await axios.post('/api/user/profile-data', {
+            name,
+            userId : data._id
+          }
+          );
         router.push(redirect || '/');
         } catch (err) {
             console.log(err)

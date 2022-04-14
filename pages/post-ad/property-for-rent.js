@@ -138,7 +138,7 @@ export default function propertyForSalePost({ children }) {
                     ease-in-out
                     m-0
                     focus:text-gray-400" 
-                    accept="image/png, image/jpeg"
+                    accept="image/png, image/jpeg, image/jpg"
                     type="file" id="formFileMultiple" onChange={uploadPhoto}
                     // tried button with onClick.. But its submitting the whole form. So onChange is fine for now
                     placeholder="File Images" multiple />

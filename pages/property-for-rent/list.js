@@ -4,18 +4,16 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import TextTruncate from 'react-text-truncate';
 import Link from 'next/link';
-import Filter from '../../components/propertyFilter';
+import Filter from '../../components/filters/propertyFilter';
 import { useRouter } from 'next/router'
 
 // number of post in 1 page
 const PAGE_SIZE = 3;
 
 
-export default function Home(props) {
+export default function PropertyForRent(props) {
   const router = useRouter();
   const {products} = props
-  console.log(props.areas)
-
 
   // custom pagination handler - next
   const nextPageHandler = () => {

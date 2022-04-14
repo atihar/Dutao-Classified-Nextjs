@@ -9,7 +9,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Link from 'next/link';
 
-export default function categorySlider(){
+export default function categorySlider(props){
+    const data = props.data;
 
     return(
     
@@ -21,18 +22,21 @@ export default function categorySlider(){
             spaceBetween={50}
             slidesPerView={3}
             >
-            <SwiperSlide>
-                <Link href="/property-for-sale/list">
-                    <div className="bg-white rounded-lg shadow-lg">
-                        <img src="https://16k9k93lbits338g7b4f36r5-wpengine.netdna-ssl.com/wp-content/uploads/2019/04/landlord-resources-blueground-boston-apt.jpg" alt="" className="rounded-t-lg"/>
-                        <div className="p-4">
-                            <h4 className="font-bold mb-2 text-2xl text-red-600">Apartment</h4>
-                        </div>
-                    </div>
-                    </Link>
-            </SwiperSlide>
+                {data && data.map((x, i)=>{
+                    return (
+                        <SwiperSlide key={i}>
+                            <div className="bg-white rounded-lg shadow-lg">
+                                <img src={x.image} alt="" className="rounded-t-lg"/>
+                                <div className="p-4">
+                                    <h4 className="font-bold mb-2 text-2xl text-red-600">{x.name}</h4>
+                                </div>
+                            </div>
+                    </SwiperSlide>
+                    )
+                })}
+
       
-            <SwiperSlide>
+            {/* <SwiperSlide>
                     <div className="bg-white rounded-lg shadow-lg">
                         <img src="https://www.architectandinteriorsindia.com/cloud/2021/11/15/unnamed-(83).jpg" alt="" className="rounded-t-lg"/>
                         <div className="p-4">
@@ -73,7 +77,7 @@ export default function categorySlider(){
                                 <h4 className="font-bold mb-2 text-2xl text-red-600">Penthouse</h4>
                             </div>
                         </div>
-            </SwiperSlide>
+            </SwiperSlide> */}
           </Swiper>
         </div>
       </section>

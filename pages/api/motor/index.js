@@ -1,6 +1,6 @@
 import nc from 'next-connect';
 import db from '../../../lib/dbConnect';
-import Motors from '../../../models/motos'
+import Motors from '../../../models/motors'
 
 
 const handler = nc();

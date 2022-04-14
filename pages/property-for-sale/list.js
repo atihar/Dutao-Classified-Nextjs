@@ -11,7 +11,7 @@ import { useRouter } from 'next/router'
 const PAGE_SIZE = 3;
 
 
-export default function Home(props) {
+export default function PropertyForSale(props) {
   const router = useRouter();
   const {products} = props
   console.log(props.areas)
