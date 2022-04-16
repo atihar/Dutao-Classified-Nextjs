@@ -1,8 +1,10 @@
 import nc from 'next-connect';
 import db from '../../../lib/dbConnect';
 import Place from '../../../models/place'
+import { isAuth, isAdmin } from '../../../lib/auth';
 
 const handler = nc();
+handler.use(isAuth, isAdmin)
 
 handler.post(async (req, res) => {
   await db.connect();

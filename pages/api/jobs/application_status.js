@@ -7,9 +7,11 @@
 import nc from 'next-connect';
 import db from '../../../lib/dbConnect';
 import JobApplications from '../../../models/jobApplications'
+import { isAuth } from '../../../lib/auth';
 
 
 const handler = nc();
+handler.use(isAuth)
 
 //jobId is coming as query param to update an object
 handler.put(async (req, res) => {

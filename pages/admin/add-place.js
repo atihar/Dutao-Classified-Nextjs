@@ -87,9 +87,11 @@ export default function propertyForSalePost({ children }) {
             area,
             latitude,
             longitude,
+          },{
+            headers: { authorization: `Bearer ${userInfo.token}` }
           }
           );
-          router.push('/info-center/list');
+          router.push('/');
         } catch (err) {
             console.log(err.message)
         }

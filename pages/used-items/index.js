@@ -3,7 +3,7 @@ import Header from "../../components/header"
 import CategorySlider from "../../components/category"
 import FeaturedPlace from "../../components/featuedPlaces"
 import FeaturedProducts from "../../components/featuredProducts"
-import Footer from '../../components/footer'
+import Footer from '../../components/footer-2'
 import db from '../../lib/dbConnect'
 import UsedItems from '../../models/usedItems'
 

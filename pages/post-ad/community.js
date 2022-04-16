@@ -81,6 +81,9 @@ export default function propertyForSalePost({ children }) {
             video,
             userEmail: userEmail,
             phone
+          },
+          {
+            headers: { authorization: `Bearer ${userInfo.token}` }
           }
           );
           router.push('/community/list');

@@ -1,9 +1,11 @@
 import nc from 'next-connect';
 import db from '../../../lib/dbConnect';
 import JobApplications from '../../../models/jobApplications'
+import { isAuth } from '../../../lib/auth';
 
 
 const handler = nc();
+handler.use(isAuth);
 
 // on every job post this API will be hitted to create one jobApplication object 
 handler.post(async (req, res) => {

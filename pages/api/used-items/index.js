@@ -1,9 +1,11 @@
 import nc from 'next-connect';
 import db from '../../../lib/dbConnect';
 import UsedItems from '../../../models/usedItems'
+import { isAuth } from '../../../lib/auth';
 
 
 const handler = nc();
+handler.use(isAuth)
 
 handler.post(async (req, res) => {
   await db.connect();

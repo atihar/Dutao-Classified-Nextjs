@@ -32,7 +32,7 @@ export default function categoryComponent() {
                 
                 <div className="grid lg:grid-cols-1 gap-y-8 lg:gap-x-16 lg:items-center">
                 
-                <div className="z-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                <div className="z-10 grid grid-cols-3 gap-4 sm:grid-cols-3">
                     
                     {/* {Modules} */}
                     <a
@@ -75,7 +75,7 @@ export default function categoryComponent() {
 
                     <a
                     className="block p-4 border text-center border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                    href="/accountant"
+                    href=""
                     >
                     <span className="inline-block p-3 rounded-lg bg-gray-50">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" className="bi bi-wrench-adjustable-circle" viewBox="0 0 16 16">
@@ -84,13 +84,13 @@ export default function categoryComponent() {
                     </svg>
                     </span>
 
-                    <h6 className="mt-2 text-center text-sm font-bold">Yellow Page</h6>
+                    <h6 className="mt-2 text-center text-sm font-bold">Info Center</h6>
                     </a>
 
 
                     <a
                     className="block p-4 border text-center border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                    href="/accountant"
+                    href="/special-products"
                     >
                     <span className="inline-block p-3 rounded-lg bg-gray-50">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" className="bi bi-inboxes-fill" viewBox="0 0 16 16">
@@ -118,7 +118,7 @@ export default function categoryComponent() {
 
                     <a
                     className="block p-4 border text-center border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                    href="/accountant"
+                    href="/used-items"
                     >
                     <span className="inline-block p-3 rounded-lg bg-gray-50">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" className="bi bi-boxes" viewBox="0 0 16 16">
@@ -126,13 +126,13 @@ export default function categoryComponent() {
                     </svg>
                     </span>
 
-                    <h6 className="mt-2 text-center text-sm font-bold">Second hand Market</h6>
+                    <h6 className="mt-2 text-center text-sm font-bold">Used Items</h6>
                     </a>
 
 
                     <a
                     className="block p-4 border text-center border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                    href="/accountant"
+                    href=""
                     >
                     <span className="inline-block p-3 rounded-lg bg-gray-50">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" className="bi bi-gem" viewBox="0 0 16 16">
@@ -140,12 +140,12 @@ export default function categoryComponent() {
                     </svg>
                     </span>
 
-                    <h6 className="mt-2 text-center text-sm font-bold">VVIP Membership</h6>
+                    <h6 className="mt-2 text-center text-sm font-bold">VIP Member</h6>
                     </a>
 
                     <a
                     className="block p-4 border text-center border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                    href="/accountant"
+                    href="/community"
                     >
                     <span className="inline-block p-3 rounded-lg bg-gray-50">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" className="bi bi-person-hearts" viewBox="0 0 16 16">

@@ -97,6 +97,9 @@ export default function propertyForSalePost({ children }) {
             maintenanceFee,
             userEmail: userEmail,
             phone: "092910281",
+          },
+          {
+            headers: { authorization: `Bearer ${userInfo.token}` }
           }
           );
           router.push('/property-for-rent/list');

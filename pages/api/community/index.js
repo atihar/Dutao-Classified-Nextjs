@@ -1,9 +1,11 @@
 import nc from 'next-connect';
 import db from '../../../lib/dbConnect';
 import Community from '../../../models/community'
+import { isAuth } from '../../../lib/auth';
 
 
 const handler = nc();
+handler.use(isAuth);
 
 handler.post(async (req, res) => {
   await db.connect();
@@ -50,5 +52,6 @@ handler.delete(async (req, res) => {
     res.status(404).send({ message: 'Product Not Found' });
   }
 });
+
 
 export default handler;

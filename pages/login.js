@@ -130,7 +130,7 @@ export default function Login() {
 
             <div className="flex items-center justify-between">
             <p className="text-sm text-gray-500">
-                No account?
+                Don't have an account? 
                 <Link className="underline" href="/signup">Sign up</Link>
             </p>
 

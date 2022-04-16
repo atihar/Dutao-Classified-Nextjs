@@ -72,19 +72,19 @@ export default function Header({ children }) {
                   {/* svg for user if logged in */}
                   <div className="relative group">
                       <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
+                        <span className='inline-flex'><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
                           <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                           <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                        </svg></span>
+                        </svg>My Account</span>
                       </button>
 
-                      <div className="absolute right-0 left-auto z-30 hidden w-40 bg-grey-200 group-hover:block ">       
+                      <div className="absolute right-0 left-auto z-30 hidden w-48 bg-grey-200 group-hover:block ">       
                         <div className="px-2  pt-2 group-hover:block pb-4 bg-white-500 bg-white-500 bg-gray-50 rounded-lg shadow-lg">
                           <div className="flex-column text-left text-xs space-y-5 p-2 rounded ">
                                   <Link href={'/profile'}><li className='list-none text-size[8px] cursor-pointer hover:underline hover:decoration-red-200 hover:decoration-2'>{userInfo.email}</li></Link>
                                   <Link href={'/profile'}><li className='list-none cursor-pointer hover:underline hover:decoration-red-200 hover:decoration-2'>My Profile</li></Link>
                                   <Link href={'/favourites'}><li className='list-none cursor-pointer hover:underline hover:decoration-red-200 hover:decoration-2'>Favourites</li></Link>
-                                  <Link href={'/profile/my-ads'}><li className='list-none cursor-pointer hover:underline hover:decoration-red-200 hover:decoration-2'>My Ads</li></Link>
+                                  <Link href={'/profile/manage/property-for-sale'}><li className='list-none cursor-pointer hover:underline hover:decoration-red-200 hover:decoration-2'>My Ads</li></Link>
                                   <Link href={'/profile'}><li className='list-none cursor-pointer hover:underline hover:decoration-red-200 hover:decoration-2'>Account Settings</li></Link>
                                   <Link href={'/'}><li className='list-none cursor-pointer hover:underline hover:decoration-red-200 hover:decoration-2'><a onClick={logoutClickHandler}>Sign Out</a></li></Link>
                           </div>

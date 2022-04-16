@@ -1,19 +1,21 @@
+
 import Image from "next/image"
 import Link from "next/link"
-export default function footer() {
+
+export default function footerOld() {
   
     return (
-      <footer className="bg-gray-50">
+        <footer className="bg-gray-100 mt-3 pt-10 rounded-3xl ">
         <div className="max-w-screen-xl px-4 py-4 mx-auto sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            <div className=" lg:text-left text-center">
+            <div>
             <Image src="/dutao.jpeg" alt="Picture of the author" width={200} height={63}/>
       
-              <p className="max-w-xs lg:mx-0 mx-auto mt-2 text-sm text-gray-500">
+              <p className="max-w-xs mt-2 text-sm text-gray-500">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, accusantium.
               </p>
       
-              <div className="flex mt-4 space-x-6 text-gray-500 lg:justify-start justify-center">
+              <div className="flex mt-4 space-x-6 text-gray-500">
                 <a className="hover:opacity-75" href="" target="_blank" rel="noreferrer">
                   <span className="sr-only"> Facebook </span>
       
@@ -56,7 +58,7 @@ export default function footer() {
               </div>
             </div>
       
-            <div className="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4 lg:text-left text-center">
+            <div className="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4">
               <div>
                 <p className="font-medium text-red-500">
                   Company
@@ -111,7 +113,7 @@ export default function footer() {
             </div>
           </div>
       
-          <p className="text-xs text-gray-500 lg:text-left text-center">
+          <p className="text-xs text-gray-500">
             &copy; 2022 Dutao Development Team, Dubai
           </p>
         </div>

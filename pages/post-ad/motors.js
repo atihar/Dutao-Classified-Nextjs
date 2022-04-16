@@ -98,6 +98,9 @@ export default function propertyForSalePost({ children }) {
             steeringSide,
             userEmail: userEmail,
             phone: "092910281",
+          },
+          {
+            headers: { authorization: `Bearer ${userInfo.token}` }
           }
           );
           router.push('/motors/list');

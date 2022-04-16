@@ -91,6 +91,9 @@ export default function jobsPost({ children }) {
             language:"English, Arabic",
             userEmail,
             perks,
+          },
+          {
+            headers: { authorization: `Bearer ${userInfo.token}` }
           }
           );
 

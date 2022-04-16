@@ -15,12 +15,21 @@ export default function categorySlider(props){
     return(
     
     <section>
-        <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+        <div className="max-w-[400px] sm:max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
             <h1 className="py-4 font-bold">Popular Categories</h1>
           <Swiper 
             modules={[]}
             spaceBetween={50}
-            slidesPerView={3}
+            breakpoints={{
+                // when window width is >= 640px
+                320: {
+                  slidesPerView: 2,
+                },
+                // when window width is >= 768px
+                768: {
+                  slidesPerView: 3,
+                },
+              }}
             >
                 {data && data.map((x, i)=>{
                     return (
@@ -28,56 +37,12 @@ export default function categorySlider(props){
                             <div className="bg-white rounded-lg shadow-lg">
                                 <img src={x.image} alt="" className="rounded-t-lg"/>
                                 <div className="p-4">
-                                    <h4 className="font-bold mb-2 text-2xl text-red-600">{x.name}</h4>
+                                    <h4 className="font-bold mb-2 text-base sm:text-2xl text-red-600">{x.name}</h4>
                                 </div>
                             </div>
                     </SwiperSlide>
                     )
                 })}
-
-      
-            {/* <SwiperSlide>
-                    <div className="bg-white rounded-lg shadow-lg">
-                        <img src="https://www.architectandinteriorsindia.com/cloud/2021/11/15/unnamed-(83).jpg" alt="" className="rounded-t-lg"/>
-                        <div className="p-4">
-                            <h4 className="font-bold mb-2 text-2xl text-red-600">Duplex</h4>
-                        </div>
-                    </div>
-            </SwiperSlide>
-      
-            <SwiperSlide>
-                     <div className="bg-white rounded-lg shadow-lg">
-                        <img src="https://croc.world/wp-content/uploads/2020/09/3sama-townhouses.jpg" alt="" className="rounded-t-lg"/>
-                        <div className="p-4">
-                            <h4 className="font-bold mb-2 text-2xl text-red-600">Townhouse</h4>
-                        </div>
-                    </div>
-            </SwiperSlide>
-      
-            <SwiperSlide>
-                    <div className="bg-white rounded-lg shadow-lg">
-                        <img src="https://www.arabianbusiness.com/cloud/2021/09/14/Uyfyy1ax-palm-villa-for-rent-1200x800.jpg" alt="" className="rounded-t-lg"/>
-                        <div className="p-4">
-                            <h4 className="font-bold mb-2 text-2xl text-red-600">Villas</h4>
-                        </div>
-                    </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="bg-white rounded-lg shadow-lg">
-                        <img src="https://i.pinimg.com/originals/3b/4f/fb/3b4ffbe685105f0f9d648d221415e54d.jpg" alt="" className="rounded-t-lg"/>
-                        <div className="p-4">
-                            <h4 className="font-bold mb-2 text-2xl text-red-600">Commercial</h4>
-                        </div>
-                    </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                    <div className="bg-white rounded-lg shadow-lg">
-                            <img src="https://www.cntravellerme.com/2021/05/rOhCf6oN-FPJD---The-Penthouse-(18)-1200x800.jpg" alt="" className="rounded-t-lg"/>
-                            <div className="p-4">
-                                <h4 className="font-bold mb-2 text-2xl text-red-600">Penthouse</h4>
-                            </div>
-                        </div>
-            </SwiperSlide> */}
           </Swiper>
         </div>
       </section>

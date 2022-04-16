@@ -29,11 +29,13 @@ export default function myUserInformation() {
         else {
             setLoading(true);
             setStateData(userInfo)
-            const {userData} = axios.get(`/api/user/profile-data/?id=${userInfo._id}`)
+            const {userData} = axios.get(`/api/user/profile-data/?id=${userInfo._id}`,{
+                headers: { authorization: `Bearer ${userInfo.token}` }
+              })
                 .then(function (response) {
                      // handle success
                     const data = response.data
-
+                    setValue('name', userInfo.name);
                     setValue('gender', data.gender);
                     setValue('nationality', data.nationality);
                     setValue('dateOfBirth', moment(data.dateOfBirth).format('YYYY-MM-DD'));
@@ -131,8 +133,10 @@ export default function myUserInformation() {
             videoLink,
             cv : stateCv,
             userId: stateData._id,
-          }
-          );
+          },{
+            headers: { authorization: `Bearer ${userInfo.token}` }
+          });
+          
         //   router.push('/profile');
         } catch (err) {
             console.log(err)

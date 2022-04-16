@@ -25,7 +25,7 @@ export default function featuredProducts(props){
     return(
         <>
          <section>
-            <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+            <div className="max-w-[400px] sm:max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
                 <div className='flex justify-between '>
                 <h1 className='font-bold py-6'>Featured {title}</h1>
                 <a onClick={viewMoreHandler}><p className='cursor-pointer font-bold text-red-600 text-sm pt-8'>View More →</p></a>
@@ -36,12 +36,21 @@ export default function featuredProducts(props){
             <Swiper 
             modules={[Navigation]}
             spaceBetween={50}
-            slidesPerView={4}
+            breakpoints={{
+                // when window width is >= 640px
+                640: {
+                  slidesPerView: 1,
+                },
+                // when window width is >= 768px
+                768: {
+                  slidesPerView: 3,
+                },
+              }}
             navigation
             pagination={{ clickable: true }}
             >
                 {data && data.map((property, key) => (
-                        <SwiperSlide key={key}>
+                        <SwiperSlide key={key} className="swiper-slide">
                         <div className="bg-white rounded-lg shadow-lg">
                                         <img src={"https://dutao.s3.me-south-1.amazonaws.com/"+ property.images[0]}  alt="" className="rounded-t-lg" placeholder="blur"/>
                                         <div className="p-2">

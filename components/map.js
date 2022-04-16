@@ -24,7 +24,7 @@ export default function map(props) {
       onViewportChange={viewport => {
         setViewport(viewport);
       }}
-      style={{width: "78vw" , height: "60vh", margin:"2% 0%", overflow:"hidden"}}
+      style={{width: "1200px" , height: "60vh", margin:"2% 0%", overflow:"hidden"}}
       mapStyle="mapbox://styles/mahir890/cl1v8ie5p000v14nujcckxn5i"
       mapboxAccessToken='pk.eyJ1IjoibWFoaXI4OTAiLCJhIjoiY2wxcnJwZGQ1MGgzMDNjcGExaTlzeXJhaiJ9.T9UNMgUmU1t1gDvWEwzLig'
       attributionControl={false}
