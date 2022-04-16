@@ -1,1 +1,28 @@
-{}
+{
+  "../components/locationView.js -> react-map-gl": {
+    "id": 3403,
+    "files": []
+  },
+  "../node_modules/react-map-gl/dist/esm/components/map.js -> mapbox-gl": {
+    "id": 6158,
+    "files": [
+      "static/chunks/2c796e83.96f4a2020c2861ca.js"
+    ]
+  },
+  "admin/add-place.js -> ../../components/map-add": {
+    "id": 9471,
+    "files": [
+      "static/css/30ba85cc681010be.css",
+      "static/chunks/8700-91030a36f67f7883.js",
+      "static/chunks/9471.320b6f7942a8221d.js"
+    ]
+  },
+  "info-center/list.js -> ../../components/map": {
+    "id": 8014,
+    "files": [
+      "static/css/30ba85cc681010be.css",
+      "static/chunks/8700-91030a36f67f7883.js",
+      "static/chunks/6696.b9bd7994e6c577a6.js"
+    ]
+  }
+}
