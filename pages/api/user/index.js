@@ -1,9 +1,9 @@
-import User from '../../../models/User';
-import dbConnect from "../../../lib/dbConnect"
+import User from "../../../models/user"
+import db from '../../../lib/dbConnect';
 
-dbConnect();
 
 export default async (req, res) => {
+    await db.connect
 
     if(req.method === 'GET'){
         // finding all the users from the database
