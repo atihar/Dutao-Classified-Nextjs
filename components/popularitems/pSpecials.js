@@ -21,7 +21,7 @@ export default function pSpecialProduct() {
             </p> */}
 
             <a
-                href=""
+                href="/collections/watches"
                 className="inline-block px-6 py-3 mt-6 text-sm text-white bg-red-600 rounded-lg"
             >
                 View more

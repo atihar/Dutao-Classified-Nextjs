@@ -37,7 +37,7 @@ export default function popularItems(props) {
             {data && data.map((x,i) => {
                 return(
                     <a
-                    href="/product/simple-watch"
+                    href=""
                     className="block"
                     key={i}
                     >
