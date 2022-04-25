@@ -1,8 +1,21 @@
 import Header from "../../components/header"
 import Footer from "../../components/footer"
 import Link from "next/link"
+import { useRouter } from "next/router"
+import { Store } from '../../lib/Store'
+import React, { useContext, useEffect, useState } from 'react'
 
 function profile() {
+    const router = useRouter();
+    const { state } = useContext(Store);
+    const { userInfo } = state;
+
+    useEffect(() => {
+        if (!userInfo) {
+            router.push('/login');
+            }}, []);
+
+        
   return (
       <>
         <Header></Header>

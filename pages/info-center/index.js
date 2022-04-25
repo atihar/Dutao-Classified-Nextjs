@@ -1,143 +1,267 @@
-//infocenter page
-import Header from "../../components/header"
-import Footer from '../../components/footer'
-import Link from "next/link"
-import React, {useState} from 'react'
+import db from '../../lib/dbConnect';
+import Places from '../../models/place';
+import Header from '../../components/header';
+import Footer from '../../components/footer';
+import TextTruncate from 'react-text-truncate';
+import Link from 'next/link';
+import Filter from '../../components/filters/map';
+import { useRouter } from 'next/router'
+import dynamic from "next/dynamic";
 
-export default function infocenter() {
-  const [cat, setCat] = useState('all')
-  const [city, setCity] = useState('all')
 
-  const cityHandler = (e) =>{ setCity(e.target.value)}
-  const catagoryHandler = (e) => {setCat(e.target.value)}
+const DynamicMap = dynamic(() => import("../../components/map"), {
+  loading: () => <h1>Loading...</h1>,
+  ssr: false,
+});
+
+
+// number of post in 1 page
+const PAGE_SIZE = 10;
+
+
+
+export default function infoList(props) {
+
+  const router = useRouter();
+  const {products} = props
+
+
+  // custom pagination handler - next
+  const nextPageHandler = () => {
+    const currentPage = props.page
+    const { query } = router;
+    const newObj = {...query, page:`${Number(currentPage) + 1}`}
+    router.push({
+      query: newObj,
+    });
+    
+  }
+
+  // custom pagination handler back
+  const backPageHandler = () => {
+    const currentPage = props.page
+    console.log(currentPage)
+    const { query } = router;
+    const newObj = {...query, page:`${currentPage - 1}`}
+    router.push({
+      query: newObj,
+    });
+    
+  }
 
   return (
-      <>
-      <Header></Header>
-      <section className="overflow-hidden max-w-screen-xl m-auto text-gray-700">
-          <div className="relative p-10">
-            <label className="sr-only" htmlFor="searchQuery"> Job Title, Responsibility, Company Name ..... </label>
-
-            <select className="w-1/2 border-2 p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
-                  rounded transition ease-in-out focus:outline-none m-0" onChange={cityHandler}>
-                  <option value="">Select Location</option>
-                  <option value="dubai">Dubai</option>
-                  <option value="abu-dhabi">Abu Dhabi</option>
-                  <option value="sharjah">Sharjah</option>
-                  <option value="ajman">Ajman</option>
-              </select>
-              <select className="w-1/2 border-2 p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
-                  rounded transition ease-in-out focus:outline-none m-0" onChange={catagoryHandler}>
-                  <option value="">Activity/Type</option>
-                  <option value="business">Business</option>
-                  <option value="hospital">Hospital</option>
-                  <option value="bank">Bank</option>
-                  <option value="food">Food</option>
-                  <option value="bar">Bar</option>
-                  <option value="events">Events</option>
-                  <option value="super-market">Super Market</option>
-                  <option value="events">Hotels</option>
-              </select>
-
-                  <Link href={`/info-center/list/?city=${city}&catagory=${cat}`}><button className="absolute p-6 text-white -translate-y-1/2 bg-red-600 rounded-full top-1/2 right-4" type="button">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg>
-                  </button>
-                  </Link>
-          </div>
-              
-          <div className="h-[400px] w-full flex items-center lg:pt-21 bg-red-500 rounded-xl">
-            <h1 className="text-white text-5xl font-bold text-center w-screen">Getting around is more easy with Dutao</h1>
-        </div>
-
-        <div className="py-5 grid grid-cols-2 space-x-4">
-          <div className="relative">
-                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://images.pexels.com/photos/3311574/pexels-photo-3311574.jpeg"/>
-                  <div className="duration-300 absolute inset-0 z-10 flex p-12 text-5xl text-white font-bold">Things to do</div>
-                  
-          </div>
-          <div className="relative">
-                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://images.pexels.com/photos/325193/pexels-photo-325193.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
-                  <div className="duration-300 absolute inset-0 z-10 flex p-12 text-5xl text-white font-bold">Places must go</div>
-          </div>
-        </div>
-        <div className="relative">
-                <img alt="gallery" className="block object-cover object-center w-full h-[500px] rounded-xl"
-                  src="https://images.unsplash.com/photo-1547234935-80c7145ec969?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1174&q=80"/>
-                  <div className="duration-300 absolute inset-0 z-10 flex p-12 text-7xl text-white font-semibold">Questions<br/> about hosting?</div>
-                  
-          </div>
-        <div className="px-4 pt-2 pb-4 bg-white-500 bg-gray-50 rounded shadow-lg">
-                <p className='text-left text-base py-4'>Find your location to see whats nearby</p>
-                <div className='flex text-left justify-between'>
-                  <div className='text-left space-y-1'>
-                    <h6 className='font-bold'>Dubai</h6>
-                    <hr/>
-                    <p className="text-base">Business Bay</p>
-                    <p className="text-base">Marina</p>
-                    <p className="text-base">Al Barsha</p>
-                    <p className="text-base">Deira</p>
-                  </div>
-                  <div className='text-left space-y-1'>
-                    <h6 className='font-bold'>Abu Dhabi</h6>
-                    <hr/>
-                    <p className="text-base">Business Bay</p>
-                    <p className="text-base">Marina</p>
-                    <p className="text-base">Al Barsha</p>
-                    <p className="text-base">Deira</p>
-                  </div>
-                  <div className='text-left space-y-1'>
-                    <h6 className='font-bold'>Ajman</h6>
-                    <hr/>
-                    <p className="text-base">Business Bay</p>
-                    <p className="text-base">Marina</p>
-                    <p className="text-base">Al Barsha</p>
-                    <p className="text-base">Deira</p>
-                  </div>
-                  <div className='text-left space-y-1'>
-                    <h6 className='font-bold'>Fujiran</h6>
-                    <hr/>
-                    <p className="text-base">Business Bay</p>
-                    <p className="text-base">Marina</p>
-                    <p className="text-base">Al Barsha</p>
-                    <p className="text-base">Deira</p>
-                  </div>
-                   <div className='text-left space-y-1'>
-                        <a className="inline-flex items-center px-8 py-3 text-red-500  focus:ring" href="/info-center">
-                          <span className="text-medium font-medium">
-                            explore more
-                          </span>
-
-                          <svg className="w-5 h-5 ml-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                          </svg>
-                        </a>
-                    </div>
-                  </div>
+    <>
+    <Header></Header>
+    <section>
+          <div className="max-w-[400px] sm:max-w-screen-xl w-full px-4 mx-auto sm:px-6 lg:px-6">
+            <h3>Popular Searches</h3>
+            <div className='overflow-y-scroll'>
+              <div className='flex-inline space-x-5 w-max'>
+                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>bars in marina</span>
+                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>hotel in business bay</span>
+                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>bars in marina</span>
+                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>mall in downtown</span>
+                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>restaurant in business bay</span>
+                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>museum of the future</span>
+                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>bars in marina</span>
+                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>bars in marina</span>
+                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>bars in marina</span>
+                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>bars in marina</span>
+                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>bars in marina</span>
+                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>bars in marina</span>
                 </div>
-      </section>
-      <Footer></Footer>
+            </div>
+
+          <DynamicMap data={products}/>
+          <Filter></Filter>
+
+            <p className='text-sm text-gray-500 py-3'>Total {props.countProducts} listings found</p>
+            <div className='grid grid-cols-[3fr_1fr] gap-4'>
+                <div className=''>
+                { products && products.map((place) => ( 
+                    <div className=" flex justify-center' py-4" key={place._id}>
+                    <Link href={'/jobs/'+ place._id}>
+                    <div className="flex w-full rounded-lg bg-white shadow-lg">
+                    {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " src={"https://dutao.s3.me-south-1.amazonaws.com/"+job.images[0]} alt="" /> */}
+                        {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}
+                        
+                        <div className="py-3 px-6 w-full">
+                        <div className="flex items-end justify-between mb-2">
+                            <div>
+                                <h5 className="text-gray-500 text-xl">
+                                <TextTruncate
+                                    line={1}
+                                    element="span"
+                                    truncateText="…"
+                                    text={place.title}
+                                /></h5>
+                                <p className="mb-1 text-sm text-gray-600">
+                                    <TextTruncate
+                                    line={2}
+                                    element="span"
+                                    truncateText="…"
+                                    text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                                    />
+                                </p>
+                                <div className='flex flex-inline justify-between'>
+                                    <p className='flex text-sm py-1 text-gray-500'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="18" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                                        </svg>
+                                        Business Bay, Dubai
+                                    </p>                      
+                                </div>
+                                <div className='flex flex-inline'>
+                                    <button className='bg-gray-100 text-sm rounded-2xl px-4 py-1 hidden sm:flex flex-inline items-center'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" className="bi bi-calendar-minus" viewBox="0 0 16 16">
+                                        <path d="M5.5 9.5A.5.5 0 0 1 6 9h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
+                                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                        </svg>
+                                        <p className='text-[12px] ml-2'>30 mins ago</p>
+                                    </button> 
+                                    <button className='bg-gray-100 text-sm rounded-2xl px-4 py-1 flex flex-inline items-center'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" className="bi bi-briefcase-fill" viewBox="0 0 16 16">
+                                    <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z"/>
+                                    <path d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z"/>
+                                    </svg>
+                                        <p className='text-[12px] ml-2'>business</p>
+                                    </button> 
+                                    <button className='bg-green-100 text-sm rounded-2xl px-4 py-1 flex flex-inline items-center'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" className="bi bi-patch-check" viewBox="0 0 16 16">
+                                        <path fillRule="evenodd" d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                        <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 
+                                        0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 
+                                        0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89
+                                         0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z"/>
+                                        </svg>
+                                        <p className='text-[12px] ml-2'>verified</p>
+                                    </button> 
+                                </div>
+                            </div>
+
+                            <div className='mx-4'>
+                                <a className="inline-block whitespace-nowrap text-center px-3 text-sm text-red-600 bg-red-100 focus:outline-none focus:ring" href=""> 
+                                    View Details
+                                </a> 
+                            </div>       
+                        </div>                        
+                        </div>
+                    </div>
+                    </Link>
+                    </div>
+
+                    ))} 
+                    {/* end of map loop */}
+                </div>
+                <div className=''>
+                    <div className='bg-gray-200 h-full rounded-lg'></div>
+                </div>
+            </div>
+        </div>
+     </section>
+
+      {/* pagination */}
+
+          <div className="w-30 m-auto inline-flex items-center justify-center py-1 text-white bg-red-600 rounded">
+            <a onClick={backPageHandler} className="inline-flex items-center justify-center w-8 h-8">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+            </a>
+
+            <span className="w-px h-4 bg-white/25"></span>
+
+            <input type="number" className="w-12 p-0 text-xs font-medium text-center bg-transparent border-none rounded no-spinners" min="1" readOnly value={props.page}/>
+
+            <span className="w-px h-4 bg-white/25"></span>
+
+            <a onClick={nextPageHandler} className="inline-flex items-center justify-center w-8 h-8">
+              <svg xmlns="http://www.w3.or802000/svg" className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+              </svg>
+            </a>
+          </div>
+      {/* I have the access to total number of pages, current page number  */}
+        <Footer></Footer>
       </>
-  )
+  );
 }
 
 
 
-// export async function getServerSideProps() {
-//   //connecting db
-//   await db.connect();
 
-//   //setting data constant for the result for database
-//   const data = await SaleProperty.find().limit(7).lean();
-//   await db.disconnect();
-//   const property = JSON.parse(JSON.stringify(data));
+export async function getServerSideProps({ query }) {
+    await db.connect();
+    const pageSize = query.pageSize || PAGE_SIZE;
+    const page = query.page || 1;
+    const category = query.category || '';
+    const city = query.city || '';
+    const sort = query.sort || '';
+    const searchQuery = query.searchQuery || '';
+    const area = query.area || '';
   
-
-//   //setting props for frontend
-//   return {
-//     props: { property }
-//   };
-// }
+    const queryFilter =
+      searchQuery && searchQuery !== 'all'
+        ? {
+            title: {
+              $regex: searchQuery,
+              $options: 'i',
+            },
+          }
+        : {};
+  
+    const categoryFilter = category && category !== 'all' ? { category } : {};
+    const cityFilter = city && city !== 'all' ? { city } : {};
+    const areaFilter = area && area !== 'all' ? { area } : {};
+  
+    const order =
+      sort === 'featured'
+        ? { featured: -1 }
+        : sort === 'lowest'
+        ? { price: 1 }
+        : sort === 'highest'
+        ? { price: -1 }
+        : sort === 'toprated'
+        ? { div: -1 }
+        : sort === 'newest'
+        ? { createdAt: -1 }
+        : { _id: -1 };
+  
+    const categories = await Places.find().distinct('category');
+    const cities = await Places.find().distinct('city');
+    const areas = await Places.find().distinct('area');
+    const productDocs = await Places.find(
+      {
+        ...queryFilter,
+        ...categoryFilter,
+        ...cityFilter,
+        ...areaFilter,
+      },
+    )
+      .sort(order)
+      .skip(pageSize * (page - 1))
+      .limit(pageSize)
+      .lean();
+  
+    const countProducts = await Places.countDocuments({
+      ...queryFilter,
+      ...categoryFilter,
+      ...cityFilter,
+      ...areaFilter,
+    });
+    await db.disconnect();
+  
+    const products = JSON.parse(JSON.stringify(productDocs));
+  
+    return {
+      props: {
+        products,
+        countProducts,
+        page,
+        pages: Math.ceil(countProducts / pageSize),
+        categories,
+        cities,
+        areas,
+      },
+    };
+  }

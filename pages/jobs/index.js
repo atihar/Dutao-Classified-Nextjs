@@ -1,7 +1,7 @@
 //property for sale page
 import Header from "../../components/header"
 import FeaturedProducts from "../../components/featuredProducts"
-import Footer from '../../components/footer-2'
+import Footer from '../../components/footer'
 import db from '../../lib/dbConnect'
 import Jobs from '../../models/jobs'
 import Link from 'next/link'
@@ -55,20 +55,20 @@ function jobsIndex({job}) {
           <div className="relative">
                 <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
                   src="https://images.pexels.com/photos/392018/pexels-photo-392018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
-                  <div className="duration-300 absolute inset-0 z-10 flex p-12 text-5xl text-white font-bold">Let Employer Find You</div>
+                  <div className="duration-300 absolute inset-0 z-10 flex p-3 lg:p-12 lg:text-5xl text-white font-bold">Let Employer Find You</div>
                   
           </div>
           <div className="relative">
                 <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
                   src="https://images.pexels.com/photos/5989933/pexels-photo-5989933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
-                  <div className="duration-300 absolute inset-0 z-10 flex p-12 text-5xl text-white font-bold">I am a recruiter</div>
+                  <div className="duration-300 absolute inset-0 z-10 flex p-3 lg:p-12 lg:text-5xl text-white font-bold">I am a recruiter</div>
           </div>
         </div>
         </section>
         <section>
           <div className="max-w-screen-xl py-6 px-4 mx-auto sm:px-6 lg:px-8">
             <h2 className="font-bold pt-10">Featured Companies</h2>
-            <div className="flex list-none space-x-16">
+            <div className="flex list-none space-x-16 overflow-scroll ">
               <img className="w-36 " src={'https://uilogos.co/img/logotype/circle.png'}/>
               <img className="w-36 " src={'https://uilogos.co/img/logotype/solaytic.png'}/>
               <img className="w-36 " src={'https://uilogos.co/img/logotype/hexa.png'}/>

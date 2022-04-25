@@ -68,12 +68,13 @@ export async function getServerSideProps() {
 
   //setting data constant for the result for database
   const data = await SaleProperty.find().limit(3).lean();
+  await db.disconnect();
   const property = JSON.parse(JSON.stringify(data));
 
-  //setting data constant for the result for database
-  const motorData = await Motors.find().limit(3).lean();
-  const motors = JSON.parse(JSON.stringify(motorData));
-  await db.disconnect();
+    //setting data constant for the result for database
+    const motorData = await Motors.find().limit(3).lean();
+    await db.disconnect();
+    const motors = JSON.parse(JSON.stringify(motorData));
   
 
   //setting props for frontend

@@ -5,16 +5,16 @@ import axios from 'axios';
 import { Store } from '../lib/Store';
 import Cookies from 'store-js';
 import { useRouter } from 'next/router';
-import React, { useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 
 export default function Login() {
     const router = useRouter();
     const { redirect } = router.query
-
     const { state, dispatch } = useContext(Store);
     const { userInfo } = state;
+    const [stateError, setStateerror] = useState(false)
     
     useEffect(() => {
         if (userInfo) {
@@ -40,7 +40,8 @@ export default function Login() {
           Cookies.set('userInfo', data);
           router.push(redirect || '/');
         } catch (err) {
-          console.log(err)
+          console.log(err.message)
+          setStateerror(true)
         }
       };
 
@@ -61,6 +62,8 @@ export default function Login() {
             </p>
 
         </div>
+        {stateError && <p className='bg-red-100 text-sm'>Something went wrong! Try again</p> }
+        
 
         <form onSubmit={handleSubmit(submitHandler)} className="max-w-xl mx-auto mt-8 mb-0 space-y-4">
             <div>

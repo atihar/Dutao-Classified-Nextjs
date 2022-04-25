@@ -47,20 +47,20 @@ export default function Home(props) {
           <div className="max-w-screen-xl w-full px-4 mx-auto sm:px-6 lg:px-6">
           <Filter></Filter>
             <p className='text-sm text-gray-500 py-3'>Total {props.countProducts} jobs found</p>
-          <div className='grid grid-cols-[3fr_1fr] gap-4'>
+          <div className='grid lg:grid-cols-[3fr_1fr] gap-4'>
             <div className=''>
                 {jobs && jobs.map((job) => (
                 <div className=" flex justify-center' py-2" key={job._id} >
                   <Link href={'/jobs/'+ job._id}>
-                  <div className="flex w-full rounded-lg bg-white shadow-lg">
-                  <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " 
+                  <div className="lg:flex w-full rounded-lg bg-white shadow-lg">
+                  <img className="w-full md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " 
                   src={"https://dutao.s3.me-south-1.amazonaws.com/"+job.images[0]} alt="" />
                     {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}
                     
                     <div className="py-3 px-6 w-full">
                       <div className="flex items-center justify-between mb-2">
                         <div>
-                          <h5 className="text-gray-500 text-xl">
+                          <h5 className="text-gray-500 text-base lg:text-xl">
                               <TextTruncate
                                 line={1}
                                 element="span"
@@ -113,7 +113,7 @@ export default function Home(props) {
                 ))}
                 {/* end of map loop */}
               </div>
-              <div className=''>
+              <div className='hidden lg:block'>
                 <div className='bg-red-100 h-full rounded-lg'></div>
               </div>
           </div>

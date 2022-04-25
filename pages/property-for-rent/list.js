@@ -48,10 +48,10 @@ export default function PropertyForRent(props) {
           <div className='grid grid-cols-[3fr_1fr] gap-4'>
             <div className=''>
                 {products && products.map((property) => (
-                <div className=" flex justify-center' py-2" key={property._id} >
+                <div className="flex justify-center py-2" key={property._id} >
                   <Link href={'/property-for-sale/'+ property._id}>
-                  <div className="flex w-full rounded-lg bg-white shadow-lg">
-                  <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " 
+                  <div className="lg:flex w-full rounded-lg bg-white shadow-lg">
+                  <img className="object-fill aspect-8 w-screen h-auto md:w-80 rounded-t-lg md:rounded-2xl " 
                   src={"https://dutao.s3.me-south-1.amazonaws.com/"+ property.images[0]} alt="" />
                     {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}
                     
@@ -102,7 +102,7 @@ export default function PropertyForRent(props) {
                 ))}
                 {/* end of map loop */}
               </div>
-              <div className=''>
+              <div className='hidden lg:block'>
                 <div className='bg-red-100 h-full rounded-lg'></div>
               </div>
           </div>
