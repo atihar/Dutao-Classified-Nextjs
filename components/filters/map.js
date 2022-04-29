@@ -3,18 +3,21 @@ import { useForm } from "react-hook-form"
 import { useRouter } from 'next/router'
 
 
-export default function communityFilter() {
+export default function communityFilter(props) {
+  const locCity = props.data
+  //user city is coming.. we need to pass it to filter in the future extending from here
+  // console.log(locCity);
 
-    const router = useRouter();
+  const router = useRouter();
 
-    // initiating search param from start/reset
-    const queryObj = {
-      searchQuery : 'all',
-      category : 'all',
-      city : 'all',
-      // sort : 'featured',
-      area : 'all',
-    };
+  // initiating search param from start/reset
+  const queryObj = {
+    searchQuery : 'all',
+    category : 'all',
+    city : 'all',
+    // sort : 'featured',
+    area : 'all',
+  };
 
 
     const {
@@ -62,18 +65,22 @@ export default function communityFilter() {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="relative">
                    
-                    <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4">
+                    <div className="grid grid-cols-3 md:grid-cols-3 xl:grid-cols-5 gap-4 mt-4">
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" 
                         {...register("category")}>
-                        <option value="all">Select Category</option>
-                        <option value="auto-service">Auto Service</option>
-                        <option value="event-management">Event Management</option>
-                        <option value="freelancers">Freelancers</option>
-                        <option value="health-service">Health Service</option>
-                        <option value="home-maintenance">Home Maintenance</option>
-                        <option value="health-service">Movers & Removals</option>
-                        <option value="restoration-service">Restoration & Repair</option>
-                        <option value="tutor-service">Tutor & Classes</option>
+                              <option value="all">Category</option>
+                              <option value="business">Business</option>
+                              <option value="hospital">Hospital</option>
+                              <option value="pharmacy">Pharmacy</option>
+                              <option value="bank">Bank</option>
+                              <option value="food">Food</option>
+                              <option value="bar">Bar</option>
+                              <option value="shopping">Shopping Mall</option>
+                              <option value="events">Events</option>
+                              <option value="super-market">Super Market</option>
+                              <option value="hotels">Hotels</option>
+                              <option value="school">School</option>
+                              <option value="university">University</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
@@ -101,9 +108,12 @@ export default function communityFilter() {
                    
                         <div className="flex">  
                             <button type="submit" className="w-screen px-7 py-2 text-sm font-medium text-white bg-red-600 rounded-lg">
-                                Search
+                                Filter
                             </button>
                         </div>
+                        <button onClick={resetQuery} type="reset" className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
+                        Reset
+                        </button>
                     </div>
                 </div>
             </form>

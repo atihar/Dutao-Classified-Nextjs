@@ -15,7 +15,7 @@ export default function singlePropertySale({property}){
         <Header/>
             <section>
                 <div className="max-w-screen-xl p-5 mx-auto sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-[2fr_1fr] gap-4">
+                    <div className="grid sm:grid-cols-[2fr_1fr] gap-4">
                         <div>
                             <h1>{property.title}</h1>
                             <p className="text-sm text-gray-500 mb-3">Dubai{`>`} Business Bay</p>

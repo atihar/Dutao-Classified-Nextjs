@@ -1,3 +1,5 @@
+// detecting user location from map, bringing it as child data(callback) from Dynamicmap component and passing it to
+//the map-filter (parent to child) as props 
 import db from '../../lib/dbConnect';
 import Places from '../../models/place';
 import Header from '../../components/header';
@@ -7,6 +9,8 @@ import Link from 'next/link';
 import Filter from '../../components/filters/map';
 import { useRouter } from 'next/router'
 import dynamic from "next/dynamic";
+import { useState } from 'react';
+import staticData from '../../lib/data.json'
 
 
 const DynamicMap = dynamic(() => import("../../components/map"), {
@@ -19,11 +23,16 @@ const DynamicMap = dynamic(() => import("../../components/map"), {
 const PAGE_SIZE = 10;
 
 
-
 export default function infoList(props) {
 
   const router = useRouter();
   const {products} = props
+  const [userCity, setUserCity] = useState('dubai')
+
+  //setting callback for user city data from Dynamic map and setting it to Map(index) component
+  const passData = (data) => {
+    setUserCity(data);
+  };
 
 
   // custom pagination handler - next
@@ -54,39 +63,38 @@ export default function infoList(props) {
     <Header></Header>
     <section>
           <div className="max-w-[400px] sm:max-w-screen-xl w-full px-4 mx-auto sm:px-6 lg:px-6">
-            <h3>Popular Searches</h3>
+            <h3 className='text-base'>Popular Searches</h3>
             <div className='overflow-y-scroll'>
               <div className='flex-inline space-x-5 w-max'>
-                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>bars in marina</span>
-                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>hotel in business bay</span>
-                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>bars in marina</span>
-                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>mall in downtown</span>
-                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>restaurant in business bay</span>
-                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>museum of the future</span>
-                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>bars in marina</span>
-                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>bars in marina</span>
-                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>bars in marina</span>
-                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>bars in marina</span>
-                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>bars in marina</span>
-                  <span className='text-gray-600 bg-gray-200 px-3 rounded-lg text-base'>bars in marina</span>
+                {staticData.categories.map((x,i)=> 
+                  <Link href={`/info-center/?category=${x}&city=all`} key={i}><span className='text-gray-600 bg-gray-200 px-4 rounded-lg text-lg '>{x}</span></Link>
+                )}
+                  
                 </div>
             </div>
 
-          <DynamicMap data={products}/>
-          <Filter></Filter>
-
+          <DynamicMap data={products} passData={passData} />
+          <div className='flex'>
+            <a className="inline-block px-5 py-2 text-sm font-medium text-white bg-gray-600 border border-gray-600 rounded active:text-gray-500 hover:bg-transparent hover:text-gray-600 focus:outline-none focus:ring" href={`/info-center/?category=all&city=${userCity}`}>
+              Search Nearby
+            </a>
+            <a className="ml-3 inline-block px-5 py-2 text-sm font-medium text-white bg-red-600 border border-red-600 rounded active:text-red-500 hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring" href={`/info-center/?category=all&city=${userCity}`}>
+              Search In the city
+            </a>
+          </div>
+          <Filter data={userCity}></Filter>
             <p className='text-sm text-gray-500 py-3'>Total {props.countProducts} listings found</p>
-            <div className='grid grid-cols-[3fr_1fr] gap-4'>
+            <div className='grid sm:grid-cols-[3fr_1fr] gap-4'>
                 <div className=''>
                 { products && products.map((place) => ( 
-                    <div className=" flex justify-center' py-4" key={place._id}>
-                    <Link href={'/jobs/'+ place._id}>
+                    <div className="flex justify-center py-4" key={place._id}>
+                    <Link href={'/info-center/'+ place._id}>
                     <div className="flex w-full rounded-lg bg-white shadow-lg">
                     {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " src={"https://dutao.s3.me-south-1.amazonaws.com/"+job.images[0]} alt="" /> */}
                         {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}
                         
                         <div className="py-3 px-6 w-full">
-                        <div className="flex items-end justify-between mb-2">
+                        <div className="grid grid-cols-[3fr_1fr] mb-2">
                             <div>
                                 <h5 className="text-gray-500 text-xl">
                                 <TextTruncate
@@ -100,7 +108,7 @@ export default function infoList(props) {
                                     line={2}
                                     element="span"
                                     truncateText="…"
-                                    text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                                    text={place.description}
                                     />
                                 </p>
                                 <div className='flex flex-inline justify-between'>
@@ -108,23 +116,23 @@ export default function infoList(props) {
                                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="18" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                                         <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
                                         </svg>
-                                        Business Bay, Dubai
+                                        {place.address}
                                     </p>                      
                                 </div>
                                 <div className='flex flex-inline'>
-                                    <button className='bg-gray-100 text-sm rounded-2xl px-4 py-1 hidden sm:flex flex-inline items-center'>
+                                    {/* <button className='bg-gray-100 text-sm rounded-2xl px-4 py-1 hidden sm:flex flex-inline items-center'>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" className="bi bi-calendar-minus" viewBox="0 0 16 16">
                                         <path d="M5.5 9.5A.5.5 0 0 1 6 9h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
                                         <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
                                         </svg>
                                         <p className='text-[12px] ml-2'>30 mins ago</p>
-                                    </button> 
+                                    </button>  */}
                                     <button className='bg-gray-100 text-sm rounded-2xl px-4 py-1 flex flex-inline items-center'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" className="bi bi-briefcase-fill" viewBox="0 0 16 16">
                                     <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z"/>
                                     <path d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z"/>
                                     </svg>
-                                        <p className='text-[12px] ml-2'>business</p>
+                                        <p className='text-[12px] ml-2'>{place.category}</p>
                                     </button> 
                                     <button className='bg-green-100 text-sm rounded-2xl px-4 py-1 flex flex-inline items-center'>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" className="bi bi-patch-check" viewBox="0 0 16 16">
@@ -153,7 +161,7 @@ export default function infoList(props) {
                     ))} 
                     {/* end of map loop */}
                 </div>
-                <div className=''>
+                <div className='hidden sm:block'>
                     <div className='bg-gray-200 h-full rounded-lg'></div>
                 </div>
             </div>
@@ -211,7 +219,7 @@ export async function getServerSideProps({ query }) {
         : {};
   
     const categoryFilter = category && category !== 'all' ? { category } : {};
-    const cityFilter = city && city !== 'all' ? { city } : {};
+    const cityFilter = city && city !== 'all' ? { city : { $regex: city, $options: 'i',} } : {};
     const areaFilter = area && area !== 'all' ? { area } : {};
   
     const order =

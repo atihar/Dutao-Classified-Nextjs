@@ -1,63 +1,66 @@
+//https://www.geeksforgeeks.org/how-to-create-a-location-finder-app-using-reactjs/
+//objectives : finding a users location on load and reverse geocoding to find the place name
+// then make query based on the place name in the database with its proximity while keeping the accuracy high
+
 import 'mapbox-gl/dist/mapbox-gl.css';
-import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
-import React, { useState, useRef, useCallback } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import Map, { Marker, GeolocateControl } from 'react-map-gl'
-import Geocoder from 'react-map-gl-geocoder'
+import axios from 'axios'
 
 
+export default function Example(props){
+    const [cityName, setCityName] = useState('detecting ....');
+    const [viewState, setViewState] = useState({
+      longitude: 4.895168,
+      latitude: 52.370216,
+      zoom: 12,
+  })
+  const [lat, setLat] = useState('');
+  const [lng, setLng] = useState('');
+    // console.log(viewState);
 
-const Example = () => {
-    const [viewport, setViewport] = useState({
-      latitude: 37.7577,
-      longitude: -122.4376,
-      zoom: 8,
-    });
-    const geocoderContainerRef = useRef();
-    const mapRef = useRef();
-    const handleViewportChange = useCallback(
-      (newViewport) => setViewport(newViewport),
-      []
-    );
+    useEffect(()=>{
+      navigator.geolocation.getCurrentPosition((satelite) => {
+        setViewState({
+          ...viewState,
+          latitude: satelite.coords.latitude,
+          longitude: satelite.coords.longitude
+        });
+        setLat(satelite.coords.latitude)
+        setLng(satelite.coords.longitude)
 
-  // //initial viewport for the map 
-  // const [viewport, setViewport] = useState({
-  //   latitude: 25.191309256311968,
-  //   longitude: 55.304633997680156,
-  //   zoom: 10,
-  //   pitch: 45
-  // });
+      });
+
+      axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?access_token=pk.eyJ1IjoibWFoaXI4OTAiLCJhIjoiY2wxcnJwZGQ1MGgzMDNjcGExaTlzeXJhaiJ9.T9UNMgUmU1t1gDvWEwzLig`)
+      .then((res) => {
+       setCityName('');
+       if(res.data.features.length > 0){
+          const cityN = res.data.features[1].text
+          setCityName(cityN)
+          props.passData(cityN);
+       }
+      });
+    }, [cityName]);
 
 
   return (
-    <Map initialViewState={viewport} 
-          onViewportChange={viewport => {
-                setViewport(viewport);
-        }}
+    <>
+    <p className='text-base'>Location: {cityName} </p>
+    <Map {...viewState}
+      // onMove={(evt) => setViewState(evt.viewState)}
       style={{maxWidth:"1200px", width: "100vw" , height: "30vh", margin:"2% 0%", overflow:"hidden"}}
-      mapStyle="mapbox://styles/mahir890/cl1v8ie5p000v14nujcckxn5i"
+      mapStyle="mapbox://styles/mahir890/cl2fzigrh002e14mrs18gfxr1"
       mapboxAccessToken='pk.eyJ1IjoibWFoaXI4OTAiLCJhIjoiY2wxcnJwZGQ1MGgzMDNjcGExaTlzeXJhaiJ9.T9UNMgUmU1t1gDvWEwzLig'
       attributionControl={false}
     >
-      <div
-        ref={geocoderContainerRef}
-        style={{ position: "absolute", top: 20, left: 20, zIndex: 1 }}
-      />
-      <GeolocateControl />
-      <Geocoder
-          mapRef={mapRef}
-          containerRef={geocoderContainerRef}
-          onViewportChange={handleViewportChange}
-          mapboxApiAccessToken='pk.eyJ1IjoibWFoaXI4OTAiLCJhIjoiY2wxcnJwZGQ1MGgzMDNjcGExaTlzeXJhaiJ9.T9UNMgUmU1t1gDvWEwzLig'
-          position="top-left"
-        />
-      {/* {data && data.map((x,i)=>{ 
-        return(
-          <Marker latitude={x.latitude} longitude={x.longitude} key={i} anchor="bottom" >
-              <img width={15} src={"/../MAP-marker.svg"} /> <p className="text-white">{x.title}</p>
-          </Marker>
-          )})} */}
+      <GeolocateControl/>
+        <Marker {...viewState} anchor="bottom">
+            <div className='flex-column'>
+              <img className='' width={20} src={"/../MAP-marker.svg"} /> 
+              <p className="font-bold absolute whitespace-nowrap ml-[-25px]">You are here</p>
+            </div>           
+        </Marker>
     </Map>
+    </>
   );
 }
-
-export default Example

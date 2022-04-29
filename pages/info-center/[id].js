@@ -2,90 +2,75 @@
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import db from '../../lib/dbConnect'
-import SaleProperty from '../../models/propertyForSale'
+import LocationItems from '../../models/place'
 import moment from "moment";
 
 
-export default function singlePropertySale({property}){
-    const propertyInfo = property.propertyInfo;
-    const postedDate = moment(property.createdAt).startOf('hour').fromNow();
+export default function singlePropertySale({item}){
+    const itemInfo = item.itemInfo;
+    const postedDate = moment(item.createdAt).startOf('hour').fromNow();
 
     return(
         <>  
         <Header/>
             <section>
                 <div className="max-w-screen-xl p-5 mx-auto sm:px-6 lg:px-8">
-                    <div className="grid sm:grid-cols-[2fr_1fr] gap-4">
+                    <div className="grid grid-cols-[2fr_1fr] gap-4">
                         <div>
-                            <h1>{property.title}</h1>
-                            <p className="text-sm text-gray-500 mb-3">Dubai{`>`} Business Bay</p>
+                            <h1>{item.title}</h1>
+                            {/* <p className="text-sm text-gray-500 mb-3">Dubai{`>`} Business Bay</p> */}
                            
                             <div className="grid">       
-                                {property.images.map((x, i)=>{
+                                {item.images.map((x, i)=>{
                                     return <img className=" md:h-auto object-cover md:w-[96] rounded-t-lg md:rounded-none md:rounded-l-lg" key={i} src={"https://dutao.s3.me-south-1.amazonaws.com/" + x } alt="" />
                                 })}
                             </div>
                             
-                            <p className="font-bold py-3">AED {property.price}</p>
-                            <div className="flex space-x-10 text-lg">
-                                <div>{property.bedroom} Bed</div>
-                                <div>{property.bathroom} Bath</div>
-                                <div>{property.size} SqFT</div>
-                            </div>
+                            {/* <p className="font-bold py-3">AED {item.price}</p> */}
+ 
                             <p className='flex items-baseline text-lg py-2 text-gray-700'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                                 <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
                                 </svg>
-                                <span className="pl-5">{property.address}</span>
+                                <span className="pl-5">{item.address}</span>
                             </p>  
-                            <p className="mt-5">About this property</p>
-                            <p className="text-lg text-gray-500">{property.description}</p>
-                            <h3 className="py-4">Amenities</h3>
-                            <ul className="text-lg text-gray-500 block">
-                                {property.amenities.map((x, i) => {
-                                      return  <li className="inline-block pr-28 py-2" key={i}> ✓ &nbsp; {x}</li>
-                                    }) }
-                            </ul>
+                            <p className="mt-5">About this item</p>
+                            <p className="text-lg text-gray-500">{item.description}</p>
 
-                            <h3 className="mt-10 py-4">Property Info</h3>
+                            <h3 className="mt-10 py-4">More Information</h3>
                             <div className="overflow-hidden overflow-x-auto border border-gray-100 rounded">
                                 <table className="min-w-full text-base divide-y divide-gray-200">
                                     <tbody className="divide-y divide-gray-100">
 
                                         {/* property info dynamic table automation is bad for health */}
 
-                                        {/* {Object.entries(propertyInfo).map(([key, value]) => {
+                                        {Object.entries(item.features).map(([key, value]) => {
                                             return (
                                             <tr>
                                                 <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap">{key}</td>
                                                 <td className="px-4 py-2 text-gray-700 whitespace-nowrap">{value}</td>
                                             </tr>
                                             );
-                                        })} */}
+                                        })}
 
                                     <tr>
-                                        <td className="p-4 font-medium whitespace-nowrap">Furnished</td>
+                                        <td className="p-4 font-medium whitespace-nowrap">Verified by Dutao</td>
                                         <td className="p-4 text-gray-700 whitespace-nowrap">No</td>
                                     </tr>
 
                                     <tr>
-                                        <td className="p-4 font-medium whitespace-nowrap">Property For</td>
-                                        <td className="p-4 py-2 text-gray-700 whitespace-nowrap">Sale</td>
+                                        <td className="p-4 font-medium whitespace-nowrap">Contact number</td>
+                                        <td className="p-4 py-2 text-gray-700 whitespace-nowrap">{item.phone}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td className="p-4 font-medium whitespace-nowrap">Official Website</td>
+                                        <td className="p-4 text-gray-700 whitespace-nowrap">{item.website}</td>
                                     </tr>
 
                                     <tr>
                                         <td className="p-4 font-medium whitespace-nowrap">Listed By</td>
-                                        <td className="p-4 text-gray-700 whitespace-nowrap">{propertyInfo.listedBy}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td className="p-4 font-medium whitespace-nowrap">Property Reference</td>
-                                        <td className="p-4 text-gray-700 whitespace-nowrap">{propertyInfo.propertyRef}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td className="p-4 font-medium whitespace-nowrap">Posted On</td>
-                                        <td className="p-4 text-gray-700 whitespace-nowrap">{postedDate}</td>
+                                        <td className="p-4 text-gray-700 whitespace-nowrap">{item.listedBy}</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -119,12 +104,12 @@ export default function singlePropertySale({property}){
                         </div>
                     
                         <div>
-                            <div className="p-10 border border-gray-200 grid rounded-lg">
-                                <img src="https://www.damacproperties.com/images/damac-logo.jpg" alt=""/>
-                                <p className="text-sm">Agent</p>
-                                <h1 className="pb-3">{property.propertyInfo.listedBy}</h1>
-                                <p className="text-sm">RERA Registration No : {property.propertyInfo.RERApermitNo}</p>
-                                <p className="text-sm pb-5">DED license no : 213234</p>
+                            <div className="p-10 border bg-red-50 border-gray-200 grid rounded-lg">
+                                {/* <img src="https://www.damacproperties.com/images/damac-logo.jpg" alt=""/> */}
+                                <h1>Contact for Ad</h1>
+                                <h1 className="pb-3"></h1>
+                                <p className="text-sm">Call : 05xxxxx</p>
+                                {/* <p className="text-sm pb-5">DED license no : 213234</p> */}
 
                                     <a className="inline-block space-x-2 text-center px-12 py-3 text-sm font-medium text-white bg-red-600 border border-red-600 rounded active:text-red-500 hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring" href="">
                                     <div className="flex justify-center "> 
@@ -162,13 +147,13 @@ export default function singlePropertySale({property}){
     await db.connect();
   
     //setting data constant for the result for database
-    const data = await SaleProperty.findById(req.query.id).lean();
+    const data = await LocationItems.findById(req.query.id).lean();
     await db.disconnect();
-    const property = JSON.parse(JSON.stringify(data));
+    const item = JSON.parse(JSON.stringify(data));
     
   
     //setting props for frontend
     return {
-      props: { property }
+      props: { item }
     };
   }

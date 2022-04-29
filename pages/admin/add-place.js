@@ -158,15 +158,19 @@ export default function propertyForSalePost({ children }) {
                     m-0
                     focus:text-gray-500 focus:bg-white"
                         {...register('category')}>
-                        <option value="">Activity/Type</option>
+                        <option value="">Category</option>
                         <option value="business">Business</option>
                         <option value="hospital">Hospital</option>
+                        <option value="pharmacy">Pharmacy</option>
                         <option value="bank">Bank</option>
                         <option value="food">Food</option>
                         <option value="bar">Bar</option>
+                        <option value="shopping">Shopping Mall</option>
                         <option value="events">Events</option>
                         <option value="super-market">Super Market</option>
-                        <option value="events">Hotels</option>
+                        <option value="hotels">Hotels</option>
+                        <option value="school">School</option>
+                        <option value="university">University</option>
                     </select>
                 </div>
                 </div>

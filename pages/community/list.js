@@ -14,7 +14,6 @@ const PAGE_SIZE = 3;
 export default function communityList(props) {
   const router = useRouter();
   const {products} = props
-  console.log(props.areas)
 
 
   // custom pagination handler - next
@@ -47,14 +46,14 @@ export default function communityList(props) {
           <div className="max-w-screen-xl w-full px-4 mx-auto sm:px-6 lg:px-6">
           <Filter></Filter>
             <p className='text-sm text-gray-500 py-3'>Total {props.countProducts} offerings in the community found</p>
-          <div className='grid grid-cols-[3fr_1fr] gap-4'>
+          <div className='grid sm:grid-cols-[3fr_1fr] gap-4'>
             <div className=''>
-                {products && products.map((property) => (
-                <div className=" flex justify-center' py-2" key={property._id} >
-                  <Link href={'/property-for-sale/'+ property._id}>
-                  <div className="flex w-full rounded-lg bg-white shadow-lg">
+                {products && products.map((items) => (
+                <div className=" lg:flex justify-center' py-2" key={items._id} >
+                  <Link href={'/community/'+ items._id}>
+                  <div className="sm:flex w-full rounded-lg bg-white shadow-lg">
                   <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " 
-                  src={"https://dutao.s3.me-south-1.amazonaws.com/"+ property.images[0]} alt="" />
+                  src={"https://dutao.s3.me-south-1.amazonaws.com/"+ items.images[0]} alt="" />
                     {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}
                     
                     <div className="py-4 px-6 w-full">
@@ -65,13 +64,15 @@ export default function communityList(props) {
                                 line={1}
                                 element="span"
                                 truncateText="…"
-                                text={property.title}
+                                text={items.title}
                             /></h5>
                         </div>
                         <div>
                         <p className="flex border ml-5 r-0 border-yellow-600 text-white bg-yellow-600 uppercase px-4 py-1 rounded-full text-[9px] tracking-wide">
                         <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" className="bi bi-star" viewBox="0 0 16 16">
-                          <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                          <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 
+                          0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 
+                          0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
                         </svg><span className='pl-2'>Featured</span></p>
                         </div>       
                       </div>
@@ -102,7 +103,7 @@ export default function communityList(props) {
                 ))}
                 {/* end of map loop */}
               </div>
-              <div className=''>
+              <div className='hidden sm:block'>
                 <div className='bg-red-100 h-full rounded-lg'></div>
               </div>
           </div>
