@@ -3,14 +3,14 @@ import Link from "next/link"
 export default function footer() {
   
     return (
-      <footer className="bg-gray-50">
+      <footer className="bg-gray-50 mt-5 pt-5">
         <div className="hidden lg:block  max-w-screen-xl px-4 py-4 mx-auto sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             <div className=" lg:text-left text-center">
             <Image src="/dutao.jpeg" alt="Picture of the author" width={200} height={63}/>
       
               <p className="max-w-xs lg:mx-0 mx-auto mt-2 text-sm text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, accusantium.
+              Dutao is a online classified platform. It is headquartered in Dubai and its running its operation aiming the Middle East. It has also aimed to help local and travelers to assist in a better way to make the life easier. 
               </p>
       
               <div className="flex mt-4 space-x-6 text-gray-500 lg:justify-start justify-center">
@@ -46,19 +46,12 @@ export default function footer() {
                   </svg>
                 </a>
       
-                <a className="hover:opacity-75" href="" target="_blank" rel="noreferrer">
-                  <span className="sr-only"> Dribbble </span>
-      
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fillRule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z" clipRule="evenodd" />
-                  </svg>
-                </a>
               </div>
             </div>
       
             <div className="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4 lg:text-left text-center">
               <div>
-                <p className="font-medium text-red-500">
+                <p className="text-red-500 font-bold">
                   Company
                 </p>
       
@@ -71,7 +64,7 @@ export default function footer() {
               </div>
       
               <div>
-                <p className="font-medium text-red-500">
+                <p className="font-bold text-red-500">
                   Cities
                 </p>
       
@@ -85,7 +78,7 @@ export default function footer() {
               </div>
       
               <div>
-                <p className="font-medium text-red-500">
+                <p className="font-bold text-red-500">
                   Support
                 </p>
       
@@ -97,13 +90,13 @@ export default function footer() {
               </div>
       
               <div>
-                <p className="font-medium text-red-500">
+                <p className="font-bold text-red-500">
                   Legal
                 </p>
       
                 <nav className="flex flex-col mt-2 space-y-2 text-sm text-gray-500">
-                  <a className="hover:opacity-75" href=""> Privacy Policy </a>
-                  <a className="hover:opacity-75" href=""> Terms & Conditions </a>
+                  <Link className="hover:opacity-75" href="/privacy-policy"> Privacy Policy </Link>
+                  <Link className="hover:opacity-75" href="/terms-and-conditions"> Terms & Conditions </Link>
                   <a className="hover:opacity-75" href=""> Returns Policy </a>
                   <a className="hover:opacity-75" href=""> Accessibility </a>
                 </nav>
@@ -112,7 +105,7 @@ export default function footer() {
           </div>
       
           <p className="text-xs text-gray-500 lg:text-left text-center">
-            &copy; 2022 Dutao Development Team, Dubai
+            &copy; 2022 Dutao | All rights reserved
           </p>
         </div>
       </footer>

@@ -42,12 +42,13 @@ export default function managePropertyForSale() {
 
     //doing CSR for fetching users posts using axios and setting data to state to render it
     const userEmail = userInfo.email
-    axios.get(`/api/user/manage/property-for-sale/?userEmail=${userEmail}`)
+    axios.get(`/api/user/manage/property-for-sale/?userEmail=${userEmail}`,{
+      headers: { authorization: `Bearer ${userInfo.token}` }
+    })
       .then(function (response) {
         setPosts(response.data)
         setPostCount(response.data.length)
         // handle success
-        console.log(response);
       })
       .catch(function (error) {
         // handle error
@@ -82,6 +83,7 @@ export default function managePropertyForSale() {
       dispatch({ type: 'DELETE_REQUEST' });
       // await deletePhoto(productImages);
       await axios.delete(`/api/user/manage/property-for-sale/?id=${productId}`);
+      await deletePhoto(productImages);
       dispatch({ type: 'DELETE_SUCCESS' });
     } catch (err) {
       dispatch({ type: 'DELETE_FAIL' });

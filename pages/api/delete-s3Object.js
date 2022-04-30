@@ -16,14 +16,17 @@ export default async function handler(req, res) {
       Key: req.query.file
   };
 
-  
-  s3.deleteObject(params, (error, data) => {
-    if (error) {
-      res.status(500).send(error);
-    }
-    res.status(200).send("File has been deleted successfully");
-    console.log("from s3 delete object");
-  });
-  
+  try{
+    s3.deleteObject(params, (error, data) => {
+      if (error) {
+        res.status(500).send(error).end();
+      }
+      res.status(200).send("File has been deleted successfully");
+    });
+  }
+  catch(error){
+    res.json(error)
+    res.status(405).end();
+  }
 
 }

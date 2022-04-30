@@ -27,7 +27,7 @@ export default function Upload() {
                     console.log('Uploaded successfully!');
                     
                   } else {
-                    console.error('Upload failed.');
+                    console.error('Error! Upload failed.');
                   }
           })
         )

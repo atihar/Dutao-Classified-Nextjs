@@ -56,7 +56,7 @@ export default function Example(props){
       <GeolocateControl/>
         <Marker {...viewState} anchor="bottom">
             <div className='flex-column'>
-              <img className='' width={20} src={"/../MAP-marker.svg"} /> 
+              <img className='' width={20} src={"map-marker.svg"} /> 
               <p className="font-bold absolute whitespace-nowrap ml-[-25px]">You are here</p>
             </div>           
         </Marker>

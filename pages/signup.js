@@ -43,9 +43,15 @@ export default function Signup() {
           );
         dispatch({ type: 'USER_LOGIN', payload: data });
         Cookies.set('userInfo', data);
-        await axios.post('/api/user/profile-data', {
+
+        const oneYearFromNow = new Date();
+        oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
+        await axios.post('/api/user/create-profile-data', {
             name,
-            userId : data._id
+            userId : data._id,
+            subscription: 1,// 0-non. 1-basic, 2-standard, 3-premium (this will be set by the payment)
+            subscriptionDate: Date.now(),
+            subscriptionExpr: oneYearFromNow
           }
           );
         router.push(redirect || '/');

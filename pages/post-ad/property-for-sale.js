@@ -106,7 +106,7 @@ export default function propertyForSalePost({ children }) {
         } catch (err) {
             console.log(err)
         }
-        console.log({errors})
+        // console.log({errors})
       };
 
       const amenity = "ATM Facility-Balcony-Internet-Business Center-Cleaning Services-Cafeteria-Central A/C & Heating-Covered Parking-Kids Play Area-Electricity Backup-Pets Allowed-Maid Service-Private Garden-Private Gym-Private Jacuzzi-Private Pool-Shared Kitchen-Waste Disposal-View of Water".split('-');

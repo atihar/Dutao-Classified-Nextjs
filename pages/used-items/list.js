@@ -14,7 +14,7 @@ const PAGE_SIZE = 3;
 export default function communityList(props) {
   const router = useRouter();
   const {products} = props
-  console.log(props.areas)
+  // console.log(props.areas)
 
 
   // custom pagination handler - next
@@ -31,7 +31,6 @@ export default function communityList(props) {
   // custom pagination handler back
   const backPageHandler = () => {
     const currentPage = props.page
-    console.log(currentPage)
     const { query } = router;
     const newObj = {...query, page:`${currentPage - 1}`}
     router.push({

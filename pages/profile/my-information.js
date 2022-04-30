@@ -87,7 +87,6 @@ export default function myUserInformation() {
     
         if (upload.ok) {
           console.log('CV Uploaded successfully!');
-          console.log(upload)
         } else {
           console.error('CV Upload failed.');
         }

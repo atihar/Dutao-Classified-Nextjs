@@ -42,7 +42,9 @@ export default function manageJobs() {
 
     //doing CSR for fetching users posts using axios and setting data to state to render it
     const userEmail = userInfo.email
-    axios.get(`/api/user/manage/jobs/?userEmail=${userEmail}`)
+    axios.get(`/api/user/manage/jobs/?userEmail=${userEmail}`, {
+      headers: { authorization: `Bearer ${userInfo.token}` }
+    })
       .then(function (response) {
         setPosts(response.data)
         setPostCount(response.data.length)

@@ -107,7 +107,7 @@ export default function propertyForSalePost({ children }) {
         } catch (err) {
             console.log(err)
         }
-        console.log({errors})
+        // console.log({errors})
       };
 
 

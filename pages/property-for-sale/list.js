@@ -14,8 +14,6 @@ const PAGE_SIZE = 3;
 export default function PropertyForSale(props) {
   const router = useRouter();
   const {products} = props
-  console.log(props.areas)
-
 
   // custom pagination handler - next
   const nextPageHandler = () => {
@@ -31,7 +29,8 @@ export default function PropertyForSale(props) {
   // custom pagination handler back
   const backPageHandler = () => {
     const currentPage = props.page
-    console.log(currentPage)
+    // console.log(currentPage)
+    
     const { query } = router;
     const newObj = {...query, page:`${currentPage - 1}`}
     router.push({

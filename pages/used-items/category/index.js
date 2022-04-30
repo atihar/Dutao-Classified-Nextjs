@@ -93,7 +93,8 @@ export default function propertyCategory({ allProperties }) {
 export async function getServerSideProps(context) {
   // const category = (parseInt(context.query)).toString();
   const category = context.query.name;
-  console.log(category);
+  // console.log(category);
+
   //connecting db
   await db.connect();
 

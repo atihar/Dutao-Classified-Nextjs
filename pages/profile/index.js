@@ -9,12 +9,18 @@ function profile() {
     const router = useRouter();
     const { state } = useContext(Store);
     const { userInfo } = state;
+    const [ userData, setUserData] = useState({})
 
     useEffect(() => {
         if (!userInfo) {
             router.push('/login');
-            }}, []);
-
+            }
+            else {
+                setUserData(userInfo)
+            }
+        }, []);
+        
+        console.log(userData)
         
   return (
       <>
@@ -49,13 +55,12 @@ function profile() {
                         </div>                                          
                     </div>
 
-                    <div className="py-5 w-full">
-                        <h2>Profile</h2>
+                    <div className="py-5 w-full bg-gray-100 mt-4 rounded-lg p-5">
+                        <h2 className="font-bold">Profile Summary</h2>
                         <hr/>
-                        <p className="text-base py-4"><input className="border-b-2 border-gray-300" value="John Doe" readOnly/></p>
-                        <p className="text-base py-4"><input className="border-b-2 border-gray-300" value="0589717872" readOnly/></p>
-                        <p className="text-base py-4"><input className="border-b-2 border-gray-300" value="john@gmail.com" readOnly/></p>
-                        <p className="text-base py-4"><input className="border-b-2 border-gray-300" value="John Doe" readOnly/></p>                            
+                        <p className="text-base py-2">{userData.name}</p>
+                        <p className="text-base py-2">Membership Plan : Free</p>
+                        <p className="text-base py-2">{userData.email}</p>                          
                     </div>  
                 </div>
                 

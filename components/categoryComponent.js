@@ -132,7 +132,7 @@ export default function categoryComponent() {
 
                     <a
                     className="block p-4 border text-center border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                    href=""
+                    href="/vip"
                     >
                     <span className="inline-block p-3 rounded-lg bg-gray-50">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" className="bi bi-gem" viewBox="0 0 16 16">

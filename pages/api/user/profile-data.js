@@ -7,35 +7,6 @@ import { isAuth } from '../../../lib/auth';
 const handler = nc();
 handler.use(isAuth)
 
-handler.post(async (req, res) => {
-  await db.connect();
-  const newUserInfo = new UserInfo({
-    name: req.body.name,
-    gender: req.body.gender,
-    nationality: req.body.nationality,
-    dateOfBirth: req.body.dateOfBirth,
-    careerLevel: req.body.careerLevel,
-    currentLocation: req.body.currentLocation,
-    currentCompany: req.body.currentCompany,
-    salaryExpection: req.body.salaryExpection,
-    commitment: req.body.commitment,
-    visaStatus: req.body.visaStatus,
-    visaValidity: req.body.visaValidity,
-    noticePeriod: req.body.noticePeriod,
-    highestEducation: req.body.highestEducation,
-    cv: req.body.cvFile,
-    profileSummary: req.body.profileSummary,
-    videoLink : req.body.videoLink,
-    userId: req.body.userId,
-    cv : req.body.cv,
-  });
-
-  const userInfo = await newUserInfo.save();
-  await db.disconnect();
-
-  res.send(userInfo).status(201);
-});
-
 
 handler.get(async (req, res, id) => {
   const userID = req.query.id;
@@ -61,7 +32,6 @@ handler.delete(async (req, res) => {
 
 handler.put(async (req, res) => {
   const userID = req.query.id;
-  console.log(req.query)
   await db.connect();
   const info = await UserInfo.findOne( { userId : userID });
   if (info) {

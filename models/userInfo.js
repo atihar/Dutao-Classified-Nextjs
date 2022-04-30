@@ -19,6 +19,9 @@ const userInfoSchema=new mongoose.Schema({
     newsletter:{ type:Boolean },
     advertisement:{ type:Boolean },
     userId:{type:String},
+    subscription: { type: Number },// 0-non. 1-basic, 2-standard, 3-premium (this will be set by the payment)
+    subscriptionDate: { type: Date },
+    subscriptionExpr: { type: Date }
 })
 
 export default mongoose.models.UserInfo || mongoose.model('UserInfo', userInfoSchema)

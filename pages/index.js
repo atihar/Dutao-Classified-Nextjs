@@ -32,13 +32,6 @@ const slider2 = [
   { url: "https://i.postimg.cc/521FtL7P/Dutao-Ad-06.png" }
 ];
 
-const slider3 = [
-  { url: "https://images.unsplash.com/photo-1501183638710-841dd1904471" },
-  { url: "https://images.unsplash.com/photo-1501183638710-841dd1904471" },
-  { url: "https://images.unsplash.com/photo-1501183638710-841dd1904471" },
-  { url: "https://images.unsplash.com/photo-1501183638710-841dd1904471" },
-  { url: "https://images.unsplash.com/photo-1501183638710-841dd1904471" }
-];
 
 export default function Index({property, motors}){
   return(

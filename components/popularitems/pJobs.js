@@ -48,12 +48,7 @@ export default function pJobs() {
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
               </svg>
           </span>
-
-          <h6 className="mt-2 font-bold">Accountant</h6>
-
-          <p className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
+          <h6 className="mt-2">Accountant</h6>
         </a>
 
         <a
@@ -66,11 +61,7 @@ export default function pJobs() {
             </svg>
           </span>
 
-          <h6 className="mt-2 font-bold">Waitress</h6>
-
-          <p className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
+          <h6 className="mt-2">Waitress</h6>
         </a>
 
         <a
@@ -83,11 +74,7 @@ export default function pJobs() {
             </svg>
           </span>
 
-          <h6 className="mt-2 font-bold">Receptionist</h6>
-
-          <p className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
+          <h6 className="mt-2">Receptionist</h6>
         </a>
 
         <a
@@ -100,11 +87,7 @@ export default function pJobs() {
               </svg>
           </span>
 
-          <h6 className="mt-2 font-bold">Customer Service</h6>
-
-          <p className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
+          <h6 className="mt-2">Customer Service</h6>
         </a>
 
         <a
@@ -117,11 +100,7 @@ export default function pJobs() {
               </svg>
           </span>
 
-          <h6 className="mt-2 font-bold">Marketing Executive</h6>
-
-          <p className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
+          <h6 className="mt-2">Marketing Executive</h6>
         </a>
 
         <a
@@ -134,11 +113,7 @@ export default function pJobs() {
               </svg>
           </span>
 
-          <h6 className="mt-2 font-bold">Real Estate Agent</h6>
-
-          <p className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
+          <h6 className="mt-2">Real Estate Agent</h6>
         </a>
       </div>
     </div>

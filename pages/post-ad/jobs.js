@@ -53,10 +53,10 @@ export default function jobsPost({ children }) {
                   });
      
                   if (upload.ok) {
-                    console.log('Uploaded successfully!');
+                    console.log('Cover photo Uploaded successfully!');
                     
                   } else {
-                    console.error('Upload failed.');
+                    console.error('Photo Upload failed.');
                   }
             })
             )
@@ -98,13 +98,15 @@ export default function jobsPost({ children }) {
           );
 
           //creating a job application form on successfull submission
-          axios.post(`http://localhost:3000/api/jobs/apply?jobId=${data._id}`);
+          axios.post(`http://localhost:3000/api/jobs/apply?jobId=${data._id}`,
+          {
+            headers: { authorization: `Bearer ${userInfo.token}` }
+          });
           router.push('/jobs/list');
-          console.log(data)
         } catch (err) {
             console.log(err)
         }
-        console.log({errors})
+        // console.log({errors})
       };
 
       const perks = "Health Insurance-Visa Processing Assistance-Accomodation-Travel Allowance-Yearly Vacation-Air Ticket".split('-');

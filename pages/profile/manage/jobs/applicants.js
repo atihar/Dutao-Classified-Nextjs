@@ -27,7 +27,9 @@ export default function applicants(){
                 router.push('/login');       
             }
             else{
-                const applications = axios.get(`/api/jobs/apply?jobId=${jobid}`)
+                const applications = axios.get(`/api/jobs/apply?jobId=${jobid}`,{
+                    headers: { authorization: `Bearer ${userInfo.token}` }
+                  })
                 // manual test code
                 // const applications = axios.get('/api/jobs/apply?jobId=6245adcb9a4892fa4eb15924')
                 .then(function (response){

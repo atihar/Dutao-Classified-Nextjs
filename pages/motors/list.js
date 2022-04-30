@@ -14,7 +14,7 @@ const PAGE_SIZE = 3;
 export default function Home(props) {
   const router = useRouter();
   const {products} = props
-  console.log(props.areas)
+  // console.log(props.areas)
 
 
   // custom pagination handler - next

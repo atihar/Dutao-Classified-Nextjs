@@ -19,7 +19,7 @@ export default function motors({property}) {
         </section>
 
       <FeaturedPlace></FeaturedPlace>
-      <FeaturedProducts title={"Motos"} data={property}></FeaturedProducts>
+      <FeaturedProducts title={"Motors"} data={property}></FeaturedProducts>
       <Footer></Footer>
       </>
   )

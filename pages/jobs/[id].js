@@ -29,7 +29,10 @@ export default function singleJobs({job}){
             }
         else {
             setLoading(true);
-            const {userData} = axios.get(`/api/user/profile-data/?id=${userInfo._id}`)
+            const {userData} = axios.get(`/api/user/profile-data/?id=${userInfo._id}`,
+            {
+                headers: { authorization: `Bearer ${userInfo.token}` }
+              })
                 .then(function (response) {
                      // handle success
                     const data = response.data
@@ -43,7 +46,9 @@ export default function singleJobs({job}){
                 });
                 
                 // getting applications data for this job to check if the user has already applied 
-                const applications = axios.get(`/api/jobs/apply?jobId=${job._id}`)
+                const applications = axios.get(`/api/jobs/apply?jobId=${job._id}`,{
+                    headers: { authorization: `Bearer ${userInfo.token}` }
+                  })
                 .then(function (response){
                     const applicantionData = response.data
 
@@ -78,7 +83,7 @@ export default function singleJobs({job}){
         } catch (err) {
             console.log(err)
         }
-        console.log("data sent")
+        console.log("job submitted succesfully sent")
       };
 
     return(

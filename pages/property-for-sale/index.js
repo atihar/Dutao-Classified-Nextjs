@@ -10,15 +10,15 @@ import SaleProperty from '../../models/propertyForSale'
 function propertyForSale({property}) {
   const cat = [{
     name : "Apartment",
-    image : "https://16k9k93lbits338g7b4f36r5-wpengine.netdna-ssl.com/wp-content/uploads/2019/04/landlord-resources-blueground-boston-apt.jpg"
+    image : "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 },
 {
     name : "Duplex",
-    image : "https://www.architectandinteriorsindia.com/cloud/2021/11/15/unnamed-(83).jpg"
+    image : "https://images.pexels.com/photos/3288103/pexels-photo-3288103.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 },
 {
     name : "Townhouse",
-    image: "https://croc.world/wp-content/uploads/2020/09/3sama-townhouses.jpg"
+    image: "https://images.pexels.com/photos/5731086/pexels-photo-5731086.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 },
 {
     name : "Villa",

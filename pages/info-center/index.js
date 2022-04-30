@@ -49,7 +49,6 @@ export default function infoList(props) {
   // custom pagination handler back
   const backPageHandler = () => {
     const currentPage = props.page
-    console.log(currentPage)
     const { query } = router;
     const newObj = {...query, page:`${currentPage - 1}`}
     router.push({

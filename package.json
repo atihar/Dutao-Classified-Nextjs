@@ -4,7 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "pm2": "pm2 start pm2.json"
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.0",

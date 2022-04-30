@@ -13,7 +13,7 @@ export default function featuredPlace(){
               </div>
               <div className="w-1/2 p-1 md:p-2 relative">
                 <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://pix10.agoda.net/hotelImages/2286573/0/09af2ea5700e32597374c44b0b370af2.jpg"/>
+                  src="https://images.pexels.com/photos/3462514/pexels-photo-3462514.jpeg?auto=compress&cs=tinysrgb&w=560&h=350&dpr=1"/>
                                     <div className="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex justify-center items-center text-6xl text-white font-semibold">Jumirah</div>
               </div>
               <div className="w-full p-1 md:p-2 relative">

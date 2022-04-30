@@ -4,6 +4,7 @@ import CategorySlider from "../../components/category"
 import Footer from '../../components/footer'
 import db from '../../lib/dbConnect'
 import Community from '../../models/community'
+import Link from 'next/link'
 
 export default function CommunityMain({communityItems}) {
 
@@ -60,12 +61,38 @@ export default function CommunityMain({communityItems}) {
 
             <img
               alt="Trainer Product"
-              src="https://images.unsplash.com/photo-1491553895911-0055eca6402d"
+              src="https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
               className="object-cover w-full -mt-3 h-96"
             />
 
             <h5 className="mt-4 text-sm text-black/90">
-              Limited Edition Sports Trainer
+              Limited Edition Sports Serum
+            </h5>
+
+            <div className="flex items-center justify-between mt-4 font-bold">
+              <p className="text-lg">
+                $189.99
+              </p>
+
+              <p className="text-xs tracking-wide uppercase">
+                6 Colors
+              </p>
+            </div>
+          </a>
+
+          <a href="" className="block">
+            <div className="flex justify-center">
+              <strong className="relative h-6 px-4 text-xs leading-6  uppercase bg-yellow-300"> Hot </strong>
+            </div>
+
+            <img
+              alt="Trainer Product"
+              src="https://images.unsplash.com/photo-1560343090-f0409e92791a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+              className="object-cover w-full -mt-3 h-96"
+            />
+
+            <h5 className="mt-4 text-sm text-black/90">
+              Limited Edition Jeans Shoe
             </h5>
 
             <div className="flex items-center justify-between mt-4 font-bold">
@@ -86,33 +113,7 @@ export default function CommunityMain({communityItems}) {
 
             <img
               alt="Trainer Product"
-              src="https://images.unsplash.com/photo-1491553895911-0055eca6402d"
-              className="object-cover w-full -mt-3 h-96"
-            />
-
-            <h5 className="mt-4 text-sm text-black/90">
-              Limited Edition Sports Trainer
-            </h5>
-
-            <div className="flex items-center justify-between mt-4 font-bold">
-              <p className="text-lg">
-                $189.99
-              </p>
-
-              <p className="text-xs tracking-wide uppercase">
-                6 Colors
-              </p>
-            </div>
-          </a>
-
-          <a href="" className="block">
-            <div className="flex justify-center">
-              <strong className="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-black"> New </strong>
-            </div>
-
-            <img
-              alt="Trainer Product"
-              src="https://images.unsplash.com/photo-1491553895911-0055eca6402d"
+              src="https://images.unsplash.com/photo-1598662957563-ee4965d4d72c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
               className="object-cover w-full -mt-3 h-96"
             />
 
@@ -157,12 +158,14 @@ export default function CommunityMain({communityItems}) {
             </div>
           </a>
         </div>
-        <div className="flex bg-gray-800 text-white justify-center text-sm p-2 space-x-3 rounded-lg mt-5">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-lock-fill" viewBox="0 0 16 16">
-           <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-           </svg>
-        <p>See more deals - VIP members only</p>
-      </div>
+        <Link href={'/vip'}>
+          <div className="flex bg-gray-800 text-white justify-center text-sm p-2 space-x-3 rounded-lg mt-5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-lock-fill" viewBox="0 0 16 16">
+            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+            </svg>
+          <p>See more deals - VIP members only</p>
+        </div>
+      </Link>
       </div>
     </section>
     
