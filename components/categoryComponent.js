@@ -1,25 +1,4 @@
-// import Link from 'next/link';
-// import NavModules from './navModules';
-// const modulesList=['propertiesForRent','propertiesForSale','Motors','Second hand market','Special Products','Jobs','Home Service','VVIP Membership','Community']
 
-// const Modules= modulesList.map((module)=>{
-//     return (
-//         <a key="uniqueId1"
-//         className="block p-4 text-center text-gray-600 hover:text-white bg-black bg-opacity-10 hover:bg-red-500 hover:bg-opacity-70 shadow-lg rounded-xl hover:shadow-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-//         href="#"
-//         >
-//         <span className="inline-block p-3 rounded-lg bg-gray-50">
-//         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" className="bi bi-house-heart-fill" viewBox="0 0 16 16">
-//         <path fillRule="evenodd" d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.707L8 2.207l6.646 6.646a.5.5 0 0 0 .708-.707L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
-//         <path fillRule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Zm0 5.189c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.691 0-5.018Z"/>
-//         </svg>
-//         </span>
-
-//         <h6 className="mt-2 text-center text-sm font-bold">{module}</h6>
-//         </a>
-        
-//     )
-// })
 
 export default function categoryComponent() {
 
@@ -75,7 +54,7 @@ export default function categoryComponent() {
 
                     <a
                     className="block p-4 border text-center border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-                    href=""
+                    href="/info-center"
                     >
                     <span className="inline-block p-3 rounded-lg bg-gray-50">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" className="bi bi-wrench-adjustable-circle" viewBox="0 0 16 16">
