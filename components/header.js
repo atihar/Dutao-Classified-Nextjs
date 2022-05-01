@@ -6,13 +6,18 @@ import { Store } from '../lib/Store';
 import React, { useContext, useEffect, useState } from 'react';
 import Cookies from 'store-js';
 import { useRouter } from 'next/router';
+import setLanguage from 'next-translate/setLanguage'
+import useTranslation from 'next-translate/useTranslation'
+
+const { locales } = i18nConfig
 
 export default function Header({ children }) {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const [mounted, setMounted] = useState(false);
   const { userInfo } = state;
-  
+  const { t, lang } = useTranslation('common')
+
   
   useEffect(() => {
     setMounted(true)
@@ -59,6 +64,22 @@ export default function Header({ children }) {
 
 
             <div className="items-center justify-end flex-1 hidden space-x-4 sm:flex">
+
+            {/* translate change group  */}
+            <div className="relative group text-gray-500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-globe2" viewBox="0 0 16 16">
+                <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539c.142-.384.304-.744.481-1.078a6.7 6.7 0 0 1 .597-.933A7.01 7.01 0 0 0 3.051 3.05c.362.184.763.349 1.198.49zM3.509 7.5c.036-1.07.188-2.087.436-3.008a9.124 9.124 0 0 1-1.565-.667A6.964 6.964 0 0 0 1.018 7.5h2.49zm1.4-2.741a12.344 12.344 0 0 0-.4 2.741H7.5V5.091c-.91-.03-1.783-.145-2.591-.332zM8.5 5.09V7.5h2.99a12.342 12.342 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5c.035.987.176 1.914.399 2.741A13.612 13.612 0 0 1 7.5 10.91V8.5H4.51zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741H8.5zm-3.282 3.696c.12.312.252.604.395.872.552 1.035 1.218 1.65 1.887 1.855V11.91c-.81.03-1.577.13-2.282.287zm.11 2.276a6.696 6.696 0 0 1-.598-.933 8.853 8.853 0 0 1-.481-1.079 8.38 8.38 0 0 0-1.198.49 7.01 7.01 0 0 0 2.276 1.522zm-1.383-2.964A13.36 13.36 0 0 1 3.508 8.5h-2.49a6.963 6.963 0 0 0 1.362 3.675c.47-.258.995-.482 1.565-.667zm6.728 2.964a7.009 7.009 0 0 0 2.275-1.521 8.376 8.376 0 0 0-1.197-.49 8.853 8.853 0 0 1-.481 1.078 6.688 6.688 0 0 1-.597.933zM8.5 11.909v3.014c.67-.204 1.335-.82 1.887-1.855.143-.268.276-.56.395-.872A12.63 12.63 0 0 0 8.5 11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.963 6.963 0 0 0 14.982 8.5h-2.49a13.36 13.36 0 0 1-.437 3.008zM14.982 7.5a6.963 6.963 0 0 0-1.362-3.675c-.47.258-.995.482-1.565.667.248.92.4 1.938.437 3.008h2.49zM11.27 2.461c.177.334.339.694.482 1.078a8.368 8.368 0 0 0 1.196-.49 7.01 7.01 0 0 0-2.275-1.52c.218.283.418.597.597.932zm-.488 1.343a7.765 7.765 0 0 0-.395-.872C9.835 1.897 9.17 1.282 8.5 1.077V4.09c.81-.03 1.577-.13 2.282-.287z"/>
+              </svg>
+              <div className="absolute right-0 left-auto z-30 hidden w-32 bg-grey-200 group-hover:block ">       
+                        <div className="px-2 pt-2 group-hover:block pb-4 bg-white-500 bg-white-500 bg-gray-50 rounded-lg shadow-lg">
+                          <div className="flex-column text-left text-xs space-y-4 p-2 rounded text-gray-700">
+                             <div><button onClick={async () => await setLanguage('en')}>English</button></div>
+                             <div><button onClick={async () => await setLanguage('cn')}>Chinese</button></div>
+                          </div>
+                        </div>
+                    </div>
+            </div>
+            {/* <translate end  */}
             <a className="text-gray-500" href=""><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-heart" viewBox="0 0 16 16">
               <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
             </svg></a>
@@ -75,7 +96,7 @@ export default function Header({ children }) {
                         <span className='inline-flex'><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
                           <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                           <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                        </svg><span className='pl-2'>My Account</span></span>
+                        </svg><span className='pl-2'>{t('myAccount')} </span></span>
                       </button>
 
                       <div className="absolute right-0 left-auto z-30 hidden w-64 bg-grey-200 group-hover:block ">       
@@ -94,7 +115,7 @@ export default function Header({ children }) {
                 </div>
 
               : <Link href="/login"><a className="px-5 py-2 text-sm font-medium text-gray-500 bg-gray-100 rounded-lg">
-              Log in
+               {t('login')} 
               </a></Link>
               
 
@@ -104,7 +125,7 @@ export default function Header({ children }) {
               <Link href="/post-ad">
               <a
                 className="px-5 py-2 text-sm font-medium text-white bg-red-600 rounded-lg">
-                Post your ad
+               {t('postAd')} 
               </a>
               </Link>
             </div>
@@ -135,40 +156,67 @@ export default function Header({ children }) {
         <div className="max-w-screen-xl p-4 mx-auto flex-auto ">
           <div className="hidden justify-around text-center text-sm font-medium md:flex text-gray-700">
 
+          <div className="relative group">
+                <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+                <Link href={"/property-for-rent"}>
+                  {t('propertyForRent')}
+                </Link>
+                </button>
+
+                <div className="absolute z-20 hidden w-40 bg-grey-200 group-hover:block">       
+                  <div className="px-2 pt-2 pb-4 bg-white-500 bg-gray-50 shadow-lg">
+                    <div className="flex-column text-left text-xs space-y-4 p-2 rounded">
+                          <Link href={'/property-for-rent/list?category=apartment'}><li className='list-none cursor-pointer'>{t('apartmentForRent')}</li></Link>
+                          <Link href={'/property-for-rent/list?category=villa'}><li className='list-none cursor-pointer'>{t('villaHouse')}</li></Link>
+                          <Link href={'/property-for-rent/list?category=studio'}><li className='list-none cursor-pointer'>{t('studioForRent')}</li></Link>
+                          <Link href={'/property-for-rent/list?category=short%term'}><li className='list-none cursor-pointer'>{t('shortTermMonthly')}</li></Link>
+                          <Link href={'/property-for-rent/list?category=townhouse'}><li className='list-none cursor-pointer'>{t('townhouseForRent')}</li></Link>
+                          <Link href={'/property-for-rent/list?category=commercial'}><li className='list-none cursor-pointer'>{t('commercialFloor')}</li></Link>
+                          <Link href={'/property-for-rent/list?category=residential%floor'}><li className='list-none cursor-pointer'>{t('residentialFloor')}</li></Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <div className="relative group">
                 <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-                  <Link href={"/property-for-sale"}>Property for Sale</Link>
+                  <Link href={"/property-for-sale"}>
+                     {t('propertyForSale')}
+                  </Link>
                 </button>
 
                 <div className="absolute z-30 hidden w-40 bg-grey-200 group-hover:block">       
                   <div className="px-2 pt-2 group-hover:block pb-4 bg-white-500 bg-white-500 bg-gray-50 shadow-lg">
                     <div className="flex-column text-left text-xs space-y-5 p-2 rounded ">
-                            <Link href={'/property-for-sale/list?category=apartment'}><li className='list-none cursor-pointer'>Apartment for sale</li></Link>
-                            <Link href={'/property-for-sale/list?category=villa'}><li className='list-none cursor-pointer'>Villas for sale</li></Link>
-                            <Link href={'/property-for-sale/list?category=studio'}><li className='list-none cursor-pointer'>Studio for sale</li></Link>
-                            <Link href={'/property-for-sale/list?category=townhouse'}><li className='list-none cursor-pointer'>Townhouse</li></Link>
-                            <Link href={'/property-for-sale/list?category=penthouse'}><li className='list-none cursor-pointer'>Penthouse</li></Link>
-                            <Link href={'/property-for-sale/list?category=res%building'}><li className='list-none cursor-pointer'>Residential Building</li></Link>
-                            <Link href={'/property-for-sale/list?category=res%floor'}><li className='list-none cursor-pointer'>Residential Floor</li></Link>
+                            <Link href={'/property-for-sale/list?category=apartment'}><li className='list-none cursor-pointer'>{t('apartmentForSale')}</li></Link>
+                            <Link href={'/property-for-sale/list?category=villa'}><li className='list-none cursor-pointer'>{t('villaForSale')}</li></Link>
+                            <Link href={'/property-for-sale/list?category=studio'}><li className='list-none cursor-pointer'>{t('studioForSale')}</li></Link>
+                            <Link href={'/property-for-sale/list?category=townhouse'}><li className='list-none cursor-pointer'>{t('townhouse')}</li></Link>
+                            <Link href={'/property-for-sale/list?category=penthouse'}><li className='list-none cursor-pointer'>{t('penthouse')}</li></Link>
+                            <Link href={'/property-for-sale/list?category=res%building'}><li className='list-none cursor-pointer'>{t('residentialBuilding')}</li></Link>
+                            <Link href={'/property-for-sale/list?category=res%floor'}><li className='list-none cursor-pointer'>{t('residentialFloor')}</li></Link>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div className="relative group">
                 <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-                <Link href={"/property-for-rent"}>Property for Rent</Link>
+                <Link href={'/motors'}><span>
+                  {t('motors')}
+                  </span></Link>
                 </button>
 
                 <div className="absolute z-20 hidden w-40 bg-grey-200 group-hover:block">       
                   <div className="px-2 pt-2 pb-4 bg-white-500 bg-gray-50 shadow-lg">
                     <div className="flex-column text-left text-xs space-y-4 p-2 rounded">
-                          <Link href={'/property-for-rent/list?category=apartment'}><li className='list-none cursor-pointer'>Apartment for rent</li></Link>
-                          <Link href={'/property-for-rent/list?category=villa'}><li className='list-none cursor-pointer'>Villa House</li></Link>
-                          <Link href={'/property-for-rent/list?category=studio'}><li className='list-none cursor-pointer'>Studio Apartment</li></Link>
-                          <Link href={'/property-for-rent/list?category=short%term'}><li className='list-none cursor-pointer'>Shortterm Monthly</li></Link>
-                          <Link href={'/property-for-rent/list?category=townhouse'}><li className='list-none cursor-pointer'>Townhouse for rent</li></Link>
-                          <Link href={'/property-for-rent/list?category=commercial'}><li className='list-none cursor-pointer'>Commercial Space</li></Link>
-                          <Link href={'/property-for-rent/list?category=residential%floor'}><li className='list-none cursor-pointer'>Residential Floor</li></Link>
+                        <Link href={'/motors/list?category=cars'}><li className='list-none cursor-pointer'>{t('cars')}</li></Link>
+                        <Link href={'/motors/list?category=motorcycle'}><li className='list-none cursor-pointer'>{t('motorcycle')}</li></Link>
+                        <Link href={'/motors/list?category=accessories'}><li className='list-none cursor-pointer'>{t('accessories')}</li></Link>
+                        <Link href={'/motors/list?category=heavy&vehicles'}><li className='list-none cursor-pointer'>{t('heavyVehicles')}</li></Link>
+                        <Link href={'/motors/list?category=boats'}><li className='list-none cursor-pointer'>{t('boats')}</li></Link>
+                        <Link href={'/motors/list?category=boats'}><li className='list-none cursor-pointer'>{t('numberPlates')}</li></Link>
+                        <Link href={'/motors/list?category=boats'}><li className='list-none cursor-pointer'>{t('exportCars')}</li></Link>
                     </div>
                   </div>
                 </div>
@@ -176,27 +224,7 @@ export default function Header({ children }) {
 
               <div className="relative group">
                 <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-                <Link href={'/motors'}><span>Motors</span></Link>
-                </button>
-
-                <div className="absolute z-20 hidden w-40 bg-grey-200 group-hover:block">       
-                  <div className="px-2 pt-2 pb-4 bg-white-500 bg-gray-50 shadow-lg">
-                    <div className="flex-column text-left text-xs space-y-4 p-2 rounded">
-                        <Link href={'/motors/list?category=cars'}><li className='list-none cursor-pointer'>Cars</li></Link>
-                        <Link href={'/motors/list?category=motorcycle'}><li className='list-none cursor-pointer'>Motorcycles</li></Link>
-                        <Link href={'/motors/list?category=accessories'}><li className='list-none cursor-pointer'>Accessories & Parts</li></Link>
-                        <Link href={'/motors/list?category=heavy&vehicles'}><li className='list-none cursor-pointer'>Heavy Vehicles</li></Link>
-                        <Link href={'/motors/list?category=boats'}><li className='list-none cursor-pointer'>Boats</li></Link>
-                        <Link href={'/motors/list?category=boats'}><li className='list-none cursor-pointer'>Number Plates</li></Link>
-                        <Link href={'/motors/list?category=boats'}><li className='list-none cursor-pointer'>Export Cars</li></Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative group">
-                <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-                <Link href={'/special-products'}><span>Special Products</span></Link>
+                <Link href={'/special-products'}><span>{t('specialProducts')}</span></Link>
                 </button>
 
                 {/* <div className="absolute z-20 hidden w-40 bg-grey-200 group-hover:block">       
@@ -216,21 +244,21 @@ export default function Header({ children }) {
               
               <div className="relative group">
                 <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-                <Link href={'/jobs'}><span>Jobs</span></Link>
+                <Link href={'/jobs'}><span> {t('jobs')} </span></Link>
                 </button>
 
                 <div className="absolute z-20 hidden w-60 bg-grey-200 group-hover:block">       
                   <div className="px-2 pt-2 pb-4 bg-white-500 bg-gray-50 shadow-lg">
                     <div className="flex-column text-left text-xs space-y-4 p-2 rounded">
-                        <Link href={'/jobs/list?category=accounting'}><li className='list-none cursor-pointer'>Accounting</li></Link>
-                        <Link href={'/jobs/list?category=business-development'}><li className='list-none cursor-pointer'>Business Development</li></Link>
-                        <Link href={'/jobs/list?category=human-resource'}><li className='list-none cursor-pointer'>Human Resource</li></Link>
-                        <Link href={'/jobs/list?category=banking-and-finances'}><li className='list-none cursor-pointer'>Banking and Finances</li></Link>
-                        <Link href={'/jobs/list?category=healthcare'}><li className='list-none cursor-pointer'>Health Care and Medical</li></Link>
-                        <Link href={'/jobs/list?category=information-tech'}><li className='list-none cursor-pointer'>Information Technology</li></Link>
-                        <Link href={'/jobs/list?category=sales-and-marketing'}><li className='list-none cursor-pointer'>Sales and Marketing</li></Link>
-                        <Link href={'/jobs/list?category=leagal-services'}><li className='list-none cursor-pointer'>Legal Services</li></Link>
-                        <Link href={'/jobs/list?category=real-estate'}><li className='list-none cursor-pointer'>Real Estate</li></Link>
+                        <Link href={'/jobs/list?category=accounting'}><li className='list-none cursor-pointer'>{t('accounting')}</li></Link>
+                        <Link href={'/jobs/list?category=business-development'}><li className='list-none cursor-pointer'>{t('businessDevelopment')}</li></Link>
+                        <Link href={'/jobs/list?category=human-resource'}><li className='list-none cursor-pointer'>{t('humanResource')}</li></Link>
+                        <Link href={'/jobs/list?category=banking-and-finances'}><li className='list-none cursor-pointer'>{t('banking')}</li></Link>
+                        <Link href={'/jobs/list?category=healthcare'}><li className='list-none cursor-pointer'>{t('healthcare')}</li></Link>
+                        <Link href={'/jobs/list?category=information-tech'}><li className='list-none cursor-pointer'>{t('infoTech')}</li></Link>
+                        <Link href={'/jobs/list?category=sales-and-marketing'}><li className='list-none cursor-pointer'>{t('salesAndMarketing')}</li></Link>
+                        <Link href={'/jobs/list?category=leagal-services'}><li className='list-none cursor-pointer'>{t('legalService')}</li></Link>
+                        <Link href={'/jobs/list?category=real-estate'}><li className='list-none cursor-pointer'>{t('realEstate')}</li></Link>
                     </div>
                   </div>
                 </div>
@@ -238,20 +266,20 @@ export default function Header({ children }) {
 
               <div className="relative group">
                 <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-                <Link href={'/community'}><span>Community</span></Link>
+                <Link href={'/community'}><span> {t('community')} </span></Link>
                 </button>
 
                 <div className="absolute z-20 hidden w-60 bg-grey-200 group-hover:block">       
                   <div className="px-2 pt-2 pb-4 bg-white-500 bg-gray-50 shadow-lg">
                     <div className="flex-column text-left text-xs space-y-4 p-2 rounded">
-                        <Link href={'/community/list?category=auto-service'}><li className='list-none cursor-pointer'>Auto Service</li></Link>
-                        <Link href={'/community/list?category=event-management'}><li className='list-none cursor-pointer'>Event Management</li></Link>
-                        <Link href={'/community/list?category=human-freelancers'}><li className='list-none cursor-pointer'>Freelancers</li></Link>
-                        <Link href={'/community/list?category=health-service'}><li className='list-none cursor-pointer'>Health Service</li></Link>
-                        <Link href={'/community/list?category=home-maintenance'}><li className='list-none cursor-pointer'>Home Maintenancel</li></Link>
-                        <Link href={'/community/list?category=movers'}><li className='list-none cursor-pointer'>Movers & Removals</li></Link>
-                        <Link href={'/community/list?category=restoration-service'}><li className='list-none cursor-pointer'>Restoration & Repair</li></Link>
-                        <Link href={'/community/list?category=tutor-services'}><li className='list-none cursor-pointer'>Tutor service</li></Link>
+                        <Link href={'/community/list?category=auto-service'}><li className='list-none cursor-pointer'>{t('autoService')}</li></Link>
+                        <Link href={'/community/list?category=event-management'}><li className='list-none cursor-pointer'>{t('eventManagement')}</li></Link>
+                        <Link href={'/community/list?category=human-freelancers'}><li className='list-none cursor-pointer'>{t('freelancers')}</li></Link>
+                        <Link href={'/community/list?category=health-service'}><li className='list-none cursor-pointer'>{t('healthService')}</li></Link>
+                        <Link href={'/community/list?category=home-maintenance'}><li className='list-none cursor-pointer'>{t('homeMaintenance')}</li></Link>
+                        <Link href={'/community/list?category=movers'}><li className='list-none cursor-pointer'>{t('movers')}</li></Link>
+                        <Link href={'/community/list?category=restoration-service'}><li className='list-none cursor-pointer'>{t('restoration')}</li></Link>
+                        <Link href={'/community/list?category=tutor-services'}><li className='list-none cursor-pointer'>{t('tutorService')}</li></Link>
                     </div>
                   </div>
                 </div>
@@ -259,21 +287,18 @@ export default function Header({ children }) {
 
               <div className="relative group">
                 <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-                <Link href={'/used-items'}><span>Used Items</span></Link>
+                <Link href={'/used-items'}><span> {t('usedItems')} </span></Link>
                 </button>
 
                 <div className="absolute z-20 hidden w-60 bg-grey-200 group-hover:block">       
                   <div className="px-2 pt-2 pb-4 bg-white-500 bg-gray-50 shadow-lg">
                     <div className="flex-column text-left text-xs space-y-4 p-2 rounded">
-                        <Link href={'/used-items/list?category=electronics'}><li className='list-none cursor-pointer'>Electronics</li></Link>
-                        <Link href={'/used-items/list?category=home-appliances'}><li className='list-none cursor-pointer'>Home Appliances</li></Link>
-                        <Link href={'/used-items/list?category=clothing-accessories'}><li className='list-none cursor-pointer'>CLothing & Accessories</li></Link>
-                        <Link href={'/used-items/list?category=jewerly-wacthes'}><li className='list-none cursor-pointer'>Jewelry watches</li></Link>
-                        <Link href={'/used-items/list?category=music-instruments'}><li className='list-none cursor-pointer'>Music Instruments</li></Link>
-                        <Link href={'/used-items/list?category=gaming'}><li className='list-none cursor-pointer'>Gaming</li></Link>
-                        <Link href={'/used-items/list?category=furniture'}><li className='list-none cursor-pointer'>Furniture</li></Link>
-                        <Link href={'/used-items/list?category=books'}><li className='list-none cursor-pointer'>Books</li></Link>
-                        <Link href={'/used-items/list?category=tickets-vouchers'}><li className='list-none cursor-pointer'>Ticket & Vouchers</li></Link>
+                        <Link href={'/used-items/list?category=electronics'}><li className='list-none cursor-pointer'>{t('electronics')}</li></Link>
+                        <Link href={'/used-items/list?category=clothing-accessories'}><li className='list-none cursor-pointer'>{t('clothing')}</li></Link>
+                        <Link href={'/used-items/list?category=jewerly-wacthes'}><li className='list-none cursor-pointer'>{t('jewelry')}</li></Link>
+                        <Link href={'/used-items/list?category=music-instruments'}><li className='list-none cursor-pointer'>{t('musicInstrument')}</li></Link>
+                        <Link href={'/used-items/list?category=furniture'}><li className='list-none cursor-pointer'>{t('furniture')}</li></Link>
+                        <Link href={'/used-items/list?category=books'}><li className='list-none cursor-pointer'>{t('books')}</li></Link>
                     </div>
                   </div>
                 </div>
@@ -281,7 +306,7 @@ export default function Header({ children }) {
 
               <div className="relative group">
             <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
-            <Link href={'/info-center'}><span>Info Center</span></Link>
+            <Link href={'/info-center'}><span> {t('infoCenter')} </span></Link>
             </button>
 
             <div className="absolute z-20 hidden w-[1000px] bg-grey-200 right-0 group-hover:block">       

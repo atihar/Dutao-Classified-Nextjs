@@ -1,7 +1,10 @@
 import Header from "../components/header"
 import Footer from "../components/footer"
+import useTranslation from "next-translate/useTranslation"
 
 function vip() {
+  const { t} = useTranslation('common')
+
   return (
     <>
     <Header/>
@@ -9,10 +12,10 @@ function vip() {
     <section className="text-white bg-gray-900">
       <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
         <div className="max-w-lg mx-auto text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl">New member? See whats in VIP membership</h2>
+          <h2 className="text-3xl font-bold sm:text-4xl">{t('vipPageHead')}</h2>
 
           <p className="mt-4 text-gray-300">
-            Free delivery, free inspection, dutao fast track support, premium deals and much more..
+            {t('vipPageDesc')}
           </p>
         </div>
 

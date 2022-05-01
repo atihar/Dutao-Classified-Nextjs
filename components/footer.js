@@ -1,6 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
+import useTranslation from "next-translate/useTranslation"
+
 export default function footer() {
+  const { t} = useTranslation('common')
   
     return (
       <footer className="bg-gray-50 mt-5 pt-5">
@@ -10,7 +13,7 @@ export default function footer() {
             <Image src="/dutao.jpeg" alt="Picture of the author" width={200} height={63}/>
       
               <p className="max-w-xs lg:mx-0 mx-auto mt-2 text-sm text-gray-500">
-              Dutao is a online classified platform. It is headquartered in Dubai and its running its operation aiming the Middle East. It has also aimed to help local and travelers to assist in a better way to make the life easier. 
+              {t('footerAbout')}
               </p>
       
               <div className="flex mt-4 space-x-6 text-gray-500 lg:justify-start justify-center">

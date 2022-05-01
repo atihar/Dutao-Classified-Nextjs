@@ -1,17 +1,19 @@
+import useTranslation from 'next-translate/useTranslation'
 
 export default function pJobs() {
+  const { t} = useTranslation('common')
+
   return (
     <section className="flex justify-center">
   <div className="max-w-screen-xl align-center px-4 py-16 sm:px-6 lg:px-8">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-16 lg:items-center">
       <div className="max-w-lg mx-auto text-center p-8  lg:text-left lg:mx-0">
       <h2 className="text-2xl font-bold">
-                Find your next job, Fast
+              {t('findjob')}
             </h2>
 
         <p className="mt-4 text-base text-gray-600">
-        You'll receive push notifications when your resume is viewed, or when new jobs appear in 
-        your most recent search. Making it easy for you to jump right back into your job search.
+          {t('jobDetailsinHome')}
         </p>
 
         <a

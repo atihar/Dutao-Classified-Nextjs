@@ -1,5 +1,8 @@
 import Link from 'next/link'
+import useTranslation from 'next-translate/useTranslation'
+
 export default function vvipHome() {
+    const { t} = useTranslation('common')
   return (
     <section>
         <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
@@ -15,14 +18,14 @@ export default function vvipHome() {
                 <div className="relative max-w-screen-xl px-4 py-32 mx-auto lg:h-3/4 lg:items-center">
                     <div className="max-w-xl text-center sm:text-left">
                     <h1 className="text-3xl font-extrabold sm:text-5xl">
-                        1 year of Premium
+                        {t('oneYearPremium')}
                         <strong className="font-extrabold text-red-500 sm:block">
-                        through Dutao VIP
+                        {t('throughSignup')}
                         </strong>
                     </h1>
 
                     <p className="max-w-lg mt-4 sm:leading-relaxed sm:text-xl">
-                        Get the special products access and much more with dutao VIP membership
+                        {t('homeGetSpecialProducts')}
                     </p>
 
                     <div className="flex flex-wrap gap-4 mt-8 text-center">

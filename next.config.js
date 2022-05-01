@@ -1,4 +1,9 @@
-module.exports = { 
+const nextTranslate = require('next-translate')
+
+  module.exports = nextTranslate({
+    webpack: (config, { isServer, webpack }) => {
+      return config;
+    },
     reactStrictMode: true,
-    swcMinify: true,
-  }
+    swcMinify: true
+  })
