@@ -55,14 +55,16 @@ export default function footer() {
             <div className="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4 lg:text-left text-center">
               <div>
                 <p className="text-red-500 font-bold">
-                  Company
+                  Recents
                 </p>
       
                 <nav className="flex flex-col mt-2 space-y-2 text-sm text-gray-500">
-                  <a className="hover:opacity-75" href="/about"> About </a>
-                  <a className="hover:opacity-75" href=""> Meet the Team </a>
-                  <a className="hover:opacity-75" href=""> History </a>
-                  <a className="hover:opacity-75" href=""> Careers </a>
+                  <a className="hover:opacity-75" href=""> Villa for Rent </a>
+                  <a className="hover:opacity-75" href=""> Jobs in Dubai </a>
+                  <a className="hover:opacity-75" href=""> Home maintenance </a>
+                  <a className="hover:opacity-75" href=""> Marketing jobs in Dubai </a>
+                  <a className="hover:opacity-75" href=""> Bars near me </a>
+                  <a className="hover:opacity-75" href=""> Restaurants in Creek </a>
                 </nav>
               </div>
       
@@ -100,7 +102,7 @@ export default function footer() {
                 <nav className="flex flex-col mt-2 space-y-2 text-sm text-gray-500">
                   <Link className="hover:opacity-75" href="/privacy-policy"> Privacy Policy </Link>
                   <Link className="hover:opacity-75" href="/terms-and-conditions"> Terms & Conditions </Link>
-                  <a className="hover:opacity-75" href=""> Returns Policy </a>
+                  <a className="hover:opacity-75" href="/about"> About </a>
                   <a className="hover:opacity-75" href=""> Accessibility </a>
                 </nav>
               </div>

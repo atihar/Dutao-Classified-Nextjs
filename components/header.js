@@ -1,6 +1,7 @@
 //hydration problem solve https://github.com/vercel/next.js/discussions/17443 for logical menu & SSR
 
 import Link from 'next/link';
+import Head from 'next/head';
 import Image from 'next/image';
 import { Store } from '../lib/Store';
 import React, { useContext, useEffect, useState } from 'react';
@@ -36,6 +37,10 @@ export default function Header({ children }) {
 
   return ( 
     <>
+    <Head>
+        <title>Dutao</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
     {/* topbar */}
 
       {/* <aside className="p-3 text-white bg-gradient-to-r from-red-500 to-orange-500">
