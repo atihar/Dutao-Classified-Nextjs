@@ -322,41 +322,33 @@ export default function Header({ children }) {
                     <h6 className='text-base font-bold'>Dubai</h6>
                     <hr/>
                     <p>Business Bay</p>
-                    <p>Marina</p>
+                    <p>Al Safa</p>
                     <p>Al Barsha</p>
-                    <p>Deira</p>
+                    <p>Arabian Ranches 3</p>
                   </div>
                   <div className='text-left space-y-1'>
-                    <h6 className='text-base font-bold'>Abu Dhabi</h6>
+                    <h6 className='text-base font-bold'>more places</h6>
                     <hr/>
-                    <p>Business Bay</p>
-                    <p>Marina</p>
-                    <p>Al Barsha</p>
-                    <p>Deira</p>
+                    <p>Damac Hills</p>
+                    <p>Bur Dubai</p>
+                    <p>Emirates Hills</p>
+                    <p>Jebel Ali</p>
                   </div>
                   <div className='text-left space-y-1'>
-                    <h6 className='text-base font-bold'>Ajman</h6>
+                    <h6 className='text-base font-bold'>more places</h6>
                     <hr/>
-                    <p>Business Bay</p>
-                    <p>Marina</p>
-                    <p>Al Barsha</p>
-                    <p>Deira</p>
+                    <p>Jumeirah Park</p>
+                    <p>Al Jaddaf</p>
+                    <p>Internet City</p>
+                    <p>Dubai Waterfront</p>
                   </div>
                   <div className='text-left space-y-1'>
-                    <h6 className='text-base font-bold'>Ras al Khaimah</h6>
+                    <h6 className='text-base font-bold'>more places</h6>
                     <hr/>
-                    <p>Business Bay</p>
-                    <p>Marina</p>
-                    <p>Al Barsha</p>
-                    <p>Deira</p>
-                  </div>
-                  <div className='text-left space-y-1'>
-                    <h6 className='text-base font-bold'>Fujiran</h6>
-                    <hr/>
-                    <p>Business Bay</p>
-                    <p>Marina</p>
-                    <p>Al Barsha</p>
-                    <p>Deira</p>
+                    <p>Al Quoz</p>
+                    <p>The Springs</p>
+                    <p>Creek Harbour</p>
+                    <p>Umm Suqeim</p>
                   </div>
                    <div className='text-left space-y-1'>
                         <a className="inline-flex items-center px-8 py-3 text-red-500  focus:ring" href="/info-center">

@@ -151,7 +151,7 @@ export default function propertyForSalePost({ children }) {
             <label htmlFor="title" className="sr-only">Ad Title</label>
 
             <div className="relative">
-                <input type="text" className="w-full p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm focus:outline-none" placeholder="Enter Ad Title"
+                <input type="text" className="w-full p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm border-2 focus:outline-none" placeholder="Enter Ad Title"
                 {...register('title')}/>
 
                 <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -177,7 +177,7 @@ export default function propertyForSalePost({ children }) {
                     transition
                     ease-in-out
                     bg-gray-50
-                    m-0
+                    m-0 border-2
                     focus:text-gray-500 focus:bg-white"
                     {...register('category')}>
                         <option defaultValue>Property Type</option>
@@ -194,7 +194,7 @@ export default function propertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="text"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 rounded-lg shadow-sm focus:outline-none "
+                    className="w-full p-4 pr-12 text-sm bg-gray-50 rounded-lg shadow-sm border-2 focus:outline-none "
                     placeholder="Property Address"
                     {...register('address')}/>
 
@@ -223,7 +223,7 @@ export default function propertyForSalePost({ children }) {
             <div>
             <label className="sr-only" htmlFor="description">Property Description</label>
             <textarea
-              className="w-full p-3 text-sm bg-gray-50 rounded-lg focus:outline-none"
+              className="w-full p-3 text-sm bg-gray-50 rounded-lg border-2 focus:outline-none"
               placeholder="Property Description"
               rows="8"
               id="description"
@@ -244,14 +244,14 @@ export default function propertyForSalePost({ children }) {
                     transition
                     ease-in-out
                     bg-gray-50 focus:outline-none
-                    m-0
+                    m-0 border-2
                     focus:text-gray-500 focus:bg-white"
                     {...register('city')}>
                         <option defaultValue>Select City</option>
-                        <option value="1">Dubai</option>
-                        <option value="1">Abu Dhabi</option>
-                        <option value="2">Ajman</option>
-                        <option value="3">Sharjah</option>
+                        <option value="dubai">Dubai</option>
+                        <option value="abu-dhabi">Abu Dhabi</option>
+                        <option value="ajman">Ajman</option>
+                        <option value="sharjah">Sharjah</option>
                     </select>
                 </div>
                 </div>
@@ -268,14 +268,14 @@ export default function propertyForSalePost({ children }) {
                     transition
                     ease-in-out
                     bg-gray-50 focus:outline-none
-                    m-0
+                    m-0 border-2
                     focus:text-gray-500 focus:bg-white"
                     {...register('area')}>
                         <option defaultValue>Select Area</option>
-                        <option value="1">Business Bay</option>
-                        <option value="1">Marina</option>
-                        <option value="2">Deira</option>
-                        <option value="3">International City</option>
+                        <option value="business-bay">Business Bay</option>
+                        <option value="marina">Marina</option>
+                        <option value="deira">Deira</option>
+                        <option value="international-city">International City</option>
                     </select>
                 </div>
                 </div>
@@ -293,7 +293,7 @@ export default function propertyForSalePost({ children }) {
                     transition
                     ease-in-out
                     bg-gray-50 focus:outline-none
-                    m-0
+                    m-0 border-2
                     focus:text-gray-500 focus:bg-white"
                     {...register('listedBy')}>
                         <option defaultValue>Posting as a</option>
@@ -315,7 +315,7 @@ export default function propertyForSalePost({ children }) {
                     transition
                     ease-in-out
                     bg-gray-50 focus:outline-none
-                    m-0
+                    m-0 border-2
                     focus:text-gray-500 focus:bg-white"
                     {...register('bedroom')}>
                         <option defaultValue>Bedroom</option>
@@ -340,7 +340,7 @@ export default function propertyForSalePost({ children }) {
                     transition
                     ease-in-out
                     bg-gray-50 focus:outline-none
-                    m-0
+                    m-0 border-2
                     focus:text-gray-500 focus:bg-white"
                     {...register('bathroom')}>
                         <option defaultValue>Bathroom</option>
@@ -358,7 +358,7 @@ export default function propertyForSalePost({ children }) {
             <div className="relative">
                 <input
                 type="number"
-                className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none border-2 rounded-lg shadow-sm"
                 placeholder="Size in sqft"
                 {...register('size')}/>
 
@@ -370,7 +370,7 @@ export default function propertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder="Sale Price in AED"
                     {...register('price')}/>
 
@@ -382,7 +382,7 @@ export default function propertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder="Annual Community Fee (AED)"
                     {...register('annualCommunityFee')}/>
 
@@ -394,7 +394,7 @@ export default function propertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder="Buyer Transfer Fee (AED)"
                     {...register('buyerTransferFee')}/>
 
@@ -406,7 +406,7 @@ export default function propertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder="Seller Transfer Fee (AED)"
                     {...register('sellerTransferFee')}/>
 
@@ -418,7 +418,7 @@ export default function propertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder="Maintenance Fee (AED)"
                     {...register('maintenanceFee')}/>
 
@@ -430,7 +430,7 @@ export default function propertyForSalePost({ children }) {
             <div className="relative">
                 <input
                 type="text"
-                className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                 placeholder="Developer"
                 {...register('developer')}/>
             </div>
@@ -441,7 +441,7 @@ export default function propertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="text"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder="Youtube/Vimeo Video URL"
                     {...register('video')}/>
                 </div>
@@ -456,7 +456,7 @@ export default function propertyForSalePost({ children }) {
             <div className="relative">
                 <input
                 type="text"
-                className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                 placeholder="Building Name"
                 {...register('buildingName')}/>
             </div>
@@ -467,7 +467,7 @@ export default function propertyForSalePost({ children }) {
             <div className="relative">
                 <input
                 type="number"
-                className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                 placeholder="Property Reference"
                 {...register('propertyRef')}/>
             </div>
@@ -478,7 +478,7 @@ export default function propertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder="RERA Permit Number"
                     {...register('RERApermitNo')}/>
                 </div>
@@ -489,7 +489,7 @@ export default function propertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder="Contact Number"
                     {...register('phone')}/>
                 </div>

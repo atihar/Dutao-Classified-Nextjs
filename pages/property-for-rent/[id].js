@@ -7,7 +7,6 @@ import moment from "moment";
 
 
 export default function singlePropertySale({property}){
-    const propertyInfo = property.propertyInfo;
     const postedDate = moment(property.createdAt).startOf('hour').fromNow();
 
     return(
@@ -18,11 +17,12 @@ export default function singlePropertySale({property}){
                     <div className="grid sm:grid-cols-[2fr_1fr] gap-4">
                         <div>
                             <h1>{property.title}</h1>
-                            <p className="text-sm text-gray-500 mb-3">Dubai{`>`} Business Bay</p>
+                            <p className="text-sm text-gray-500 mb-3">Dubai{`>`} {property.area}</p>
                            
                             <div className="grid">       
                                 {property.images.map((x, i)=>{
-                                    return <img className=" md:h-auto object-cover md:w-[96] rounded-t-lg md:rounded-none md:rounded-l-lg" key={i} src={"https://dutao.s3.me-south-1.amazonaws.com/" + x } alt="" />
+                                    return <img className=" md:h-auto object-cover md:w-[96] rounded-t-lg md:rounded-none md:rounded-l-lg" 
+                                    key={i} src={`https://dutao-public.s3.amazonaws.com/` + x } alt="" />
                                 })}
                             </div>
                             
@@ -65,23 +65,19 @@ export default function singlePropertySale({property}){
 
                                     <tr>
                                         <td className="p-4 font-medium whitespace-nowrap">Furnished</td>
-                                        <td className="p-4 text-gray-700 whitespace-nowrap">No</td>
+                                        <td className="p-4 text-gray-700 whitespace-nowrap">{property.furnished ? "Yes" : "No"}</td>
                                     </tr>
 
                                     <tr>
                                         <td className="p-4 font-medium whitespace-nowrap">Property For</td>
-                                        <td className="p-4 py-2 text-gray-700 whitespace-nowrap">Sale</td>
+                                        <td className="p-4 py-2 text-gray-700 whitespace-nowrap">Rent</td>
                                     </tr>
 
                                     <tr>
                                         <td className="p-4 font-medium whitespace-nowrap">Listed By</td>
-                                        <td className="p-4 text-gray-700 whitespace-nowrap">{propertyInfo.listedBy}</td>
+                                        <td className="p-4 text-gray-700 whitespace-nowrap">Dutao</td>
                                     </tr>
 
-                                    <tr>
-                                        <td className="p-4 font-medium whitespace-nowrap">Property Reference</td>
-                                        <td className="p-4 text-gray-700 whitespace-nowrap">{propertyInfo.propertyRef}</td>
-                                    </tr>
 
                                     <tr>
                                         <td className="p-4 font-medium whitespace-nowrap">Posted On</td>
@@ -91,7 +87,7 @@ export default function singlePropertySale({property}){
                                 </table>
 
                                 <h3 className="pt-4">Where you'll be</h3>
-                                <p className="text-sm text-gray-500">Dubai {`>`} Business Bay</p>
+                                <p className="text-sm text-gray-500">{property.city} {`>`} {property.area}</p>
                             </div>
                             <div>
                             <a href="" className="block py-6 mt-16 text-center p-6 transition-shadow bg-white sm:pr-12 group hover:shadow-sm shadow-lg rounded">
@@ -120,10 +116,8 @@ export default function singlePropertySale({property}){
                     
                         <div>
                             <div className="p-10 border border-gray-200 grid rounded-lg">
-                                <img src="https://www.damacproperties.com/images/damac-logo.jpg" alt=""/>
-                                <p className="text-sm">Agent</p>
-                                <h1 className="pb-3">{property.propertyInfo.listedBy}</h1>
-                                <p className="text-sm">RERA Registration No : {property.propertyInfo.RERApermitNo}</p>
+                                <img className="rounded-full h-[70px] mx-auto border-gray-300 border-2" src="https://stonegatesl.com/wp-content/uploads/2021/01/avatar-300x300.jpg" alt=""/>
+                                <p className="text-sm">Posted by : {property.listedBy}</p>
                                 <p className="text-sm pb-5">DED license no : 213234</p>
 
                                     <a className="inline-block space-x-2 text-center px-12 py-3 text-sm font-medium text-white bg-red-600 border border-red-600 rounded active:text-red-500 hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring" href="">

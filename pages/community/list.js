@@ -52,7 +52,7 @@ export default function communityList(props) {
                   <Link href={'/community/'+ items._id}>
                   <div className="sm:flex w-full rounded-lg bg-white shadow-lg">
                   <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " 
-                  src={"https://dutao.s3.me-south-1.amazonaws.com/"+ items.images[0]} alt="" />
+                  src={`https://dutao-public.s3.amazonaws.com/`+ items.images[0]} alt="" />
                     {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}
                     
                     <div className="py-4 px-6 w-full">
@@ -77,7 +77,7 @@ export default function communityList(props) {
                       </div>
                       
 
-                      <p className="mb-1 text-lg font-bold text-red-600">AED {property.price}</p>
+                      <p className="mb-1 text-lg font-bold text-red-600">AED {items.price}</p>
 
                       <p className="text-gray-400 py-1 text-xs">Last updated 3 mins ago</p>
 
@@ -85,7 +85,7 @@ export default function communityList(props) {
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="18" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                             <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
                             </svg>
-                            {property.address}
+                            {items.address}
                         </p>  
                         <a className="inline-block text-center px-4 py-1 text-sm font-medium text-white bg-red-600 border border-red-600 rounded active:text-red-500 hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring" href="">
                           <div className="flex"> 

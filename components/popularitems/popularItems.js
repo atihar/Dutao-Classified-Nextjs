@@ -45,7 +45,7 @@ export default function popularItems(props) {
                         <img
                         alt="dutao listings"
                         className="object-cover rounded"
-                        src={"https://dutao.s3.me-south-1.amazonaws.com/" + x.images[0] }
+                        src={`https://dutao-public.s3.amazonaws.com/` + x.images[0] }
                         />
                     </div>
         
@@ -60,7 +60,7 @@ export default function popularItems(props) {
                         </h5>
         
                         <p className="mt-1 text-sm text-gray-700">
-                        AED 250000
+                        {x.price}
                         </p>
                     </div>
                     </a>

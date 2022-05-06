@@ -21,7 +21,7 @@ export default function singlePropertySale({items}){
                            
                             <div className="grid">       
                                 {items.images.map((x, i)=>{
-                                    return <img className=" md:h-auto object-cover md:w-[96] rounded-t-lg md:rounded-none md:rounded-l-lg" key={i} src={"https://dutao.s3.me-south-1.amazonaws.com/" + x } alt="" />
+                                    return <img className=" md:h-auto object-cover md:w-[96] rounded-t-lg md:rounded-none md:rounded-l-lg" key={i} src={`https://dutao-public.s3.amazonaws.com/`+ x } alt="" />
                                 })}
                             </div>
                             
@@ -47,7 +47,10 @@ export default function singlePropertySale({items}){
                             <a href="" className="block py-6 mt-16 text-center p-6 transition-shadow bg-white sm:pr-12 group hover:shadow-sm shadow-lg rounded">
                                 <span className="inline-block p-2 text-white bg-red-600 rounded-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" className="bi bi-flag-fill" viewBox="0 0 16 16">
-                                    <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001"/>
+                                    <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 
+                                    1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 
+                                    0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 
+                                    0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001"/>
                                     </svg>
                                 </span>
 
@@ -70,10 +73,9 @@ export default function singlePropertySale({items}){
                     
                         <div>
                             <div className="p-10 border border-gray-200 grid rounded-lg">
-                                <img src="https://www.damacproperties.com/images/damac-logo.jpg" alt=""/>
-                                <p className="text-sm">Agent</p>
+                            <img className="rounded-full h-[70px] mx-auto border-gray-300 border-2" src="https://stonegatesl.com/wp-content/uploads/2021/01/avatar-300x300.jpg" alt=""/>
+                                <p className="text-sm">Posted By : {items.postedBy}</p>
                                 <h1 className="pb-3">{items.listedBy}</h1>
-                                <p className="text-sm pb-5">DED license no : 213234</p>
 
                                     <a className="inline-block space-x-2 text-center px-12 py-3 text-sm font-medium text-white bg-red-600 border border-red-600 rounded active:text-red-500 hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring" href="">
                                     <div className="flex justify-center "> 

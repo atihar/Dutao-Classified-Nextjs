@@ -98,7 +98,7 @@ export default function singleJobs({job}){
                            
                             <div className="grid">       
                                 {job.images.map((x, i)=>{
-                                    return <img className=" md:h-auto object-cover md:w-[96] rounded-t-lg md:rounded-none md:rounded-l-lg" key={i} src={"https://dutao.s3.me-south-1.amazonaws.com/" + x } alt="" />
+                                    return <img className=" md:h-auto object-cover md:w-[96] rounded-t-lg md:rounded-none md:rounded-l-lg" key={i} src={`https://dutao-public.s3.amazonaws.com/`+ x } alt="" />
                                 })}
                             </div>
                             

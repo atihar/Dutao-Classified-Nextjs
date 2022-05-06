@@ -64,9 +64,8 @@ export default function propertyForSalePost({ children }) {
     }
         
     //   handling form on submit button
-      const onSubmit = async ({ title, category, address, description,price, city, area, listedBy, 
-        buildingName, propertyRef, RERApermitNo, amenities, developer, bathroom, bedroom,
-        size, annualCommunityFee, buyerTransferFee, sellerTransferFee, maintenanceFee, video}) => {
+      const onSubmit = async ({ title, category, address, description,price, city, area, postedBy, 
+        buildingName, amenities, bathroom, bedroom, size, furnished, maintenanceFee, video, phone}) => {
 
         try {
           const { data } = await axios.post('/api/property-for-rent', {
@@ -77,26 +76,20 @@ export default function propertyForSalePost({ children }) {
             description,
             city,
             area,
-            listedBy,
+            postedBy,
             price,
             buildingName,
-            propertyRef,
-            RERApermitNo,
             amenities,
             latitude: "10.998877",
             longitude: "8798.789",
             video,
-            property: "dutao",
-            developer,
             bathroom,
             bedroom,
             size,
-            annualCommunityFee,
-            buyerTransferFee,
-            sellerTransferFee,
+            furnished,
             maintenanceFee,
             userEmail: userEmail,
-            phone: "092910281",
+            phone
           },
           {
             headers: { authorization: `Bearer ${userInfo.token}` }
@@ -248,10 +241,10 @@ export default function propertyForSalePost({ children }) {
                     focus:text-gray-500 focus:bg-white"
                     {...register('city')}>
                         <option defaultValue>Select City</option>
-                        <option value="1">Dubai</option>
-                        <option value="1">Abu Dhabi</option>
-                        <option value="2">Ajman</option>
-                        <option value="3">Sharjah</option>
+                        <option value="dubai">Dubai</option>
+                        <option value="abu-dhabi">Abu Dhabi</option>
+                        <option value="ajman">Ajman</option>
+                        <option value="sharjah">Sharjah</option>
                     </select>
                 </div>
                 </div>
@@ -272,10 +265,10 @@ export default function propertyForSalePost({ children }) {
                     focus:text-gray-500 focus:bg-white"
                     {...register('area')}>
                         <option defaultValue>Select Area</option>
-                        <option value="1">Business Bay</option>
-                        <option value="1">Marina</option>
-                        <option value="2">Deira</option>
-                        <option value="3">International City</option>
+                        <option value="business-bay">Business Bay</option>
+                        <option value="marina">Marina</option>
+                        <option value="deira">Deira</option>
+                        <option value="international-city">International City</option>
                     </select>
                 </div>
                 </div>
@@ -295,7 +288,7 @@ export default function propertyForSalePost({ children }) {
                     bg-gray-50 focus:outline-none
                     m-0
                     focus:text-gray-500 focus:bg-white"
-                    {...register('listedBy')}>
+                    {...register('postedBy')}>
                         <option defaultValue>Posting as a</option>
                         <option value="landlord">Landlord</option>
                         <option value="agency">Agency</option>
@@ -354,6 +347,28 @@ export default function propertyForSalePost({ children }) {
             </div>
 
             <div>
+                <div className="mb-3 xl:w-100">
+                    <select className="form-select block
+                    w-full
+                    p-4
+                    text-sm
+                    text-gray-400
+                    bg-clip-padding bg-no-repeat
+                    rounded
+                    transition
+                    ease-in-out
+                    bg-gray-50 focus:outline-none
+                    m-0
+                    focus:text-gray-500 focus:bg-white"
+                    {...register('furnished')}>
+                        <option defaultValue>Bathroom</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">NO</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
             <label htmlFor="size" className="sr-only">Size</label>
             <div className="relative">
                 <input
@@ -377,44 +392,9 @@ export default function propertyForSalePost({ children }) {
                 </div>
             </div>
 
-            <div>
-                <label htmlFor="annualCommunityFee" className="sr-only">Annual Cummunity Fees</label>
-                <div className="relative">
-                    <input
-                    type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="Annual Community Fee (AED)"
-                    {...register('annualCommunityFee')}/>
-
-                </div>
-            </div>
 
             <div>
-                <label htmlFor="buyerTransferFee" className="sr-only">Buyer Transfer Fees</label>
-                <div className="relative">
-                    <input
-                    type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="Buyer Transfer Fee (AED)"
-                    {...register('buyerTransferFee')}/>
-
-                </div>
-            </div>
-
-            <div>
-                <label htmlFor="sellerTransferFee" className="sr-only">Seller Transfer Fees</label>
-                <div className="relative">
-                    <input
-                    type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="Seller Transfer Fee (AED)"
-                    {...register('sellerTransferFee')}/>
-
-                </div>
-            </div>
-
-            <div>
-                <label htmlFor="maintenanceFee" className="sr-only">MaintenanceFees</label>
+                <label htmlFor="maintenanceFee" className="sr-only">Maintenance Fees</label>
                 <div className="relative">
                     <input
                     type="number"
@@ -423,17 +403,6 @@ export default function propertyForSalePost({ children }) {
                     {...register('maintenanceFee')}/>
 
                 </div>
-            </div>
-
-            <div>
-            <label htmlFor="developer" className="sr-only">Developer</label>
-            <div className="relative">
-                <input
-                type="text"
-                className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                placeholder="Developer"
-                {...register('developer')}/>
-            </div>
             </div>
             
             <div>
@@ -444,43 +413,6 @@ export default function propertyForSalePost({ children }) {
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                     placeholder="Youtube/Vimeo Video URL"
                     {...register('video')}/>
-                </div>
-            </div>
-
-            <p className=' p-4 font-bold text-sm text-gray-400'>We need a few more details for processing verification</p>
-
-
-            {/* listing as */}
-            <div>
-            <label htmlFor="buildingName" className="sr-only">Building Name</label>
-            <div className="relative">
-                <input
-                type="text"
-                className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                placeholder="Building Name"
-                {...register('buildingName')}/>
-            </div>
-            </div>
-
-            <div>
-            <label htmlFor="propertyRef" className="sr-only">Property Reference</label>
-            <div className="relative">
-                <input
-                type="number"
-                className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                placeholder="Property Reference"
-                {...register('propertyRef')}/>
-            </div>
-            </div>
-
-            <div>
-                <label htmlFor="reraPermit" className="sr-only">RERA permit no</label>
-                <div className="relative">
-                    <input
-                    type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="RERA Permit Number"
-                    {...register('RERApermitNo')}/>
                 </div>
             </div>
 

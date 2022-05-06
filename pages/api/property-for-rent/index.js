@@ -1,6 +1,6 @@
 import nc from 'next-connect';
 import db from '../../../lib/dbConnect';
-import PropertyForRent from '../../../models/propertyForSale'
+import PropertyForRent from '../../../models/propertyForRent'
 import { isAuth } from '../../../lib/auth';
 
 
@@ -12,12 +12,11 @@ handler.post(async (req, res) => {
   const newPropertyForRent = new PropertyForRent({
     title: req.body.title,
     category: req.body.category,
-    property: req.body.property,
     verifiedOrNot: false,
     isFeatured:false,
+    furnished: req.body.furnished,
     city: req.body.city,
     area: req.body.area,
-    markedOrNot: false,
     postedBy: req.body.postedBy,
     images: req.body.images,
     video: req.body.video,
@@ -29,23 +28,12 @@ handler.post(async (req, res) => {
     size: req.body.size,
     bedroom: req.body.bedroom,
     bathroom: req.body.bathroom,
-    developer: req.body.developer,
-    annualCommunityFee: req.body.annualCommunityFee,
-    buyerTransferFee:req.body.buyerTransferFee,
-    sellerTransferFee: req.body.sellerTransferFee,
     maintenanceFees: req.body.maintenanceFees,
     mapData:{
         latitude: req.body.latitude,
         longitude: req.body.longitude
     },
     amenities: req.body.amenities,
-    propertyInfo:{
-        apartmentFor:req.body.apartmentFor,
-        listedBy: req.body.listedBy,
-        propertyRef:req.body.propertyRef,
-        buildingName:req.body.buildingName,
-        RERApermitNo:req.body.RERApermitNo
-    }
   });
 
   const propertyForRent = await newPropertyForRent.save();

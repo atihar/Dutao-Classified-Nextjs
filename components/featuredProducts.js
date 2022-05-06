@@ -52,7 +52,7 @@ export default function featuredProducts(props){
                 {data && data.map((property, key) => (
                         <SwiperSlide key={key} className="swiper-slide">
                         <div className="bg-white rounded-lg shadow-lg">
-                                        <img src={"https://dutao.s3.me-south-1.amazonaws.com/"+ property.images[0]}  alt="" className="rounded-t-lg" placeholder="blur"/>
+                                        <img src={`https://dutao-public.s3.amazonaws.com/`+ property.images[0]}  alt="" className="rounded-t-lg" placeholder="blur"/>
                                         <div className="p-2">
                                             <p className="mb-1 text-base font-bold text-red-600">AED {property.price}</p>
                                             <p className="mb-2 text-sm font-bold">                                              
