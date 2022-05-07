@@ -51,7 +51,7 @@ export default function mySearches() {
                         <h2 className="font-bold">My Searches</h2>
                         <hr/>
                         <br/>
-                        <o className="p-8 text-gray-300">no search result to display</o>         
+                        <p className="py-8 text-gray-300">no search result to display</p>         
                     </div>  
                 </div>
                 

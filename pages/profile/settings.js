@@ -50,9 +50,9 @@ export default function settings() {
                     <div className="py-5 w-full bg-gray-100 mt-4 rounded-lg p-5">
                         <h2 className="font-bold">Profile Settings</h2>
                         <hr/>
-                        <p className="text-base"><input type="checkbox" class="checked:bg-blue-500 mr-5" />
+                        <p className="text-base"><input type="checkbox" className="checked:bg-blue-500 mr-5" />
                         Receive promotional email about events</p>            
-                        <p className="text-base"><input type="checkbox" class="checked:bg-blue-500 mr-5" />
+                        <p className="text-base"><input type="checkbox" className="checked:bg-blue-500 mr-5" />
                         Receive dutao special products deals in email</p>          
                     </div>  
                 </div>

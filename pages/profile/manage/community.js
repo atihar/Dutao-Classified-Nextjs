@@ -93,9 +93,9 @@ export default function managePropertyForSale() {
   return (
       <>
         <Header></Header>
-        <div className='max-w-screen-xl w-screen mx-auto py-4 px-8 my-4 rounded-lg shadow '>
+        <div className='sm:max-w-screen-xl sm:w-screen mx-auto py-4 px-8 my-4 rounded-lg shadow '>
         <h2 className="font-bold py-5"> Dutao User Dashboard</h2>
-            <div className="grid grid-cols-[1fr_1fr_4fr] gap-4">
+            <div className="grid sm:grid-cols-[1fr_1fr_4fr] gap-4">
                 <div>
                     <ul className="text-base space-y-4">
                           <Link href={'/profile'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Profile</li></Link>
@@ -108,7 +108,7 @@ export default function managePropertyForSale() {
                     </ul>
                 </div>
                 <div>
-                  <ul className="text-base space-y-4">
+                  <ul className="ml-10 sm:ml-0 text-base space-y-4">
                           <Link href={'/profile/manage/property-for-sale'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Property (Sale)</li></Link>
                           <Link href={'/profile/manage/property-for-rent'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">Property (Rent)</li></Link>
                           <Link href={'/profile/manage/motors'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">Motors</li></Link>
@@ -124,8 +124,8 @@ export default function managePropertyForSale() {
                   
                   <hr></hr>
                 {posts && posts.map((ad) => (
-                <div className=" flex justify-center' py-2" key={ad._id} >
-                  <div className="flex w-full rounded-lg bg-white shadow-lg">
+                <div className="sm:flex justify-center' py-2" key={ad._id} >
+                  <div className="sm:flex w-full rounded-lg bg-white shadow-lg">
                   <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " src={`https://dutao-public.s3.amazonaws.com/`+ ad.images[0]} alt="" />
                     {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}
                     

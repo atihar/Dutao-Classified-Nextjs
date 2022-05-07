@@ -96,7 +96,7 @@ export default function manageJobs() {
         <Header></Header>
         <div className='max-w-screen-xl w-screen mx-auto py-4 px-8 my-4 rounded-lg shadow '>
         <h2 className="font-bold py-5"> Dutao User Dashboard</h2>
-            <div className="grid grid-cols-[1fr_3fr] gap-4">
+            <div className="grid sm:grid-cols-[1fr_3fr] gap-4">
                 <div>
                         <ul className="text-base space-y-4">
                             <Link href={'/profile'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Profile</li></Link>
@@ -116,8 +116,8 @@ export default function manageJobs() {
                   
                   <hr></hr>
                 {posts && posts.map((job) => (
-                <div className=" flex justify-center' py-2" key={job._id} >
-                  <div className="flex w-full rounded-lg bg-white shadow-lg">
+                <div className="sm:flex justify-center' py-2" key={job._id} >
+                  <div className="sm:flex w-full rounded-lg bg-white shadow-lg">
                   <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " src={`https://dutao-public.s3.amazonaws.com/`+ job.images[0]} alt="" />
                     {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}
                     

@@ -350,8 +350,8 @@ export default function myUserInformation() {
 
                         <div className="">
                                 <div className="mb-3 w-100 p-3">
-                                    <p className='text-sm font-bold'>Current CV : <a href={`https://dutao.s3.me-south-1.amazonaws.com/${stateCv}`}>{stateCv}</a>
-                                    <img className="md:h-auto object-cover md:w-[96] rounded-t-lg md:rounded-none md:rounded-l-lg" src={`https://dutao.s3.me-south-1.amazonaws.com/${stateCv}`} alt="" />
+                                    <p className='text-sm font-bold'>Current CV : <a href={`https://dutao-public.s3.amazonaws.com/${stateCv}`}>{stateCv}</a>
+                                    <img className="md:h-auto object-cover md:w-[96] rounded-t-lg md:rounded-none md:rounded-l-lg" src={`https://dutao-public.s3.amazonaws.com/${stateCv}`} alt="" />
                                     </p> 
 
                                     <label htmlFor="formFileMultiple" className="form-label inline-block text-sm mb-2 text-gray-400 ">Upload Your Recent CV to replace old one</label>
