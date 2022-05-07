@@ -5,12 +5,14 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from "next/router";
 import { Store } from '../../lib/Store';
 import React, { useContext, useEffect, useState } from 'react';
+import cityData from '../../lib/data.json'
 
 export default function propertyForSalePost({ children }) {
     const router = useRouter();
     const { state } = useContext(Store);
     const { userInfo } = state;
     const [ userEmail, setUserEmail] = useState("");
+    const [parent, setParent] = useState("");
 
     useEffect(() => {
         if (!userInfo) {
@@ -132,16 +134,8 @@ export default function propertyForSalePost({ children }) {
             <label htmlFor="title" className="sr-only">Ad Title</label>
 
             <div className="relative">
-                <input type="text" className="w-full p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm focus:outline-none" placeholder="Enter Ad Title"
+                <input type="text" className="w-full p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm focus:outline-none border-2" placeholder="Enter Ad Title"
                 {...register('title')}/>
-
-                <span className="absolute inset-y-0 inline-flex items-center right-4">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                    d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"/>
-                </svg>
-                </span>
             </div>
             </div>
 
@@ -158,7 +152,7 @@ export default function propertyForSalePost({ children }) {
                     transition
                     ease-in-out
                     bg-gray-50
-                    m-0
+                    m-0 border-2
                     focus:text-gray-500 focus:bg-white"
                     {...register('category')}>
                         <option defaultValue>Select Category</option>
@@ -181,25 +175,11 @@ export default function propertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="text"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 rounded-lg shadow-sm focus:outline-none "
+                    className="w-full p-4 pr-12 text-sm bg-gray-50 rounded-lg shadow-sm focus:outline-none border-2"
                     placeholder="Office Address"
                     {...register('address')}/>
 
                     <span className="absolute inset-y-0 inline-flex items-center right-4">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5 text-gray-400"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                    <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                    />
-                </svg>
                 </span>
             </div>
             </div>
@@ -210,7 +190,7 @@ export default function propertyForSalePost({ children }) {
             <div>
             <label className="sr-only" htmlFor="description">Service Description</label>
             <textarea
-              className="w-full p-3 text-sm bg-gray-50 rounded-lg focus:outline-none"
+              className="w-full p-3 text-sm bg-gray-50 rounded-lg focus:outline-none border-2"
               placeholder="Property Description"
               rows="8"
               id="description"
@@ -231,14 +211,13 @@ export default function propertyForSalePost({ children }) {
                     transition
                     ease-in-out
                     bg-gray-50 focus:outline-none
-                    m-0
+                    m-0 border-2
                     focus:text-gray-500 focus:bg-white"
-                    {...register('city')}>
-                        <option defaultValue>Select City</option>
-                        <option value="dubai">Dubai</option>
-                        <option value="abu-dhabi">Abu Dhabi</option>
-                        <option value="ajman">Ajman</option>
-                        <option value="sharjah">Sharjah</option>
+                    {...register('city')} onChange={(e) => setParent(e.target.value)}>
+                    <option defaultValue>Select City</option>
+                    {cityData.cities.map((city) => (
+                    <option value={city.value} key={city.id}>{city.name}</option>
+                    ))}
                     </select>
                 </div>
                 </div>
@@ -255,14 +234,16 @@ export default function propertyForSalePost({ children }) {
                     transition
                     ease-in-out
                     bg-gray-50 focus:outline-none
-                    m-0
+                    m-0 border-2
                     focus:text-gray-500 focus:bg-white"
                     {...register('area')}>
                         <option defaultValue>Select Area</option>
-                        <option value="business-bay">Business Bay</option>
-                        <option value="marina">Marina</option>
-                        <option value="deira">Deira</option>
-                        <option value="international-city">International City</option>
+                        {/* looping through data to find parent cities and showing it areas */}
+                        {cityData.cities
+                        .find((x) => x.name === parent)
+                        ?.child_categories?.map((category) => (
+                            <option value={category.value} key={category.id}>{category.name}</option>
+                        ))}
                     </select>
                 </div>
                 </div>
@@ -280,7 +261,7 @@ export default function propertyForSalePost({ children }) {
                     transition
                     ease-in-out
                     bg-gray-50 focus:outline-none
-                    m-0
+                    m-0 border-2
                     focus:text-gray-500 focus:bg-white"
                     {...register('postedBy')}>
                         <option defaultValue>Posting as a</option>
@@ -296,7 +277,7 @@ export default function propertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm border-2"
                     placeholder="Service Fee ( if applicable )"
                     {...register('price')}/>
 
@@ -308,7 +289,7 @@ export default function propertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm border-2"
                     placeholder="Contact Number"
                     {...register('phone')}/>
                 </div>

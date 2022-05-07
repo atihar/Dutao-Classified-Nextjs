@@ -1,3 +1,565 @@
 {
-    "categories" : [ "Bar", "Malls", "Hotels", "Restaurants", "Banks", "Pharmacy", "Gas", "Coffee", "Groceries", "Exchanges", "Typing Center"]
+    "categories" : [ "Bar", "Malls", "Hotels", "Restaurants", "Banks", "Pharmacy", "Gas", "Coffee", "Groceries", "Exchanges", "Typing Center"],
+    "cities": [
+        {
+            "id": "1",
+            "name": "Dubai",
+            "city_value": "dubai",
+            "child_categories": [
+                {
+                    "name": "Al Barari",
+                    "value": "al-barari"
+                },
+                {
+                    "name" : "Al Barsha",
+                    "value" : "al-barsha"
+                },
+                {
+                    "name" : "Al Badaa",
+                    "value" : "al-badaa"
+                },
+                {
+                    "name" : "Al Hudaiba",
+                    "value" : "al-hudaiba"
+                },
+                {
+                    "name" : "Al Qusais",
+                    "value" : "al-qusais"
+                },
+                {
+                    "name" : "Al Karama",
+                    "value" : "al-karama"
+                },
+                {
+                    "name" : "Al Satwa",
+                    "value" : "al-satwa"
+                },
+                {
+                    "name" : "Al Warqaa",
+                    "value" : "al-warqaa"
+                },
+                {
+                    "name" : "Arabian Ranches 2",
+                    "value" : "arabian-ranches"
+                },
+                {
+                    "name": "Al Furjan",
+                    "value": "al-furjan"
+                },
+                {
+                    "name": "Al Jaddaf",
+                    "value": "al-jaddaf"
+                },
+                {
+                    "name": "Al Nahda",
+                    "value": "al-nahda"
+                },
+                {
+                    "name" : "Al Warsan",
+                    "value" : "al-warsan"
+                },
+                {
+                    "name" : "Arjan",
+                    "value" : "arjan"
+                },
+                {
+                    "name": "Barsha Heights(Tecom",
+                    "value" : "barsha-heights"
+                },
+                {
+                    "name" : "Bur Dubai",
+                    "value" : "bur-dubai"
+                },
+                {
+                    "name" : "Business Bay",
+                    "value" : "business-bay"
+                },
+                {
+                    "name" : "DIFC",
+                    "value" : "difc"
+                },
+                {
+                    "name" : "Discovery Gardens",
+                    "value" : "discovery-garden"
+                },
+                {
+                    "name" : "Deira",
+                    "value" : "deira"
+                },
+                {
+                    "name" : "Downtown Dubai",
+                    "value" : "downtown-dubai"
+                },
+                {
+                    "name" : "Dubai Harbour",
+                    "value" : "dubai-harbour"
+                },
+                {
+                    "name" : "Dubai Marina",
+                    "value" : "dubai-marina"
+                },
+                {
+                    "name" : "DAMAC Hills",
+                    "value" : "damac-hills"
+                },
+                {
+                    "name" : "Downtown Jebel Ali",
+                    "value" : "downtown-jebel-ali"
+                },
+                {
+                    "name" : "Dubai Hills Estate",
+                    "value" : "dubai-hills-state"
+                },
+                {
+                    "name" : "Dubai South",
+                    "value" : "dubai-south"
+                },
+                {
+                    "name" : "Dubai Residence Complex",
+                    "value" : "dubai-residence-complex"
+                },
+                {
+                    "name" : "Dubai Investment Park(DIP",
+                    "value" : "dubai-investment-park"
+                },
+                {
+                    "name" : "Dubai Production City",
+                    "value" : "dubai-production-city"
+                },
+                {
+                    "name" : "Dubai Silicon Oasis",
+                    "value" : "dubai-silicon-oasis"
+                },
+                {
+                    "name" : "Dubailand",
+                    "value" : "dubailand"
+                },
+                {
+                    "name" : "Dubai Sports City",
+                    "value" : "dubai-sports-city"
+                },
+                {
+                    "name" : "International City",
+                    "value" : "international-city"
+                },
+                {
+                    "name" : "Jumeirah",
+                    "value" : "jumeirah"
+                },
+                {
+                    "name" : "Jumeirah Beach Residence (JBR)",
+                    "value" : "jumeirah-beach-residence"
+                },
+                {
+                    "name" : "Jumeirah lake Towers",
+                    "value" : "jumeirah-lake-towers"
+                },
+                {
+                    "name" : "Jumeirah Village Triange",
+                    "value" : "juemeirah-village-triangle"
+                },
+                {
+                    "name" : "Meydan City",
+                    "value" : "meydan-city"
+                },
+                {
+                    "name" : "Mohammed Bin Rashid City",
+                    "value" : "mohammed-bin-rashed-city"
+                },
+                {
+                    "name" : "Palm Jumeirah",
+                    "value" : "palm-jumeirah"
+                },
+                {
+                    "name" : "Sheikh Zayed Road",
+                    "value" : " sheikh-zayed-road"
+                },
+                {
+                    "name" : "The Lagoons",
+                    "value" : "the-lagoons"
+                },
+                {
+                    "name" : "The Greens",
+                    "value" : "the-greens"
+                },
+                {
+                    "name" : "Town Square",
+                    "value" : "town-square"
+                },
+                {
+                    "name" : "Umm Suqeim",
+                    "value" : "umm-suqeim"
+                },
+                {
+                    "name" : "World Trade Center",
+                    "value" : "world-trade-center"
+                }
+            ]
+        },
+        {
+            "id": "7",
+            "name": "Abu Dhabi",
+            "city_value": "abu-dhabi",
+            "child_categories": [
+                {
+                    "name": "Airport Street",
+                    "value": "airport-street"
+                },
+                {
+                    "name": "Al Falah Street",
+                    "value": "al-falah-street"
+                },
+                {
+                    "name": "Al Khalidiyah",
+                    "value": "al-khalidiyah"
+                },
+                {
+                    "name": "Al Manaser",
+                    "value": "al-manaseer"
+                },
+                {
+                    "name": "Al Muroor",
+                    "value": "al-muroor"
+                },
+                {
+                    "name": "Al Raha Beach",
+                    "value": "al-raha-beach"
+                },
+                {
+                    "name": "Al Mushrif",
+                    "value": "al-mushrif"
+                },
+                {
+                    "name": "Al Reem Island",
+                    "value": "al-reem-island"
+                },
+                {
+                    "name": "Al Shamkha",
+                    "value": "al-shamkha"
+                },
+                {
+                    "name": "Corniche Road",
+                    "value": "corniche-road"
+                },
+                {
+                    "name": "Corniche Area",
+                    "value": "corniche-area"
+                },
+                {
+                    "name": "Hamdan Street",
+                    "value": "hamdan-street"
+                },
+                {
+                    "name": "Sadiyat Island",
+                    "value": "sadiyat-island"
+                },
+                {
+                    "name": "Mohammed Bin Zayed City",
+                    "value": "mohammed-bin-zayed-city"
+                },
+                {
+                    "name": "Khalifa City A",
+                    "value": "khalifa-city-a"
+                },
+                {
+                    "name": "Tourist Club Area",
+                    "value": "tourist-club-area"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "name": "Sharjah",
+            "city_value": "sharjah",
+            "child_categories": [
+                {
+                    "name": "Abu Shagara",
+                    "value": "abu-shagara"
+                },
+                {
+                    "name": "Al Khan",
+                    "value": "al-khan"
+                },
+                {
+                    "name": "Al Mahatah",
+                    "value": "al-mahatah"
+                },
+                {
+                    "name": "Al Majaz",
+                    "value": "al-majaz"
+                },
+                {
+                    "name": "Al Nahda(Sharjah)",
+                    "value": "al-nahda-sharjah"
+                },
+                {
+                    "name": "Bu Tina",
+                    "value": "bu-tina"
+                },
+                {
+                    "name": "Al Taawun",
+                    "value": "al-taawun"
+                },
+                {
+                    "name": "Muwailih Commercial",
+                    "value": "muwailih-commercial"
+                },
+                {
+                    "name": "Sharjah Industrial Area",
+                    "value": "sharjah-industrial-area"
+                },
+                {
+                    "name": "Corniche Road",
+                    "value": "corniche-road"
+                },
+                {
+                    "name": "Muwaileh",
+                    "value": "muwaileh"
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "name": "Ajman",
+            "city_value": "ajman",
+            "child_categories": [
+                {
+                    "name": "Ajman Downtown",
+                    "value": "ajman-downtown"
+                },
+                {
+                    "name": "Ajman Industrial",
+                    "value": "ajman-industrial"
+                },
+                {
+                    "name": "Al Mowaihat",
+                    "value": "al-mowaihat"
+                },
+                {
+                    "name": "Al Nuaimia",
+                    "value": "al-nuaimia"
+                },
+                {
+                    "name": "Al Rashidiya",
+                    "value": "al-rashidiya"
+                },
+                {
+                    "name": "Emirates City",
+                    "value": "emirates-city"
+                },
+                {
+                    "name": "Al Rumaila",
+                    "value": "al-rumaila"
+                },
+                {
+                    "name": "Al Zahra",
+                    "value": "al-zahra"
+                },
+                {
+                    "name": "Corniche Ajman",
+                    "value": "corniche-ajman"
+                },
+                {
+                    "name": "Al Nakhil",
+                    "value": "al-nakhil"
+                },
+                {
+                    "name": "Garden City",
+                    "value": "garden-city"
+                },
+                {
+                    "name": "Al Rawda",
+                    "value": "al-rawda"
+                },
+                {
+                    "name": "Sheikh Khalifa Bin Zayed Street",
+                    "value": "sheikh-khalifa-bin-zayed-street"
+                },
+                {
+                    "name": "Sheikh Maktoum Bin Rashid Street",
+                    "value": "sheikh-maktoum-bin-rashid-street"
+                }
+            ]
+        },
+        {
+            "id": "6",
+            "name": "Ras Al Khaimah",
+            "city_value": "ras-al-khaimah",
+            "child_categories": [
+                {
+                    "name": "Al Dhait",
+                    "value": "al-dhait"
+                },
+                {
+                    "name": "Al Hamra Village",
+                    "value": "al-hamra-village"
+                },
+                {
+                    "name": "Al Marjan Islan",
+                    "value": "al-marjan-island"
+                },
+                {
+                    "name": "Al Nadiyah",
+                    "value": "al-nadiyah"
+                },
+                {
+                    "name": "Al Seer",
+                    "value": "al-seer"
+                },
+                {
+                    "name": "Dafan Al Khor",
+                    "value": "dafan-al-khor"
+                },
+                {
+                    "name": "Al Uraibi",
+                    "value": "al-uraibi"
+                },
+                {
+                    "name": "Khuzam",
+                    "value": "khuzam"
+                },
+                {
+                    "name": "Mina Al Arab",
+                    "value": "mina-al-arab"
+                },
+                {
+                    "name": "Suhaim",
+                    "value": "suhaim"
+                },
+                {
+                    "name": "Yasmin Village",
+                    "value": "yasmin-village"
+                }
+            ]
+        },
+        {
+            "id": "8",
+            "name": "Fujairah",
+            "city_value": "fujairah",
+            "child_categories": [
+                {
+                    "name": "Al Faseel",
+                    "value": "al-faseel"
+                },
+                {
+                    "name": "Al Jabeer Tower",
+                    "value": "al-jabeer-tower"
+                },
+                {
+                    "name": "Gurfah Area",
+                    "value": "gurfah-area"
+                },
+                {
+                    "name": "Ishwais",
+                    "value": "iswais"
+                },
+                {
+                    "name": "Khor Fakkan",
+                    "value": "khor-fakkan"
+                },
+                {
+                    "name": "Sakamkam",
+                    "value": "sakamkam"
+                },
+                {
+                    "name": "Sanaiya",
+                    "value": "sanaiya"
+                }
+            ]
+        },
+        {
+            "id": "9",
+            "name": "Umm Al Qawain",
+            "city_value": "umm-al-qawain",
+            "child_categories": [
+                {
+                    "name": "Al Salamah",
+                    "value": "al-salamah"
+                },
+                {
+                    "name": "Al Rass",
+                    "value": "al-rass"
+                },
+                {
+                    "name": "Al Haditha",
+                    "value": "al-haditha"
+                },
+                {
+                    "name": "Industrial Area",
+                    "value": "industrial-area"
+                },
+                {
+                    "name": "Al Dar Al Baida",
+                    "value": "al-dar-al-baida"
+                }
+            ]
+        },
+        {
+            "id": "9",
+            "name": "Al Ain",
+            "city_value": "al-ain",
+            "child_categories": [
+                {
+                    "name": "Al Agabiyya",
+                    "value": "al-agabiyya"
+                },
+                {
+                    "name": "Al Ain Industrial Area",
+                    "value": "al-ain-industrial-area"
+                },
+                {
+                    "name": "Al Ain Ladies Club",
+                    "value": "al-ain-ladies-club"
+                },
+                {
+                    "name": "Al Bateen",
+                    "value": "al-bateen"
+                },
+                {
+                    "name": "Al Hili",
+                    "value": "al-hili"
+                },
+                {
+                    "name"  : "Al Jahili",
+                    "value" : "al-jahili"
+                },
+                {
+                    "name": "Al Masoudi",
+                    "value": "al-masoudi"
+                },
+                {
+                    "name": "Al Murabaa",
+                    "value": "al-murabaa"
+                },
+                {
+                    "name"  : "Al Mutarad",
+                    "value" : "al-mutarad"
+                },
+                {
+                    "name"  : "Al Muwaiji",
+                    "value" : "al-muwaiji"
+                },
+                {
+                    "name" : "Al Mutawaa",
+                    "value" : "al-mutawaa"
+                },
+                {
+                    "name" : "Asharej",
+                    "value" : "asharej"
+                },
+                {
+                    "name" : "Central District",
+                    "value" : "central-district"
+                },
+                {
+                    "name" : "Falaj Hazzaa",
+                    "value" : "fajaj-hazza"
+                },
+                {
+                    "name" : "Zakher",
+                    "value" : "zakher"
+                }
+            ]
+        }
+    ]
 }

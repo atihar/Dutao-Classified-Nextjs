@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { Store } from '../../lib/Store';
 import React, { useContext, useEffect, useState } from 'react';
 import dynamic from "next/dynamic";
+import cityData from '../../lib/data.json'
 
 const DynamicMap = dynamic(() => import("../../components/map-add"), {
   loading: () => <h1>Loading...</h1>,
@@ -17,6 +18,7 @@ export default function propertyForSalePost({ children }) {
     const { state } = useContext(Store);
     const { userInfo } = state;
     const [ userEmail, setUserEmail] = useState("");
+    const [parent, setParent] = useState("");
 
     useEffect(() => {
         if (!userInfo) {
@@ -232,12 +234,11 @@ export default function propertyForSalePost({ children }) {
                     bg-gray-50 focus:outline-none
                     m-0
                     focus:text-gray-500 focus:bg-white"
-                    {...register('city')}>
-                        <option value="">Select City</option>
-                        <option value="dubai">Dubai</option>
-                        <option value="abu-dhabi">Abu Dhabi</option>
-                        <option value="ajman">Ajman</option>
-                        <option value="sharjah">Sharjah</option>
+                    {...register('city')} onChange={(e) => setParent(e.target.value)}>
+                        <option defaultValue>Select City</option>
+                        {cityData.cities.map((city) => (
+                        <option value={city.value} key={city.id}>{city.name}</option>
+                        ))}
                     </select>
                 </div>
                 </div>
@@ -258,10 +259,12 @@ export default function propertyForSalePost({ children }) {
                     focus:text-gray-500 focus:bg-white"
                     {...register('area')}>
                         <option value="">Select Area</option>
-                        <option value="business-bay">Business Bay</option>
-                        <option value="marina">Marina</option>
-                        <option value="deira">Deira</option>
-                        <option value="international-city">International City</option>
+                        {/* looping through data to find parent cities and showing it areas */}
+                        {cityData.cities
+                        .find((x) => x.name === parent)
+                        ?.child_categories?.map((category) => (
+                            <option value={category.value} key={category.id}>{category.name}</option>
+                        ))}
                     </select>
                 </div>
                 </div>

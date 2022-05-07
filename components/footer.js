@@ -70,15 +70,16 @@ export default function footer() {
       
               <div>
                 <p className="font-bold text-red-500">
-                  Cities
+                  Top Cities
                 </p>
       
                 <nav className="flex flex-col mt-2 space-y-2 text-sm text-gray-500">
                   <a className="hover:opacity-75" href=""> Dubai </a>
-                  <a className="hover:opacity-75" href=""> Sharjah </a>
                   <a className="hover:opacity-75" href=""> Abu Dhabi </a>
+                  <a className="hover:opacity-75" href=""> Sharjah </a>
                   <a className="hover:opacity-75" href=""> Ajman </a>
                   <a className="hover:opacity-75" href=""> RAK </a>
+                  <a className="hover:opacity-75" href=""> Fujairah </a>
                 </nav>
               </div>
       
