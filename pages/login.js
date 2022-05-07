@@ -139,7 +139,7 @@ export default function Login() {
 
             <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg"
              >
-                Continue to my account
+                sign in
             </button>
             </div>
         </form>

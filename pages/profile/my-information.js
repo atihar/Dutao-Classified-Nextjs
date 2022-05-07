@@ -157,9 +157,9 @@ export default function myUserInformation() {
                         <Link href={'/profile/manage/property-for-sale'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Ads</li></Link>
                         <Link href={'/profile/manage/jobs'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Manage Recruitments</li></Link>
                         <Link href={'/profile/my-information'}><li className="active text-white py-2 px-4 rounded-lg">My Information</li></Link>
-                        <li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Searches</li>
-                        <li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Settings</li>
-                        <li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Subscription</li>
+                        <Link href={'/profile/my-searches'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Searches</li></Link>
+                        <Link href={'/profile/settings'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Settings</li></Link>
+                        <Link href={'/profile/subscription'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Subscription</li></Link>
                     </ul>
                 </div>
 

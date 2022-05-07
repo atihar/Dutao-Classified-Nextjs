@@ -6,7 +6,7 @@ import { Store } from '../../lib/Store'
 import Cookies from 'store-js';
 import React, { useContext, useEffect, useState } from 'react'
 
-function profile() {
+export default function favorite() {
     const router = useRouter();
     const { state, dispatch } = useContext(Store);
     const { userInfo } = state;
@@ -47,27 +47,17 @@ function profile() {
                     </ul>
                 </div>
                 <div>
-                    <div className="flex space-x-1 sm:space-x-8">
-                        <div className="flex-1 text-center px-6 py-4 bg-red-600 text-white rounded-lg">
-                            <p className="text-base whitespace-nowrap">My Ads</p>
-                            <p className="font-bold">30</p>
-                        </div>
-                        <div className="flex-1 text-center px-6 py-4 bg-red-600 text-white rounded-lg">
-                            <p className="text-base">Searches</p>
-                            <p className="font-bold">4</p>
-                        </div>
-                        <div className="flex-1 text-center px-6 py-4 bg-red-600 text-white rounded-lg">
-                            <p className="text-base">Favorites</p>
-                            <p className="font-bold">10</p>
-                        </div>                                          
-                    </div>
 
                     <div className="py-5 w-full bg-gray-100 mt-4 rounded-lg p-5">
                         <h2 className="font-bold">Profile Summary</h2>
                         <hr/>
-                        <p className="text-base py-2">{userData.name}</p>
-                        <p className="text-base py-2">Membership Plan : Free</p>
-                        <p className="text-base py-2">{userData.email}</p>                          
+                        <div className="max-w-screen-xl p-10 text-base text-gray-400 sm:px-6 mx-auto lg:px-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </svg>
+                            you have no favorites
+                        <Link href="/profile"><p>go to profile</p></Link>
+                        </div>                       
                     </div>  
                 </div>
                 
@@ -78,5 +68,3 @@ function profile() {
 
   )
 }
-
-export default profile

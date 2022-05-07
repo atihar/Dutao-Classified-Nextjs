@@ -103,9 +103,9 @@ export default function manageJobs() {
                             <Link href={'/profile/manage/property-for-sale'}><li className="py-2 px-4 rounded-lg hover:bg-gray-100">My Ads</li></Link>
                             <Link href={'/profile/manage/jobs'}><li className="active text-white 100 py-2 px-4 rounded-lg">Manage Recruitments</li></Link>
                             <Link href={'/profile/my-information'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Information</li></Link>
-                            <li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Searches</li>
-                            <li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Settings</li>
-                            <li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Subscription</li>
+                            <Link href={'/profile/my-searches'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Searches</li></Link>
+                            <Link href={'/profile/settings'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Settings</li></Link>
+                            <Link href={'/profile/subscription'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Subscription</li></Link>
                       </ul>
                 </div>
                 <div>
@@ -118,7 +118,7 @@ export default function manageJobs() {
                 {posts && posts.map((job) => (
                 <div className=" flex justify-center' py-2" key={job._id} >
                   <div className="flex w-full rounded-lg bg-white shadow-lg">
-                  <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " src={"https://dutao.s3.me-south-1.amazonaws.com/"+ job.images[0]} alt="" />
+                  <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " src={`https://dutao-public.s3.amazonaws.com/`+ job.images[0]} alt="" />
                     {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}
                     
                     <div className="py-4 px-6 w-full">

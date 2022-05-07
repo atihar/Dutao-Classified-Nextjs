@@ -18,11 +18,11 @@ export default function singlePropertySale({property}){
                     <div className="grid sm:grid-cols-[2fr_1fr] gap-4">
                         <div>
                             <h1>{property.title}</h1>
-                            <p className="text-sm text-gray-500 mb-3">Dubai{`>`} Business Bay</p>
+                            <p className="text-sm text-gray-500 mb-3">{property.city}{`>`} {property.area}</p>
                            
                             <div className="grid">       
                                 {property.images.map((x, i)=>{
-                                    return <img className=" md:h-auto object-cover md:w-[96] rounded-t-lg md:rounded-none md:rounded-l-lg" key={i} src={"https://dutao.s3.me-south-1.amazonaws.com/" + x } alt="" />
+                                    return <img className=" md:h-auto object-cover md:w-[96] rounded-t-lg md:rounded-none md:rounded-l-lg" key={i} src={`https://dutao-public.s3.amazonaws.com/`+ x } alt="" />
                                 })}
                             </div>
                             

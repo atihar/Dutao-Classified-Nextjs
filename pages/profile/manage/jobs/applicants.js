@@ -71,9 +71,9 @@ export default function applicants(){
                             <Link href={'/profile/manage/property-for-sale'}><li className="py-2 px-4 rounded-lg hover:bg-gray-100">My Ads</li></Link>
                             <Link href={'/profile/manage/jobs'}><li className="active text-white 100 py-2 px-4 rounded-lg">Manage Recruitments</li></Link>
                             <Link href={'/profile/my-information'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Information</li></Link>
-                            <li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Searches</li>
-                            <li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Settings</li>
-                            <li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Subscription</li>
+                            <Link href={'/profile/my-searches'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Searches</li></Link>
+                            <Link href={'/profile/settings'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Settings</li></Link>
+                            <Link href={'/profile/subscription'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Subscription</li></Link>
                       </ul>
                 </div>
                 <div>
@@ -106,7 +106,7 @@ export default function applicants(){
                                 <td className="px-4 py-2 font-medium text-gray-600 ">{x && x.profileSummary}</td>
                                 <td className="px-4 py-2 text-gray-500">{x && x.jobExperience}</td>
                                 <td className="px-4 py-2 text-gray-500 whitespace-nowrap">
-                                <a className="inline-flex items-center px-3 py-3 text-red-600 border border-red-600 rounded hover:bg-red-600 hover:text-white active:bg-red-500 focus:outline-none focus:ring" href={`https://dutao.s3.me-south-1.amazonaws.com/{${x && x.cv}`}>
+                                <a className="inline-flex items-center px-3 py-3 text-red-600 border border-red-600 rounded hover:bg-red-600 hover:text-white active:bg-red-500 focus:outline-none focus:ring" href={`https://dutao-public.s3.amazonaws.com/{${x && x.cv}`}>
                                     <span className="text-sm font-medium px-3">
                                         Download CV
                                     </span>
