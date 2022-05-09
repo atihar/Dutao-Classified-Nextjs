@@ -1,7 +1,7 @@
 // featured place with city image component
 export default function featuredPlace(){
     return(
-        <section className="overflow-hidden max-w-screen-xl m-auto text-gray-700">
+        <section className="overflow-hidden sm:max-w-screen-xl m-auto text-gray-700">
         <div className="container px-5 py-2 mx-auto lg:pt-21 lg:px-6">
             <h1 className="py-4 font-bold">Popular Areas</h1>
           <div className="flex flex-wrap -m-1 md:-m-2">

@@ -18,7 +18,7 @@ export default function homeSlider(props){
     return(
     
     <section>
-        <div className="max-w-[400px] sm:max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+        <div className="max-w-[350px] sm:max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
           <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
                 {data && data.map((x, i)=>{
                     return (

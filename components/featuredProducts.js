@@ -25,7 +25,7 @@ export default function featuredProducts(props){
     return(
         <>
          <section>
-            <div className="max-w-[400px] sm:max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+            <div className="max-w-[375px] sm:max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
                 <div className='flex justify-between '>
                 <h1 className='font-bold py-6'>Featured {title}</h1>
                 <a onClick={viewMoreHandler}><p className='cursor-pointer font-bold text-red-600 text-sm pt-8'>View More →</p></a>

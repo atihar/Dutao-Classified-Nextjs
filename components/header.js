@@ -60,7 +60,7 @@ export default function Header({ children }) {
       {/* Navbar */}
 
       <header className="shadow-sm">
-        <div className="max-w-screen-xl p-4 mx-auto">
+        <div className="sm:max-w-screen-xl p-4 mx-auto">
           <div className="flex items-center justify-between space-x-4 lg:space-x-10">
             <Link href="/">
             <div className="flex lg:w-0 lg:flex-1">
@@ -69,7 +69,7 @@ export default function Header({ children }) {
             </Link>
 
 
-            <div className="items-center justify-end flex-1 hidden space-x-4 sm:flex">
+            <div className="items-center justify-end flex-1 hidden sm:space-x-4 sm:flex">
 
             {/* translate change group  */}
             <div className="relative group text-gray-500">

@@ -39,7 +39,7 @@ function propertyForSale({property}) {
       <Header></Header>
       <CategorySlider data={cat}></CategorySlider>
       <FeaturedPlace></FeaturedPlace>
-      <FeaturedProducts title={"Properties for rent"} data={property}></FeaturedProducts>
+      <FeaturedProducts title={"Properties"} data={property}></FeaturedProducts>
       <Footer></Footer>
       </>
   )

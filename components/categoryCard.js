@@ -2,8 +2,8 @@ export default function categoryCard(){
     return(
         <>
         <section className="bg-white">
-            <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8 sm:py-24">
-                <div className="max-w-xl mx-auto text-center">
+            <div className="sm:max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8 sm:py-24">
+                <div className="sm:max-w-xl mx-auto text-center">
                 <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
                     Dutao Offerings
                 </h2>
