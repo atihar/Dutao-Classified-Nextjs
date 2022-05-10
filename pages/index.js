@@ -60,11 +60,11 @@ export async function getServerSideProps() {
   await db.connect();
 
   //setting data constant for the result for database
-  const data = await SaleProperty.find().limit(3).lean();
+  const data = await SaleProperty.find().limit(2).lean();
   const property = JSON.parse(JSON.stringify(data));
 
   //setting data constant for the result for database
-  const motorData = await Motors.find().limit(3).lean();
+  const motorData = await Motors.find().limit(2).lean();
   const motors = JSON.parse(JSON.stringify(motorData));
     await db.disconnect();
   

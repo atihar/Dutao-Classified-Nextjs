@@ -7,7 +7,7 @@ import { Store } from '../../lib/Store';
 import React, { useContext, useEffect, useState } from 'react';
 import cityData from '../../lib/data.json'
 
-export default function propertyForSalePost({ children }) {
+export default function propertyForRentPost({ children }) {
     const router = useRouter();
     const { state } = useContext(Store);
     const { userInfo } = state;
@@ -147,7 +147,8 @@ export default function propertyForSalePost({ children }) {
 
             <div className="relative">
                 <input type="text" className="w-full p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm focus:outline-none border-2" placeholder="Enter Ad Title"
-                {...register('title')}/>
+                {...register('title', {required:true})}/>
+                 {errors.category && <p className='text-[9px] text-red-500 px-4'>ad title required</p> }
             </div>
             </div>
 
@@ -166,13 +167,14 @@ export default function propertyForSalePost({ children }) {
                     bg-gray-50
                     m-0  border-2
                     focus:text-gray-500 focus:bg-white"
-                    {...register('category')}>
-                        <option defaultValue>Property Type</option>
+                    {...register('category',{required: true})}>
+                        <option value="">Property Type</option>
                         <option value="villa">Villa</option>
                         <option value="apartment">Apartment</option>
                         <option value="townhouse">Townhouse</option>
                         <option value="Building">Building</option>
                     </select>
+                    {errors.category && <p className='text-[9px] text-red-500 px-4'>select a property type</p> }
                 </div>
                 </div>
             <div>
@@ -225,12 +227,13 @@ export default function propertyForSalePost({ children }) {
                     bg-gray-50 focus:outline-none
                     m-0 border-2
                     focus:text-gray-500 focus:bg-white"
-                    {...register('city')} onChange={(e) => setParent(e.target.value)}>
+                    {...register('city', {required:true})} onChange={(e) => setParent(e.target.value)}>
                         <option defaultValue>Select City</option>
-                        {cityData.cities.map((city) => (
-                        <option value={city.value} key={city.id}>{city.name}</option>
+                        {cityData.cities.map((city, i) => (
+                        <option value={city.value} key={i}>{city.name}</option>
                         ))}
                     </select>
+                    {errors.city && <p className='text-[9px] text-red-500 px-4'>select a city</p> }
                 </div>
                 </div>
            
@@ -248,7 +251,7 @@ export default function propertyForSalePost({ children }) {
                     bg-gray-50 focus:outline-none
                     m-0 border-2
                     focus:text-gray-500 focus:bg-white"
-                    {...register('area')}>
+                    {...register('area',{required:true})}>
                         <option defaultValue>Select Area</option>
                         {/* looping through data to find parent cities and showing it areas */}
                         {cityData.cities
@@ -257,6 +260,7 @@ export default function propertyForSalePost({ children }) {
                             <option value={category.value} key={category.id}>{category.name}</option>
                         ))}
                     </select>
+                    {errors.area && <p className='text-[9px] text-red-500 px-4'>select a city</p> }
                 </div>
                 </div>
 
@@ -297,7 +301,7 @@ export default function propertyForSalePost({ children }) {
                     bg-gray-50 focus:outline-none
                     m-0 border-2
                     focus:text-gray-500 focus:bg-white"
-                    {...register('bedroom')}>
+                    {...register('bedroom',{required:true})}>
                         <option defaultValue>Bedroom</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -305,6 +309,7 @@ export default function propertyForSalePost({ children }) {
                         <option value="4">4</option>
                         <option value="5 +">5+</option>
                     </select>
+                    {errors.bedroom && <p className='text-[9px] text-red-500 px-4'>number of bed required</p> }
                 </div>
             </div>
 
@@ -322,7 +327,7 @@ export default function propertyForSalePost({ children }) {
                     bg-gray-50 focus:outline-none
                     m-0 border-2
                     focus:text-gray-500 focus:bg-white"
-                    {...register('bathroom')}>
+                    {...register('bathroom',{required:true})}>
                         <option defaultValue>Bathroom</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -330,6 +335,7 @@ export default function propertyForSalePost({ children }) {
                         <option value="4">4</option>
                         <option value="5+">5+</option>
                     </select>
+                    {errors.bathroom && <p className='text-[9px] text-red-500 px-4'>number of bath required</p> }
                 </div>
             </div>
 
@@ -347,11 +353,12 @@ export default function propertyForSalePost({ children }) {
                     bg-gray-50 focus:outline-none
                     m-0 border-2
                     focus:text-gray-500 focus:bg-white"
-                    {...register('furnished')}>
-                        <option defaultValue>Bathroom</option>
+                    {...register('furnished',{required:true})}>
+                        <option defaultValue>Is the property Furnished?</option>
                         <option value="yes">Yes</option>
-                        <option value="no">NO</option>
+                        <option value="no">No</option>
                     </select>
+                    {errors.furnished && <p className='text-[9px] text-red-500 px-4'>Is the property furnished?</p> }
                 </div>
             </div>
 
@@ -374,8 +381,8 @@ export default function propertyForSalePost({ children }) {
                     type="number"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm border-2"
                     placeholder="Monthly rent (AED)"
-                    {...register('price')}/>
-
+                    {...register('price',{required:true})}/>
+                    {errors.price && <p className='text-[9px] text-red-500 px-4'>monthly rental price is required</p> }
                 </div>
             </div>
 
@@ -410,12 +417,13 @@ export default function propertyForSalePost({ children }) {
                     type="number"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm border-2"
                     placeholder="Contact Number"
-                    {...register('phone')}/>
+                    {...register('phone',{required:true})}/>
+                    {errors.phone && <p className='text-[9px] text-red-500 px-4'>contact number is required</p> }
                 </div>
             </div>
             {/* amenities */}
             <div className='p-4'>
-                <h2 className='text-base'>Amenities</h2>
+                <h2 className='text-base'>Amenities (optional)</h2>
                 <fieldset className='text-sm text-gray-400'>
                     {
                         amenity.map((c,i) => 

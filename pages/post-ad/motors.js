@@ -67,7 +67,7 @@ export default function propertyForSalePost({ children }) {
 
     //   handling form on submit button
       const onSubmit = async ({ title, category, address, description,price, city, area, listedBy, 
-        trim, kilometers, warranty, color, marketYear, doors, bodyCondition, mechanicalCondition, sellerType,
+        kilometers, warranty, color, marketYear, doors, bodyCondition, mechanicalCondition, sellerType,
         bodyType, cylinders, transmissionType, regionalSpec, horsePower, fuelType, steeringSide,  video}) => {
 
         try {
@@ -82,7 +82,6 @@ export default function propertyForSalePost({ children }) {
             area,
             listedBy,
             price,
-            trim,
             kilometers,
             warranty,
             color,
@@ -99,7 +98,7 @@ export default function propertyForSalePost({ children }) {
             fuelType,
             steeringSide,
             userEmail: userEmail,
-            phone: "092910281",
+            phone
           },
           {
             headers: { authorization: `Bearer ${userInfo.token}` }
@@ -153,7 +152,8 @@ export default function propertyForSalePost({ children }) {
 
             <div className="relative">
                 <input type="text" className="w-full p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm focus:outline-none" placeholder="Enter Ad Title"
-                {...register('title')}/>
+                {...register('title',{required:true})}/>
+                {errors.title && <p className='text-[9px] text-red-500 px-4'>ad title is required</p> }
             </div>
             </div>
 
@@ -172,7 +172,7 @@ export default function propertyForSalePost({ children }) {
                     bg-gray-50
                     m-0
                     focus:text-gray-500 focus:bg-white"
-                    {...register('category')}>
+                    {...register('category',{required:true})}>
                         <option defaultValue>Select Category</option>
                         <option value="motorcycle">Motorcycles</option>
                         <option value="accessories">Parts & Accessories</option>
@@ -181,6 +181,7 @@ export default function propertyForSalePost({ children }) {
                         <option value="number-plates">Number Plates</option>
                         <option value="export-car">Export Cars</option>
                     </select>
+                    {errors.category && <p className='text-[9px] text-red-500 px-4'>select a category</p> }
                 </div>
             </div>
 
@@ -192,7 +193,8 @@ export default function propertyForSalePost({ children }) {
                     type="text"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 rounded-lg shadow-sm focus:outline-none "
                     placeholder="Garage Address"
-                    {...register('address')}/>
+                    {...register('address',{required:true})}/>
+                    {errors.address && <p className='text-[9px] text-red-500 px-4'>your address is required</p> }
 
                     <span className="absolute inset-y-0 inline-flex items-center right-4">
                     <svg
@@ -221,8 +223,9 @@ export default function propertyForSalePost({ children }) {
                 placeholder="Ad Description"
                 rows="8"
                 id="description"
-                {...register('description')}
+                {...register('description',{required:true})}
             ></textarea>
+            {errors.description && <p className='text-[9px] text-red-500 px-4'>some details are missing</p> }
           </div>
                 
 
@@ -241,12 +244,13 @@ export default function propertyForSalePost({ children }) {
                     bg-gray-50 focus:outline-none
                     m-0
                     focus:text-gray-500 focus:bg-white"
-                    {...register('city')} onChange={(e) => setParent(e.target.value)}>
+                    {...register('city',{required:true})} onChange={(e) => setParent(e.target.value)}>
                     <option defaultValue>Select City</option>
-                    {cityData.cities.map((city) => (
-                    <option value={city.value} key={city.id}>{city.name}</option>
+                    {cityData.cities.map((city,i) => (
+                    <option value={city.value} key={i}>{city.name}</option>
                     ))}
                     </select>
+                    {errors.city && <p className='text-[9px] text-red-500 px-4'>select a city</p> }
                 </div>
                 </div>
            
@@ -264,7 +268,7 @@ export default function propertyForSalePost({ children }) {
                     bg-gray-50 focus:outline-none
                     m-0
                     focus:text-gray-500 focus:bg-white"
-                    {...register('area')}>
+                    {...register('area',{required: true})}>
                         <option defaultValue>Select Area</option>
                         {/* looping through data to find parent cities and showing it areas */}
                         {cityData.cities
@@ -273,6 +277,7 @@ export default function propertyForSalePost({ children }) {
                             <option value={category.value} key={category.id}>{category.name}</option>
                         ))}
                     </select>
+                    {errors.area && <p className='text-[9px] text-red-500 px-4'>select a area</p> }
                 </div>
                 </div>
 
@@ -289,18 +294,6 @@ export default function propertyForSalePost({ children }) {
                 </div>
             </div>
 
-
-
-            <div>
-            <label htmlFor="trim" className="sr-only">Trim</label>
-            <div className="relative">
-                <input
-                type="text"
-                className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                placeholder="Trim"
-                {...register('trim')}/>
-            </div>
-            </div>
 
             <div>
             <label htmlFor="kilometers" className="sr-only">Kilometers</label>
@@ -342,7 +335,8 @@ export default function propertyForSalePost({ children }) {
                 type="text"
                 className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                 placeholder="Released Year"
-                {...register('marketYear')}/>
+                {...register('marketYear',{required:true})}/>
+                {errors.marketYear && <p className='text-[9px] text-red-500 px-4'>select a released year</p> }
             </div>
             </div>
 
@@ -363,7 +357,7 @@ export default function propertyForSalePost({ children }) {
                     <input
                     type="number"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="Cylinders"
+                    placeholder="Number of Cylinders (optional)"
                     {...register('cylinders')}/>
                 </div>
             </div>
@@ -376,7 +370,8 @@ export default function propertyForSalePost({ children }) {
                     type="number"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                     placeholder="Sale Price in AED"
-                    {...register('price')}/>
+                    {...register('price',{required:true})}/>
+                    {errors.price && <p className='text-[9px] text-red-500 px-4'>sale price is required</p> }
 
                 </div>
             </div>
@@ -415,6 +410,7 @@ export default function propertyForSalePost({ children }) {
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('bodyType')}>
                         <option defaultValue>Body Type</option>
+                        <option value="">Not Applicable</option>
                         <option value="sedan">Sedan</option>
                         <option value="long body">Long Body</option>
                         <option value="sports">Sports</option>
@@ -428,7 +424,7 @@ export default function propertyForSalePost({ children }) {
                 <input
                 type="text"
                 className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                placeholder="Regional Space"
+                placeholder="Regional Specification"
                 {...register('regionalSpec')}/>
             </div>
             </div>
@@ -439,7 +435,7 @@ export default function propertyForSalePost({ children }) {
                 <input
                 type="number"
                 className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                placeholder="Horse Power"
+                placeholder="Engine Horse Power"
                 {...register('horsePower')}/>
             </div>
             </div>
@@ -450,7 +446,7 @@ export default function propertyForSalePost({ children }) {
                     <input
                     type="text"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="Engine Fuel Type"
+                    placeholder="What is the engine fuel type"
                     {...register('fuelType')}/>
                 </div>
             </div>
@@ -473,7 +469,8 @@ export default function propertyForSalePost({ children }) {
                     type="number"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                     placeholder="Contact Number"
-                    {...register('phone')}/>
+                    {...register('phone', {required:true})}/>
+                    {errors.phone && <p className='text-[9px] text-red-500 px-4'>a contact number is required</p> }
                 </div>
             </div>
 

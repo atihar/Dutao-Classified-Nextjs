@@ -150,12 +150,12 @@ export default function propertyForSalePost({ children }) {
                 </div>
             </div>
         <div>
+            {/* title  */}
             <label htmlFor="title" className="sr-only">Ad Title</label>
-
             <div className="relative">
                 <input type="text" className="w-full p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm border-2 focus:outline-none" placeholder="Enter Ad Title"
-                {...register('title')}/>
-
+                {...register('title', {required:true})}/>
+                {errors.title && <p className='text-[9px] text-red-500 px-4'>a ad title is required</p> }
                 <span className="absolute inset-y-0 inline-flex items-center right-4">
                 <svg xmlns="http://www.w3.org/2000/svg"
                     className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -181,13 +181,14 @@ export default function propertyForSalePost({ children }) {
                     bg-gray-50
                     m-0 border-2
                     focus:text-gray-500 focus:bg-white"
-                    {...register('category')}>
+                    {...register('category', {required:true})}>
                         <option defaultValue>Property Type</option>
                         <option value="villa">Villa</option>
                         <option value="apartment">Apartment</option>
                         <option value="townhouse">Townhouse</option>
                         <option value="Building">Building</option>
                     </select>
+                    {errors.category && <p className='text-[9px] text-red-500 px-4'>select a property category</p> }
                 </div>
                 </div>
             <div>
@@ -198,8 +199,8 @@ export default function propertyForSalePost({ children }) {
                     type="text"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 rounded-lg shadow-sm border-2 focus:outline-none "
                     placeholder="Property Address"
-                    {...register('address')}/>
-
+                    {...register('address',{required: true})}/>
+                    {errors.city && <p className='text-[9px] text-red-500 px-4'>property address is required</p> }
                     <span className="absolute inset-y-0 inline-flex items-center right-4">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -248,12 +249,13 @@ export default function propertyForSalePost({ children }) {
                     bg-gray-50 focus:outline-none
                     m-0 border-2
                     focus:text-gray-500 focus:bg-white"
-                    {...register('city')} onChange={(e) => setParent(e.target.value)}>
+                    {...register('city',{required:true})} onChange={(e) => setParent(e.target.value)}>
                         <option defaultValue>Select City</option>
-                        {cityData.cities.map((city) => (
-                        <option value={city.value} key={city.id}>{city.name}</option>
+                        {cityData.cities.map((city,i) => (
+                        <option value={city.value} key={i}>{city.name}</option>
                         ))}
                     </select>
+                    {errors.city && <p className='text-[9px] text-red-500 px-4'>select a city</p> }
                 </div>
                 </div>
            
@@ -271,7 +273,7 @@ export default function propertyForSalePost({ children }) {
                     bg-gray-50 focus:outline-none
                     m-0 border-2
                     focus:text-gray-500 focus:bg-white"
-                    {...register('area')}>
+                    {...register('area',{required:true})}>
                         <option defaultValue>Select Area</option>
                         {/* looping through data to find parent cities and showing it areas */}
                         {cityData.cities
@@ -280,6 +282,7 @@ export default function propertyForSalePost({ children }) {
                             <option value={category.value} key={category.id}>{category.name}</option>
                         ))}
                     </select>
+                    {errors.area && <p className='text-[9px] text-red-500 px-4'>select a area</p> }
                 </div>
                 </div>
 
@@ -299,7 +302,7 @@ export default function propertyForSalePost({ children }) {
                     m-0 border-2
                     focus:text-gray-500 focus:bg-white"
                     {...register('listedBy')}>
-                        <option defaultValue>Posting as a</option>
+                        <option value="">Posting as a</option>
                         <option value="landlord">Landlord</option>
                         <option value="agency">Agency</option>
                     </select>
@@ -320,7 +323,7 @@ export default function propertyForSalePost({ children }) {
                     bg-gray-50 focus:outline-none
                     m-0 border-2
                     focus:text-gray-500 focus:bg-white"
-                    {...register('bedroom')}>
+                    {...register('bedroom',{required:true})}>
                         <option defaultValue>Bedroom</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -328,6 +331,7 @@ export default function propertyForSalePost({ children }) {
                         <option value="4">4</option>
                         <option value="5 +">5+</option>
                     </select>
+                    {errors.bedroom && <p className='text-[9px] text-red-500 px-4'>number of bed is required</p> }
                 </div>
             </div>
 
@@ -345,7 +349,7 @@ export default function propertyForSalePost({ children }) {
                     bg-gray-50 focus:outline-none
                     m-0 border-2
                     focus:text-gray-500 focus:bg-white"
-                    {...register('bathroom')}>
+                    {...register('bathroom',{required:true})}>
                         <option defaultValue>Bathroom</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -353,6 +357,7 @@ export default function propertyForSalePost({ children }) {
                         <option value="4">4</option>
                         <option value="5+">5+</option>
                     </select>
+                    {errors.bathroom && <p className='text-[9px] text-red-500 px-4'>number of bath is required</p> }
                 </div>
             </div>
 
@@ -363,8 +368,8 @@ export default function propertyForSalePost({ children }) {
                 type="number"
                 className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none border-2 rounded-lg shadow-sm"
                 placeholder="Size in sqft"
-                {...register('size')}/>
-
+                {...register('size',{required:true})}/>
+                {errors.size && <p className='text-[9px] text-red-500 px-4'>property area size is required</p> }
             </div>
             </div>
 
@@ -375,8 +380,8 @@ export default function propertyForSalePost({ children }) {
                     type="number"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder="Sale Price in AED"
-                    {...register('price')}/>
-
+                    {...register('price',{required:true})}/>
+                    {errors.price && <p className='text-[9px] text-red-500 px-4'>sale price is required</p> }
                 </div>
             </div>
 
@@ -494,7 +499,8 @@ export default function propertyForSalePost({ children }) {
                     type="number"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder="Contact Number"
-                    {...register('phone')}/>
+                    {...register('phone', {required:true})}/>
+                    {errors.phone && <p className='text-[9px] text-red-500 px-4'>contact number is required</p> }
                 </div>
             </div>
             {/* amenities */}

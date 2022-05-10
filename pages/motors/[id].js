@@ -4,6 +4,7 @@ import Footer from "../../components/footer";
 import db from '../../lib/dbConnect'
 import Motors from '../../models/motors'
 import moment from "moment";
+import Link from 'next/link'
 
 
 export default function singlePropertySale({motor}){
@@ -151,7 +152,7 @@ export default function singlePropertySale({motor}){
                                     <span
                                     className="absolute inset-x-0 bottom-0 transition-transform transform bg-red-100 h-2/3 group-hover:scale-110"
                                     ></span>
-                                    <span className="relative">Report this ad now</span>
+                                    <Link href={'/report-ad'}><span className="relative">Report this ad now</span></Link>
                                 </p>
                                 </a>
                             </div>

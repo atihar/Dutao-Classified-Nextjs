@@ -9,6 +9,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useRouter } from "next/router"
 import { Store } from '../../lib/Store'
 import axios from 'axios'
+import Link from 'next/link'
 
 
 export default function singleJobs({job}){
@@ -210,7 +211,7 @@ export default function singleJobs({job}){
                                     <span
                                     className="absolute inset-x-0 bottom-0 transition-transform transform bg-red-100 h-2/3 group-hover:scale-110"
                                     ></span>
-                                    <span className="relative">Report this ad now</span>
+                                    <Link href={'/report-ad'}><span className="relative">Report this ad now</span></Link>
                                 </p>
                                 </a>
                             </div>
