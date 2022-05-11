@@ -96,7 +96,7 @@ export default function manageJobs() {
         <Header></Header>
         <div className='max-w-screen-xl w-screen mx-auto py-4 px-8 my-4 rounded-lg shadow '>
         <h2 className="font-bold py-5"> Dutao User Dashboard</h2>
-            <div className="grid sm:grid-cols-[1fr_3fr] gap-4">
+            <div className="grid lg:grid-cols-[1fr_3fr] gap-4">
                 <div>
                         <ul className="text-base space-y-4">
                             <Link href={'/profile'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Profile</li></Link>

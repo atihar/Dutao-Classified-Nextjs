@@ -150,7 +150,7 @@ export default function myUserInformation() {
     <Header></Header>
     <div className='sm:max-w-screen-xl w-screen mx-auto py-4 px-8 my-4 rounded-lg shadow '>
         <h2 className="font-bold sm:py-5"> Dutao User Dashboard</h2>
-            <div className="grid sm:grid-cols-[1fr_3fr] gap-4">
+            <div className="grid lg:grid-cols-[1fr_3fr] gap-4">
                 <div>
                     <ul className="text-base space-y-4">
                         <Link href={'/profile'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Profile</li></Link>
@@ -159,13 +159,13 @@ export default function myUserInformation() {
                         <Link href={'/profile/my-information'}><li className="active text-white py-2 px-4 rounded-lg">My Information</li></Link>
                         <Link href={'/profile/my-searches'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Searches</li></Link>
                         <Link href={'/profile/settings'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Settings</li></Link>
-                        <Link href={'/profile/subscription'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Subscription</li></Link>
+                        {/* <Link href={'/profile/subscription'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Subscription</li></Link> */}
                     </ul>
                 </div>
 
                 <div>
                     <div className="w-full">
-                        <h2 className='text-base font-bold bg-red-600 text-white px-5 py-2 rounded-t-xl'>Information</h2>
+                        <h2 className='text-base font-bold bg-red-600 text-white px-5 py-2 rounded-t-xl'>Saved Information</h2>
                         <hr/>
 
                         {/* information form starts */}

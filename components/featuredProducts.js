@@ -25,7 +25,7 @@ export default function featuredProducts(props){
     return(
         <>
          <section>
-            <div className="max-w-[375px] sm:max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+            <div className="max-w-[350px] sm:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
                 <div className='flex justify-between '>
                 <h1 className='font-bold py-6'>Featured {title}</h1>
                 <a onClick={viewMoreHandler}><p className='cursor-pointer font-bold text-red-600 text-sm pt-8'>View More →</p></a>
@@ -54,7 +54,7 @@ export default function featuredProducts(props){
                         <div className="bg-white rounded-lg shadow-lg">
                                         <img src={`https://dutao-public.s3.amazonaws.com/`+ property.images[0]}  alt="" className="rounded-t-lg" placeholder="blur"/>
                                         <div className="p-2">
-                                            <p className="mb-1 text-base font-bold text-red-600">AED {property.price}</p>
+                                            {property.price ? <p className="mb-1 text-base font-bold text-red-600">AED {property.price}</p> : "" }
                                             <p className="mb-2 text-sm font-bold">                                              
                                                 <TextTruncate
                                                         line={1}

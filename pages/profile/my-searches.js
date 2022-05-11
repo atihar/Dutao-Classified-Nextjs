@@ -33,7 +33,7 @@ export default function mySearches() {
         <Header></Header>
         <div className='max-w-screen-xl w-screen mx-auto sm:py-4 px-8 sm:my-4 rounded-lg shadow '>
         <h2 className="font-bold py-5"> Dutao User Dashboard</h2>
-            <div className="grid sm:grid-cols-[1fr_3fr] gap-4">
+            <div className="grid lg:grid-cols-[1fr_3fr] gap-4">
                 <div>
                     <ul className="text-base space-y-4">
                         <Link href={'/profile'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Profile</li></Link>
@@ -42,7 +42,7 @@ export default function mySearches() {
                         <Link href={'/profile/my-information'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Information</li></Link>
                         <Link href={'/profile/my-searches'}><li className=" py-2 px-4 rounded-lg text-white active">My Searches</li></Link>
                         <Link href={'/profile/settings'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg ">Settings</li></Link>
-                        <Link href={'/profile/subscription'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg ">Subscription</li></Link>
+                        {/* <Link href={'/profile/subscription'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg ">Subscription</li></Link> */}
                         <li onClick={logoutClickHandler} className="hover:bg-gray-100 py-2 px-4 rounded-lg">Logout</li>
                     </ul>
                 </div>

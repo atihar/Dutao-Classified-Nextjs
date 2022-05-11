@@ -12,7 +12,7 @@ export default function popularItems(props) {
       {/* popular residential for rent */}
 
     <section>
-    <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8 pt-6 sm:pt-2">
+    <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8 pt-6">
         <div className="grid grid-cols-1 sm:gap-4 md:grid-cols-2 lg:grid-cols-3 lg:items-stretch">
         <div className="flex items-center p-1 sm:p-8 rounded w-full ">
             <div className="flex sm:block justify-between w-full">

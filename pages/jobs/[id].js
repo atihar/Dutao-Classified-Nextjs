@@ -92,10 +92,10 @@ export default function singleJobs({job}){
         <Header/>
             <section>
                 <div className="max-w-screen-xl p-5 mx-auto sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-[2fr_1fr] gap-4">
+                    <div className="grid lg:grid-cols-[2fr_1fr] gap-4">
                         <div>
                             <h1>{job.title}</h1>
-                            <p className="text-sm text-gray-500 mb-3">Dubai{`>`} Business Bay</p>
+                            <p className="text-sm text-gray-500 mb-3">{job.city}{`>`} {job.area}</p>
                            
                             <div className="grid">       
                                 {job.images.map((x, i)=>{
@@ -219,7 +219,7 @@ export default function singleJobs({job}){
                     
                         <div>
                             <div className="p-10 border border-gray-200 grid rounded-lg">
-                                <img src="https://www.damacproperties.com/images/damac-logo.jpg" alt=""/>
+                                {/* <img src="https://www.damacproperties.com/images/damac-logo.jpg" alt=""/> */}
                                 <p className="text-sm"></p>
                                 <h1 className="pb-3">{job.company}</h1>
                                 <p className="text-sm">Office Location : {job.address}</p>

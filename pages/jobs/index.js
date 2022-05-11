@@ -19,12 +19,12 @@ function jobsIndex({job}) {
   return (
       <>
       <Header></Header>
-      <section className="overflow-hidden w-full max-w-screen-xl m-auto text-gray-700">
-        <div className="relative p-10">
+      <section className="overflow-hidden p-4 sm:p-10 max-w-screen-xl m-auto text-gray-700">
+        <div className="relative p4 sm:p-10">
           <label className="sr-only" htmlFor="searchQuery"> Job Title, Responsibility, Company Name ..... </label>
 
           <input
-            className="w-1/2 py-4 pl-3 pr-16 text-sm border-2 border-gray-200 rounded-lg"
+            className="w-1/2 py-4 pl-3 pr-6 sm:pr-16 text-sm border-2 border-gray-200 rounded-lg"
             id="searchQuery"
             type="text"
             placeholder="Job Title, Responsibility, Company Name ....." onChange={searchHandler}/>
@@ -37,7 +37,7 @@ function jobsIndex({job}) {
                       <option value="ajman">Ajman</option>
                   </select>
 
-                <Link href ={`/jobs/list/?searchQuery=${keyword}&city=${city}`}><button className="absolute p-6 text-white -translate-y-1/2 bg-red-600 rounded-full top-1/2 right-4" type="button">
+                <Link href ={`/jobs/list/?searchQuery=${keyword}&city=${city}`}><button className="absolute p-3 sm:p-6 text-white -translate-y-1/2 bg-red-600 rounded-full top-1/2 right-1 sm:right-4" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
                       <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                   </svg>

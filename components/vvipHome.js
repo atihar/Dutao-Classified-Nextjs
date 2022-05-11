@@ -5,7 +5,7 @@ export default function vvipHome() {
     const { t} = useTranslation('common')
   return (
     <section>
-        <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+        <div className="hidden lg:block max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
             <div className="relative bg-white mb-3">
                     <img
                     className="absolute inset-0 object-[75%] sm:object-[25%] object-cover w-full h-full opacity-25 sm:opacity-100"

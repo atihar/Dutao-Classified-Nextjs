@@ -46,12 +46,12 @@ export default function communityList(props) {
           <div className="max-w-screen-xl w-full px-4 mx-auto sm:px-6 lg:px-6">
           <Filter></Filter>
             <p className='text-sm text-gray-500 py-3'>Total {props.countProducts} used items found based on your search</p>
-          <div className='grid sm:grid-cols-[3fr_1fr] gap-4'>
+          <div className='grid lg:grid-cols-[3fr_1fr] gap-4'>
             <div className=''>
                 {products && products.map((property) => (
-                <div className=" lg:flex justify-center' py-2" key={property._id} >
+                <div className="lg:flex justify-center' py-2" key={property._id} >
                   <Link href={'/used-items/'+ property._id}>
-                  <div className="sm:flex w-full rounded-lg bg-white shadow-lg">
+                  <div className="md:flex w-full rounded-lg bg-white shadow-lg">
                   <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " 
                   src={`https://dutao-public.s3.amazonaws.com/`+ property.images[0]} alt="" />
                     {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}

@@ -10,14 +10,13 @@ import { useForm } from 'react-hook-form';
 
 export default function reportAd() {
   const router = useRouter();
-  const { redirect } = router.query
   const { state, dispatch } = useContext(Store);
   const { userInfo } = state;
   const [stateError, setStateerror] = useState(false)
   
   
   useEffect(() => {
-      if (userInfo) {
+      if (!userInfo) {
       router.push('/');
       }
   }, []);

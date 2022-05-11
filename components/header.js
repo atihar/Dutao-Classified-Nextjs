@@ -296,7 +296,7 @@ export default function Header({ children }) {
             <Link href={'/info-center'}><span> {t('infoCenter')} </span></Link>
             </button>
 
-            <div className="absolute z-20 hidden w-[1000px] bg-grey-200 right-0 group-hover:block">       
+            <div className="absolute z-20 hidden w-[700px] lg:w-[1000px] bg-grey-200 right-0 group-hover:block">       
               <div className="px-4 pt-2 pb-4 bg-white-500 bg-gray-50 rounded shadow-lg">
                 <p className='text-left text-base py-4'>Find your location to see whats nearby</p>
                 <div className='flex text-left space-x-16'>

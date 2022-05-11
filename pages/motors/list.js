@@ -52,7 +52,7 @@ export default function Home(props) {
                 {products && products.map((motor) => (
                 <div className=" lg:flex justify-center' py-2" key={motor._id} >
                   <Link href={'/motors/'+ motor._id}>
-                  <div className="lg:flex w-full rounded-lg bg-white shadow-lg">
+                  <div className="md:flex w-full rounded-lg bg-white shadow-lg">
                   <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " 
                   src={`https://dutao-public.s3.amazonaws.com/`+ motor.images[0]} alt="" />
                     {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}

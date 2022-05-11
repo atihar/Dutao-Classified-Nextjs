@@ -96,7 +96,7 @@ export default function managePropertyForSale() {
         <Header></Header>
         <div className='max-w-screen-xl w-screen mx-auto py-4 px-8 my-4 rounded-lg shadow '>
         <h2 className="font-bold py-5"> Dutao User Dashboard</h2>
-            <div className="grid grid-cols-[1fr_1fr_4fr] gap-4">
+            <div className="grid lg:grid-cols-[1fr_1fr_4fr] gap-4">
                 <div>
                     <ul className="text-base space-y-4">
                           <Link href={'/profile'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Profile</li></Link>
@@ -105,11 +105,11 @@ export default function managePropertyForSale() {
                           <Link href={'/profile/my-information'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Information</li></Link>
                           <Link href={'/profile/my-searches'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Searches</li></Link>
                           <Link href={'/profile/settings'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Settings</li></Link>
-                          <Link href={'/profile/subscription'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Subscription</li></Link>
+                          {/* <Link href={'/profile/subscription'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Subscription</li></Link> */}
                     </ul>
                 </div>
                 <div>
-                  <ul className="text-base space-y-4">
+                  <ul className="ml-10 lg:ml-0 text-base space-y-4">
                           <Link href={'/profile/manage/property-for-sale'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Property (Sale)</li></Link>
                           <Link href={'/profile/manage/property-for-rent'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">Property (Rent)</li></Link>
                           <Link href={'/profile/manage/motors'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">Motors</li></Link>
