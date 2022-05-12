@@ -66,7 +66,7 @@ function profile() {
                         <h2 className="font-bold">Profile Summary</h2>
                         <hr/>
                         <p className="text-base py-2">{userData.name}</p>
-                        <p className="text-base py-2">Membership Plan : Free</p>
+                        <p className="text-base py-2 hidden lg:block">Membership Plan : Free</p>
                         <p className="text-base py-2">{userData.email}</p>                          
                     </div>  
                 </div>

@@ -43,7 +43,7 @@ export default function popularItems(props) {
                             </svg>
                             {x.category}
                         </p>
-                        <p className="text-base font-bold text-gray-700">
+                        <p className="text-sm sm:text-base font-bold text-gray-700">
                             AED {x.price}
                         </p>
                     </div>

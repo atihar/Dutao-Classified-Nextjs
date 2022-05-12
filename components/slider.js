@@ -10,7 +10,7 @@ import 'swiper/css/scrollbar';
 import Link from 'next/link';
 
 // import required modules
-import { Pagination } from "swiper";
+import { Autoplay, Pagination } from "swiper";
 
 export default function homeSlider(props){
     const data = props.data;
@@ -19,7 +19,11 @@ export default function homeSlider(props){
     
     <section>
         <div className="max-w-[350px] sm:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
-          <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
+          <Swiper pagination={true} modules={[Pagination, Autoplay ]} className="mySwiper" 
+          autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}>
                 {data && data.map((x, i)=>{
                     return (
                         <SwiperSlide key={i}>
