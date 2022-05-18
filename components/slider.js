@@ -21,14 +21,14 @@ export default function homeSlider(props){
         <div className="max-w-[350px] sm:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
           <Swiper pagination={true} modules={[Pagination, Autoplay ]} className="mySwiper" 
           autoplay={{
-          delay: 2500,
+          delay: 3000,
           disableOnInteraction: false,
         }}>
                 {data && data.map((x, i)=>{
                     return (
                         <SwiperSlide key={i}>
-                            <div className="bg-white rounded-lg shadow-lg">
-                                <img src={x.url} alt="" className="rounded-t-lg"/>
+                            <div className="bg-white rounded-lg shadow-lg w-100">
+                                <img src={x.url} alt="" className="rounded-t-lg object-cover w-100 h-auto"/>
                             </div>
                     </SwiperSlide>
                     )

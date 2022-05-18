@@ -11,7 +11,7 @@
     "specialProducts" : "Special Products",
     "jobs" : "Jobs",
     "usedItems" : "Used Items",
-    "vipMember" : "VIP Member",
+    "vipMember" : "Member",
     "community" : "Community",
     "apartmentForSale" : "Apartment for sale",
     "villaForSale" : "Villa for sale",
@@ -59,10 +59,10 @@
     "findjob" : "Find your next job, Fast",
     "jobDetailsinHome" : "You'll receive push notifications when your resume is viewed, or when new jobs appear in your most recent search. Making it easy for you to jump right back into your job search.",
     "footerAbout": "Dutao is a online classified platform. It is headquartered in Dubai and its running its operation aiming the Middle East. It has also aimed to help local and travelers to assist in a better way to make the life easier.",
-    "homeGetSpecialProducts" : "Get the special products access and much more with dutao VIP membership",
+    "homeGetSpecialProducts" : "Get the special products access and much more with dutao registration",
     "oneYearPremium" : "1 year of Premium",
     "throughSignup" : "Through early access",
-    "vipPageHead" : "New member? See whats in VIP membership",
+    "vipPageHead" : "New member? See whats in our free account",
     "vipPageDesc" : "Free delivery, free inspection, dutao fast track support, premium deals and much more..",
     "myProfile" : "My Profile"
   }

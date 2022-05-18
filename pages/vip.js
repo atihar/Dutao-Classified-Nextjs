@@ -1,6 +1,7 @@
 import Header from "../components/header"
 import Footer from "../components/footer"
 import useTranslation from "next-translate/useTranslation"
+import Link from "next/link"
 
 function vip() {
   const { t} = useTranslation('common')
@@ -109,24 +110,19 @@ function vip() {
             <h3 className="mt-4 text-xl font-bold text-white">Premium Events</h3>
 
             <p className="mt-1 text-sm text-gray-300">
-              Get access to premium events from Dutao by being a VIP members
-              where different brands have special offers for you.
+              Get access to premium events from Dutao by being a user
+              where different brands will have special offers for you.
             </p>
           </a>
 
         </div>
 
         <div className="mt-12 text-center">
-          {/* <a className="inline-flex items-center px-8 py-3 mt-8 text-white bg-red-600 border border-red-600 rounded hover:bg-transparent active:text-red-500 focus:outline-none focus:ring"
-            href="#purchaseCard">
+          <Link href="/signup">
+            <a className="inline-flex items-center px-8 py-3 mt-8 text-white bg-red-600 border border-red-600 rounded hover:bg-transparent active:text-red-500 focus:outline-none focus:ring">
             <span className="text-sm font-medium"> Get Started </span>
-
-            <svg className="w-5 h-5 ml-3"
-              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round"
-                strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a> */}
+            </a>
+          </Link>
         </div>
       </div>
     </section>
