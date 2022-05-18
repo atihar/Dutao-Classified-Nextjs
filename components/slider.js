@@ -27,8 +27,8 @@ export default function homeSlider(props){
                 {data && data.map((x, i)=>{
                     return (
                         <SwiperSlide key={i}>
-                            <div className="bg-white rounded-lg shadow-lg w-100">
-                                <img src={x.url} alt="" className="rounded-t-lg object-cover w-100 h-auto"/>
+                            <div className="bg-white rounded-lg shadow-lg">
+                                <img src={x.url} alt="" className="rounded-t-lg"/>
                             </div>
                     </SwiperSlide>
                     )

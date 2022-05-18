@@ -19,17 +19,17 @@ import Motors from '../models/motors'
 
 
 const slider1 = [
-  { url: "https://i.postimg.cc/y8P33x27/Dutao-Ads-004.png" },
-  { url: "https://i.postimg.cc/fWtdqwSv/Dutao-Ads-01.png" },
-  { url: "https://i.postimg.cc/MTX6TpJ3/Dutao-Ads-02.png" },
-  { url: "https://i.postimg.cc/bvmYp2W2/Dutao-Ad-08.png" },
-  { url: "https://i.postimg.cc/y8z8PK0W/Dutao-Ad-004.png" },
+  { url: "/banners/Dutao_Ads_01.jpg" },
+  { url: "/banners/Dutao_Ads_02.jpg" },
+  { url: "/banners/Dutao_Ads_03.jpg" },
+  { url: "/banners/Dutao_Ads_04.jpg" },
+  { url: "/banners/Dutao_Ads_05.jpg" },
 ];
 
 const slider2 = [
-  { url: "https://i.postimg.cc/bvmYp2W2/Dutao-Ad-08.png" },
-  { url: "https://i.postimg.cc/59hCZZwW/Dutao-Ad-05.png" },
-  { url: "https://i.postimg.cc/521FtL7P/Dutao-Ad-06.png" }
+  { url: "/banners/Dutao_Ads_03.jpg" },
+  { url: "/banners/Dutao_Ads_04.jpg" },
+  { url: "/banners/Dutao_Ads_05.jpg" }
 ];
 
 
