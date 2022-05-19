@@ -48,7 +48,7 @@ handler.post(async (req, res, err) => {
   const mailData = {
     from: 'no-reply@dutao.com',
     to: user.email,
-    subject: `Complete your registration`,
+    subject: `Complete your account`,
     text: 'Hello,\n Welcome. Please click on the link to verify your account.\n',
     html: `
    <!DOCTYPE html>
@@ -149,7 +149,7 @@ handler.post(async (req, res, err) => {
 
     <!-- start preheader -->
     <div class="preheader" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
-      A preheader is the short summary text that follows the subject line when an email is viewed in the inbox.
+      Verify your account on dutao
     </div>
     <!-- end preheader -->
 
@@ -233,7 +233,7 @@ handler.post(async (req, res, err) => {
                       <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" bgcolor="#10E5BC" style="border-radius: 6px;">
-                          <a href="https://dutao.ae/verification/${token}" target="_blank" 
+                          <a href="http://dutao.ae/verification/${token}" target="_blank" 
                             style="display: inline-block; padding: 16px 36px; 
                             font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #000000; 
                             text-decoration: none; border-radius: 6px;">

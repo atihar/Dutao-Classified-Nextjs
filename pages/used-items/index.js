@@ -38,7 +38,7 @@ export default function CommunityMain({items}) {
       <Header></Header>
       <CategorySlider data={cat}></CategorySlider>
       <FeaturedPlace></FeaturedPlace>
-      <FeaturedProducts title={"Community"} data={items}></FeaturedProducts>
+      <FeaturedProducts title={"Products"} data={items}></FeaturedProducts>
       <Footer></Footer>
       </>
   )

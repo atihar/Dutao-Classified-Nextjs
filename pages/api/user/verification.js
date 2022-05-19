@@ -7,8 +7,6 @@ const handler = nc();
 
 handler.get(async (req, res) => {
   const requestToken = (req.query.continue_verification);
-  // //parsing json from string that has been passed via query parameter
-  // const userToken = JSON.parse(requestToken)
   
   if ( requestToken ) {
     const token = await requestToken;
@@ -26,23 +24,14 @@ handler.get(async (req, res) => {
 
 const email = req.user.email
 await db.connect();
-const info = await User.findOne( { email : email });
-if(info){
-  //check if user is already activated 
-  if(!info.activated){
+const info = await User.findOne({ email : email });
+if(!info.activated){
     info.activated = true;
+    info.save();
+    await db.disconnect();
     res.status(200).json({ message: 'user is now active' });
-  }
-  else{
-    // console.log('user already activated')
-    res.status(200).json({ message: 'user is activate' });
-  }
-  
-  info.save();
-  await db.disconnect();
 } else {
-  console.log("there was some problem while updating data")
-  await db.disconnect();
+  console.log("there was some problem while updating data");
 }
 
 });
