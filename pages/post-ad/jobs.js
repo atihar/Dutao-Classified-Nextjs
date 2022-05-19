@@ -98,7 +98,7 @@ export default function jobsPost({ children }) {
           );
 
           //creating a job application form on successfull submission
-          axios.post(`http://localhost:3000/api/jobs/apply?jobId=${data._id}`,
+          axios.post(`/api/jobs/apply?jobId=${data._id}`,
           {
             headers: { authorization: `Bearer ${userInfo.token}` }
           });

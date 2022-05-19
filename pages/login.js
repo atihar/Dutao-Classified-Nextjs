@@ -53,11 +53,11 @@ export default function Login() {
 
 
         <div className="sm:max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
-        <div className="max-w-lg mx-auto text-center">
+        <div className="max-w-lg mx-auto">
             <div id='animation'></div>
 
-            <h1 className="text-2xl font-bold sm:text-3xl">Welcome Back!</h1>
-            <p className="mt-4 text-gray-500">
+            <h1 className="text-2xl font-bold sm:text-6xl">Sign In</h1>
+            <p className="mt-4 text-gray-500 text-base">
             Login to your account to keep and start posting for free today!!
             </p>
 
@@ -134,12 +134,12 @@ export default function Login() {
             <div className="flex items-center justify-between">
             <p className="text-sm text-gray-500">
                 Don't have an account? 
-                <Link className="underline" href="/signup">Sign up</Link>
+                <Link className="underline" href="/signup"> Sign up</Link>
             </p>
 
             <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg"
              >
-                sign in
+                 sign in
             </button>
             </div>
         </form>

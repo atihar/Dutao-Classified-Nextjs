@@ -4,17 +4,15 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useRouter } from "next/router";
 import Footer from '../components/footer';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Store } from '../lib/Store';
-import Cookies from 'store-js';
 
 export default function Signup() {
     const router = useRouter();
     const { redirect } = router.query;
-
     const { state, dispatch } = useContext(Store);
     const { userInfo } = state;
-
+    const [success, setSuccess] = useState(false)
     useEffect(() => {
       if (userInfo) {
         router.push('/');
@@ -34,27 +32,22 @@ export default function Signup() {
           return;
         }
         try {
+          //waiting for data for being signed in and a jwt tokenized data will be set as {data} from response of the API
           const { data } = await axios.post('/api/user/registration', {
-            name,
-            email,
-            password,
-            phone
-          }
-          );
-        dispatch({ type: 'USER_LOGIN', payload: data });
-        Cookies.set('userInfo', data);
+            name, email, password, phone });        
 
-        const oneYearFromNow = new Date();
-        oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
-        await axios.post('/api/user/create-profile-data', {
-            name,
-            userId : data._id,
-            subscription: 1,// 0-non. 1-basic, 2-standard, 3-premium (this will be set by the payment)
-            subscriptionDate: Date.now(),
-            subscriptionExpr: oneYearFromNow
-          }
-          );
-        router.push(redirect || '/');
+          const oneYearFromNow = new Date();
+          oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
+          await axios.post('/api/user/create-profile-data', {
+              name,
+              userId : data._id,
+              subscription: 1,// 0-non. 1-basic, 2-standard, 3-premium (this will be set by the payment)
+              subscriptionDate: Date.now(),
+              subscriptionExpr: oneYearFromNow
+            }
+            );
+            setSuccess(true)
+          // router.push(redirect || '/');
         } catch (err) {
             console.log(err)
         }
@@ -67,6 +60,14 @@ export default function Signup() {
       {/* form */}
          <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
         <div className="max-w-lg mx-auto">
+
+          {/* on successful email send show success alert  */}
+          { success && 
+              <div className="p-4 text-green-700 border rounded border-green-900/10 bg-green-50"
+              role="alert">
+                <strong class="text-sm font-medium"> Check your email! </strong>
+              </div>
+            }
 
             <h1 className="text-2xl font-bold sm:text-6xl">Sign Up</h1>
             <p className="mt-4 text-gray-500 text-base">
@@ -209,7 +210,7 @@ export default function Signup() {
             <div className="flex items-center justify-between py-4">
             <p className="text-sm text-gray-500">
                 Have already a account?
-                <Link className="underline" href="/login">Sign in</Link>
+                <Link className="underline" href="/login"> Sign in</Link>
             </p>
 
             <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg">
