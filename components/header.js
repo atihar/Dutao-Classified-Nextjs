@@ -24,18 +24,26 @@ export default function Header({ children }) {
     setMounted(true)
   }, []);
 
-  const mobileMenu = 0;
-  function openMobileMenu(){
-    console.log('clicked in mobile');
-  }
+// Persisting user defined translation for the next time
+    const { locale, defaultLocale } = useRouter()
 
+    useEffect(persistLocaleCookie, [locale, defaultLocale])
+    function persistLocaleCookie() {
+      if(locale !== defaultLocale) {
+         const date = new Date()
+         const expireMs = 100 * 24 * 60 * 60 * 1000 // 100 days
+         date.setTime(date.getTime() + expireMs)
+         document.cookie = `DUTAO_LOCALE=${locale};expires=${date.toUTCString()};path=/`
+      }
+    }
+//logout handler 
   const logoutClickHandler = () => {
     dispatch({ type: 'USER_LOGOUT' });
     Cookies.remove('userInfo');
     router.push('/');
   };
 
-  return ( 
+return ( 
     <>
     <Head>
         <title>Dutao</title>
