@@ -33,7 +33,7 @@ export default function Header({ children }) {
          const date = new Date()
          const expireMs = 100 * 24 * 60 * 60 * 1000 // 100 days
          date.setTime(date.getTime() + expireMs)
-         document.cookie = `DUTAO_LOCALE=${locale};expires=${date.toUTCString()};path=/`
+         document.cookie = `NEXT_LOCALE=${locale};expires=${date.toUTCString()};path=/`
       }
     }
 //logout handler 
