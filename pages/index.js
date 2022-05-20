@@ -47,7 +47,7 @@ export default function Index({property, motors}){
    {/* <PSpecialProduct></PSpecialProduct> */}
    <PJobs></PJobs>
    {/* <PHomeServices></PHomeServices> */}
-   <VVIP></VVIP> 
+   {/* <VVIP></VVIP>  */}
    {/* <PCommunity></PCommunity>
    <CategoryCard></CategoryCard> */}
    <Footer></Footer>
