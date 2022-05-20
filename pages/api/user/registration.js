@@ -233,7 +233,7 @@ handler.post(async (req, res, err) => {
                       <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" bgcolor="#10E5BC" style="border-radius: 6px;">
-                          <a href="http://dutao.ae/verification/${token}" target="_blank" 
+                          <a href="http://localhost:3000/verification/${token}" target="_blank" 
                             style="display: inline-block; padding: 16px 36px; 
                             font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #000000; 
                             text-decoration: none; border-radius: 6px;">

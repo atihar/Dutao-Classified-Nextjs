@@ -38,7 +38,7 @@ export default function Signup() {
 
           const oneYearFromNow = new Date();
           oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
-          await axios.post('/api/user/create-profile-data', {
+          axios.post('/api/user/create-profile-data', {
               name,
               userId : data._id,
               subscription: 1,// 0-non. 1-basic, 2-standard, 3-premium (this will be set by the payment)
@@ -60,14 +60,6 @@ export default function Signup() {
       {/* form */}
          <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
         <div className="max-w-lg mx-auto">
-
-          {/* on successful email send show success alert  */}
-          { success && 
-              <div className="p-4 text-green-700 border rounded border-green-900/10 bg-green-50"
-              role="alert">
-                <strong class="text-sm font-medium"> Check your email! </strong>
-              </div>
-            }
 
             <h1 className="text-2xl font-bold sm:text-6xl">Sign Up</h1>
             <p className="mt-4 text-gray-500 text-base">
@@ -218,6 +210,15 @@ export default function Signup() {
             </button>
             </div>
         </form>
+
+        {/* on successful email send show success alert  */}
+        { success && 
+              <div className="p-4 text-green-700 border rounded border-green-900/10 bg-green-50"
+              role="alert">
+                <strong class="text-sm font-medium"> Check your email! </strong>
+                <p className='text-base'>Please activate your account within next 3 minutes</p>
+              </div>
+            }
         </div>
         <Footer></Footer>
       </>
