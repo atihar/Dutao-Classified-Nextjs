@@ -9,10 +9,12 @@ import { Store } from '../lib/Store';
 
 export default function Signup() {
     const router = useRouter();
-    const { redirect } = router.query;
     const { state, dispatch } = useContext(Store);
     const { userInfo } = state;
     const [success, setSuccess] = useState(false)
+    const[loading, setLoading] = useState(false)
+
+
     useEffect(() => {
       if (userInfo) {
         router.push('/');
@@ -33,6 +35,7 @@ export default function Signup() {
         }
         try {
           //waiting for data for being signed in and a jwt tokenized data will be set as {data} from response of the API
+          setLoading(true)
           const { data } = await axios.post('/api/user/registration', {
             name, email, password, phone });        
 
@@ -47,9 +50,11 @@ export default function Signup() {
             }
             );
             setSuccess(true)
+            setLoading(false)
           // router.push(redirect || '/');
         } catch (err) {
             console.log(err)
+            setLoading(false)
         }
       };
       
@@ -206,7 +211,7 @@ export default function Signup() {
             </p>
 
             <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg">
-                Complete registration
+                {loading ? "processing..." : "Create account" }
             </button>
             </div>
         </form>

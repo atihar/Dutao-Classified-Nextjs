@@ -13,6 +13,7 @@ export default function propertyForSalePost({ children }) {
     const { userInfo } = state;
     const [ userEmail, setUserEmail] = useState("");
     const [parent, setParent] = useState("");
+    const [imageFiles, setImages] = useState([]);
 
     useEffect(() => {
         if (!userInfo) {
@@ -32,16 +33,19 @@ export default function propertyForSalePost({ children }) {
    
     // handling onchange photo upload
     const imgFiles = [];
-    const userData = { userInfo }
     const uploadPhoto = async (e) => {
       try{
         const myFileList = e.target.files;
         const newArr = [...myFileList]
         const v = await Promise.all(
           newArr.map(async (file) => {
-                const filename = encodeURIComponent(file.name);
+                const filename = Date.now()+encodeURIComponent(file.name); 
                 const res = await fetch(`/api/upload-url?file=${filename}`);
+                //setting the filenames to the local array before setting to state because the filenames are spreading
+                //into words
                 imgFiles.push(filename);
+                //solving the spread array problem using state to send the filenames in the db
+                setImages(imgFiles)
                 const { url, fields } = await res.json();
                 const formData = new FormData();
 
@@ -73,7 +77,7 @@ export default function propertyForSalePost({ children }) {
           const { data } = await axios.post('/api/community', {
             title,
             category,
-            images: imgFiles,
+            images: imageFiles,
             address,
             description,
             city,
@@ -216,8 +220,8 @@ export default function propertyForSalePost({ children }) {
                     focus:text-gray-500 focus:bg-white"
                     {...register('city',{required:true})} onChange={(e) => setParent(e.target.value)}>
                     <option defaultValue>Select City</option>
-                    {cityData.cities.map((city, i) => (
-                    <option value={city.value} key={i}>{city.name}</option>
+                    {cityData.cities.map((city) => (
+                    <option value={city.value} key={city.id}>{city.name}</option>
                     ))}
                     </select>
                     {errors.city && <p className='text-[9px] text-red-500 px-4'>select a city</p> }

@@ -16,9 +16,9 @@ export default async function handler(req, res) {
     Fields: {
       key: req.query.file,
     },
-    Expires: 60, // seconds
+    Expires: 600, // seconds
     Conditions: [
-      ['content-length-range', 0, 1048576], // up to 1 MB
+      ['content-length-range', 0, 10000000], // up to 1 MB
     ],
   });
 

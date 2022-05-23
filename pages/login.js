@@ -15,6 +15,7 @@ export default function Login() {
     const { state, dispatch } = useContext(Store);
     const { userInfo } = state;
     const [stateError, setStateerror] = useState(false)
+    const [loading, setLoading] = useState(false)
     
     useEffect(() => {
         if (userInfo) {
@@ -32,6 +33,7 @@ export default function Login() {
 
     const submitHandler = async ({ email, password }) => {
         try {
+          setLoading(true);
           const { data } = await axios.post('/api/user/login', {
             email,
             password,
@@ -40,8 +42,9 @@ export default function Login() {
           Cookies.set('userInfo', data);
           router.push(redirect || '/');
         } catch (err) {
-          console.log(err.message)
+        //   console.log(err.message)
           setStateerror(true)
+          setLoading(false)
         }
       };
 
@@ -58,11 +61,14 @@ export default function Login() {
 
             <h1 className="text-2xl font-bold sm:text-6xl">Sign In</h1>
             <p className="mt-4 text-gray-500 text-base">
-            Login to your account to keep and start posting for free today!!
+            Login to your account and start posting for free today!!
             </p>
 
         </div>
-        {stateError && <p className='bg-red-100 text-sm'>Something went wrong! Try again</p> }
+        {stateError && 
+        <div className="p-4 border rounded text-amber-700 bg-amber-50 border-amber-900/10" role="alert">
+            <strong className="text-sm font-medium"> Invalid Email or Password! </strong>
+            </div> }
         
 
         <form onSubmit={handleSubmit(submitHandler)} className="max-w-xl mx-auto mt-8 mb-0 space-y-4">
@@ -137,9 +143,10 @@ export default function Login() {
                 <Link className="underline" href="/signup"> Sign up</Link>
             </p>
 
-            <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg"
+            <button type="submit" className="transition duration-700 ease-in-out inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg"
              >
-                 sign in
+                 <p>{loading ? "Loading..." : "sign in"}</p>
+
             </button>
             </div>
         </form>

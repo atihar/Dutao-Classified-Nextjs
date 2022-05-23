@@ -11,6 +11,7 @@ export default function jobsPost({ children }) {
     const { state } = useContext(Store);
     const { userInfo } = state;
     const [ userEmail, setUserEmail] = useState("");
+    const [imageFiles, setImages] = useState([]);
 
     useEffect(() => {
         if (!userInfo) {
@@ -30,16 +31,19 @@ export default function jobsPost({ children }) {
    
     // handling onchange photo upload
     const imgFiles = [];
-    const userData = { userInfo }
     const uploadPhoto = async (e) => {
       try{
         const myFileList = e.target.files;
         const newArr = [...myFileList]
         const v = await Promise.all(
           newArr.map(async (file) => {
-                const filename = encodeURIComponent(file.name);
+                const filename = Date.now()+encodeURIComponent(file.name);
                 const res = await fetch(`/api/upload-url?file=${filename}`);
+                //setting the filenames to the local array before setting to state because the filenames are spreading
+                //into words
                 imgFiles.push(filename);
+                //solving the spread array problem using state to send the filenames in the db
+                setImages(imgFiles)
                 const { url, fields } = await res.json();
                 const formData = new FormData();
 
@@ -71,7 +75,7 @@ export default function jobsPost({ children }) {
           const { data } = await axios.post('/api/jobs', {
             title, 
             category,
-            images: imgFiles,
+            images: imageFiles,
             company, 
             address, 
             description, 
@@ -84,7 +88,8 @@ export default function jobsPost({ children }) {
             minWorkExp, 
             minEduLevel, 
             companySize, 
-            careerLevel, 
+            careerLevel,
+            language,
             preferredGender,
             reqNationality, 
             isRemote, 

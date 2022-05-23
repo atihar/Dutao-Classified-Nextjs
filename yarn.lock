@@ -187,10 +187,10 @@
     "picocolors" "^1.0.0"
     "postcss-value-parser" "^4.2.0"
 
-"aws-sdk@^2.1120.0":
-  "integrity" "sha512-A3YjMQHDtV4mXf35m8zlM+nsVq5KfyKeiXrEMG7Bdlucuxl7aPdKEmYrPQLw9ZyhYY/x4o08pPuTr/stJaVGeg=="
-  "resolved" "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.1128.0.tgz"
-  "version" "2.1128.0"
+"aws-sdk@^2.1140.0":
+  "integrity" "sha512-cNdq56UQrUzXmCgwo0/J5GGLmfHn+Vp38qgcK/Xd86Sch8P9v2o8tNv7J82mYU98YY2vO007BMxRylA4Sd8PkQ=="
+  "resolved" "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.1140.0.tgz"
+  "version" "2.1140.0"
   dependencies:
     "buffer" "4.9.2"
     "events" "1.1.1"
@@ -1498,7 +1498,7 @@
     "dom7" "^4.0.4"
     "ssr-window" "^4.0.2"
 
-"tailwindcss@^3.0.24", "tailwindcss@>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1", "tailwindcss@>=3.0.0 || >= 3.0.0-alpha.1":
+"tailwindcss@^3.0.7", "tailwindcss@>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1", "tailwindcss@>=3.0.0 || >= 3.0.0-alpha.1":
   "integrity" "sha512-H3uMmZNWzG6aqmg9q07ZIRNIawoiEcNFKDfL+YzOPuPsXuDXxJxB9icqzLgdzKNwjG3SAro2h9SYav8ewXNgig=="
   "resolved" "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.0.24.tgz"
   "version" "3.0.24"

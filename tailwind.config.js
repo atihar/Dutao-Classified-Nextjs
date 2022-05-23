@@ -10,5 +10,6 @@ module.exports = {
    '@tailwindcss/forms')],
    variants: {
     display: ['responsive', 'group-hover', 'group-focus'],
+    animation: ['group-hover'],
    },
 }

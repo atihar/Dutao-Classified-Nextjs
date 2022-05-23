@@ -16,7 +16,8 @@ export default function managePropertyForSale() {
   const { state } = useContext(Store);
   const { userInfo } = state;
   const [posts, setPosts] = useState([]);
-  const [postCount, setPostCount] = useState(0)
+  const [postCount, setPostCount] = useState(0);
+  const [loading, setLoading] = useState(false)
 
   function reducer(state, action) {
     switch (action.type) {
@@ -41,6 +42,7 @@ export default function managePropertyForSale() {
     }
 
     //doing CSR for fetching users posts using axios and setting data to state to render it
+    setLoading(true)
     const userEmail = userInfo.email
     axios.get(`/api/user/manage/property-for-rent/?userEmail=${userEmail}`,{
       headers: { authorization: `Bearer ${userInfo.token}` }
@@ -48,11 +50,13 @@ export default function managePropertyForSale() {
       .then(function (response) {
         setPosts(response.data)
         setPostCount(response.data.length)
+        setLoading(false)
         // handle success
       })
       .catch(function (error) {
         // handle error
         console.log(error);
+        setLoading(false)
       });
 
 
@@ -80,10 +84,12 @@ export default function managePropertyForSale() {
       return;
     }
     try {
+      setLoading(true)
       dispatch({ type: 'DELETE_REQUEST' });
       await deletePhoto(productImages);
       await axios.delete(`/api/user/manage/property-for-sale/${productId}`);
       dispatch({ type: 'DELETE_SUCCESS' });
+      setLoading(false)
     } catch (err) {
       dispatch({ type: 'DELETE_FAIL' });
     }
@@ -121,7 +127,8 @@ export default function managePropertyForSale() {
                     <p className="text-base text-gray-600">You have {postCount} posted Ads</p>
                     <p className="text-sm text-gray-600">Manage them</p>
                   </div> 
-                  
+
+                {loading && <p className="text-base">loading...</p>}
                   <hr></hr>
                 {posts && posts.map((property) => (
                 <div className="sm:flex justify-center' py-2" key={property._id} >

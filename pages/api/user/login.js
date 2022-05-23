@@ -21,7 +21,7 @@ handler.post(async (req, res) => {
       activated : user.activated
     });
   } else {
-    res.status(401).send({ message: 'Invalid email or password' });
+    res.status(401).json({ message: 'Invalid email or password' });
   }
 });
 

@@ -17,6 +17,7 @@ export default function managePropertyForSale() {
   const { userInfo } = state;
   const [posts, setPosts] = useState([]);
   const [postCount, setPostCount] = useState(0)
+  const [loading, setLoading] = useState(false)
 
   function reducer(state, action) {
     switch (action.type) {
@@ -41,6 +42,7 @@ export default function managePropertyForSale() {
     }
 
     //doing CSR for fetching users posts using axios and setting data to state to render it
+    setLoading(true)
     const userEmail = userInfo.email
     axios.get(`/api/user/manage/property-for-sale/?userEmail=${userEmail}`,{
       headers: { authorization: `Bearer ${userInfo.token}` }
@@ -48,11 +50,13 @@ export default function managePropertyForSale() {
       .then(function (response) {
         setPosts(response.data)
         setPostCount(response.data.length)
+        setLoading(false)
         // handle success
       })
       .catch(function (error) {
         // handle error
         console.log(error);
+        setLoading(false)
       });
 
 
@@ -80,11 +84,13 @@ export default function managePropertyForSale() {
       return;
     }
     try {
+      setLoading(true)
       dispatch({ type: 'DELETE_REQUEST' });
       // await deletePhoto(productImages);
       await axios.delete(`/api/user/manage/property-for-sale/?id=${productId}`);
       await deletePhoto(productImages);
       dispatch({ type: 'DELETE_SUCCESS' });
+      setLoading(false)
     } catch (err) {
       dispatch({ type: 'DELETE_FAIL' });
     }
@@ -95,7 +101,7 @@ export default function managePropertyForSale() {
       <>
         <Header></Header>
         <div className='sm:max-w-screen-xl sm:w-screen mx-auto py-4 px-8 my-4 rounded-lg shadow '>
-        <h2 className="font-bold py-5"> Dutao User Dashboard</h2>
+        <h2 className="font-bold py-0 sm:py-5"> Dutao User Dashboard</h2>
             <div className="grid lg:grid-cols-[1fr_1fr_4fr] gap-4">
                 <div>
                     <ul className="text-base space-y-4">
@@ -122,7 +128,7 @@ export default function managePropertyForSale() {
                     <p className="text-base text-gray-600">You have {postCount} posted Ads</p>
                     <p className="text-sm text-gray-600">Manage them</p>
                   </div> 
-                  
+                  {loading && <p className="text-base">loading...</p>}
                   <hr></hr>
                 {posts && posts.map((property) => (
                 <div className="sm:flex justify-center' py-2" key={property._id} >
