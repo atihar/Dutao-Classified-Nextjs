@@ -52,7 +52,7 @@ export default function PropertyForSale(props) {
                 <div className="lg:flex justify-center' py-2" key={property._id} >
                   <Link href={'/property-for-sale/'+ property._id}>
                   <div className="md:flex w-full rounded-lg bg-white shadow-lg">
-                  <img className="w-100 md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " 
+                  <img className="object-fill h-48 w-[470px] rounded-t-lg md:rounded-2xl" 
                   src={`https://dutao-public.s3.amazonaws.com/${property.images[0]}`} alt="" />
                     {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}
                     
@@ -88,7 +88,7 @@ export default function PropertyForSale(props) {
                             </svg>
                             {property.address}
                         </p>  
-                        <a className="inline-block text-center px-4 py-1 text-sm font-medium text-white bg-red-600 border border-red-600 rounded active:text-red-500 hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring" href="">
+                        <a className="inline-block text-center px-4 py-1 text-sm font-medium text-white bg-red-600 border border-red-600 rounded active:text-red-500 hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring" href={`tel:${property.phone}`}>
                           <div className="flex"> 
                               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" className="bi bi-telephone-fill" viewBox="0 0 16 16">
                               <path fillRule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 
@@ -113,7 +113,7 @@ export default function PropertyForSale(props) {
 
       {/* pagination */}
 
-          <div className="w-30 m-auto inline-flex items-center justify-center py-1 text-white bg-red-600 rounded">
+          <div className="w-30 m-auto inline-flex items-center justify-center py-1 my-4 text-white bg-red-600 rounded">
             <a onClick={backPageHandler} className="inline-flex items-center justify-center w-8 h-8">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />

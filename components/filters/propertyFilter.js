@@ -133,22 +133,22 @@ export default function filter() {
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("bedroom")}>
-                        <option value="">Bedrooms</option>
-                        <option value="1">1 bedroom</option>
-                        <option value="2">2 bedrooms</option>
-                        <option value="3">3 bedrooms</option>
-                        <option value="4">4 bedrooms</option>
-                        <option value="5">5 bedrooms</option>
+                        <option value="">Bed</option>
+                        <option value="1">1 bed</option>
+                        <option value="2">2 bed</option>
+                        <option value="3">3 bed</option>
+                        <option value="4">4 bed</option>
+                        <option value="5">5 bed</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("bathroom")}>
-                        <option value="">Bathrooms</option>
-                        <option value="1">1 bathroom</option>
-                        <option value="2">2 bathrooms</option>
-                        <option value="3">3 bathrooms</option>
-                        <option value="4">4 bathrooms</option>
-                        <option value="5">5 bathrooms</option>
+                        <option value="">Bath</option>
+                        <option value="1">1 bath</option>
+                        <option value="2">2 bath</option>
+                        <option value="3">3 bath</option>
+                        <option value="4">4 bath</option>
+                        <option value="5">5 bath</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">

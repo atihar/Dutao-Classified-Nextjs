@@ -55,7 +55,7 @@ export default function Home(props) {
                   <div className="md:flex w-full rounded-lg bg-white shadow-lg">
                   {/* <img className="w-full md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " 
                   src={`https://dutao-public.s3.amazonaws.com/`+job.images[0]} alt="" /> */}
-                    <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://www.karlmayer.com/ecomaXL/files/Professionals_distributor_568x282pix.png?max_w=438&box_crop=438,208" alt="jobs" />
+                    <img className="object-fill h-48 w-[470px] rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://www.karlmayer.com/ecomaXL/files/Professionals_distributor_568x282pix.png?max_w=438&box_crop=438,208" alt="jobs" />
                     
                     <div className="py-3 px-6 w-full">
                       <div className="flex items-center justify-between mb-2">
