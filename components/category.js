@@ -8,15 +8,16 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Link from 'next/link';
+import useTranslation from "next-translate/useTranslation"
 
 export default function categorySlider(props){
     const data = props.data;
-
+    const { t} = useTranslation('common')
     return(
     
     <section>
         <div className="max-w-[350px] sm:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
-            <h1 className="py-4 font-bold">Popular Categories</h1>
+            <h1 className="py-4 font-bold">{t('pCategories')}</h1>
           <Swiper 
             modules={[]}
             spaceBetween={50}

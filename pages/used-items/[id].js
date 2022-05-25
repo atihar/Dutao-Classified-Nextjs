@@ -5,6 +5,7 @@ import db from '../../lib/dbConnect'
 import UsedItems from '../../models/usedItems'
 import moment from "moment"
 import Link from 'next/link'
+import Slider from '../../components/singleProductPageSlider'
 
 
 export default function singlePropertySale({items}){
@@ -20,11 +21,7 @@ export default function singlePropertySale({items}){
                             <h1>{items.title}</h1>
                             <p className="text-sm text-gray-500 mb-3">Dubai{`>`} {items.area}</p>
                            
-                            <div className="grid">       
-                                {items.images.map((x, i)=>{
-                                    return <img className=" md:h-auto object-cover md:w-[96] rounded-t-lg md:rounded-none md:rounded-l-lg" key={i} src={`https://dutao-public.s3.amazonaws.com/`+ x } alt="" />
-                                })}
-                            </div>
+                            <Slider data={items.images}/>    
                             
                             <p className="font-bold py-3">AED {items.price}</p>
 

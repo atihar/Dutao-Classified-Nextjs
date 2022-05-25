@@ -19,23 +19,6 @@ export default function managePropertyForSale() {
   const [postCount, setPostCount] = useState(0)
   const [loading, setLoading] = useState(false)
 
-  function reducer(state, action) {
-    switch (action.type) {
-      case 'DELETE_REQUEST':
-        return { ...state, loadingDelete: true };
-      case 'DELETE_SUCCESS':
-        return { ...state, loadingDelete: false, successDelete: true };
-      case 'DELETE_FAIL':
-        return { ...state, loadingDelete: false };
-      case 'DELETE_RESET':
-        return { ...state, loadingDelete: false, successDelete: false };
-      default:
-        state;
-    }
-  }
-  
-  const [{ successDelete, }, dispatch,] = useReducer(reducer, {loading: true });
-
   useEffect(() => {
     if (!userInfo) {
       router.push('/login');
@@ -58,13 +41,7 @@ export default function managePropertyForSale() {
         console.log(error);
         setLoading(false)
       });
-
-
-    if (successDelete) {
-      dispatch({ type: 'DELETE_RESET' });
-      router.reload()
-    }
-  }, [successDelete]);
+  }, []);
 
   const deletePhoto = async (e) => {
     try{
@@ -80,19 +57,15 @@ export default function managePropertyForSale() {
   }
 
  const deleteHandler = async (productId, productImages) => {
-    if (!window.confirm('Are you sure?')) {
-      return;
-    }
     try {
       setLoading(true)
-      dispatch({ type: 'DELETE_REQUEST' });
       // await deletePhoto(productImages);
       await axios.delete(`/api/user/manage/property-for-sale/?id=${productId}`);
       await deletePhoto(productImages);
-      dispatch({ type: 'DELETE_SUCCESS' });
       setLoading(false)
+      router.reload()
     } catch (err) {
-      dispatch({ type: 'DELETE_FAIL' });
+      console.log(err)
     }
   };
 
@@ -133,7 +106,7 @@ export default function managePropertyForSale() {
                 {posts && posts.map((property) => (
                 <div className="sm:flex justify-center' py-2" key={property._id} >
                   <div className="sm:flex w-full rounded-lg bg-white shadow-lg">
-                  <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " src={`https://dutao-public.s3.amazonaws.com/`+ property.images[0]} alt="" />
+                  <img className="object-fill h-48 w-[470px] rounded-t-lg md:rounded-2xl " src={`https://dutao-public.s3.amazonaws.com/`+ property.images[0]} alt="" />
                     {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}
                     
                     <div className="py-4 px-6 w-full">
@@ -155,11 +128,11 @@ export default function managePropertyForSale() {
                             <path fillRule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                             </svg><button className='pl-2'>View</button></p></Link>
 
-                        <p className="flex border mt-2 ml-5 r-0 border-black-600 text-white bg-black uppercase px-3 py-2 rounded-full text-[9px] tracking-wide hover:cursor-pointer">
+                        {/* <p className="flex border mt-2 ml-5 r-0 border-black-600 text-white bg-black uppercase px-3 py-2 rounded-full text-[9px] tracking-wide hover:cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-square" viewBox="0 0 16 16">
                             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                             <path fillRule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                            </svg><span className='pl-2'>Edit</span></p>
+                            </svg><span className='pl-2'>Edit</span></p> */}
                         
                         <p className="flex border mt-2 ml-5 r-0 border-red-600 text-white bg-red-600 uppercase px-3 py-2 rounded-full text-[9px] tracking-wide hover:cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash-fill" viewBox="0 0 16 16">

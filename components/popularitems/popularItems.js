@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import TextTruncate from 'react-text-truncate';
-
+import useTranslation from 'next-translate/useTranslation'
 export default function popularItems(props) {
     //receiving props data and getting ready for mapping
     const data = props.data
     const title = props.title
     const btnLink = props.btnLink
-
+    const { t, lang } = useTranslation('common')
   return(
       <>
       {/* popular residential for rent */}
@@ -21,7 +21,7 @@ export default function popularItems(props) {
             </h2>
 
             <a href={btnLink} className="inline-block sm:px-6 py-4 sm:py-3 mt-1 sm:mt-6 text-sm sm:text-white sm:bg-red-600 rounded-lg">
-                View more
+            {t('viewMore')}
             </a>
             </div>
         </div>

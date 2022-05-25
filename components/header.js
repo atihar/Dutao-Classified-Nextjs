@@ -306,44 +306,44 @@ return (
 
             <div className="absolute z-20 hidden w-[700px] lg:w-[1000px] bg-grey-200 right-0 group-hover:block">       
               <div className="px-4 pt-2 pb-4 bg-white-500 bg-gray-50 rounded shadow-lg">
-                <p className='text-left text-base py-4'>Find your location to see whats nearby</p>
+                <p className='text-left text-base py-4'>{t('locSearchText')}</p>
                 <div className='flex text-left space-x-16'>
                   <div className='text-left space-y-1'>
-                    <h6 className='text-base font-bold'>Dubai</h6>
+                    <h6 className='text-base font-bold'>{t('dubai')}</h6>
                     <hr/>
-                    <p>Business Bay</p>
-                    <p>Al Safa</p>
-                    <p>Al Barsha</p>
-                    <p>Arabian Ranches 3</p>
+                    <p>{t('bBay')}</p>
+                    <p>{t('safa')}</p>
+                    <p>{t('barsha')}</p>
+                    <p>{t('ranch3')}</p>
                   </div>
                   <div className='text-left space-y-1'>
-                    <h6 className='text-base font-bold'>more places</h6>
+                    <h6 className='text-base font-bold'>{t('morePlace')}</h6>
                     <hr/>
-                    <p>Damac Hills</p>
-                    <p>Bur Dubai</p>
-                    <p>Emirates Hills</p>
-                    <p>Jebel Ali</p>
+                    <p>{t('dHill')}</p>
+                    <p>{t('bDubai')}</p>
+                    <p>{t('eHill')}</p>
+                    <p>{t('jAli')}</p>
                   </div>
                   <div className='text-left space-y-1'>
-                    <h6 className='text-base font-bold'>more places</h6>
+                    <h6 className='text-base font-bold'>{t('morePlace')}</h6>
                     <hr/>
-                    <p>Jumeirah Park</p>
-                    <p>Al Jaddaf</p>
-                    <p>Internet City</p>
-                    <p>Dubai Waterfront</p>
+                    <p>{t('jPark')}</p>
+                    <p>{t('jadaf')}</p>
+                    <p>{t('internet')}</p>
+                    <p>{t('dWater')}</p>
                   </div>
                   <div className='text-left space-y-1'>
-                    <h6 className='text-base font-bold'>more places</h6>
+                    <h6 className='text-base font-bold'>{t('morePlace')}</h6>
                     <hr/>
-                    <p>Al Quoz</p>
-                    <p>The Springs</p>
-                    <p>Creek Harbour</p>
-                    <p>Umm Suqeim</p>
+                    <p>{t('quoz')}</p>
+                    <p>{t('spring')}</p>
+                    <p>{t('creek')}</p>
+                    <p>{t('suqeim')}</p>
                   </div>
                    <div className='text-left space-y-1'>
                         <a className="inline-flex items-center px-8 py-3 text-red-500  focus:ring" href="/info-center">
                           <span className="text-sm font-medium">
-                            view more
+                            {t('viewMore')}
                           </span>
 
                           <svg className="w-5 h-5 ml-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

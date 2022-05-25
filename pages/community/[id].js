@@ -5,6 +5,7 @@ import db from '../../lib/dbConnect'
 import Community from '../../models/community'
 import moment from "moment";
 import Link from 'next/link'
+import Slider from '../../components/singleProductPageSlider'
 
 
 export default function singlePropertySale({items}){
@@ -19,13 +20,9 @@ export default function singlePropertySale({items}){
                     <div className="grid sm:grid-cols-[2fr_1fr] gap-4">
                         <div>
                             <h1>{items.title}</h1>
-                            <p className="text-sm text-gray-500 mb-3">Dubai{`>`} {items.area}</p>
+                            <p className="text-sm text-gray-500 mb-3">{items.city}{`>`} {items.area}</p>
                            
-                            <div className="grid">       
-                                {items.images.map((x, i)=>{
-                                    return <img className=" md:h-auto object-cover md:w-[96] rounded-t-lg md:rounded-none md:rounded-l-lg" key={i} src={`https://dutao-public.s3.amazonaws.com/`+ x } alt="" />
-                                })}
-                            </div>
+                            <Slider data={items.images}/>
                             
                             <p className="font-bold py-3">AED {items.price}</p>
                             <p className='flex items-baseline text-lg py-2 text-gray-700'>

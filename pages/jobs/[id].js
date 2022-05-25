@@ -78,7 +78,9 @@ export default function singleJobs({job}){
             jobExperience,
             cv : stateCv,
             applicantsUserId: userInfo._id,
-          }
+          },
+          {
+            headers: { authorization: `Bearer ${userInfo.token}` }}
           );
           router.push('/jobs/list', { shallow: true });
         } catch (err) {

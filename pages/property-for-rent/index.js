@@ -6,30 +6,32 @@ import FeaturedProducts from "../../components/featuredProducts"
 import Footer from '../../components/footer'
 import db from '../../lib/dbConnect'
 import RentProperty from '../../models/propertyForRent'
+import useTranslation from "next-translate/useTranslation"
 
 function propertyForSale({property}) {
+  const { t} = useTranslation('common')
   const cat = [{
-    name : "Apartment",
+    name : t('apt'),
     image : "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=400&h=350&dpr=1"
 },
 {
-    name : "Duplex",
+    name : t('dup'),
     image : "https://images.pexels.com/photos/3288103/pexels-photo-3288103.png?auto=compress&cs=tinysrgb&w=400&h=350&dpr=1"
 },
 {
-    name : "Townhouse",
+    name : t('townhouse'),
     image: "https://images.pexels.com/photos/5731086/pexels-photo-5731086.jpeg?auto=compress&cs=tinysrgb&w=4000&h=750&dpr=1"
 },
 {
-    name : "Villa",
+    name : t('villa'),
     image : "https://images.pexels.com/photos/5731086/pexels-photo-5731086.jpeg?auto=compress&cs=tinysrgb&w=4000&h=750&dpr=1"
 },
 {
-    name : "Commercial",
+    name : t('commercial'),
     image : "https://images.pexels.com/photos/5731086/pexels-photo-5731086.jpeg?auto=compress&cs=tinysrgb&w=4000&h=750&dpr=1"
 },
 {
-    name : "Penthouse",
+    name : t('penthouse'),
     image: "https://images.pexels.com/photos/5731086/pexels-photo-5731086.jpeg?auto=compress&cs=tinysrgb&w=4000&h=750&dpr=1"
 }
 ]
@@ -39,7 +41,7 @@ function propertyForSale({property}) {
       <Header></Header>
       <CategorySlider data={cat}></CategorySlider>
       <FeaturedPlace></FeaturedPlace>
-      <FeaturedProducts title={"Properties"} data={property}></FeaturedProducts>
+      <FeaturedProducts title={t('property')} data={property}></FeaturedProducts>
       <Footer></Footer>
       </>
   )

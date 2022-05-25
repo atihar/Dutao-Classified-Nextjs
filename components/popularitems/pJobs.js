@@ -2,6 +2,7 @@ import useTranslation from 'next-translate/useTranslation'
 
 export default function pJobs() {
   const { t} = useTranslation('common')
+  
 
   return (
     <section className="flex justify-center">
@@ -20,7 +21,7 @@ export default function pJobs() {
           className="inline-flex items-center px-8 py-3 mt-8 text-white bg-red-600 border border-red-600 rounded-xl"
           href="#"
         >
-          <span className="text-sm font-medium"> Find Jobs </span>
+          <span className="text-sm font-medium">{t('findJob')}</span>
 
 {/* Future buttons icons for all the pages */}
           <svg
@@ -50,7 +51,7 @@ export default function pJobs() {
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
               </svg>
           </span>
-          <h6 className="mt-2 text-base">Accountant</h6>
+          <h6 className="mt-2 text-base">{t('accountant')}</h6>
         </a>
 
         <a
@@ -63,7 +64,7 @@ export default function pJobs() {
             </svg>
           </span>
 
-          <h6 className="mt-2 text-base">Waitress</h6>
+          <h6 className="mt-2 text-base">{t('waiteress')}</h6>
         </a>
 
         <a
@@ -76,7 +77,7 @@ export default function pJobs() {
             </svg>
           </span>
 
-          <h6 className="mt-2 text-base">Receptionist</h6>
+          <h6 className="mt-2 text-base">{t('receptionist')}</h6>
         </a>
 
         <a
@@ -89,7 +90,7 @@ export default function pJobs() {
               </svg>
           </span>
 
-          <h6 className="mt-2 text-base">Customer Service</h6>
+          <h6 className="mt-2 text-base">{t('custServ')}</h6>
         </a>
 
         <a
@@ -102,7 +103,7 @@ export default function pJobs() {
               </svg>
           </span>
 
-          <h6 className="mt-2 text-base">Marketing Executive</h6>
+          <h6 className="mt-2 text-base">{t('marketing')}</h6>
         </a>
 
         <a
@@ -115,7 +116,7 @@ export default function pJobs() {
               </svg>
           </span>
 
-          <h6 className="mt-2 text-base">Real Estate Agent</h6>
+          <h6 className="mt-2 text-base">{t('realEstAg')}</h6>
         </a>
       </div>
     </div>

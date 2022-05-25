@@ -6,6 +6,7 @@ import db from '../../lib/dbConnect'
 import Jobs from '../../models/jobs'
 import Link from 'next/link'
 import React,{useState} from 'react'
+import useTranslation from "next-translate/useTranslation"
 
 
 function jobsIndex({job}) {
@@ -14,27 +15,27 @@ function jobsIndex({job}) {
 
   const cityHandler = (e) =>{ setCity(e.target.value)}
   const searchHandler = (e) => {setKeyword(e.target.value)}
+  const {t} = useTranslation('common')
 
-
-  return (
+  return ( 
       <>
       <Header></Header>
-      <section className="overflow-hidden p-4 sm:p-10 max-w-screen-xl m-auto text-gray-700">
+      <section className="overflow-hidden p-4 sm:p-10 sm:max-w-screen-xl m-auto text-gray-700">
         <div className="relative p4 sm:p-10">
-          <label className="sr-only" htmlFor="searchQuery"> Job Title, Responsibility, Company Name ..... </label>
+          <label className="sr-only" htmlFor="searchQuery"> "Job Title....." </label>
 
           <input
             className="w-1/2 py-4 pl-3 pr-6 sm:pr-16 text-sm border-2 border-gray-200 rounded-lg"
             id="searchQuery"
             type="text"
-            placeholder="Job Title, Responsibility, Company Name ....." onChange={searchHandler}/>
+            placeholder={t('searchType')} onChange={searchHandler}/>
                   <select className="w-1/2 border-2 p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                       rounded transition ease-in-out focus:outline-none m-0" onChange={cityHandler}>
-                      <option value="">Where</option>
-                      <option value="dubai">Dubai</option>
-                      <option value="abu-dhabi">Abu Dhabi</option>
-                      <option value="sharjah">Sharjah</option>
-                      <option value="ajman">Ajman</option>
+                      <option value="all">{t('where')}</option>
+                      <option value="dubai">{t('dubai')}</option>
+                      <option value="abu-dhabi">{t('abu')}</option>
+                      <option value="sharjah">{t('shj')}</option>
+                      <option value="ajman">{t('ajm')}</option>
                   </select>
 
                 <Link href ={`/jobs/list/?searchQuery=${keyword}&city=${city}`}><button className="absolute p-3 sm:p-6 text-white -translate-y-1/2 bg-red-600 rounded-full top-1/2 right-1 sm:right-4" type="button">
@@ -48,26 +49,28 @@ function jobsIndex({job}) {
           <div className="relative">
                 <img alt="gallery" className="block object-cover object-center w-full h-[500px] rounded-xl"
                   src="https://images.unsplash.com/photo-1547234935-80c7145ec969?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1174&q=80"/>
-                  <div className="duration-300 absolute inset-0 z-10 flex p-12 text-7xl text-white font-semibold">Job Search<br/> Made Easy</div>
-                  
+                  <div className="duration-300 absolute inset-0 z-10 flex p-12 text-7xl text-white font-semibold">
+                    {t('jobSearch')}<br/> {t('madeEasy')}</div>       
           </div>
+
           <div className="py-5 grid grid-cols-2 space-x-4">
           <div className="relative">
                 <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
                   src="https://images.pexels.com/photos/392018/pexels-photo-392018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
-                  <div className="duration-300 absolute inset-0 z-10 flex p-3 lg:p-12 lg:text-5xl text-white font-bold">Let Employer Find You</div>
-                  
+                  <div className="duration-300 absolute inset-0 z-10 flex p-3 lg:p-12 lg:text-5xl text-white font-bold">
+                    {t('empFind')}</div>
           </div>
           <div className="relative">
                 <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
                   src="https://images.pexels.com/photos/5989933/pexels-photo-5989933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
-                  <div className="duration-300 absolute inset-0 z-10 flex p-3 lg:p-12 lg:text-5xl text-white font-bold">I am a recruiter</div>
+                  <div className="duration-300 absolute inset-0 z-10 flex p-3 lg:p-12 lg:text-5xl text-white font-bold">{t('recruiter')}</div>
           </div>
         </div>
+        
         </section>
         <section>
           <div className="max-w-screen-xl py-6 px-4 mx-auto sm:px-6 lg:px-8">
-            <h2 className="font-bold pt-10">Featured Companies</h2>
+            <h2 className="font-bold pt-10">{t('featured')}</h2>
             <div className="flex list-none space-x-16 overflow-scroll ">
               <img className="w-36 " src={'https://uilogos.co/img/logotype/circle.png'}/>
               <img className="w-36 " src={'https://uilogos.co/img/logotype/solaytic.png'}/>
@@ -83,21 +86,11 @@ function jobsIndex({job}) {
       <FeaturedProducts title={"Jobs"} data={job}></FeaturedProducts>
       <section>
           <div className="max-w-screen-xl py-6 px-4 mx-auto sm:px-6 lg:px-8">
-            <h2 className="font-bold py-6">How to land your first job in Dubai?</h2>
-            <p className="text-sm">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, 
-              making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more 
-              obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered 
-              the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and 
-              Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line 
-              of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+            <h2 className="font-bold py-6">{t('howTo')}</h2>
+            <p className="text-sm">{t('details')}
             </p>
-            <h2 className="font-bold py-6">Best practice for creating a CV</h2>
-            <p className="text-sm">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, 
-              making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more 
-              obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered 
-              the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and 
-              Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line 
-              of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+            <h2 className="font-bold py-6">{t('bestCV')}</h2>
+            <p className="text-sm">{t('details')}
             </p>
           </div>
         </section>

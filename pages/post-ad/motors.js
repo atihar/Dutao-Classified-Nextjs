@@ -73,7 +73,7 @@ export default function propertyForSalePost({ children }) {
     //   handling form on submit button
       const onSubmit = async ({ title, category, address, description,price, city, area, listedBy, 
         kilometers, warranty, color, marketYear, doors, bodyCondition, mechanicalCondition, sellerType,
-        bodyType, cylinders, transmissionType, regionalSpec, horsePower, fuelType, steeringSide,  video}) => {
+        bodyType, cylinders, transmissionType, regionalSpec, horsePower, fuelType, steeringSide,  video, phone}) => {
 
         try {
           const { data } = await axios.post('/api/motor', {

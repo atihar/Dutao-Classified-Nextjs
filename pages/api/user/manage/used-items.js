@@ -18,10 +18,10 @@ handler.delete(async (req, res) => {
   if (job) {
     await job.remove();
     await db.disconnect();
-    res.send({ message: 'Job Removed from Database' });
+    res.send({ message: 'Used item deleted from Database' });
   } else {
     await db.disconnect();
-    res.status(404).send({ message: 'Job Not Found' });
+    res.status(404).send({ message: 'Items Not Found' });
   }
 });
 

@@ -51,7 +51,7 @@ handler.get(async (req, res, id) => {
 
 handler.delete(async (req, res) => {
   await db.connect();
-  const product = await Product.findById(req.query.id);
+  const product = await PropertyForRent.findById(req.query.id);
   if (product) {
     await product.remove();
     await db.disconnect();

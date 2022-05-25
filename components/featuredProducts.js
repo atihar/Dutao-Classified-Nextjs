@@ -1,5 +1,6 @@
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import useTranslation from 'next-translate/useTranslation';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -14,6 +15,7 @@ import Router from 'next/router';
 export default function featuredProducts(props){
     const data = props.data
     const title = props.title
+    const {t} = useTranslation('common')
 
     const viewMoreHandler = () =>{
         const path = Router.pathname;
@@ -27,8 +29,8 @@ export default function featuredProducts(props){
          <section>
             <div className="max-w-[350px] sm:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
                 <div className='flex justify-between '>
-                <h1 className='font-bold py-6'>Featured {title}</h1>
-                <a onClick={viewMoreHandler}><p className='cursor-pointer font-bold text-red-600 text-sm pt-8'>View More →</p></a>
+                <h1 className='font-bold py-6'>{t("featured")} {title}</h1>
+                <a onClick={viewMoreHandler}><p className='cursor-pointer font-bold text-red-600 text-sm pt-8'> {t('viewMore')} →</p></a>
                 </div>
 
 
@@ -54,8 +56,8 @@ export default function featuredProducts(props){
                         <div className="bg-white rounded-lg shadow-lg">
                                         <img src={`https://dutao-public.s3.amazonaws.com/`+ property.images[0]}  alt="" className="rounded-t-lg" placeholder="blur"/>
                                         <div className="p-2">
-                                            {property.price ? <p className="mb-1 text-base font-bold text-red-600">AED {property.price}</p> : "" }
-                                            <p className="mb-2 text-sm font-bold">                                              
+                                            {property.price ? <p className="mb-1 text-base font-bold text-red-600">{t('aed')} {property.price}</p> : "" }
+                                            <p className="mb-2 text-base font-bold">                                              
                                                 <TextTruncate
                                                         line={1}
                                                         element="span"
@@ -63,7 +65,7 @@ export default function featuredProducts(props){
                                                         text={property.title}
                                                     />
                                                 </p>
-                                            <p className="mb-2 text-sm text-gray-500">{property.bedroom} Bed {property.bathroom} Baths 900sqft</p>
+                                            <p className="mb-2 text-sm text-gray-500">{property.bedroom} {t('bed')} {property.bathroom} {t('bath')} 900{t('sqft')}</p>
                                         </div>
                                         <div className='flex p-2'>
                                             <p className='flex text-sm text-gray-400'>

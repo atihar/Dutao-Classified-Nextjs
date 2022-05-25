@@ -5,31 +5,33 @@ import Footer from '../../components/footer'
 import db from '../../lib/dbConnect'
 import Community from '../../models/community'
 import Link from 'next/link'
+import useTranslation from "next-translate/useTranslation"
 
 export default function CommunityMain({communityItems}) {
+  const {t} = useTranslation('common')
 
   const cat = [{
-    name : "Hotel Deals",
+    name : t('hotelDeals'),
     image : "https://images.pexels.com/photos/4489749/pexels-photo-4489749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
-    name : "Rare Collections",
+    name : t('rare'),
     image : "https://images.pexels.com/photos/3184459/pexels-photo-3184459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
-    name : "Home Decors",
+    name : t('homeDecor'),
     image: "https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
-    name : "Entertainment",
+    name : t('entertainment'),
     image : "https://images.pexels.com/photos/3770215/pexels-photo-3770215.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
-    name : "Shop Coupons",
+    name : t('coupons'),
     image : "https://images.pexels.com/photos/5095282/pexels-photo-5095282.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
-    name : "Insurances",
+    name : t('insurance'),
     image: "https://images.pexels.com/photos/4021779/pexels-photo-4021779.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 }
 ]
@@ -40,7 +42,7 @@ export default function CommunityMain({communityItems}) {
       <CategorySlider data={cat}></CategorySlider>
       <section className="overflow-hidden max-w-screen-xl m-auto text-gray-700">
             <div className="h-[400px] w-full flex items-center lg:pt-21 bg-black rounded-xl">
-                  <h1 className="text-yellow-500 text-5xl font-bold text-center w-screen">Special deals for special people</h1>
+                  <h1 className="text-yellow-500 text-5xl font-bold text-center w-screen">{t('specialDeal')}</h1>
               </div>
           </section>
           <section>
@@ -49,14 +51,14 @@ export default function CommunityMain({communityItems}) {
           <span className="inline-block w-12 h-1 bg-red-700"></span>
 
           <h2 className="mt-1 text-2xl font-extrabold tracking-wide uppercase lg:text-3xl">
-            Popular Deals
+            {t('popularDeal')}
           </h2>
         </div>
 
         <div className="grid grid-cols-2 mt-8 lg:grid-cols-4 gap-x-4 gap-y-8">
           <a href="" className="block">
             <div className="flex justify-center">
-              <strong className="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-black"> New </strong>
+              <strong className="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-black"> {t('new')} </strong>
             </div>
 
             <img
@@ -66,7 +68,7 @@ export default function CommunityMain({communityItems}) {
             />
 
             <h5 className="mt-4 text-sm text-black/90">
-              Limited Edition Sports Serum
+              {t('limitedSerum')}
             </h5>
 
             <div className="flex items-center justify-between mt-4 font-bold">
@@ -75,14 +77,14 @@ export default function CommunityMain({communityItems}) {
               </p>
 
               <p className="text-xs tracking-wide uppercase">
-                6 Colors
+                6 {t('color')}
               </p>
             </div>
           </a>
 
           <a href="" className="block">
             <div className="flex justify-center">
-              <strong className="relative h-6 px-4 text-xs leading-6  uppercase bg-yellow-300"> Hot </strong>
+              <strong className="relative h-6 px-4 text-xs leading-6  uppercase bg-yellow-300"> {t('hot')} </strong>
             </div>
 
             <img
@@ -92,7 +94,7 @@ export default function CommunityMain({communityItems}) {
             />
 
             <h5 className="mt-4 text-sm text-black/90">
-              Limited Edition Jeans Shoe
+              {t('limitedShoe')}
             </h5>
 
             <div className="flex items-center justify-between mt-4 font-bold">
@@ -101,14 +103,14 @@ export default function CommunityMain({communityItems}) {
               </p>
 
               <p className="text-xs tracking-wide uppercase">
-                6 Colors
+                6 {t('color')}
               </p>
             </div>
           </a>
 
           <a href="" className="block">
             <div className="flex justify-center">
-              <strong className="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-black"> New </strong>
+              <strong className="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-black"> {t('new')} </strong>
             </div>
 
             <img
@@ -118,7 +120,7 @@ export default function CommunityMain({communityItems}) {
             />
 
             <h5 className="mt-4 text-sm text-black/90">
-              Limited Edition Sports Trainer
+              {t('limitedTrainer')}
             </h5>
 
             <div className="flex items-center justify-between mt-4 font-bold">
@@ -127,14 +129,14 @@ export default function CommunityMain({communityItems}) {
               </p>
 
               <p className="text-xs tracking-wide uppercase">
-                6 Colors
+                6 {t('color')}
               </p>
             </div>
           </a>
 
           <a href="" className="block">
             <div className="flex justify-center">
-              <strong className="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-black"> New </strong>
+              <strong className="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-black"> {t('new')} </strong>
             </div>
 
             <img
@@ -144,7 +146,7 @@ export default function CommunityMain({communityItems}) {
             />
 
             <h5 className="mt-4 text-sm text-black/90">
-              Limited Edition Sports Trainer
+              {t('limitedTrainer')}
             </h5>
 
             <div className="flex items-center justify-between mt-4 font-bold">
@@ -153,7 +155,7 @@ export default function CommunityMain({communityItems}) {
               </p>
 
               <p className="text-xs tracking-wide uppercase">
-                6 Colors
+                6 {t('color')}
               </p>
             </div>
           </a>
@@ -163,7 +165,7 @@ export default function CommunityMain({communityItems}) {
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-lock-fill" viewBox="0 0 16 16">
             <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
             </svg>
-          <p>See more deals</p>
+          <p>{t('seeMore')}</p>
         </div>
       </Link>
       </div>

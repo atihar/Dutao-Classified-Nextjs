@@ -24,8 +24,12 @@ export default function propertyForSalePost({ children }) {
         if (!userInfo) {
             router.push('/login');
             }
-        else {
+        else if(userInfo && userInfo.isAdmin){
             setUserEmail(userInfo.email)
+            console.log("wokring")
+        }
+        else {
+            router.push('/profile');
             }
         }, []);
 

@@ -64,9 +64,9 @@ export default function propertyForSalePost({ children }) {
                   } else {
                     console.error('Upload failed.');
                   }
-            })
-            )
-        } catch(e){console.error(e)}
+            }))
+        } catch(e){
+            console.error(e)}
     }
         
     //   handling form on submit button

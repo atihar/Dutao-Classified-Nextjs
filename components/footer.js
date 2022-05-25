@@ -55,56 +55,56 @@ export default function footer() {
             <div className="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4 lg:text-left text-center">
               <div>
                 <p className="text-red-500 font-bold">
-                  Recents
+                {t('recent')}
                 </p>
       
                 <nav className="flex flex-col mt-2 space-y-2 text-sm text-gray-500">
-                  <a className="hover:opacity-75" href=""> Villa for Rent </a>
-                  <a className="hover:opacity-75" href=""> Jobs in Dubai </a>
-                  <a className="hover:opacity-75" href=""> Home maintenance </a>
-                  <a className="hover:opacity-75" href=""> Marketing jobs in Dubai </a>
-                  <a className="hover:opacity-75" href=""> Bars near me </a>
-                  <a className="hover:opacity-75" href=""> Restaurants in Creek </a>
+                  <a className="hover:opacity-75" href=""> {t('villaR')} </a>
+                  <a className="hover:opacity-75" href=""> {t('jobsD')} </a>
+                  <a className="hover:opacity-75" href=""> {t('homeMaintain')} </a>
+                  <a className="hover:opacity-75" href=""> {t('jobsMarketing')} </a>
+                  <a className="hover:opacity-75" href=""> {t('bars')} </a>
+                  <a className="hover:opacity-75" href=""> {t('restCreek')} </a>
                 </nav>
               </div>
       
               <div>
                 <p className="font-bold text-red-500">
-                  Top Cities
+                {t('city')}
                 </p>
       
                 <nav className="flex flex-col mt-2 space-y-2 text-sm text-gray-500">
-                  <a className="hover:opacity-75" href=""> Dubai </a>
-                  <a className="hover:opacity-75" href=""> Abu Dhabi </a>
-                  <a className="hover:opacity-75" href=""> Sharjah </a>
-                  <a className="hover:opacity-75" href=""> Ajman </a>
-                  <a className="hover:opacity-75" href=""> RAK </a>
-                  <a className="hover:opacity-75" href=""> Fujairah </a>
+                  <a className="hover:opacity-75" href=""> {t('dubai')} </a>
+                  <a className="hover:opacity-75" href=""> {t('abu')} </a>
+                  <a className="hover:opacity-75" href=""> {t('shj')} </a>
+                  <a className="hover:opacity-75" href=""> {t('ajm')} </a>
+                  <a className="hover:opacity-75" href=""> {t('rak')} </a>
+                  <a className="hover:opacity-75" href=""> {t('fjr')} </a>
                 </nav>
               </div>
       
               <div>
                 <p className="font-bold text-red-500">
-                  Support
+                {t('support')}
                 </p>
       
                 <nav className="flex flex-col mt-2 space-y-2 text-sm text-gray-500">
-                  <Link className="hover:opacity-75" href="/contact"> Contact </Link>
-                  <a className="hover:opacity-75" href=""> FAQs </a>
-                  <a className="hover:opacity-75" href=""> Live Chat </a>
+                  <a className="hover:opacity-75" href="/contact"> {t('contact')} </a>
+                  <a className="hover:opacity-75" href=""> {t('faq')} </a>
+                  <a className="hover:opacity-75" href=""> {t('chat')} </a>
                 </nav>
               </div>
       
               <div>
                 <p className="font-bold text-red-500">
-                  Legal
+                {t('legal')}
                 </p>
       
                 <nav className="flex flex-col mt-2 space-y-2 text-sm text-gray-500">
-                  <Link className="hover:opacity-75" href="/privacy-policy"> Privacy Policy </Link>
-                  <Link className="hover:opacity-75" href="/terms-and-conditions"> Terms & Conditions </Link>
-                  <a className="hover:opacity-75" href="/about"> About </a>
-                  <a className="hover:opacity-75" href=""> Accessibility </a>
+                  <a className="hover:opacity-75" href="/privacy-policy"> {t('policy')} </a>
+                  <a className="hover:opacity-75" href="/terms-and-conditions"> {t('tnc')} </a>
+                  <a className="hover:opacity-75" href="/about"> {t('about')} </a>
+                  <a className="hover:opacity-75" href=""> {t('accessiblity')} </a>
                 </nav>
               </div>
             </div>
@@ -112,7 +112,7 @@ export default function footer() {
 
           <div className="flex justify-between items-end ">
               <p className="text-xs text-gray-500 lg:text-left text-center">
-                &copy; 2022 Dutao | All rights reserved
+                &copy; {t('dRights')}
               </p>
               <div className="flex">
                 <Link href="`#">
@@ -121,7 +121,7 @@ export default function footer() {
                       <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/>
                       <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/>
                     </svg>
-                    <p className="text-sm">ios app</p>
+                    <p className="text-sm">{t('ios')}</p>
                   </div>
                   </Link>
                   <Link href="https://play.google.com/store/apps/details?id=ae.dutao.app">
@@ -129,7 +129,7 @@ export default function footer() {
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-play-fill" viewBox="0 0 16 16">
                     <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
                   </svg>
-                    <p className="text-sm">android app</p>
+                    <p className="text-sm">{t('android')}</p>
                   </div>
                   </Link>
                 </div>
