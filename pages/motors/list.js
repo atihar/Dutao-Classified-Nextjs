@@ -245,9 +245,9 @@ export async function getServerSideProps({ query }) {
     ...sellerTypeFilter,
     ...verifiedFilter,
   });
+  const products = JSON.parse(JSON.stringify(productDocs));
   await db.disconnect();
 
-  const products = JSON.parse(JSON.stringify(productDocs));
 
   return {
     props: {

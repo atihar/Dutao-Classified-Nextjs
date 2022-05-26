@@ -112,8 +112,8 @@ export default function singlePropertySale({items}){
   
     //setting data constant for the result for database
     const data = await UsedItems.findById(req.query.id).lean();
-    await db.disconnect();
     const items = JSON.parse(JSON.stringify(data));
+    await db.disconnect();
     
   
     //setting props for frontend

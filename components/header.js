@@ -11,7 +11,6 @@ import setLanguage from 'next-translate/setLanguage'
 import useTranslation from 'next-translate/useTranslation'
 
 const { locales } = i18nConfig
-
 export default function Header({ children }) {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);

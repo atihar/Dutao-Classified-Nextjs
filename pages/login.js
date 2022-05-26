@@ -74,7 +74,7 @@ export default function Login() {
 
         <form onSubmit={handleSubmit(submitHandler)} className="max-w-xl mx-auto mt-8 mb-0 space-y-4">
             <div>
-            <label htmlFor="email" className="sr-only">{t('mail')}</label>
+            <label htmlFor="email" className="sr-only">{t('email')}</label>
 
             <div className="relative">
                 <input

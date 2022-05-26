@@ -80,7 +80,7 @@ export default function PropertyForRent(props) {
 
                       <p className="text-gray-400 py-1 text-xs">{t('updateText')}</p>
 
-                      <p className="mb-2 text-sm pt-1 text-gray-500">{property.bedroom} {t('bed')} - {property.bathroom} {t('baths')} - {property.size}{t('sqft')}</p>
+                      <p className="mb-2 text-sm pt-1 text-gray-500">{property.bedroom} {t('bed')} - {property.bathroom} {t('bath')} - {property.size}{t('sqft')}</p>
 
                         <p className='flex text-sm py-1 text-gray-500'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="18" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
@@ -236,9 +236,9 @@ export async function getServerSideProps({ query }) {
     ...areaFilter,
     ...bathFilter,
   });
+  const products = JSON.parse(JSON.stringify(productDocs));
   await db.disconnect();
 
-  const products = JSON.parse(JSON.stringify(productDocs));
 
   return {
     props: {

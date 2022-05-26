@@ -198,9 +198,9 @@ export async function getServerSideProps({ query }) {
     ...cityFilter,
     ...areaFilter,
   });
+  const products = JSON.parse(JSON.stringify(productDocs));
   await db.disconnect();
 
-  const products = JSON.parse(JSON.stringify(productDocs));
 
   return {
     props: {

@@ -54,8 +54,8 @@ export async function getServerSideProps() {
 
   //setting data constant for the result for database
   const data = await Community.find().limit(7).lean();
-  await db.disconnect();
   const communityItems = JSON.parse(JSON.stringify(data));
+  await db.disconnect();
   
 
   //setting props for frontend

@@ -8,7 +8,7 @@ import db from '../../lib/dbConnect'
 import RentProperty from '../../models/propertyForRent'
 import useTranslation from "next-translate/useTranslation"
 
-function propertyForSale({property}) {
+export default function propertyForRent({property}) {
   const { t} = useTranslation('common')
   const cat = [{
     name : t('apt'),
@@ -47,7 +47,6 @@ function propertyForSale({property}) {
   )
 }
 
-export default propertyForSale
 
 
 
@@ -57,8 +56,8 @@ export async function getServerSideProps() {
 
   //setting data constant for the result for database
   const data = await RentProperty.find().limit(7).lean();
+  const property = await JSON.parse(JSON.stringify(data));
   await db.disconnect();
-  const property = JSON.parse(JSON.stringify(data));
   
 
   //setting props for frontend

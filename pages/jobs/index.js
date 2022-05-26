@@ -109,8 +109,8 @@ export async function getServerSideProps() {
 
   //setting data constant for the result for database
   const data = await Jobs.find().limit(7).lean();
-  await db.disconnect();
   const job = JSON.parse(JSON.stringify(data));
+  await db.disconnect();
   
 
   //setting props for frontend

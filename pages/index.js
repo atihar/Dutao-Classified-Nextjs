@@ -54,7 +54,6 @@ export default function Index({property, motors}){
   </>
   )}
 
-
 export async function getServerSideProps() {
   //connecting db
   await db.connect();
@@ -66,7 +65,7 @@ export async function getServerSideProps() {
   //setting data constant for the result for database
   const motorData = await Motors.find().limit(2).lean();
   const motors = JSON.parse(JSON.stringify(motorData));
-    await db.disconnect();
+  await db.disconnect();
   
 
   //setting props for frontend

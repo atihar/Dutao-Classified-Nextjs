@@ -198,8 +198,8 @@ export default function singlePropertySale({motor}){
   
     //setting data constant for the result for database
     const data = await Motors.findById(req.query.id).lean();
-    await db.disconnect();
     const motor = JSON.parse(JSON.stringify(data));
+    await db.disconnect();
     
   
     //setting props for frontend

@@ -236,9 +236,9 @@ export async function getServerSideProps({ query }) {
     ...remoteFilter,
     ...employmentTypeFilter,
   });
+  const jobs = JSON.parse(JSON.stringify(productDocs));
   await db.disconnect();
 
-  const jobs = JSON.parse(JSON.stringify(productDocs));
 
   return {
     props: {
