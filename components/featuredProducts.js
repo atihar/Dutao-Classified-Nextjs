@@ -54,28 +54,29 @@ export default function featuredProducts(props){
                 {data && data.map((property, key) => (
                         <SwiperSlide key={key} className="swiper-slide">
                         <div className="bg-white rounded-lg shadow-lg">
-                                        <img src={`https://dutao-public.s3.amazonaws.com/`+ property.images[0]}  alt="" className="rounded-t-lg" placeholder="blur"/>
-                                        <div className="p-2">
-                                            {property.price ? <p className="mb-1 text-base font-bold text-red-600">{t('aed')} {property.price}</p> : "" }
-                                            <p className="mb-2 text-base font-bold">                                              
-                                                <TextTruncate
-                                                        line={1}
-                                                        element="span"
-                                                        truncateText="…"
-                                                        text={property.title}
-                                                    />
-                                                </p>
-                                            <p className="mb-2 text-sm text-gray-500">{property.bedroom} {t('bed')} {property.bathroom} {t('bath')} 900{t('sqft')}</p>
-                                        </div>
-                                        <div className='flex p-2'>
-                                            <p className='flex text-sm text-gray-400'>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-                                                </svg>
-                                                {property.address}
-                                            </p>                            
-                                        </div>
-                                    </div>
+                            {property.images &&
+                                <img src={`https://dutao-public.s3.amazonaws.com/`+ property.images[0]}  alt="" className="rounded-t-lg" placeholder="blur"/>}
+                                <div className="p-2">
+                                    {property.price ? <p className="mb-1 text-base font-bold text-red-600">{t('aed')} {property.price}</p> : "" }
+                                    <p className="mb-2 text-base font-bold">                                              
+                                        <TextTruncate
+                                                line={1}
+                                                element="span"
+                                                truncateText="…"
+                                                text={property.title}
+                                            />
+                                        </p>
+                                    <p className="mb-2 text-sm text-gray-500">{property.bedroom} {t('bed')} {property.bathroom} {t('bath')} 900{t('sqft')}</p>
+                                </div>
+                                <div className='flex p-2'>
+                                    <p className='flex text-sm text-gray-400'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                                        </svg>
+                                        {property.address}
+                                    </p>                            
+                                </div>
+                            </div>
                         </SwiperSlide>
                 ))}
             </Swiper>

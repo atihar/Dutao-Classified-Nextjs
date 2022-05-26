@@ -142,7 +142,7 @@
     "propertyInfo": "Property info",
     "furnished": "Furnished",
     "yes": "Yes",
-    "No": "No",
+    "no": "No",
     "propertyFor": "Property for",
     "rent": "Rent",
     "listedBy": "Listed by",
@@ -204,6 +204,22 @@
     "jobFound": "jobs found",
     "jobDetail": "Job details",
     "by": "by",
-    "hot" : "hot"
-    
+    "hot" : "hot",
+    "maintenance": "Maintenance",
+    "offeringCommunity": "offerings in the community found",
+    "description": "Description",
+    "appliances": "Appliances",
+    "products": "Products",
+    "health": "Health",
+    "usedFound": "used items found based on your search",
+    "popularSearches": "Popular Searches",
+    "searchNearby": "Search Nearby",
+    "searchCity": "Search In the city",
+    "listingsFound": "listings found",
+    "viewDetails": "View Details",
+    "verified": "verified",
+    "verifiedDutao": "Verified by Dutao",
+    "website": "Official Website",
+    "phNo": "Phone number",
+    "contactForAd": "Contact for Ad"
   }

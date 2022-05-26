@@ -11,6 +11,7 @@ import { useRouter } from 'next/router'
 import dynamic from "next/dynamic";
 import { useState } from 'react';
 import staticData from '../../lib/data.json'
+import useTranslation from 'next-translate/useTranslation';
 
 
 const DynamicMap = dynamic(() => import("../../components/map"), {
@@ -25,6 +26,7 @@ const PAGE_SIZE = 10;
 
 export default function infoList(props) {
 
+  const {t} = useTranslation('common')
   const router = useRouter();
   const {products} = props
   const [userCity, setUserCity] = useState('dubai')
@@ -62,7 +64,7 @@ export default function infoList(props) {
     <Header></Header>
     <section>
           <div className="max-w-sm sm:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl w-full px-4 mx-auto sm:px-6 lg:px-6">
-            <h3 className='text-base'>Popular Searches</h3>
+            <h3 className='text-base'>{t('popularSearches')}</h3>
             <div className='overflow-y-scroll'>
               <div className='flex-inline space-x-5 w-max'>
                 {staticData.categories.map((x,i)=> 
@@ -75,14 +77,14 @@ export default function infoList(props) {
           <DynamicMap data={products} passData={passData} />
           <div className='flex'>
             <a className="inline-block px-5 py-2 text-sm font-medium text-white bg-gray-600 border border-gray-600 rounded active:text-gray-500 hover:bg-transparent hover:text-gray-600 focus:outline-none focus:ring" href={`/info-center/?category=all&city=${userCity}`}>
-              Search Nearby
+              {t('searchNearby')}
             </a>
             <a className="ml-3 inline-block px-5 py-2 text-sm font-medium text-white bg-red-600 border border-red-600 rounded active:text-red-500 hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring" href={`/info-center/?category=all&city=${userCity}`}>
-              Search In the city
+            {t('searchCity')}
             </a>
           </div>
           <Filter data={userCity}></Filter>
-            <p className='text-sm text-gray-500 py-3'>Total {props.countProducts} listings found</p>
+            <p className='text-sm text-gray-500 py-3'>{t('total')} {props.countProducts} {t('listingsFound')}</p>
             <div className='grid sm:grid-cols-[3fr_1fr] gap-4'>
                 <div className=''>
                 { products && products.map((place) => ( 
@@ -141,14 +143,14 @@ export default function infoList(props) {
                                         0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89
                                          0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z"/>
                                         </svg>
-                                        <p className='text-[12px] ml-2'>verified</p>
+                                        <p className='text-[12px] ml-2'>{t('verified')}</p>
                                     </button> 
                                 </div>
                             </div>
 
                             <div className='mx-4'>
                                 <a className="inline-block whitespace-nowrap text-center px-3 text-sm text-red-600 bg-red-100 focus:outline-none focus:ring" href=""> 
-                                    View Details
+                                  {t('viewDetails')}
                                 </a> 
                             </div>       
                         </div>                        

@@ -6,31 +6,33 @@ import FeaturedProducts from "../../components/featuredProducts"
 import Footer from '../../components/footer'
 import db from '../../lib/dbConnect'
 import Community from '../../models/community'
+import useTranslation from "next-translate/useTranslation"
 
 export default function CommunityMain({communityItems}) {
 
+  const {t} = useTranslation('common')
   const cat = [{
-    name : "Auto Service",
+    name : t('autoService'),
     image : "https://images.pexels.com/photos/4489749/pexels-photo-4489749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
-    name : "Freelancers",
+    name : t('freelancers'),
     image : "https://images.pexels.com/photos/3184459/pexels-photo-3184459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
-    name : "Tutor Service",
+    name : t('tutorService'),
     image: "https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
-    name : "Maintenance",
+    name : t('maintenance'),
     image : "https://images.pexels.com/photos/3770215/pexels-photo-3770215.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
-    name : "Restoration",
+    name : t('restoration'),
     image : "https://images.pexels.com/photos/5095282/pexels-photo-5095282.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
-    name : "Health Service",
+    name : t('healthService'),
     image: "https://images.pexels.com/photos/4021779/pexels-photo-4021779.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 }
 ]
@@ -40,7 +42,7 @@ export default function CommunityMain({communityItems}) {
       <Header></Header>
       <CategorySlider data={cat}></CategorySlider>
       <FeaturedPlace></FeaturedPlace>
-      <FeaturedProducts title={"Community"} data={communityItems}></FeaturedProducts>
+      <FeaturedProducts title={t('community')} data={communityItems}></FeaturedProducts>
       <Footer></Footer>
       </>
   )

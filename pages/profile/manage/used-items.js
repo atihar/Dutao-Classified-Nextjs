@@ -17,6 +17,7 @@ export default function managePropertyForSale() {
   const { userInfo } = state;
   const [posts, setPosts] = useState([]);
   const [postCount, setPostCount] = useState(0)
+  const [ popUp, setPopup] = useState(false);
 
 
   useEffect(() => {
@@ -40,6 +41,13 @@ export default function managePropertyForSale() {
         console.log(error);
       });
   }, []);
+
+  const showpopupHandler = () =>{
+    setPopup(true)
+  }
+  const hidepopupHandler = () => {
+    setPopup(false)
+  }
 
   const deletePhoto = async (e) => {
     try{
@@ -132,7 +140,20 @@ export default function managePropertyForSale() {
                         <p className="flex border mt-2 ml-5 r-0 border-red-600 text-white bg-red-600 uppercase px-3 py-2 rounded-full text-[9px] tracking-wide hover:cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash-fill" viewBox="0 0 16 16">
                             <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                            </svg><button onClick={() => deleteHandler(ad._id, ad.images)} className='pl-2'>Delete</button></p>
+                            </svg><button onClick={showpopupHandler} className='pl-2'>Delete</button></p>
+                            { popUp && 
+                          <div className="absolute left-[30%] top-[30%] max-w-screen-sm  p-8 bg-white rounded-lg shadow-2xl">
+                              <h2 className="text-lg font-bold">Are you sure you want to do that?</h2>
+
+                              <p className="mt-2 text-sm text-gray-500">
+                                Doing that could have cause some issues elsewhere, are you 100% sure it's OK?
+                              </p>
+
+                              <div className="flex items-center justify-end mt-8 text-xs">
+                                <button type="button" onClick={() => deleteHandler(ad._id, ad.images)} className="px-4 py-2 font-medium text-green-600 rounded bg-green-50">Yes, I'm sure</button>
+                                <button type="button" onClick={hidepopupHandler} className="px-4 py-2 ml-2 font-medium text-gray-600 rounded bg-gray-50">No, go back</button>
+                              </div>
+                          </div>}
                         </div>       
                       </div>
                       

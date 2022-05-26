@@ -6,30 +6,32 @@ import FeaturedProducts from "../../components/featuredProducts"
 import Footer from '../../components/footer'
 import db from '../../lib/dbConnect'
 import UsedItems from '../../models/usedItems'
+import useTranslation from "next-translate/useTranslation"
 
 export default function CommunityMain({items}) {
+  const {t} = useTranslation('common')
   const cat = [{
-    name : "Electronics",
+    name : t('electronics'),
     image : "https://images.pexels.com/photos/4489749/pexels-photo-4489749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
-    name : "Appliances",
+    name : t('appliances'),
     image : "https://images.pexels.com/photos/3184459/pexels-photo-3184459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
-    name : "Clothing",
+    name : t('clothing'),
     image: "https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
-    name : "Jewelry",
+    name : t('jewelry'),
     image : "https://images.pexels.com/photos/3770215/pexels-photo-3770215.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
-    name : "Furniture",
+    name : t('furniture'),
     image : "https://images.pexels.com/photos/5095282/pexels-photo-5095282.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
-    name : "Health Service",
+    name : t('health'),
     image: "https://images.pexels.com/photos/4021779/pexels-photo-4021779.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 }
 ]
@@ -38,7 +40,7 @@ export default function CommunityMain({items}) {
       <Header></Header>
       <CategorySlider data={cat}></CategorySlider>
       <FeaturedPlace></FeaturedPlace>
-      <FeaturedProducts title={"Products"} data={items}></FeaturedProducts>
+      <FeaturedProducts title={t('products')} data={items}></FeaturedProducts>
       <Footer></Footer>
       </>
   )

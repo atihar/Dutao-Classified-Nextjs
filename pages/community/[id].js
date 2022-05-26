@@ -6,11 +6,13 @@ import Community from '../../models/community'
 import moment from "moment";
 import Link from 'next/link'
 import Slider from '../../components/singleProductPageSlider'
+import useTranslation from "next-translate/useTranslation";
 
 
 export default function singlePropertySale({items}){
     const propertyInfo = items.propertyInfo;
     const postedDate = moment(items.createdAt).startOf('hour').fromNow();
+    const {t} = useTranslation('common')
 
     return(
         <>  
@@ -31,7 +33,7 @@ export default function singlePropertySale({items}){
                                 </svg>
                                 <span className="pl-5">{items.address}</span>
                             </p>  
-                            <p className="mt-5">Description</p>
+                            <p className="mt-5">{t('description')}</p>
                             <p className="text-lg text-gray-500">{items.description}</p>
                             {/* <h3 className="py-4">Amenities</h3> */}
                             {/* <ul className="text-lg text-gray-500 block">
@@ -51,18 +53,17 @@ export default function singlePropertySale({items}){
                                     </svg>
                                 </span>
 
-                                <h2 className="mt-3 text-lg font-bold">Is there any issue?</h2>
+                                <h2 className="mt-3 text-lg font-bold"> {t('issue')}</h2>
 
                                 <p className="mt-3 text-sm text-gray-500">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis facere fuga illum, totam dolor odio ad sunt quidem
-                                    similique sint.
+                                    {t('details')}
                                 </p>
 
                                 <p className="relative inline-block text-sm font-bold text-red-600">
                                     <span
                                     className="absolute inset-x-0 bottom-0 transition-transform transform bg-red-100 h-2/3 group-hover:scale-110"
                                     ></span>
-                                    <Link href={'/report-ad'}><span className="relative">Report this ad now</span></Link>
+                                    <Link href={'/report-ad'}><span className="relative">{t('report')}</span></Link>
                                 </p>
                                 </a>
                             </div>
@@ -71,7 +72,7 @@ export default function singlePropertySale({items}){
                         <div>
                             <div className="p-10 border border-gray-200 grid rounded-lg">
                             <img className="rounded-full h-[70px] mx-auto border-gray-300 border-2" src="https://stonegatesl.com/wp-content/uploads/2021/01/avatar-300x300.jpg" alt=""/>
-                                <p className="text-sm">Posted by : Owner</p>
+                                <p className="text-sm">{t('postedBy')} : Owner</p>
                                 <h1 className="pb-3">{items.propertyInfo}</h1>
                                     <a className="inline-block space-x-2 text-center lg:px-12 py-3 text-sm font-medium text-white bg-red-600 border border-red-600 rounded active:text-red-500 hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring" href="">
                                     <div className="flex justify-center "> 
@@ -79,7 +80,7 @@ export default function singlePropertySale({items}){
                                         <path fillRule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
                                         </svg>
                                         
-                                        <span className="px-5">Make a Call</span></div>
+                                        <span className="px-5">{t('call')}</span></div>
                                     </a>
 
                                 <a className="inline-block lg:px-12 py-3 mt-5 text-center text-sm font-medium text-red-600 border border-red-600 rounded hover:bg-red-600 hover:text-white active:bg-red-500 focus:outline-none focus:ring" href="/download">
@@ -87,7 +88,7 @@ export default function singlePropertySale({items}){
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chat-left-dots-fill" viewBox="0 0 16 16">
                                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm5 4a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
                                     </svg>
-                                    <span className="px-5">Inquire now</span>
+                                    <span className="px-5">{t('inquire')}</span>
                                 </div>
                                 </a>
                             </div>
