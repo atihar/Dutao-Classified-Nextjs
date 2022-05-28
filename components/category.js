@@ -1,6 +1,7 @@
 //Optimal size for slider images are 1200 x 800
 
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Image from 'next/image'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -36,7 +37,13 @@ export default function categorySlider(props){
                     return (
                         <SwiperSlide key={i}>
                             <div className="bg-white rounded-lg shadow-lg">
-                                <img src={x.image} alt="" className="rounded-t-lg"/>
+                            <Image
+                                  src={x.image}
+                                  alt="Picture of the author"
+                                  width={500}
+                                  height={320}
+                                  className="object-cover rounded-t-lg"
+                              />
                                 <div className="p-4">
                                     <h4 className="font-bold mb-2 text-base sm:text-2xl text-red-600">{x.name}</h4>
                                 </div>

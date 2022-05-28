@@ -1,11 +1,14 @@
 
 import { useForm } from "react-hook-form"
 import { useRouter } from 'next/router'
+import useTranslation from "next-translate/useTranslation"
+
 
 
 export default function motorFilter() {
 
     const router = useRouter();
+    const {t} = useTranslation('common')
 
     // initiating search param from start/reset
     const queryObj = {
@@ -90,11 +93,11 @@ export default function motorFilter() {
 
                     <div className="flex items-center justify-between mt-4">
                     <p className="font-bold text-base">
-                        Filters
+                        {t('filters')}
                     </p>
 
                     <button onClick={resetQuery} type="reset" className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
-                        Reset Filter
+                        {t('resetFilter')}
                     </button>
                     </div>
 
@@ -102,70 +105,70 @@ export default function motorFilter() {
                     <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4">
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" 
                         {...register("category")}>
-                        <option value="all">Choose Category</option>
-                        <option value="cars">Cars</option>
-                        <option value="motorcycle">Motorcycles</option>
-                        <option value="heavy-vehicle">Heavy Vehicle</option>
-                        <option value="accessories">Accessories</option>
-                        <option value="boats">Boats</option>
-                        <option value="number-plates">Number Plates</option>
-                        <option value="export-cars">Export Cars</option>
+                        <option value="all">{t('selectCategory')}</option>
+                        <option value="cars">{t('cars')}</option>
+                        <option value="motorcycle">{t('motorcycle')}</option>
+                        <option value="heavy-vehicle">{t('heavyVehicles')}</option>
+                        <option value="accessories">{t('accessories')}</option>
+                        <option value="boats">{t('boats')}</option>
+                        <option value="number-plates">{t('numberPlates')}</option>
+                        <option value="export-cars">{t('exportCars')}</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("year")}>
-                        <option value="">Manufacturing Year</option>
-                        <option value="2020-2050">upto 2020</option>
-                        <option value="2019-2050">upto 2019</option>
-                        <option value="2018-2050">upto 2018</option>
-                        <option value="2017-2050">upto 2017</option>
+                        <option value="">{t('manufacturingYear')}</option>
+                        <option value="2020-2050">{t('upto')} 2020</option>
+                        <option value="2019-2050">{t('upto')} 2019</option>
+                        <option value="2018-2050">{t('upto')} 2018</option>
+                        <option value="2017-2050">{t('upto')} 2017</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("price")}>
-                        <option value="">Any Price</option>
-                        <option value="0-2000">upto 3000 dhs</option>
-                        <option value="3001-7000">3000 to 7000 dhs</option>
-                        <option value="7001-50000">7000 to 50000 dhs</option>
+                        <option value="">{t('anyPrice')}</option>
+                        <option value="0-2000">{t('upto')} 3000 dhs</option>
+                        <option value="3001-7000">3000 {t('to')} 7000 dhs</option>
+                        <option value="7001-50000">7000 {t('to')} 50000 dhs</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("kilometers")}>
-                        <option value="">Kilometers</option>
-                        <option value="0-5000">upto 5000</option>
-                        <option value="0-10000">upto 10000</option>
-                        <option value="0-15000">upto 15000</option>
-                        <option value="0-50000">upto 50000</option>
-                        <option value="0-100000">upto 100000</option>
+                        <option value="">{t('km')}</option>
+                        <option value="0-5000">{t('upto')} 5000</option>
+                        <option value="0-10000">{t('upto')} 10000</option>
+                        <option value="0-15000">{t('upto')} 15000</option>
+                        <option value="0-50000">{t('upto')} 50000</option>
+                        <option value="0-100000">{t('upto')} 100000</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("area")}>
-                        <option value="all">Area</option>
-                        <option value="downtown">Downtown</option>
-                        <option value="business-bay">Business Bay</option>
-                        <option value="marina">Marina</option>
-                        <option value="bur-dubai">Bur Dubai</option>
-                        <option value="international-cioty">International City</option>
+                        <option value="all">{t('area')}</option>
+                        <option value="downtown">{t('downtown')}</option>
+                        <option value="business-bay">{t('bBay')}</option>
+                        <option value="marina">{t('marina')}</option>
+                        <option value="bur-dubai">{t('bDubai')}</option>
+                        <option value="international-cioty">{t('international')}</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("seller")}>
-                        <option value="all">Seller Type</option>
-                        <option value="owner">Owner</option>
-                        <option value="agent">Agent</option>
+                        <option value="all">{t('sellerType')}</option>
+                        <option value="owner">{t('owner')}</option>
+                        <option value="agent">{t('agent')}</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("verified")}>
-                        <option value="all">Verification Status</option>
-                        <option value="true">Verified</option>
-                        <option value="false">Not verified</option>
+                        <option value="all">{t('verStatus')}</option>
+                        <option value="true">{t('verified')}</option>
+                        <option value="false">{t('notVerified')}</option>
                         </select>
                         
                         <div className="flex">  
                             <button type="submit" className="w-screen px-7 py-2 text-sm font-medium text-white bg-red-600 rounded-lg">
-                                Search
+                            {t('search')}
                             </button>
                         </div>
                     </div>

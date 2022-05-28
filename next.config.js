@@ -5,5 +5,13 @@ const nextTranslate = require('next-translate')
       return config;
     },
     reactStrictMode: true,
-    swcMinify: true
+    swcMinify: true,
+    images: {
+      domains: ['dutao-public.s3.amazonaws.com',
+      'images.pexels.com', 
+      'www.arabianbusiness.com',
+      'i.pinimg.com',
+      'www.cntravellerme.com'],
+      formats: ['image/avif', 'image/webp'],
+    },
   })

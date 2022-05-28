@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Filter from '../../components/filters/propertyFilter'
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation';
+import Image from 'next/image'
 
 // number of post in 1 page
 const PAGE_SIZE = 3;
@@ -54,8 +55,13 @@ export default function PropertyForSale(props) {
                 <div className="lg:flex justify-center' py-2" key={property._id} >
                   <Link href={'/property-for-sale/'+ property._id}>
                   <div className="md:flex w-full rounded-lg bg-white shadow-lg">
-                  <img className="object-fill h-48 w-[470px] rounded-t-lg md:rounded-2xl" 
-                  src={`https://dutao-public.s3.amazonaws.com/${property.images[0]}`} alt="" />
+                  <Image
+                        src={`https://dutao-public.s3.amazonaws.com/${property.images[0]}`}
+                        alt="list image"
+                        width={500}
+                        height={320}
+                        className="object-cover rounded-t-lg"
+                    />
                     {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}
                     
                     <div className="py-4 px-6 w-full">

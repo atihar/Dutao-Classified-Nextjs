@@ -9,6 +9,7 @@ import axios from "axios"
 import React, { useEffect,useState, useContext, useReducer } from 'react';
 import { Store } from '../../../lib/Store';
 import { useRouter } from 'next/router';
+import Image from "next/image"
 
 
 export default function managePropertyForSale() {
@@ -120,9 +121,13 @@ export default function managePropertyForSale() {
                 {posts && posts.map((property) => (
                 <div className="sm:flex justify-center' py-2" key={property._id} >
                   <div className="sm:flex w-full rounded-lg bg-white shadow-lg">
-                  <img className="object-fill h-48 w-[470px] rounded-t-lg md:rounded-2xl " src={`https://dutao-public.s3.amazonaws.com/`+ property.images[0]} alt="" />
-                    {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}
-                    
+                  <Image
+                        src={`https://dutao-public.s3.amazonaws.com/${property.images[0]}`}
+                        alt="dutao image"
+                        width={500}
+                        height={320}
+                        className="object-cover rounded-t-lg"
+                    />
                     <div className="py-4 px-6 w-full">
                       <div className="flex items-center justify-between mb-2">
                         <div>

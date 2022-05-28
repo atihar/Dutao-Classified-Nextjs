@@ -1,10 +1,11 @@
 
 import { useForm } from "react-hook-form"
 import { useRouter } from 'next/router'
+import useTranslation from "next-translate/useTranslation";
 
 
 export default function filter() {
-
+    const {t} = useTranslation('common')
     const router = useRouter();
 
     // initiating search param from start/reset
@@ -90,7 +91,7 @@ export default function filter() {
                     </p>
 
                     <button onClick={resetQuery} type="reset" className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
-                        Reset Filter
+                    {t('resetFilter')}
                     </button>
                     </div>
 
@@ -98,69 +99,69 @@ export default function filter() {
                     <div className="grid grid-cols-3 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4">
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" 
                         {...register("category")}>
-                        <option value="all">Choose Category</option>
-                        <option value="apartment">Apartment</option>
-                        <option value="villa">Villa</option>
-                        <option value="building">Building</option>
-                        <option value="residential-building">Residential Building</option>
-                        <option value="residential-floor">Residential Floor</option>
-                        <option value="studio">Studio</option>
+                        <option value="all">{t('selectCategory')}</option>
+                        <option value="apartment">{t('apt')}</option>
+                        <option value="villa">{t('villa')}</option>
+                        <option value="building">{t('building')}</option>
+                        <option value="residential-building">{t('residentialBuilding')}</option>
+                        <option value="residential-floor">{t('residentialFloor')}</option>
+                        <option value="studio">{t('studio')}</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("furnishedType")}>
-                        <option value="all">Furnish Type</option>
-                        <option value="furnished">Fully Furnished</option>
-                        <option value="not-furnished">Not Furnished</option>
+                        <option value="all">{t('furnishType')}</option>
+                        <option value="furnished">{t('furnished')}</option>
+                        <option value="not-furnished">{t('unfurnished')}</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("price")}>
-                        <option value="">Any Price</option>
-                        <option value="0-2000">upto 3000 dhs</option>
-                        <option value="3001-7000">3000 to 7000 dhs</option>
-                        <option value="7001-50000">7000 to 50000 dhs</option>
+                        <option value="">{t('anyPrice')}</option>
+                        <option value="0-2000">{t('upto')} 3000 dhs</option>
+                        <option value="3001-7000">3000 {t('to')} 7000 dhs</option>
+                        <option value="7001-50000">7000 {t('to')} 50000 dhs</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("area")}>
-                        <option value="">Floor Area</option>
-                        <option value="1-200">upto 200 sq.ft</option>
-                        <option value="200-400">200 to 400 sq.ft</option>
-                        <option value="400-600">400 to 600 sq.ft</option>
-                        <option value="600-99999">600 + sq.ft</option>
+                        <option value="">{t('floorArea')}</option>
+                        <option value="1-200">{t('upto')} 200 {t('sqft')}</option>
+                        <option value="200-400">200 {t('to')} 400 {t('sqft')}</option>
+                        <option value="400-600">400 {t('to')} 600 {t('sqft')}</option>
+                        <option value="600-99999">600 + {t('sqft')}</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("bedroom")}>
-                        <option value="">Bed</option>
-                        <option value="1">1 bed</option>
-                        <option value="2">2 bed</option>
-                        <option value="3">3 bed</option>
-                        <option value="4">4 bed</option>
-                        <option value="5">5 bed</option>
+                        <option value="">{t('bed')}</option>
+                        <option value="1">1 {t('bed')}</option>
+                        <option value="2">2 {t('bed')}</option>
+                        <option value="3">3 {t('bed')}</option>
+                        <option value="4">4 {t('bed')}</option>
+                        <option value="5">5 {t('bed')}</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("bathroom")}>
-                        <option value="">Bath</option>
-                        <option value="1">1 bath</option>
-                        <option value="2">2 bath</option>
-                        <option value="3">3 bath</option>
-                        <option value="4">4 bath</option>
-                        <option value="5">5 bath</option>
+                        <option value="">{t('bath')}</option>
+                        <option value="1">1 {t('bath')}</option>
+                        <option value="2">2 {t('bath')}</option>
+                        <option value="3">3 {t('bath')}</option>
+                        <option value="4">4 {t('bath')}</option>
+                        <option value="5">5 {t('bath')}</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">
-                        <option value="">Features</option>
-                        <option value="Maid Room">Maid Room</option>
-                        <option value="Swimmingpool">Swimmingpool</option>
-                        <option value="Private jacuzi">Private jacuzi</option>
+                        <option value="">{t('features')}</option>
+                        <option value="Maid Room">{t('maidRoom')}</option>
+                        <option value="Swimmingpool">{t('swimming')}</option>
+                        <option value="Private jacuzi">{t('privJacuzi')}</option>
                         </select>
                         
                         <div className="flex">  
                             <button type="submit" className="w-screen px-7 py-2 text-sm font-medium text-white bg-red-600 rounded-lg">
-                                Search
+                                {t('search')}
                             </button>
                         </div>
                     </div>

@@ -7,9 +7,10 @@ import Jobs from '../../models/jobs'
 import Link from 'next/link'
 import React,{useState} from 'react'
 import useTranslation from "next-translate/useTranslation"
+import TextTruncate from "react-text-truncate"
 
 
-function jobsIndex({job}) {
+function jobsIndex({jobList}) {
   const [keyword, setKeyword] = useState('')
   const [city, setCity] = useState('all')
 
@@ -83,7 +84,25 @@ function jobsIndex({job}) {
           </div>
         </section>
         
-      <FeaturedProducts title={"Jobs"} data={job}></FeaturedProducts>
+      <section>
+          <div className="max-w-screen-xl py-6 px-4 mx-auto sm:px-6 lg:px-8">
+            <h2 className="font-bold pt-10">{t('featured')}</h2>
+            <div className="sm:flex list-none sm:space-x-8 overflow-scroll ">
+              { jobList && jobList.map((job, i) => 
+              <div className="bg-gray-50 w-full sm:w-1/4 m-3 p-4 rounded-lg shadow-lg" key={i}>
+                <h4 className="text-base font-bold">
+                  <TextTruncate
+                        line={2}
+                        element="span"
+                        truncateText="…"
+                        text={job.title}/>
+                  </h4>
+                  <p className="text-sm">By - {job.company}</p>
+                  <p className="text-sm">Type - {job.employmentType }</p>
+                </div>)}
+            </div>
+          </div>
+        </section>
       <section>
           <div className="max-w-screen-xl py-6 px-4 mx-auto sm:px-6 lg:px-8">
             <h2 className="font-bold py-6">{t('howTo')}</h2>
@@ -108,13 +127,13 @@ export async function getServerSideProps() {
   await db.connect();
 
   //setting data constant for the result for database
-  const data = await Jobs.find().limit(7).lean();
-  const job = JSON.parse(JSON.stringify(data));
+  const data = await Jobs.find().limit(4).lean();
+  const jobList = JSON.parse(JSON.stringify(data));
   await db.disconnect();
   
 
   //setting props for frontend
   return {
-    props: { job }
+    props: { jobList }
   };
 }

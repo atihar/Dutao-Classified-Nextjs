@@ -1,5 +1,6 @@
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Image from 'next/image';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -21,7 +22,13 @@ export default function featuredProducts(props){
                 pagination={{ clickable: true }} >
                     {data && data.map((image, key) => (
                         <SwiperSlide key={key} className="swiper-slide">
-                            <img src={`https://dutao-public.s3.amazonaws.com/`+ image}  alt="" className="rounded-t-lg" placeholder="blur"/>
+                                <Image
+                                src={`https://dutao-public.s3.amazonaws.com/`+ image}
+                                alt="Picture of the author"
+                                width={800}
+                                height={450}
+                                className="object-contain rounded-t-lg"
+                            />
                         </SwiperSlide>
                     ))}
                 </Swiper>

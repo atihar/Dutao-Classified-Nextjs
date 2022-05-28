@@ -1,10 +1,11 @@
 
 import { useForm } from "react-hook-form"
 import { useRouter } from 'next/router'
+import useTranslation from "next-translate/useTranslation";
 
 
 export default function communityFilter() {
-
+    const {t} = useTranslation('common')
     const router = useRouter();
 
     // initiating search param from start/reset
@@ -71,18 +72,18 @@ export default function communityFilter() {
                     </svg>
                     </div>
 
-                    <input type="text" placeholder="Search by service name, product name..." 
+                    <input type="text" placeholder={t('communityFilterSearch')} 
                     className="pl-16 pr-8 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                     {...register("searchQuery")}/>
                     </div>
 
                     <div className="flex items-center justify-between mt-4">
                     <p className="font-bold text-base">
-                        Filters
+                        {t('filters')}
                     </p>
 
                     <button onClick={resetQuery} type="reset" className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
-                        Reset Filter
+                        {t('resetFilter')}
                     </button>
                     </div>
 
@@ -90,43 +91,43 @@ export default function communityFilter() {
                     <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4">
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" 
                         {...register("category")}>
-                        <option value="all">Select Category</option>
-                        <option value="auto-service">Auto Service</option>
-                        <option value="event-management">Event Management</option>
-                        <option value="freelancers">Freelancers</option>
-                        <option value="health-service">Health Service</option>
-                        <option value="home-maintenance">Home Maintenance</option>
-                        <option value="health-service">Movers & Removals</option>
-                        <option value="restoration-service">Restoration & Repair</option>
-                        <option value="tutor-service">Tutor & Classes</option>
+                        <option value="all">{t('selectCategory')}</option>
+                        <option value="auto-service">{t('autoService')}</option>
+                        <option value="event-management">{t('eventManagement')}</option>
+                        <option value="freelancers">{t('freelancers')}</option>
+                        <option value="health-service">{t('healthService')}</option>
+                        <option value="home-maintenance">{t('homeMaintenance')}</option>
+                        <option value="health-service">{t('movers')}</option>
+                        <option value="restoration-service">{t('restoration')}</option>
+                        <option value="tutor-service">{t('tutorService')}</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("city")}>
-                        <option value="all">Select City</option>
-                        <option value="dubai">Dubai</option>
-                        <option value="abu-dhabi">Abu Dhabi</option>
-                        <option value="ajman ">Ajman</option>
-                        <option value="sharjah">Sharjah</option>
-                        <option value="ras-al-khaimah">Ras al Khaimah</option>
+                        <option value="all">{t('selectCity')}</option>
+                        <option value="dubai">{t('dubai')}</option>
+                        <option value="abu-dhabi">{t('abu')}</option>
+                        <option value="ajman ">{t('ajm')}</option>
+                        <option value="sharjah">{t('shj')}</option>
+                        <option value="ras-al-khaimah">{t('rak')}</option>
                         </select>
 
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("area")}>
-                        <option value="all">Locality</option>
-                        <option value="business-bay">Business Bay</option>
-                        <option value="marina">Marina</option>
-                        <option value="deira">Deira</option>
-                        <option value="international-city">International City</option>
-                        <option value="discovery-garden">Discovery Garden</option>
-                        <option value="karama">Al Karama</option>
-                        <option value="jumirah">Jumirah</option>
+                        <option value="all">{t('area')}</option>
+                        <option value="business-bay">{t('bBay')}</option>
+                        <option value="marina">{t('marina')}</option>
+                        <option value="deira">{t('deira')}</option>
+                        <option value="international-city">{t('international')}</option>
+                        <option value="discovery-garden">{t('discovery')}</option>
+                        <option value="karama">{t('alKarama')}</option>
+                        <option value="jumirah">{t('jumeirah')}</option>
                         </select>
                    
                         <div className="flex">  
                             <button type="submit" className="w-screen px-7 py-2 text-sm font-medium text-white bg-red-600 rounded-lg">
-                                Search
+                                {t('search')}
                             </button>
                         </div>
                     </div>

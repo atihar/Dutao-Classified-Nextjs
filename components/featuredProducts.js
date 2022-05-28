@@ -1,13 +1,13 @@
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import useTranslation from 'next-translate/useTranslation';
+import Image from 'next/image';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import Link from 'next/link';
 import TextTruncate from 'react-text-truncate';
 import Router from 'next/router';
 
@@ -55,7 +55,15 @@ export default function featuredProducts(props){
                         <SwiperSlide key={key} className="swiper-slide">
                         <div className="bg-white rounded-lg shadow-lg">
                             {property.images &&
-                                <img src={`https://dutao-public.s3.amazonaws.com/`+ property.images[0]}  alt="" className="rounded-t-lg" placeholder="blur"/>}
+                                <Image
+                                src={`https://dutao-public.s3.amazonaws.com/`+ property.images[0]}
+                                alt="Picture of the author"
+                                layout="intrinsic"
+                                width={500}
+                                height={320}
+                                className="rounded-t-lg"
+                            /> }
+                                 {/* <img src={`https://dutao-public.s3.amazonaws.com/`+ property.images[0]}  alt="" className="rounded-t-lg" placeholder="blur"/>} */}
                                 <div className="p-2">
                                     {property.price ? <p className="mb-1 text-base font-bold text-red-600">{t('aed')} {property.price}</p> : "" }
                                     <p className="mb-2 text-base font-bold">                                              
@@ -66,7 +74,7 @@ export default function featuredProducts(props){
                                                 text={property.title}
                                             />
                                         </p>
-                                    <p className="mb-2 text-sm text-gray-500">{property.bedroom} {t('bed')} {property.bathroom} {t('bath')} 900{t('sqft')}</p>
+                                   { property.bedroom ? <p className="mb-2 text-sm text-gray-500">{property.bedroom} {t('bed')} {property.bathroom} {t('bath')} 900{t('sqft')}</p>  : "" }
                                 </div>
                                 <div className='flex p-2'>
                                     <p className='flex text-sm text-gray-400'>

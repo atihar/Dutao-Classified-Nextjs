@@ -1,11 +1,13 @@
 
 import { useForm } from "react-hook-form"
 import { useRouter } from 'next/router'
+import useTranslation from "next-translate/useTranslation";
 
 
 export default function jobFilter() {
 
     const router = useRouter();
+    const {t} = useTranslation('common')
 
     // initiating search param from start/reset
     const queryObj = {
@@ -91,11 +93,11 @@ export default function jobFilter() {
 
                     <div className="flex items-center justify-between mt-4">
                     <p className="font-bold text-base">
-                        Filters
+                        {t('filters')}
                     </p>
 
                     <button onClick={resetQuery} type="reset" className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
-                        Reset Filter
+                        {t('resetFilter')}
                     </button>
                     </div>
 
@@ -103,84 +105,84 @@ export default function jobFilter() {
                     <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4">
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" 
                         {...register("category")}>
-                        <option value="all">Choose Category</option>
-                        <option value="accounting">Accounting</option>
-                        <option value="architecture">Architecture</option>
-                        <option value="business_developement">Business Development</option>
-                        <option value="real_estate">Real Estate</option>
-                        <option value="customer_service">Customer Service</option>
-                        <option value="food_and_beverages">Food & Beverages</option>
-                        <option value="information_technology">Information & Technology</option>
-                        <option value="travel_and_tourism">Travel & Tourism</option>
-                        <option value="human_resource">Human Resource</option>
-                        <option value="marketing">Sales & Marketing</option>
-                        <option value="finance">Finance & Banking</option>
-                        <option value="logistics">Logistics & Distribution</option>
-                        <option value="healthcare">Medical & Healthcare</option>
+                        <option value="all">{t('selectCategory')}</option>
+                        <option value="accounting">{t('accounting')}</option>
+                        <option value="architecture">{t('architecture')}</option>
+                        <option value="business_developement">{t('businessDevelopment')}</option>
+                        <option value="real_estate">{t('realEstate')}</option>
+                        <option value="customer_service">{t('custServ')}</option>
+                        <option value="food_and_beverages">{t('fnb')}</option>
+                        <option value="information_technology">{t('it')}</option>
+                        <option value="travel_and_tourism">{t('tnt')}</option>
+                        <option value="human_resource">{t('humanResource')}</option>
+                        <option value="marketing">{t('salesAndMarketing')}</option>
+                        <option value="finance">{t('fBank')}</option>
+                        <option value="logistics">{t('lnd')}</option>
+                        <option value="healthcare">{t('mnh')}</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("city")}>
-                        <option value="all">Select City</option>
-                        <option value="dubai">Dubai</option>
-                        <option value="abu-dhabi">Abu Dhabi</option>
-                        <option value="ajman ">Ajman</option>
-                        <option value="sharjah">Sharjah</option>
-                        <option value="ras-al-khaimah">Ras al Khaimah</option>
+                        <option value="all">{t('selectCity')}</option>
+                        <option value="dubai">{t('dubai')}</option>
+                        <option value="abu-dhabi">{t('abu')}</option>
+                        <option value="ajman ">{t('ajm')}</option>
+                        <option value="sharjah">{t('shj')}</option>
+                        <option value="ras-al-khaimah">{t('rak')}</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("work_experience")}>
-                        <option value="all">Minimum Experience Level</option>
-                        <option value="0">Not required</option>
-                        <option value="1-2">1-2 years</option>
-                        <option value="3-5">3-5 years</option>
-                        <option value="6-8">6-8 years</option>
-                        <option value="8-10">8-10 years</option>
-                        <option value="11-14">11-14 years</option>
-                        <option value="15-99">15+ years</option>
+                        <option value="all">{t('minExp')}</option>
+                        <option value="0">notReq</option>
+                        <option value="1-2">1-2 {t('year')}s</option>
+                        <option value="3-5">3-5 {t('year')}s</option>
+                        <option value="6-8">6-8 {t('year')}s</option>
+                        <option value="8-10">8-10 {t('year')}s</option>
+                        <option value="11-14">11-14 {t('year')}s</option>
+                        <option value="15-99">15+ {t('year')}s</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("area")}>
-                        <option value="all">Locality</option>
-                        <option value="business-bay">Business Bay</option>
-                        <option value="marina">Marina</option>
-                        <option value="deira">Deira</option>
-                        <option value="international-city">International City</option>
-                        <option value="discovery-garden">Discovery Garden</option>
-                        <option value="karama">Al Karama</option>
-                        <option value="jumirah">Jumirah</option>
+                        <option value="all">{t('area')}</option>
+                        <option value="business-bay">{t('bBay')}</option>
+                        <option value="marina">{t('marina')}</option>
+                        <option value="deira">{t('deira')}</option>
+                        <option value="international-city">{t('international')}</option>
+                        <option value="discovery-garden">{t('discovery')}</option>
+                        <option value="karama">{t('alKarama')}</option>
+                        <option value="jumirah">{t('jumeirah')}</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("education_requirement")}>
-                        <option value="all">Minimum Education Level</option>
-                        <option value="high-school">High School/College</option>
-                        <option value="degree-college">Degree College</option>
-                        <option value="bachelor">Bachelors or Equivalent</option>
-                        <option value="masters">Masters or Equivalent</option>
+                        <option value="all">{t('minEdu')}</option>
+                        <option value="high-school">{t('highSchool')}</option>
+                        <option value="degree-college">{t('degreeCollege')}</option>
+                        <option value="bachelor">{t('bach')}</option>
+                        <option value="masters">{t('mas')}'</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("employment_type")}>
-                        <option value="all">Employment Type</option>
-                        <option value="full-time">Full Time</option>
-                        <option value="contract">Contractual</option>
-                        <option value="part-time">Part Time</option>
-                        <option value="intern">Intern</option>
+                        <option value="all">{t('empType')}</option>
+                        <option value="full-time">{t('fullTime')}</option>
+                        <option value="contract">{t('contractual')}</option>
+                        <option value="part-time">{t('partTime')}</option>
+                        <option value="intern">{t('intern')}</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("remote")}>
-                        <option value="all">Show only Remote Job</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
+                        <option value="all">{t('remoteJob')}</option>
+                        <option value="Yes">{t('yes')}</option>
+                        <option value="No">{t('no')}</option>
                         </select>
                         
                         <div className="flex">  
                             <button type="submit" className="w-screen px-7 py-2 text-sm font-medium text-white bg-red-600 rounded-lg">
-                                Search
+                                {t('search')}
                             </button>
                         </div>
                     </div>

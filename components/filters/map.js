@@ -1,9 +1,11 @@
 
 import { useForm } from "react-hook-form"
 import { useRouter } from 'next/router'
+import useTranslation from "next-translate/useTranslation";
 
 
 export default function communityFilter(props) {
+  const {t} = useTranslation('common')
   const locCity = props.data
   //user city is coming.. we need to pass it to filter in the future extending from here
   // console.log(locCity);
@@ -68,51 +70,51 @@ export default function communityFilter(props) {
                     <div className="grid grid-cols-3 md:grid-cols-3 xl:grid-cols-5 gap-4 mt-4">
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" 
                         {...register("category")}>
-                              <option value="all">Category</option>
-                              <option value="business">Business</option>
-                              <option value="hospital">Hospital</option>
-                              <option value="pharmacy">Pharmacy</option>
-                              <option value="bank">Bank</option>
-                              <option value="food">Food</option>
-                              <option value="bar">Bar</option>
-                              <option value="shopping">Shopping Mall</option>
-                              <option value="events">Events</option>
-                              <option value="super-market">Super Market</option>
-                              <option value="hotels">Hotels</option>
-                              <option value="school">School</option>
-                              <option value="university">University</option>
+                              <option value="all">{t('selectCategory')}</option>
+                              <option value="business">{t('business')}</option>
+                              <option value="hospital">{t('hospital')}</option>
+                              <option value="pharmacy">{t('pharmacy')}</option>
+                              <option value="bank">{t('bank')}</option>
+                              <option value="food">{t('food')}</option>
+                              <option value="bar">{t('bar')}</option>
+                              <option value="shopping">{t('mall')}</option>
+                              <option value="events">{t('events')}</option>
+                              <option value="super-market">{t('superMarket')}</option>
+                              <option value="hotels">{t('hotels')}</option>
+                              <option value="school">{t('school')}</option>
+                              <option value="university">{t('university')}</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("city")}>
-                        <option value="all">Select City</option>
-                        <option value="dubai">Dubai</option>
-                        <option value="abu-dhabi">Abu Dhabi</option>
-                        <option value="ajman ">Ajman</option>
-                        <option value="sharjah">Sharjah</option>
-                        <option value="ras-al-khaimah">Ras al Khaimah</option>
+                        <option value="all">{t('selectCity')}</option>
+                        <option value="dubai">{t('dubai')}</option>
+                        <option value="abu-dhabi">{t('abu')}</option>
+                        <option value="ajman ">{t('ajm')}</option>
+                        <option value="sharjah">{t('shj')}</option>
+                        <option value="ras-al-khaimah">{t('rak')}</option>
                         </select>
 
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("area")}>
-                        <option value="all">Locality</option>
-                        <option value="business-bay">Business Bay</option>
-                        <option value="marina">Marina</option>
-                        <option value="deira">Deira</option>
-                        <option value="international-city">International City</option>
-                        <option value="discovery-garden">Discovery Garden</option>
-                        <option value="karama">Al Karama</option>
-                        <option value="jumirah">Jumirah</option>
+                        <option value="all">{t('locality')}</option>
+                        <option value="business-bay">{t('bBay')}</option>
+                        <option value="marina">{t('marina')}</option>
+                        <option value="deira">{t('deira')}</option>
+                        <option value="international-city">{t('international')}</option>
+                        <option value="discovery-garden">{t('discovery')}</option>
+                        <option value="karama">{t('alKarama')}</option>
+                        <option value="jumirah">{t('jumeirah')}</option>
                         </select>
                    
                         <div className="flex">  
                             <button type="submit" className="w-screen px-7 py-2 text-sm font-medium text-white bg-red-600 rounded-lg">
-                                Filter
+                                {t('filter')}
                             </button>
                         </div>
                         <button onClick={resetQuery} type="reset" className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
-                        Reset
+                          {t('resetFilter')}
                         </button>
                     </div>
                 </div>

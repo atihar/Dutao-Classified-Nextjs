@@ -4,11 +4,11 @@ import FeaturedPlace from "../../components/featuedPlaces"
 import FeaturedProducts from "../../components/featuredProducts"
 import Footer from '../../components/footer'
 import db from '../../lib/dbConnect'
-import RentProperty from '../../models/motors'
+import Motors from '../../models/motors'
 import useTranslation from 'next-translate/useTranslation';
 
 
-export default function motors({property}) {
+export default function motors({motor}) {
   const {t} = useTranslation('common')
   return (
       <>
@@ -21,7 +21,7 @@ export default function motors({property}) {
         </section>
 
       <FeaturedPlace></FeaturedPlace>
-      <FeaturedProducts title={t('motors')} data={property}></FeaturedProducts>
+      <FeaturedProducts title={t('motors')} data={motor}></FeaturedProducts>
       <Footer></Footer>
       </>
   )
@@ -34,13 +34,13 @@ export async function getServerSideProps() {
   await db.connect();
 
   //setting data constant for the result for database
-  const data = await RentProperty.find().limit(7).lean();
-  const property = JSON.parse(JSON.stringify(data));
+  const data = await Motors.find().limit(7).lean();
+  const motor = JSON.parse(JSON.stringify(data));
   await db.disconnect();
   
 
   //setting props for frontend
   return {
-    props: { property }
+    props: { motor }
   };
 }

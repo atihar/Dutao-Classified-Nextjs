@@ -224,7 +224,6 @@ export default function propertyForSalePost({ children }) {
             </div>
                 
 
-
             {/* property description */}
             <div>
             <label className="sr-only" htmlFor="description">Property Description</label>
