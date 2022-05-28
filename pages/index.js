@@ -14,6 +14,7 @@ import CategoryCard from '../components/categoryCard'
 import db from '../lib/dbConnect'
 import SaleProperty from '../models/propertyForSale'
 import Motors from '../models/motors'
+import useTranslation from 'next-translate/useTranslation'
 
 
 
@@ -34,14 +35,15 @@ const slider2 = [
 
 
 export default function Index({property, motors}){
+  const {t} = useTranslation('common')
   return(
   <>
    <Header></Header>
    <Slider data={slider1}></Slider>
    <CategoryComponent></CategoryComponent>
    <Slider data={slider2}></Slider>
-   <PopularItemComponent title={"Properties"} data={property} btnLink={"/property-for-sale"}></PopularItemComponent> 
-   <PopularItemComponent title={"Motors"} data={motors} btnLink={"/motors"}></PopularItemComponent> 
+   <PopularItemComponent title={t('property')} data={property} btnLink={"/property-for-sale"}></PopularItemComponent> 
+   <PopularItemComponent title={t('motors')} data={motors} btnLink={"/motors"}></PopularItemComponent> 
    {/* <PSecondHand></PSecondHand> */}
    {/* <Slider data={slider3}></Slider> */}
    {/* <PSpecialProduct></PSpecialProduct> */}
