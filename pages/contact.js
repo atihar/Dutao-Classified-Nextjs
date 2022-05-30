@@ -6,7 +6,9 @@ import React, { useState } from 'react';
 import LocationView from '../components/locationView'
 
 export default function Contact() {
-    const [ isSuccessfullySubmitted, setIsSuccessfullySubmitted ] = useState('');
+    const mapInfo = {latitude:'25.185944', longitude:'55.274911'}
+    const [loading, setLoading] = useState(false)
+    const [message, setMessage] = useState("")
     const {
         register,
         handleSubmit,
@@ -15,246 +17,144 @@ export default function Contact() {
       } = useForm();
 
      // const onSubmit = (data) => console.log(data);
-      const onSubmit = async ({ name, email, subject, category, message }) => {
+      const onSubmit = async ({ name, email, category, phone, message }) => {
        // console.log({ name, email, subject, category, message });
         try{
-             
+            setLoading(true)
             const { data } = await axios.post('/api/contact', {
                 name, 
                 email, 
-                subject, 
                 category, 
+                phone, 
                 message   
             })
             .then(function (response) {
                 // handle success
-                setIsSuccessfullySubmitted("Successfully submitted") 
+                setMessage("Successfully submitted") 
+                setLoading(false)
               })
               
         }catch (err) {
             console.log(err.message)
+            setLoading(false)
         }
       };
-
-
-
-      const mapInfo = {latitude:'25.185944', longitude:'55.274911'}
     
   return (
     <>
     <Header></Header>
+    <section className="bg-gray-100">
+    <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
+        <div className="lg:py-12 lg:col-span-2">
+            <p className="max-w-xl text-lg">
+            We facilitate our customers in any industry
+            to buy and sell various products by just entering its details. We also give you free services through our platform.
+            If you have anything to know from us write us using the form. We will be happy to assist you.
+            </p>
+
+            <div className="mt-8">
+            <a href="" className="text-2xl font-bold text-red-600"> 0151 475 4450 </a>
+            </div>
+        </div>
+        
+
+        <div className="p-8 bg-white rounded-lg shadow-lg lg:p-12 lg:col-span-3">
+        {message && 
+                <div class="p-4 text-green-700 border rounded border-green-900/10 bg-green-50" role="alert" >
+                <strong class="text-sm font-medium"> We have received the message.! Soon we will get back to you </strong>
+                </div>
+                }
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            <div>
+                <label className="sr-only" for="name">Name</label>
+                <input className="w-full p-3 text-sm border-gray-200 rounded-lg" placeholder="Name" 
+                type="text" id="name" {...register('name', { required: true, maxLength: 20 })}/>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div>
+                <label className="sr-only" for="email">Email</label>
+                <input
+                    className="w-full p-3 text-sm border-gray-200 rounded-lg"
+                    placeholder="Email address"
+                    type="email"
+                    id="email" {...register('email')}
+                />
+                </div>
+
+                <div>
+                <label className="sr-only" for="phone">Phone</label>
+                <input
+                    className="w-full p-3 text-sm border-gray-200 rounded-lg"
+                    placeholder="Phone Number" type="tel"
+                    id="phone" {...register('phone', { required: true})}
+                />
+                </div>
+            </div>
+
+            <div className="grid outline-none border-none">
+            <select className="form-select block
+                    w-full
+                    p-4
+                    text-sm
+                    text-gray-400
+                    bg-clip-padding bg-no-repeat
+                    rounded
+                    transition
+                    ease-in-out
+                    bg-gray-50 focus:outline-none
+                    m-0 border-2
+                    focus:text-gray-500 focus:bg-white"
+                    {...register('category', {required:true})}>
+                        <option defaultValue>My message is regarding</option>
+                        <option value="technical">Listing Ad</option>
+                        <option value="account">Account processing</option>
+                        <option value="business">Query about business ad</option>
+                    </select>
+            </div>
+
+            <div>
+                <label className="sr-only" for="message">Message</label>
+                <textarea
+                className="w-full p-3 text-sm border-gray-200 rounded-lg"
+                placeholder="Message" rows="8"
+                id="message" {...register('message', { required: true})}
+                ></textarea>
+            </div>
+
+            <div className="mt-4">
+                <button type="submit"
+                className="inline-flex items-center justify-center w-full px-5 py-3 text-white bg-black rounded-lg sm:w-auto">
+                <span className="text-base"> Send Enquiry </span>
+
+                { !loading ?
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5 ml-3" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+                :
+                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                }
+
+                </button>
+            </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    </section>
+
+
+
     <section>
         {/* For Search Bar */}
-      {/* <div className="flex items-center justify-center p-4 box lg:my-8">
-        <div className="flex border-2 rounded shadow-sm lg:w-2/5 my-1">
-            <input type="text" className="px-4 py-2 w-5/6 text-center outline-none" placeholder="How can we help you?"></input>
-            <div className="my-auto border-r py-4"></div>
-            <button className="flex items-center justify-center px-4 m-auto">
-                <svg className="w-8 h-8 text-red-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24">
-                    <path  d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
-                </svg>
-            </button>
-        </div>
-      </div> */}
 
-      <div className="flex items-center justify-center p-4 box lg:my-2">
-        <div className="flex justify-center lg:w-2/5 my-1">
-            <div className="px-4 lg:w-5/6 text-center lg:text-4xl text-red-600"><h1><b className="border-b-2 border-red-600"> How can we help you? </b></h1></div>
-        </div>
-      </div>
-      
-      <div className="container mx-auto">
-        <div className=" p-4 grid grid-cols-1 xl:grid-cols-10">
-
-                <div className="items-center justify-center my-4 xl:col-span-5 xl:col-start-2 bg-gray-100">
-                    <div className="top-40 shadow rounded py-12 lg:px-28 px-8">
-                        <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-600">Get in touch</p>
-                        <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="md:flex items-center mt-12">
-                            <div className="w-full flex flex-col">
-                                <label className="text-base font-semibold leading-none text-gray-800">Name</label>
-                                <input {...register('name', { required: true, maxLength: 20 })} tabIndex="0" arial-label="Please input name" type="text" disabled={formState.isSubmitting || isSuccessfullySubmitted} className="text-base leading-none text-gray-900 py-3 px-1 focus:oultine-none focus:border-indigo-700 mt-4 bg-white border rounded border-gray-200 placeholder-gray-300" placeholder="Please input  name" />
-                            </div>
-                            <div className="w-full flex flex-col md:ml-6 md:mt-0 mt-4">
-                                <label className="text-base font-semibold leading-none text-gray-800">Email Address</label>
-                                <input {...register('email', { required: true})} tabIndex="0" arial-label="Please input email address" type="email" disabled={formState.isSubmitting || isSuccessfullySubmitted} className="text-base leading-none text-gray-900 py-3 px-1 focus:oultine-none focus:border-indigo-700 mt-4 bg-white border rounded border-gray-200 placeholder-gray-300" placeholder="Please input email address" />
-                            </div>
-                        </div>
-                        <div className="md:flex items-center mt-8">
-                            <div className="w-full flex flex-col">
-                                <label className="text-base font-semibold leading-none text-gray-800">Subject</label>
-                                <input {...register('subject', { required: true})} tabIndex="0" role="input" arial-label="Please input company name" type="text" disabled={formState.isSubmitting || isSuccessfullySubmitted} className="text-base leading-none text-gray-900 py-3 px-1 focus:oultine-none focus:border-indigo-700 mt-4 bg-white border rounded border-gray-200 placeholder-gray-300" placeholder="Please input company name" />
-                            </div>
-                            <div className="w-full flex flex-col md:ml-6 md:mt-0 mt-4">
-                                <label className="text-base font-semibold leading-none text-gray-800">Category</label>
-                                <input {...register('category', { required: true})} tabIndex="0" arial-label="Please input country name" type="text" disabled={formState.isSubmitting || isSuccessfullySubmitted} className="text-base leading-none text-gray-900 py-3 px-1 focus:oultine-none focus:border-indigo-700 mt-4 bg-white border rounded border-gray-200 placeholder-gray-300" placeholder="Please input country name" />
-                            </div>
-                        </div>
-                        <div>
-                            <div className="w-full flex flex-col mt-8">
-                                <label className="text-base font-semibold leading-none text-gray-800">Message</label>
-                                <textarea {...register('message', { required: true})} tabIndex="0" aria-label="leave a message" role="textbox" type="text" disabled={formState.isSubmitting || isSuccessfullySubmitted} className="h-36 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-white border rounded border-gray-200 placeholder-gray-300 resize-none"></textarea>
-                            </div>
-                        </div>
-                        <p className="text-xs leading-3 text-gray-600 mt-4">By clicking submit you agree to our terms of service, privacy policy and how we use data as stated</p>
-                        <div className="flex items-center justify-center w-full">
-                            <button disabled={formState.isSubmitting || isSuccessfullySubmitted} className="mt-9 text-base font-semibold leading-none text-white py-4 px-10 bg-red-600 rounded hover:bg-red-600 focus:ring-2 focus:ring-offset-2 focus:ring-red-700 focus:outline-none w-full">SUBMIT</button>
-                        </div>
-
-                        <p className="text-base bg-green-200 success">{ isSuccessfullySubmitted }</p>
-                        </form>
-                    </div>
-                </div>
-          
-                <div style={{height: "max-content"}} className="shadow-sm items-center justify-center text-center border-gray-100 border-solid border-b-2 rounded my-4 xl:col-span-2 xl:col-start-8 max-h-full">
-                    <div className="top-40 rounded py-3 px-4 bg-gray-500">
-                        <p className="md:text-xl font-bold leading-7 text-center text-white">Quick Links</p>
-                    </div>
-                    <div className="flex justify-center font-semibold py-8">
-                        <div className="w-96 text-gray-500">
-                                <a
-                            href="/about"
-                            className="
-                                block
-                                px-6
-                                py-4
-                                text-base
-                                w-full
-                                hover:text-red-600 hover:border-gray-600 border-2 border-white
-                                
-                                transition
-                                duration-200
-                                cursor-pointer
-                            "
-                            >
-                             About us
-                            </a>
-                            <a
-                            href="#!"
-                            className="
-                                block
-                                px-6
-                                py-4
-                                text-base
-                                w-full
-                                hover:text-red-600 hover:border-gray-600 border-2 border-white
-                                
-                                transition
-                                duration-200
-                                cursor-pointer
-                            "
-                            >
-                            Frequently asked Questions
-                            </a>
-                            <a
-                            href="#!"
-                            className="
-                                block
-                                px-6
-                                py-4
-                                text-base
-                                w-full
-                                hover:text-red-600 hover:border-gray-600 border-2 border-white
-                               
-                                transition
-                                duration-200
-                                cursor-pointer
-                            "
-                            >
-                            Download app
-                            </a>
-                            <a
-                            href="#!"
-                            className="
-                                block
-                                px-6
-                                py-4
-                                text-base
-                                w-full
-                                hover:text-red-600 hover:border-gray-600 border-2 border-white
-                                
-                                transition
-                                duration-200
-                                cursor-pointer
-                            "
-                            >
-                            fourth link item 
-                            </a>
-                            <a
-                            href="#!"
-                            className="
-                                block
-                                px-6
-                                py-4
-                                text-base
-                                w-full
-                                hover:text-red-600 hover:border-gray-600 border-2 border-white
-                                
-                                transition
-                                duration-200
-                                cursor-pointer
-                            "
-                            >
-                             Start your business with us
-                            </a>
-                            <a
-                            href="#!"
-                            className="
-                                block
-                                px-6
-                                py-4
-                                text-base
-                                w-full
-                                hover:text-red-600 hover:border-gray-600 border-2 border-white
-                                
-                                transition
-                                duration-200
-                                cursor-pointer
-                            "
-                            >
-                            Support
-                            </a>
-                            <a
-                            href="#!"
-                            className="
-                                block
-                                px-6
-                                py-4
-                                text-base
-                                w-full
-                                hover:text-red-600 hover:border-gray-600 border-2 border-white
-                                
-                                transition
-                                duration-200
-                                cursor-pointer
-                            "
-                            >
-                             Top Cities
-                            </a>
-                            <a
-                            href="#!"
-                            className="
-                                block
-                                px-6
-                                py-4
-                                text-base
-                                w-full
-                                hover:text-red-600 hover:border-gray-600 border-2 border-white
-                                
-                                transition
-                                duration-200
-                                cursor-pointer
-                            "
-                            >
-                             Social Medias
-                            </a>
-                        </div>
-                    </div>
-                    
-                </div>
-        </div>
-         
+      <div className="container mx-auto">     
         <div className=" p-4 grid grid-cols-1 lg:grid-cols-2 gap-3 mb-5 ">
             <div className="grid grid-cols-1 p-4 mx-auto justify-items-start">
                 <div className="flex items-center lg:justify-center mt-5">
@@ -264,8 +164,8 @@ export default function Contact() {
                         </svg>
                     </div>
                     <div className="grid grid-cols-1">  
-                        <span  className="text-xl font-bold">Address:</span>  
-                        <span  className="text-sm">Floor 31, Westburry Towers, Business Bay, Dubai.</span>
+                        <span  className="text-xl font-bold">Office:</span>  
+                        <span  className="text-sm">Floor 31, Westburry Towers,<br/> Business Bay, Downtown, Dubai.</span>
                     </div>
                 </div>
                 <div className="flex items-center lg:justify-center mt-5">
@@ -276,7 +176,7 @@ export default function Contact() {
                     </div>
                     <div className="grid grid-cols-1">
                         <span  className="text-xl font-bold">Email:</span>
-                        <span  className="text-sm hover:text-blue-600 transition duration-200"><a href="">something@dutao.com</a></span>
+                        <span  className="text-sm hover:text-blue-600 transition duration-200"><a href="">hello@dutao.ae</a></span>
                     </div>
                 </div>
                 <div className="flex items-center lg:justify-center mt-5">

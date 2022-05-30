@@ -25,13 +25,13 @@ export default function About() {
               ></span>
               <div className="p-8 sm:p-16 lg:p-24 text-center lg:text-left">
                 <h2 className="text-2xl font-bold sm:text-3xl">
-                  About Dutao Platform Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                We care about our customers' needs by help them finding reasonable prices online,
                 </h2>
                 <p className="mt-4 text-gray-600 lg:text-left">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid,
-                  molestiae! Quidem est esse numquam odio deleniti, beatae, magni
-                  dolores provident quaerat totam eos, aperiam architecto eius quis
-                  quibusdam fugiat dicta.
+                  which they will not find anywhere else. 
+                  We aim to provide great deals to potential clients and sellers as deals are a great way to increase sales and buy a product 
+                  at reasonable prices with additional items and discounts. Listing on our website can provide you with the lowest prices on your 
+                  preferred products and things, so pay attention to Dutao offers and listings.
                 </p>
                 <a
                   className="inline-block px-12 py-3 mt-8 text-sm font-medium text-white bg-red-600 border border-red-600 rounded active:text-red-500 hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring"
@@ -49,7 +49,7 @@ export default function About() {
       <h2 className="text-xl font-bold sm:text-2xl lg:text-left text-center">Customer Reviews</h2>
       <div className="flex items-center mt-4 lg:justify-start justify-center">
         <p className="text-3xl font-medium">
-          3.8
+          4.3
           <span className="sr-only"> Average review score </span>
         </p>
         <div className="ml-4">

@@ -19,7 +19,7 @@ export default function pJobs() {
 
         <a
           className="inline-flex items-center px-8 py-3 mt-8 text-white bg-red-600 border border-red-600 rounded-xl"
-          href="#"
+          href="/jobs"
         >
           <span className="text-sm font-medium">{t('findJob')}</span>
 
@@ -44,7 +44,7 @@ export default function pJobs() {
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
         <a
           className="block p-4 border border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-          href="/accountant"
+          href="/jobs/list?category=accounting"
         >
           <span className="inline-block sm:p-3 rounded-lg bg-gray-50">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
@@ -56,7 +56,7 @@ export default function pJobs() {
 
         <a
           className="block p-4 border border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-          href="/accountant"
+          href="/jobs/list?category=human-resource"
         >
           <span className="inline-block sm:p-3 rounded-lg bg-gray-50">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
@@ -69,7 +69,7 @@ export default function pJobs() {
 
         <a
           className="block p-4 border border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-          href="/accountant"
+          href="/jobs/list?category=human-resource"
         >
           <span className="inline-block sm:p-3 rounded-lg bg-gray-50">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
@@ -82,7 +82,7 @@ export default function pJobs() {
 
         <a
           className="block p-4 border border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-          href="/accountant"
+          href="/jobs/list?category=human-resource"
         >
           <span className="inline-block sm:p-3 rounded-lg bg-gray-50">
              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
@@ -95,7 +95,7 @@ export default function pJobs() {
 
         <a
           className="block p-4 border border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-          href="/accountant"
+          href="/jobs/list?category=sales-and-marketing"
         >
           <span className="inline-block sm:p-3 rounded-lg bg-gray-50">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
@@ -108,7 +108,7 @@ export default function pJobs() {
 
         <a
           className="block p-4 border border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-          href="/accountant"
+          href="/jobs/list?category=real-estate"
         >
           <span className="inline-block sm:p-3 rounded-lg bg-gray-50">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
