@@ -1,6 +1,5 @@
-//property for sale page
+//jobs index page
 import Header from "../../components/header"
-import FeaturedProducts from "../../components/featuredProducts"
 import Footer from '../../components/footer'
 import db from '../../lib/dbConnect'
 import Jobs from '../../models/jobs'
@@ -17,6 +16,7 @@ function jobsIndex({jobList}) {
   const cityHandler = (e) =>{ setCity(e.target.value)}
   const searchHandler = (e) => {setKeyword(e.target.value)}
   const {t} = useTranslation('common')
+  
 
   return ( 
       <>
@@ -86,7 +86,10 @@ function jobsIndex({jobList}) {
         
       <section>
           <div className="max-w-screen-xl py-6 px-4 mx-auto sm:px-6 lg:px-8">
-            <h2 className="font-bold pt-10">{t('featured')}</h2>
+            <div className="flex justify-between pt-10">
+            <h2 className="font-bold">{t('featured')}</h2>
+            <Link href={'jobs/list'}><p className='cursor-pointer font-bold text-red-600 text-sm pt-2'>view more</p></Link>
+            </div>
             <div className="sm:flex list-none sm:space-x-8 overflow-scroll ">
               { jobList && jobList.map((job, i) => 
               <div className="bg-gray-50 w-full sm:w-1/4 m-3 p-4 rounded-lg shadow-lg" key={i}>

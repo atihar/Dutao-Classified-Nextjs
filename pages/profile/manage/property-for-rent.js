@@ -10,6 +10,7 @@ import React, { useEffect,useState, useContext, useReducer } from 'react';
 import { Store } from '../../../lib/Store';
 import { useRouter } from 'next/router';
 import Image from "next/image"
+import useTranslation from 'next-translate/useTranslation'
 
 
 export default function managePropertyForSale() {
@@ -20,6 +21,7 @@ export default function managePropertyForSale() {
   const [postCount, setPostCount] = useState(0);
   const [loading, setLoading] = useState(false);
   const [ popUp, setPopup] = useState(false)
+  const { t, lang } = useTranslation('common')
 
 
   useEffect(() => {
@@ -88,26 +90,26 @@ export default function managePropertyForSale() {
       <>
         <Header></Header>
         <div className='sm:max-w-screen-xl sm:w-screen mx-auto py-4 px-8 my-4 rounded-lg shadow '>
-        <h2 className="font-bold py-5"> Dutao User Dashboard</h2>
+        <h2 className="font-bold py-5"> {t('dashboard')}</h2>
             <div className="grid lg:grid-cols-[1fr_1fr_4fr] gap-4">
                 <div>
                 <ul className="text-base space-y-4">
-                          <Link href={'/profile'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Profile</li></Link>
-                          <Link href={'/profile/manage/property-for-sale'}><li className="py-2 px-4 rounded-lg text-white active">My Ads</li></Link>
-                          <Link href={'/profile/manage/job'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Manage Recruitments</li></Link>
-                          <Link href={'/profile/my-information'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Information</li></Link>
-                          <Link href={'/profile/my-searches'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">My Searches</li></Link>
-                          <Link href={'/profile/settings'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Settings</li></Link>
+                          <Link href={'/profile'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('myProfile')}</li></Link>
+                          <Link href={'/profile/manage/property-for-sale'}><li className="py-2 px-4 rounded-lg text-white active">{t('myAds')}</li></Link>
+                          <Link href={'/profile/manage/job'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('manageRecruit')}</li></Link>
+                          <Link href={'/profile/my-information'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('myInfo')}</li></Link>
+                          <Link href={'/profile/my-searches'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('mySearches')}</li></Link>
+                          <Link href={'/profile/settings'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('settings')}</li></Link>
                           {/* <Link href={'/profile/subscription'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Subscription</li></Link> */}
                     </ul>
                 </div>
                 <div>
                   <ul className="ml-10 lg:ml-0 text-base space-y-4">
-                          <Link href={'/profile/manage/property-for-sale'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Property (Sale)</li></Link>
-                          <Link href={'/profile/manage/property-for-rent'}><li className=" py-2 px-4 rounded-lg text-white active">Property (Rent)</li></Link>
-                          <Link href={'/profile/manage/motors'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Motors</li></Link>
-                          <Link href={'/profile/manage/community'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">Community</li></Link>
-                          <Link href={'/profile/manage/used-items'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">Used Items</li></Link>
+                          <Link href={'/profile/manage/property-for-sale'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('propertyForSale')}</li></Link>
+                          <Link href={'/profile/manage/property-for-rent'}><li className=" py-2 px-4 rounded-lg text-white active">{t('propertyForRent')}</li></Link>
+                          <Link href={'/profile/manage/motors'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('motors')}</li></Link>
+                          <Link href={'/profile/manage/community'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">{t('community')}</li></Link>
+                          <Link href={'/profile/manage/used-items'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">{t('usedItems')}</li></Link>
                       </ul>
                 </div>
                 <div>

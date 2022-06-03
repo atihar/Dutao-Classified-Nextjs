@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { Store } from '../../lib/Store';
 import React, { useContext, useEffect, useState } from 'react';
 import cityData from '../../lib/data.json'
+import useTranslation from 'next-translate/useTranslation'
 
 export default function propertyForSalePost({ children }) {
     const router = useRouter();
@@ -14,6 +15,7 @@ export default function propertyForSalePost({ children }) {
     const [ userEmail, setUserEmail] = useState("");
     const [parent, setParent] = useState("");
     const [imageFiles, setImages] = useState([]);
+    const { t, lang } = useTranslation('common')
 
     useEffect(() => {
         if (!userInfo) {
@@ -123,7 +125,8 @@ export default function propertyForSalePost({ children }) {
         <section className="mb-20">
         {/*starting submission form */}
         <div className="max-w-lg text-center px-4 py-6 mx-auto sm:px-6 lg:px-8 sm:py-10">
-            <h1 className="text-2xl font-bold text-red-600 sm:text-3xl">Enter details of your motor for ad</h1>
+            <h1 className="text-2xl font-bold text-red-600 sm:text-3xl">{t('enterDetails')}</h1>
+            <p className='text-base text-gray-400'>{t('motors')}</p>
         </div>
         {/* get started finish */}
 
@@ -131,7 +134,7 @@ export default function propertyForSalePost({ children }) {
             {/* property images */}
             <div className="">
                 <div className="mb-3 w-100 p-3">
-                    <label htmlFor="formFileMultiple" className="form-label inline-block text-sm mb-2 text-gray-400 ">Upload Motor Images</label>
+                    <label htmlFor="formFileMultiple" className="form-label inline-block text-sm mb-2 text-gray-400 ">{t('addImage')}</label>
                     <input className="form-control
                     block
                     w-full
@@ -156,7 +159,7 @@ export default function propertyForSalePost({ children }) {
             <label htmlFor="title" className="sr-only">Ad Title</label>
 
             <div className="relative">
-                <input type="text" className="w-full p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm focus:outline-none" placeholder="Enter Ad Title"
+                <input type="text" className="w-full p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm focus:outline-none" placeholder={t('title')}
                 {...register('title',{required:true})}/>
                 {errors.title && <p className='text-[9px] text-red-500 px-4'>ad title is required</p> }
             </div>
@@ -178,13 +181,13 @@ export default function propertyForSalePost({ children }) {
                     m-0
                     focus:text-gray-500 focus:bg-white"
                     {...register('category',{required:true})}>
-                        <option defaultValue>Select Category</option>
-                        <option value="motorcycle">Motorcycles</option>
-                        <option value="accessories">Parts & Accessories</option>
-                        <option value="heavy-vehicles">Heavy Vehicles</option>
-                        <option value="boats">Boats</option>
-                        <option value="number-plates">Number Plates</option>
-                        <option value="export-car">Export Cars</option>
+                        <option value="">{t('selectCategory')}</option>
+                        <option value="motorcycle">{t('motorcycle')}</option>
+                        <option value="accessories">{t('accessories')}</option>
+                        <option value="heavy-vehicles">{t('heavyVehicles')}</option>
+                        <option value="boats">{t('boats')}</option>
+                        <option value="number-plates">{t('numberPlates')}</option>
+                        <option value="export-car">{t('exportCars')}</option>
                     </select>
                     {errors.category && <p className='text-[9px] text-red-500 px-4'>select a category</p> }
                 </div>
@@ -197,26 +200,9 @@ export default function propertyForSalePost({ children }) {
                     <input
                     type="text"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 rounded-lg shadow-sm focus:outline-none "
-                    placeholder="Garage Address"
+                    placeholder={t('address')}
                     {...register('address',{required:true})}/>
                     {errors.address && <p className='text-[9px] text-red-500 px-4'>your address is required</p> }
-
-                    <span className="absolute inset-y-0 inline-flex items-center right-4">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5 text-gray-400"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                    <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                    />
-                </svg>
-                </span>
             </div>
             </div>
 
@@ -225,7 +211,7 @@ export default function propertyForSalePost({ children }) {
                 <label className="sr-only" htmlFor="description">Ad Description</label>
                 <textarea
                 className="w-full p-3 text-sm bg-gray-50 rounded-lg focus:outline-none"
-                placeholder="Ad Description"
+                placeholder={t('description')}
                 rows="8"
                 id="description"
                 {...register('description',{required:true})}
@@ -250,7 +236,7 @@ export default function propertyForSalePost({ children }) {
                     m-0
                     focus:text-gray-500 focus:bg-white"
                     {...register('city',{required:true})} onChange={(e) => setParent(e.target.value)}>
-                    <option defaultValue>Select City</option>
+                    <option value="">{t('selectCity')}</option>
                     {cityData.cities.map((city) => (
                     <option value={city.value} key={city.id}>{city.name}</option>
                     ))}
@@ -274,7 +260,7 @@ export default function propertyForSalePost({ children }) {
                     m-0
                     focus:text-gray-500 focus:bg-white"
                     {...register('area',{required: true})}>
-                        <option defaultValue>Select Area</option>
+                        <option value="">{t('locality')}</option>
                         {/* looping through data to find parent cities and showing it areas */}
                         {cityData.cities
                         .find((x) => x.name === parent)
@@ -292,9 +278,9 @@ export default function propertyForSalePost({ children }) {
                     <select className="form-select block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('sellerType')}>
-                        <option defaultValue>Posting as a</option>
-                        <option value="owner">Owner</option>
-                        <option value="agency">Seller Agent</option>
+                        <option value="">{t('postingAs')}</option>
+                        <option value="owner">{t('owner')}</option>
+                        <option value="agency">{t('agent')}</option>
                     </select>
                 </div>
             </div>
@@ -306,7 +292,7 @@ export default function propertyForSalePost({ children }) {
                 <input
                 type="number"
                 className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                placeholder="kilometers onroad"
+                placeholder={t('kmOnRoad')}
                 {...register('kilometers')}/>
             </div>
             </div>
@@ -317,7 +303,7 @@ export default function propertyForSalePost({ children }) {
                 <input
                 type="text"
                 className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                placeholder="Warranty in days"
+                placeholder={t('warrantyDays')}
                 {...register('warranty')}/>
             </div>
             </div>
@@ -328,7 +314,7 @@ export default function propertyForSalePost({ children }) {
                 <input
                 type="text"
                 className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                placeholder="Color"
+                placeholder={t('color')}
                 {...register('color')}/>
             </div>
             </div>
@@ -339,14 +325,14 @@ export default function propertyForSalePost({ children }) {
                 <input
                 type="text"
                 className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                placeholder="Released Year"
+                placeholder={t('manufacturingYear')}
                 {...register('marketYear',{required:true})}/>
                 {errors.marketYear && <p className='text-[9px] text-red-500 px-4'>select a released year</p> }
             </div>
             </div>
 
             <div>
-                <label htmlFor="doors" className="sr-only">Doors</label>
+                <label htmlFor="doors" className="sr-only">{t('doors')}</label>
                 <div className="relative">
                     <input
                     type="number"
@@ -362,7 +348,7 @@ export default function propertyForSalePost({ children }) {
                     <input
                     type="number"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="Number of Cylinders (optional)"
+                    placeholder={t('cylinder')}
                     {...register('cylinders')}/>
                 </div>
             </div>
@@ -374,7 +360,7 @@ export default function propertyForSalePost({ children }) {
                     <input
                     type="number"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="Sale Price in AED"
+                    placeholder={t('price')}
                     {...register('price',{required:true})}/>
                     {errors.price && <p className='text-[9px] text-red-500 px-4'>sale price is required</p> }
 
@@ -388,7 +374,7 @@ export default function propertyForSalePost({ children }) {
                 <input
                 type="text"
                 className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                placeholder="Engine Transmission Type"
+                placeholder={t('transmission')}
                 {...register('transmissionType')}/>
             </div>
             </div>
@@ -399,12 +385,12 @@ export default function propertyForSalePost({ children }) {
                     <input
                     type="text"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="Youtube/Vimeo Video URL"
+                    placeholder={t('videoLink')}
                     {...register('video')}/>
                 </div>
             </div>
 
-            <p className=' p-4 font-bold text-sm text-gray-400'>We need a few more details for processing verification</p>
+            <p className=' p-4 font-bold text-sm text-gray-400'>{t('weNeedAFewDetails')}</p>
 
 
             {/* listing as */}
@@ -414,11 +400,9 @@ export default function propertyForSalePost({ children }) {
                     <select className="form-select block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('bodyType')}>
-                        <option defaultValue>Body Type</option>
-                        <option value="">Not Applicable</option>
-                        <option value="sedan">Sedan</option>
-                        <option value="long body">Long Body</option>
-                        <option value="sports">Sports</option>
+                        <option value="">{t('body')}</option>
+                        <option value="sedan">{t('sedan')}</option>
+                        <option value="sports">{t('sports')}</option>
                     </select>
                 </div>
             </div>
@@ -429,7 +413,7 @@ export default function propertyForSalePost({ children }) {
                 <input
                 type="text"
                 className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                placeholder="Regional Specification"
+                placeholder={t('regional-specs')}
                 {...register('regionalSpec')}/>
             </div>
             </div>
@@ -440,7 +424,7 @@ export default function propertyForSalePost({ children }) {
                 <input
                 type="number"
                 className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                placeholder="Engine Horse Power"
+                placeholder={t('horse')}
                 {...register('horsePower')}/>
             </div>
             </div>
@@ -451,7 +435,7 @@ export default function propertyForSalePost({ children }) {
                     <input
                     type="text"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="What is the engine fuel type"
+                    placeholder={t('fuel')}
                     {...register('fuelType')}/>
                 </div>
             </div>
@@ -462,7 +446,7 @@ export default function propertyForSalePost({ children }) {
                     <input
                     type="number"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="Steering Space"
+                    placeholder={t('sSide')}
                     {...register('steeringSide')}/>
                 </div>
             </div>
@@ -473,7 +457,7 @@ export default function propertyForSalePost({ children }) {
                     <input
                     type="number"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="Contact Number"
+                    placeholder={t('phNo')}
                     {...register('phone', {required:true})}/>
                     {errors.phone && <p className='text-[9px] text-red-500 px-4'>a contact number is required</p> }
                 </div>
@@ -481,7 +465,7 @@ export default function propertyForSalePost({ children }) {
 
             <div className="flex items-center justify-between">
             <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg">
-                Create a free ad
+                {t('createAd')}
             </button>
             </div>
 

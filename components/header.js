@@ -115,12 +115,10 @@ return (
                       <div className="absolute right-0 left-auto z-30 hidden w-64 bg-grey-200 group-hover:block ">       
                         <div className="px-2 pt-2 group-hover:block pb-4 bg-white-500 bg-white-500 bg-gray-50 rounded-lg shadow-lg">
                           <div className="flex-column text-left text-xs space-y-5 p-2 rounded ">
-                                  <Link href={'/profile'}><li className='list-none text-size[8px] cursor-pointer hover:underline hover:decoration-red-200 hover:decoration-2'>{userInfo.email}</li></Link>
-                                  <Link href={'/profile'}><li className='list-none cursor-pointer hover:underline hover:decoration-red-200 hover:decoration-2'>My Profile</li></Link>
-                                  <Link href={'/profile/favorite'}><li className='list-none cursor-pointer hover:underline hover:decoration-red-200 hover:decoration-2'>Favourites</li></Link>
-                                  <Link href={'/profile/manage/property-for-sale'}><li className='list-none cursor-pointer hover:underline hover:decoration-red-200 hover:decoration-2'>My Ads</li></Link>
-                                  <Link href={'/profile'}><li className='list-none cursor-pointer hover:underline hover:decoration-red-200 hover:decoration-2'>Account Settings</li></Link>
-                                  <Link href={'/'}><li className='list-none cursor-pointer hover:underline hover:decoration-red-200 hover:decoration-2'><a onClick={logoutClickHandler}>Sign Out</a></li></Link>
+                                  <Link href={'profile'}><li className='list-none text-size[8px] cursor-pointer hover:underline hover:decoration-red-200 hover:decoration-2'>{userInfo.email}</li></Link>
+                                  <Link href={'profile'}><li className='list-none cursor-pointer hover:underline hover:decoration-red-200 hover:decoration-2'>{t('myProfile')}</li></Link>
+                                  <Link href={'profile/manage/property-for-sale'}><li className='list-none cursor-pointer hover:underline hover:decoration-red-200 hover:decoration-2'>{t('myAds')}</li></Link>
+                                  <Link href={'/'}><li className='list-none cursor-pointer hover:underline hover:decoration-red-200 hover:decoration-2'><a onClick={logoutClickHandler}>{t('logout')}</a></li></Link>
                           </div>
                         </div>
                     </div>

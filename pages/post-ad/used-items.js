@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { Store } from '../../lib/Store';
 import React, { useContext, useEffect, useState } from 'react';
 import cityData from '../../lib/data.json'
+import useTranslation from 'next-translate/useTranslation'
 
 export default function propertyForSalePost({ children }) {
     const router = useRouter();
@@ -14,6 +15,7 @@ export default function propertyForSalePost({ children }) {
     const [ userEmail, setUserEmail] = useState("");
     const [parent, setParent] = useState("");
     const [imageFiles, setImages] = useState([]);
+    const { t, lang } = useTranslation('common')
 
     useEffect(() => {
         if (!userInfo) {
@@ -105,7 +107,8 @@ export default function propertyForSalePost({ children }) {
         <section className='mb-20'>
         {/*starting submission form */}
         <div className="max-w-lg text-center px-4 py-6 mx-auto sm:px-6 lg:px-8 sm:py-10">
-            <h1 className="text-2xl font-bold text-red-600 sm:text-3xl">Enter details of your used items to list</h1>
+            <h1 className="text-2xl font-bold text-red-600 sm:text-3xl">{t('enterDetails')}</h1>
+                <p className='text-base text-gray-400'>{t('usedItems')}</p>
         </div>
         {/* get started finish */}
 
@@ -113,7 +116,7 @@ export default function propertyForSalePost({ children }) {
             {/* property images */}
             <div className="">
                 <div className="mb-3 w-100 p-3">
-                    <label htmlFor="formFileMultiple" className="form-label inline-block text-sm mb-2 text-gray-400 ">Property Images</label>
+                    <label htmlFor="formFileMultiple" className="form-label inline-block text-sm mb-2 text-gray-400 ">{t('addImage')}</label>
                     <input className="form-control
                     block
                     w-full
@@ -138,7 +141,7 @@ export default function propertyForSalePost({ children }) {
             <label htmlFor="title" className="sr-only">Ad Title</label>
 
             <div className="relative">
-                <input type="text" className="w-full p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm focus:outline-none border-2" placeholder="Enter Ad Title"
+                <input type="text" className="w-full p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm focus:outline-none border-2" placeholder={t('title')}
                 {...register('title',{required:true})}/>
                 {errors.title && <p className='text-[9px] text-red-500 px-4'>ad title is required</p> }
             </div>
@@ -161,17 +164,15 @@ export default function propertyForSalePost({ children }) {
                     m-0 border-2
                     focus:text-gray-500 focus:bg-white"
                     {...register('category')}>
-                        <option defaultValue>Select Category</option>
-                        <option value="electronics">Electronics</option>
-                        <option value="home-appliances">Home Appliances</option>
-                        <option value="clothing-accessories">CLothing & Accessories</option>
-                        <option value="jewelry-watches">Jewelry & Watches</option>
-                        <option value="music-instruments">Music Instruments</option>
-                        <option value="health-service">Movers & Removals</option>
-                        <option value="gaming">Gaming</option>
-                        <option value="furniture">Furniture</option>
-                        <option value="books">Books</option>
-                        <option value="tickets-vouchers">Tickets & Vouchers</option>
+                        <option value="">{t('selectCategory')}</option>
+                        <option value="electronics">{t('electronics')}</option>
+                        <option value="home-appliances">{t('appliances')}</option>
+                        <option value="clothing-accessories">{t('clothing')}</option>
+                        <option value="jewelry-watches">{t('jewelry')}</option>
+                        <option value="music-instruments">{t('musicInstrument')}</option>
+                        <option value="health-service">{t('movers')}</option>
+                        <option value="furniture">{t('furniture')}</option>
+                        <option value="books">{t('books')}</option>
                     </select>
                 </div>
                 </div>
@@ -182,7 +183,7 @@ export default function propertyForSalePost({ children }) {
                     <input
                     type="text"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 rounded-lg shadow-sm focus:outline-none border-2"
-                    placeholder="Home/Office Address"
+                    placeholder={t('address')}
                     {...register('address')}/>
 
                     <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -197,7 +198,7 @@ export default function propertyForSalePost({ children }) {
             <label className="sr-only" htmlFor="description">Service Description</label>
             <textarea
               className="w-full p-3 text-sm bg-gray-50 rounded-lg focus:outline-none border-2"
-              placeholder="Property Description"
+              placeholder={t('description')}
               rows="8"
               id="description"
               {...register('description',{required:true})}
@@ -221,7 +222,7 @@ export default function propertyForSalePost({ children }) {
                     m-0 border-2
                     focus:text-gray-500 focus:bg-white"
                     {...register('city',{required:true})} onChange={(e) => setParent(e.target.value)}>
-                    <option defaultValue>Select City</option>
+                    <option value="">{t('selectCity')}</option>
                     {cityData.cities.map((city) => (
                     <option value={city.value} key={city.id}>{city.name}</option>
                     ))}
@@ -245,7 +246,7 @@ export default function propertyForSalePost({ children }) {
                     m-0 border-2
                     focus:text-gray-500 focus:bg-white"
                     {...register('area',{required:true})}>
-                        <option defaultValue>Select Area</option>
+                        <option defaultValue>{t('locality')}</option>
                         {/* looping through data to find parent cities and showing it areas */}
                         {cityData.cities
                         .find((x) => x.name === parent)
@@ -273,9 +274,9 @@ export default function propertyForSalePost({ children }) {
                     m-0 border-2
                     focus:text-gray-500 focus:bg-white"
                     {...register('postedBy')}>
-                        <option defaultValue>Posting as a</option>
-                        <option value="owner">Owner</option>
-                        <option value="agency">Agency</option>
+                        <option value="">{t('postingAs')}</option>
+                        <option value="owner">{t('owner')}</option>
+                        <option value="agency">{t('agency')}</option>
                     </select>
                 </div>
             </div>
@@ -287,7 +288,7 @@ export default function propertyForSalePost({ children }) {
                     <input
                     type="number"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm border-2"
-                    placeholder="Service Fee ( if applicable )"
+                    placeholder={t('service-fee')}
                     {...register('price',{required:true})}/>
                     {errors.price && <p className='text-[9px] text-red-500 px-4'>sale price is required</p> }
                 </div>
@@ -299,7 +300,7 @@ export default function propertyForSalePost({ children }) {
                     <input
                     type="number"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm border-2"
-                    placeholder="Contact Number"
+                    placeholder={t('phNo')}
                     {...register('phone',{required:true})}/>
                     {errors.phone && <p className='text-[9px] text-red-500 px-4'>a contact number is required</p> }
                 </div>
@@ -307,7 +308,7 @@ export default function propertyForSalePost({ children }) {
 
             <div className="flex items-center justify-between">
             <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg">
-                Create a free ad
+                {t('createAd')}
             </button>
             </div>
 

@@ -5,6 +5,7 @@
     "*": ["common"],
     "/": ["home"],
     "/login": ["login"],
-    "/jobs" : ["jobs"]
+    "/jobs" : ["jobs"],
+    "/post-ad" : ["post-ad","common"]
   }
 }

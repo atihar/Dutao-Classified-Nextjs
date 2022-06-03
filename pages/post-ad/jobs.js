@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from "next/router";
 import { Store } from '../../lib/Store';
 import React, { useContext, useEffect, useState } from 'react';
+import useTranslation from 'next-translate/useTranslation'
+import cityData from '../../lib/data.json'
 
 export default function jobsPost({ children }) {
     const router = useRouter();
@@ -12,6 +14,8 @@ export default function jobsPost({ children }) {
     const { userInfo } = state;
     const [ userEmail, setUserEmail] = useState("");
     const [imageFiles, setImages] = useState([]);
+    const { t, lang } = useTranslation('common')
+    const [parent, setParent] = useState("");
 
     useEffect(() => {
         if (!userInfo) {
@@ -123,7 +127,8 @@ export default function jobsPost({ children }) {
         <section className='mb-20'>
         {/*starting submission form */}
         <div className="max-w-lg text-center px-4 py-6 mx-auto sm:px-6 lg:px-8 sm:py-10">
-            <h1 className="text-2xl font-bold text-red-600 sm:text-3xl">Enter details of new job</h1>
+            <h1 className="text-2xl font-bold text-red-600 sm:text-3xl">{t('enterDetails')}</h1>
+            <p className='text-base text-gray-400'>{t('job')}</p>
         </div>
         {/* get started finish */}
 
@@ -153,10 +158,10 @@ export default function jobsPost({ children }) {
                 </div>
             </div>
         <div>
-            <label htmlFor="title" className="sr-only">Job Title</label>
+            <label htmlFor="title" className="sr-only">{t('jobTitle')}</label>
 
             <div className="relative">
-                <input type="text" className="w-full p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm focus:outline-none" placeholder="Enter Ad Title"
+                <input type="text" className="w-full p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm focus:outline-none" placeholder={t('jobTitle')}
                 {...register('title')}/>
 
                 <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -185,20 +190,20 @@ export default function jobsPost({ children }) {
                     m-0
                     focus:text-gray-500 focus:bg-white"
                     {...register('category')}>
-                        <option defaultValue>Select Category</option>
-                        <option value="accounting">Accounting</option>
-                        <option value="architecture">Architecture</option>
-                        <option value="business_developement">Business Development</option>
-                        <option value="real_estate">Real Estate</option>
-                        <option value="customer_service">Customer Service</option>
-                        <option value="food_and_beverages">Food & Beverages</option>
-                        <option value="information_technology">Information & Technology</option>
-                        <option value="travel_and_tourism">Travel & Tourism</option>
-                        <option value="human_resource">Human Resource</option>
-                        <option value="marketing">Sales & Marketing</option>
-                        <option value="finance">Finance & Banking</option>
-                        <option value="logistics">Logistics & Distribution</option>
-                        <option value="healthcare">Medical & Healthcare</option>
+                        <option value="">{t('selectCategory')}</option>
+                        <option value="accounting">{t('accounting')}</option>
+                        <option value="architecture">{t('architecture')}</option>
+                        <option value="business_developement">{t('businessDevelopment')}</option>
+                        <option value="real_estate">{t('realEstate')}</option>
+                        <option value="customer_service">{t('custServ')}</option>
+                        <option value="food_and_beverages">{t('fnb')}</option>
+                        <option value="information_technology">{t('it')}</option>
+                        <option value="travel_and_tourism">{t('tnt')}</option>
+                        <option value="human_resource">{t('humanResource')}</option>
+                        <option value="marketing">{t('salesAndMarketing')}</option>
+                        <option value="finance">{t('banking')}</option>
+                        <option value="logistics">{t('lnd')}</option>
+                        <option value="healthcare">{t('healthcare')}</option>
                     </select>
                 </div>
             </div>
@@ -210,7 +215,7 @@ export default function jobsPost({ children }) {
                     <input
                     type="text"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 rounded-lg shadow-sm focus:outline-none "
-                    placeholder="Company Address"
+                    placeholder={t('address')}
                     {...register('address')}/>
 
                     <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -239,7 +244,7 @@ export default function jobsPost({ children }) {
             <label className="sr-only" htmlFor="description">Job Description</label>
             <textarea
               className="w-full p-3 text-sm bg-gray-50 rounded-lg focus:outline-none"
-              placeholder="Job Description"
+              placeholder={t('description')}
               rows="8"
               id="description"
               {...register('description')}
@@ -253,7 +258,7 @@ export default function jobsPost({ children }) {
                     <input
                     type="text"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="Monthly Salary"
+                    placeholder={t('monthlySalary')}
                     {...register('salary')}/>
                 </div>
             </div>
@@ -265,7 +270,7 @@ export default function jobsPost({ children }) {
                     <input
                     type="text"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="Neighbourhood"
+                    placeholder={t('neighbourhood')}
                     {...register('neighbourhood')}/>
                 </div>
             </div>
@@ -277,7 +282,7 @@ export default function jobsPost({ children }) {
                         <input
                         type="text"
                         className="w-full p-4 pr-12 text-sm bg-gray-50 rounded-lg shadow-sm focus:outline-none "
-                        placeholder="Company Name"
+                        placeholder={t('companyName')}
                         {...register('company')}/>
                 </div>
             </div>
@@ -287,11 +292,11 @@ export default function jobsPost({ children }) {
                     <select className="form-select block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('companySize')}>
-                        <option value="">Company Size</option>
-                        <option value="small">Small(0-10)</option>
-                        <option value="mid">Medium(11-20)</option>
-                        <option value="large">Large(21-100)</option>
-                        <option value="enterprise">Enterprise(100+)</option>
+                        <option value="">{t('companySize')}</option>
+                        <option value="small">{t('small')}(0-10)</option>
+                        <option value="mid">{t('medium')}(11-20)</option>
+                        <option value="large">{t('large')}(21-100)</option>
+                        <option value="enterprise">{t('enterprise')}(100+)</option>
                     </select>
                 </div>
             </div>
@@ -312,13 +317,12 @@ export default function jobsPost({ children }) {
                     m-0
                     focus:text-gray-500 focus:bg-white"
                     {...register('city')}>
-                        <option value="">Select City</option>
-                        <option value="dubai">Dubai</option>
-                        <option value="abu-dhabi">Abu Dhabi</option>
-                        <option value="ajman ">Ajman</option>
-                        <option value="sharjah">Sharjah</option>
-                        <option value="ras-al-khaimah">Ras al Khaimah</option>
+                        <option value="">{t('selectCity')}</option>
+                    {cityData.cities.map((city) => (
+                    <option value={city.value} key={city.id}>{city.name}</option>
+                    ))}
                     </select>
+                    {errors.city && <p className='text-[9px] text-red-500 px-4'>select a city</p> }
                 </div>
             </div>
             
@@ -338,14 +342,12 @@ export default function jobsPost({ children }) {
                     m-0
                     focus:text-gray-500 focus:bg-white"
                     {...register('area')}>
-                        <option value="">Select Area</option>
-                        <option value="business-bay">Business Bay</option>
-                        <option value="marina">Marina</option>
-                        <option value="deira">Deira</option>
-                        <option value="international-city">International City</option>
-                        <option value="discovery-garden">Discovery Garden</option>
-                        <option value="karama">Al Karama</option>
-                        <option value="jumirah">Jumirah</option>
+                        <option value="">{t('locality')}</option>
+                        {cityData.cities
+                        .find((x) => x.name === parent)
+                        ?.child_categories?.map((category) => (
+                            <option value={category.value} key={category.id}>{category.name}</option>
+                        ))}
                     </select>
                 </div>
                 </div>
@@ -366,9 +368,9 @@ export default function jobsPost({ children }) {
                     m-0
                     focus:text-gray-500 focus:bg-white"
                     {...register('listedBy')}>
-                        <option value="">Posting as a</option>
-                        <option value="company">Company</option>
-                        <option value="agency">Agency</option>
+                        <option value="">{t('postingAs')}</option>
+                        <option value="owner">{t('owner')}</option>
+                        <option value="agency">{t('agent')}</option>
                     </select>
                 </div>
             </div>
@@ -379,11 +381,11 @@ export default function jobsPost({ children }) {
                     <select className="form-select block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('employmentType')}>
-                        <option value="">Employment Type</option>
-                        <option value="full-time">Full Time</option>
-                        <option value="contract">Contractual</option>
-                        <option value="part-time">Part Time</option>
-                        <option value="intern">Intern</option>
+                        <option value="">{t('empType')}</option>
+                        <option value="full-time">{t('fullTime')}</option>
+                        <option value="contract">{t('contractual')}</option>
+                        <option value="part-time">{t('partTime')}</option>
+                        <option value="intern">{t('intern')}</option>
                     </select>
                 </div>
             </div>
@@ -393,9 +395,9 @@ export default function jobsPost({ children }) {
                     <select className="form-select block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('isRemote')}>
-                        <option valu="">Is it a remote Job?</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
+                        <option valu="">{t('isItRemote')}</option>
+                        <option value="yes">{t('yes')}</option>
+                        <option value="no">{t('no')}</option>
                     </select>
                 </div>
             </div>

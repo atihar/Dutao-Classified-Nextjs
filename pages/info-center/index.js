@@ -67,11 +67,18 @@ export default function infoList(props) {
             <h3 className='text-base'>{t('popularSearches')}</h3>
             <div className='overflow-y-scroll'>
               <div className='flex-inline space-x-5 w-max'>
-                {staticData.categories.map((x,i)=> 
-                  <Link href={`/info-center/?category=${x}&city=all`} key={i}><span className='text-gray-600 bg-gray-200 px-4 rounded-lg text-lg '>{x}</span></Link>
-                )}
-                  
-                </div>
+                  <Link href={`info-center/?category=bar&city=all`}><span className='text-gray-600 bg-gray-200 px-4 rounded-lg text-lg '>{t('bar')}</span></Link>
+                  <Link href={`info-center/?category=malls&city=all`}><span className='text-gray-600 bg-gray-200 px-4 rounded-lg text-lg '>{t('mall')}</span></Link>
+                  <Link href={`info-center/?category=hotel&city=all`}><span className='text-gray-600 bg-gray-200 px-4 rounded-lg text-lg '>{t('hotel')}</span></Link>
+                  <Link href={`info-center/?category=restaurant&city=all`}><span className='text-gray-600 bg-gray-200 px-4 rounded-lg text-lg '>{t('restaurants')}</span></Link>
+                  <Link href={`info-center/?category=bank&city=all`}><span className='text-gray-600 bg-gray-200 px-4 rounded-lg text-lg '>{t('bank')}</span></Link>
+                  <Link href={`info-center/?category=pharmacy&city=all`}><span className='text-gray-600 bg-gray-200 px-4 rounded-lg text-lg '>{t('pharmacy')}</span></Link>
+                  <Link href={`info-center/?category=gas&city=all`}><span className='text-gray-600 bg-gray-200 px-4 rounded-lg text-lg '>{t('gas')}</span></Link>
+                  <Link href={`info-center/?category=coffee&city=all`}><span className='text-gray-600 bg-gray-200 px-4 rounded-lg text-lg '>{t('coffee')}</span></Link>
+                  <Link href={`info-center/?category=grocery&city=all`}><span className='text-gray-600 bg-gray-200 px-4 rounded-lg text-lg '>{t('groceries')}</span></Link>
+                  <Link href={`info-center/?category=exchange&city=all`}><span className='text-gray-600 bg-gray-200 px-4 rounded-lg text-lg '>{t('exchange')}</span></Link>
+                  <Link href={`info-center/?category=typing-center&city=all`}><span className='text-gray-600 bg-gray-200 px-4 rounded-lg text-lg '>{t('typing-center')}</span></Link>
+              </div>
             </div>
 
           <DynamicMap data={products} passData={passData} />
