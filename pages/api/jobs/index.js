@@ -12,7 +12,6 @@ handler.post(async (req, res) => {
   const newJob = new Jobs({
     title: req.body.title,
     category:req.body.category,
-    images:req.body.images,  //company logo
     company:req.body.company,
     phone:req.body.phone,
     address:req.body.address,

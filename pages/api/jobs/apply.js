@@ -5,23 +5,20 @@ import { isAuth } from '../../../lib/auth';
 
 
 const handler = nc();
-handler.use(isAuth);
 
 // on every job post this API will be hitted to create one jobApplication object 
 handler.post(async (req, res) => {
   await db.connect();
   const newJobApplication = new JobApplications({
-    jobId: req.query.jobId,
+    jobId : req.query.jobId,
     applications: []
   });
 
   const application = await newJobApplication.save();
   await db.disconnect();
+  res.status(201).end();
 
-  res.send(application).status(201);
 });
-
-
 
 
 

@@ -342,5 +342,18 @@
     "medium" : "Medium",
     "large" : "Large",
     "enterprise" : "Enteprise",
-    "isItRemote" : "Is it a remote position?"
+    "isItRemote" : "Is it a remote position?",
+    "careerLvl" : "Career Level",
+    "fresher" : "Fresher",
+    "juniorExec" : "Junior Executive",
+    "intermediate" : "Intermediate",
+    "expert" : "Team Lead/Senior Executive",
+    "manager" : "Manager",
+    "ceo" : "CEO",
+    "preferredGender" : "Preferred Gender for this position",
+    "male" : "Male",
+    "female" : "Female",
+    "preferredNationality" : "Preferred Nationality",
+    "letEmployesKnow" : "Let future employees know what your company offers to make their life better",
+    "jobperks" : "Job Perks"
   }

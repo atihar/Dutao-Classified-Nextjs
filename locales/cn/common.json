@@ -345,5 +345,19 @@
     "medium" : "中等的",
     "large" : "大的",
     "enterprise" : "企业",
-    "isItRemote" : "它是一个偏远的位置吗"
+    "isItRemote" : "它是一个偏远的位置吗",
+    "minimumEducation" : "最低教育水平",
+    "careerLvl" : "职业水平",
+    "fresher" : "更新鲜",
+    "juniorExec" : "初级行政人员",
+    "intermediate" : "中间的",
+    "expert" : "专家",
+    "manager" : "经理",
+    "ceo" : "首席执行官",
+    "preferredGender" : "首选性别",
+    "male" : "男性",
+    "female" : "女性",
+    "preferredNationality" : "首选国籍",
+    "letEmployesKnow" : "让未来的员工知道您的公司提供什么来改善他们的生活",
+    "jobperks" : "工作津贴"
   }

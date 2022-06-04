@@ -47,9 +47,7 @@ export default function singleJobs({job}){
                 });
                 
                 // getting applications data for this job to check if the user has already applied 
-                const applications = axios.get(`/api/jobs/apply?jobId=${job._id}`,{
-                    headers: { authorization: `Bearer ${userInfo.token}` }
-                  })
+                const applications = axios.get(`/api/jobs/apply?jobId=${job._id}`)
                 .then(function (response){
                     const applicantionData = response.data
 
@@ -73,16 +71,13 @@ export default function singleJobs({job}){
     // const onSubmit = data => console.log(data);
       const onSubmit = async ({ jobExperience, profileSummary }) => {
         try {
-            const { data } = await axios.put(`/api/jobs/apply?jobId=${job._id}`, {
+            const { data } = await axios.put(`api/jobs/apply?jobId=${job._id}`, {
             profileSummary,
             jobExperience,
             cv : stateCv,
             applicantsUserId: userInfo._id,
-          },
-          {
-            headers: { authorization: `Bearer ${userInfo.token}` }}
-          );
-          router.push('/jobs/list', { shallow: true });
+          });
+          router.push('jobs/list', { shallow: true });
         } catch (err) {
             console.log(err)
         }

@@ -16,6 +16,7 @@ export default function jobsPost({ children }) {
     const [imageFiles, setImages] = useState([]);
     const { t, lang } = useTranslation('common')
     const [parent, setParent] = useState("");
+    const { locale, defaultLocale } = useRouter()
 
     useEffect(() => {
         if (!userInfo) {
@@ -32,44 +33,6 @@ export default function jobsPost({ children }) {
         formState: { errors },
       } = useForm();
 
-   
-    // handling onchange photo upload
-    const imgFiles = [];
-    const uploadPhoto = async (e) => {
-      try{
-        const myFileList = e.target.files;
-        const newArr = [...myFileList]
-        const v = await Promise.all(
-          newArr.map(async (file) => {
-                const filename = Date.now()+encodeURIComponent(file.name);
-                const res = await fetch(`/api/upload-url?file=${filename}`);
-                //setting the filenames to the local array before setting to state because the filenames are spreading
-                //into words
-                imgFiles.push(filename);
-                //solving the spread array problem using state to send the filenames in the db
-                setImages(imgFiles)
-                const { url, fields } = await res.json();
-                const formData = new FormData();
-
-                  Object.entries({ ...fields, file }).forEach(([key, value]) => {
-                    formData.append(key, value);
-                  });
-              
-                  const upload = await fetch(url, {
-                    method: 'POST',
-                    body: formData,
-                  });
-     
-                  if (upload.ok) {
-                    console.log('Cover photo Uploaded successfully!');
-                    
-                  } else {
-                    console.error('Photo Upload failed.');
-                  }
-            })
-            )
-        } catch(e){console.error(e)}
-    }
         
     //   handling form on submit button
       const onSubmit = async ({ title, category,company, address, description, salary, city, area, listedBy, neighbourhood, employmentType, minWorkExp, minEduLevel, companySize, careerLevel, preferredGender,
@@ -107,7 +70,7 @@ export default function jobsPost({ children }) {
           );
 
           //creating a job application form on successfull submission
-          axios.post(`/api/jobs/apply?jobId=${data._id}`,
+          await axios.post(`/api/jobs/apply?jobId=${data._id}`,
           {
             headers: { authorization: `Bearer ${userInfo.token}` }
           });
@@ -119,6 +82,7 @@ export default function jobsPost({ children }) {
       };
 
       const perks = "Health Insurance-Visa Processing Assistance-Accomodation-Travel Allowance-Yearly Vacation-Air Ticket".split('-');
+      const perksCn = "健康保险-签证处理-住宿-旅行津贴-年假-飞机票".split('-');
 
 
   return (
@@ -133,30 +97,6 @@ export default function jobsPost({ children }) {
         {/* get started finish */}
 
         <form onSubmit={handleSubmit(onSubmit)} action="" className="max-w-xl mx-auto mt-8 mb-0 space-y-4">
-            {/* property images */}
-            <div className="">
-                <div className="mb-3 w-100 p-3">
-                    <label htmlFor="formFileMultiple" className="form-label inline-block text-sm mb-2 text-gray-400 ">Cover photo</label>
-                    <input className="form-control
-                    block
-                    w-full
-                    px-2
-                    py-1.5
-                    text-sm
-                    text-gray-400
-                    bg-white bg-clip-padding
-                    focus:outline-none
-                    rounded
-                    transition
-                    ease-in-out
-                    m-0
-                    focus:text-gray-400" 
-                    accept="image/png, image/jpeg"
-                    type="file" id="formFileMultiple" onChange={uploadPhoto}
-                    // tried button with onClick.. But its submitting the whole form. So onChange is fine for now
-                    placeholder="File Images" />
-                </div>
-            </div>
         <div>
             <label htmlFor="title" className="sr-only">{t('jobTitle')}</label>
 
@@ -316,7 +256,7 @@ export default function jobsPost({ children }) {
                     bg-gray-50 focus:outline-none
                     m-0
                     focus:text-gray-500 focus:bg-white"
-                    {...register('city')}>
+                    {...register('city')} onChange={(e) => setParent(e.target.value)}>
                         <option value="">{t('selectCity')}</option>
                     {cityData.cities.map((city) => (
                     <option value={city.value} key={city.id}>{city.name}</option>
@@ -407,11 +347,11 @@ export default function jobsPost({ children }) {
                     <select className="form-select block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('minEduLevel')}>
-                        <option value="">Minimum Education Level</option>
-                        <option value="high-school">High School/College</option>
-                        <option value="degree-college">Degree College</option>
-                        <option value="bachelor">Bachelors or Equivalent</option>
-                        <option value="masters">Masters or Equivalent</option>
+                        <option value="">{t('minEdu')}</option>
+                        <option value="high-school">{t('highSchool')}</option>
+                        <option value="degree-college">{t('degreeCollege')}</option>
+                        <option value="bachelor">{t('bach')}</option>
+                        <option value="masters">{t('mas')}</option>
                     </select>
                 </div>
             </div>
@@ -422,14 +362,14 @@ export default function jobsPost({ children }) {
                     <select className="form-select block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('minWorkExp')}>
-                        <option value="">Minimum Experience Level</option>
-                        <option value="0">Not required</option>
-                        <option value="1-2">1-2 years</option>
-                        <option value="3-5">3-5 years</option>
-                        <option value="6-8">6-8 years</option>
-                        <option value="8-10">8-10 years</option>
-                        <option value="11-14">11-14 years</option>
-                        <option value="15-99">15+ years</option>
+                        <option value="">{t('minExp')}</option>
+                        <option value="0">{t('notReq')}</option>
+                        <option value="1-2">1-2 {t('year')}</option>
+                        <option value="3-5">3-5 {t('year')}</option>
+                        <option value="6-8">6-8 {t('year')}</option>
+                        <option value="8-10">8-10 {t('year')}</option>
+                        <option value="11-14">11-14 {t('year')}</option>
+                        <option value="15-99">15+ {t('year')}</option>
                     </select>
                 </div>
             </div>
@@ -439,13 +379,13 @@ export default function jobsPost({ children }) {
                     <select className="form-select block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('careerLevel')}>
-                        <option value="">Career Level</option>
-                        <option value="fresher">Fresher</option>
-                        <option value="junior">Junior executive</option>
-                        <option value="intermediate">Intermediate</option>
-                        <option value="expert">Expert</option>
-                        <option value="manager">Manager</option>
-                        <option value="ceo">CEO</option>
+                        <option value="">{t('careerLvl')}</option>
+                        <option value="fresher">{t('fresher')}</option>
+                        <option value="junior">{t('juniorExec')}</option>
+                        <option value="intermediate">{t('intermediate')}</option>
+                        <option value="expert">{t('expert')}</option>
+                        <option value="manager">{t('manager')}</option>
+                        <option value="ceo">{t('ceo')}</option>
                     </select>
                 </div>
             </div>
@@ -455,21 +395,21 @@ export default function jobsPost({ children }) {
                     <select className="form-select block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('preferredGender')}>
-                        <option value="">Preferred Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="not">Not required</option>
+                        <option value="">{t('preferredGender')}</option>
+                        <option value="">{t('notReq')}</option>
+                        <option value="male">{t('male')}</option>
+                        <option value="female">{t('female')}</option>
                     </select>
                 </div>
             </div>
 
             <div>
-                <label htmlFor="reqNationality" className="sr-only">Preferred Nationality</label>
+                <label htmlFor="reqNationality" className="sr-only">{t('preferredNationality')}</label>
                 <div className="relative">
                     <input
                     type="text"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="Preferred Nationalityr"
+                    placeholder={t('preferredNationality')}
                     {...register('reqNationality')}/>
                 </div>
             </div>
@@ -481,28 +421,36 @@ export default function jobsPost({ children }) {
                     <input
                     type="number"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="Contact Number"
+                    placeholder={t('phNo')}
                     {...register('phone')}/>
                 </div>
             </div>
 
 
-            <p className=' p-4 font-bold text-sm text-gray-400'>Let future employees know what your company offers to make their life better</p>
+            <p className=' p-4 font-bold text-sm text-gray-400'>{t('letEmployesKnow')}</p>
 
 
             {/* perks */}
             <div className='p-4'>
-                <h2 className='text-base'>Job Perks</h2>
+                <h2 className='text-base'>{t('jobperks')}</h2>
+                { locale == 'en' ?
                 <fieldset className='text-sm text-gray-400'>
                     { perks.map((c,i) => 
                         <div key={i} className='pr-10 py-3 inline-block'><label><input type="checkbox" value={c} {...register('perks')} />&nbsp;{c}</label></div>)
                     }
                 </fieldset>
+                :
+                <fieldset className='text-sm text-gray-400'>
+                    { perksCn.map((c,i) => 
+                        <div key={i} className='pr-10 py-3 inline-block'><label><input type="checkbox" value={c} {...register('perks')} />&nbsp;{c}</label></div>)
+                    }
+                </fieldset>
+}
             </div>
 
             <div className="flex items-center justify-between">
             <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg">
-                Create a free ad
+                {t('createAd')}
             </button>
             </div>
 

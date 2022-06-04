@@ -13,6 +13,7 @@ export default function Signup() {
     const { userInfo } = state;
     const [success, setSuccess] = useState(false)
     const[loading, setLoading] = useState(false)
+    const [duplicate, setDuplicate] = useState(false)
 
 
     useEffect(() => {
@@ -36,20 +37,27 @@ export default function Signup() {
         try {
           //waiting for data for being signed in and a jwt tokenized data will be set as {data} from response of the API
           setLoading(true)
-          const { data } = await axios.post('/api/user/registration', {
-            name, email, password, phone });        
-
-          const oneYearFromNow = new Date();
-          oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
-          axios.post('/api/user/create-profile-data', {
-              name,
-              userId : data._id,
-              subscription: 1,// 0-non. 1-basic, 2-standard, 3-premium (this will be set by the payment)
-              subscriptionDate: Date.now(),
-              subscriptionExpr: oneYearFromNow
-            }
-            );
-            setSuccess(true)
+          const { data } = await axios.post(`/api/user/registration`, {
+            name, email, password, phone })
+            .then((response)=> {
+              if(response.status == 203){
+                console.log("duplicate email")
+                setDuplicate(true)
+              }
+              else{
+                console.log('user created')
+                const oneYearFromNow = new Date();
+                oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
+                axios.post('/api/user/create-profile-data', {
+                    name,
+                    userId : data._id,
+                    subscription: 1,// 0-non. 1-basic, 2-standard, 3-premium (this will be set by the payment)
+                    subscriptionDate: Date.now(),
+                    subscriptionExpr: oneYearFromNow
+                  });
+                  setSuccess(true)
+              }
+            })    
             setLoading(false)
           // router.push(redirect || '/');
         } catch (err) {
@@ -220,10 +228,17 @@ export default function Signup() {
         { success && 
               <div className="p-4 text-green-700 border rounded border-green-900/10 bg-green-50"
               role="alert">
-                <strong class="text-sm font-medium"> Check your email! </strong>
+                <strong className="text-sm font-medium"> Check your email! </strong>
                 <p className='text-base'>Please activate your account within next 3 minutes</p>
               </div>
             }
+            {duplicate && 
+                <div className="p-4 text-gray-500 border rounded border-green-900/10 bg-yellow-50"
+                role="alert">
+                  <strong className="text-sm font-medium"> Email is already registered </strong>
+                  <p className='text-base'>Please try login to your account</p>
+                </div>
+              }
         </div>
         <Footer></Footer>
       </>

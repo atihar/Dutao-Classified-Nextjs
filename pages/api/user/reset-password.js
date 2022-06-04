@@ -1,5 +1,4 @@
 import nc from 'next-connect';
-import bcrypt from 'bcryptjs';
 import User from '../../../models/user';
 import db from '../../../lib/dbConnect';
 import { emailSignToken } from '../../../lib/auth';
@@ -8,33 +7,16 @@ let nodemailer = require('nodemailer')
 const handler = nc();
 
 handler.post(async (req, res, err) => {
-  try{
-    await db.connect();
-    const newUser = new User({
-      name: req.body.name,
-      email: req.body.email,
-      password: bcrypt.hashSync(req.body.password),
-      phone:req.body.phone,
-      isAdmin: false,
-      activated: false
-    });
-    const user = await newUser.save();
-    await db.disconnect();
-  
-  // database error log in the console 
-  console.log(err);
 
-  const token = emailSignToken(user);
-  res.send({
-    token,
-    _id: user.id,
-    name: user.name,
-    email: user.email,
-    isAdmin: user.isAdmin,
-    activated: user.activated
-  });
-  console.log(user.id)
-  
+    await db.connect();
+    console.log("coming here")
+    const user = await User.findOne({ email : req.body.email })
+    const token = emailSignToken(user);
+    await db.disconnect();
+    // database error log in the console 
+    console.log(err);
+
+
   // sending verification email 
   const transporter = nodemailer.createTransport({
     port: 465,
@@ -50,8 +32,8 @@ handler.post(async (req, res, err) => {
   const mailData = {
     from: 'no-reply@dutao.com',
     to: user.email,
-    subject: `Complete your account`,
-    text: 'Hello,\n Welcome. Please click on the link to verify your account.\n',
+    subject: `Reset Your Password`,
+    text: 'Hello,\n Welcome. Please click on the link to reset your account password.\n',
     html: `
    <!DOCTYPE html>
   <html>
@@ -195,7 +177,7 @@ handler.post(async (req, res, err) => {
           <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
             <tr>
               <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-                <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">Confirm Your Email Address</h1>
+                <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">Confirm Your Request</h1>
               </td>
             </tr>
           </table>
@@ -235,11 +217,11 @@ handler.post(async (req, res, err) => {
                       <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" bgcolor="#10E5BC" style="border-radius: 6px;">
-                          <a href="http://dutao.ae/verification/${token}" target="_blank" 
+                          <a href="http://localhost:3000/change-password/${token}" target="_blank" 
                             style="display: inline-block; padding: 16px 36px; 
                             font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #000000; 
                             text-decoration: none; border-radius: 6px;">
-                            Verify my account</a>
+                            Continue change password</a>
                           </td>
                         </tr>
                       </table>
@@ -320,11 +302,6 @@ handler.post(async (req, res, err) => {
     res.send("success");
       // console.log(info)
   })
-}
-catch(error){
-  console.log(error)
-  res.status(203).end();
-}
 
 });
 
