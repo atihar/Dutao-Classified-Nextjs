@@ -16,7 +16,7 @@ export default function ResetPassword() {
     const { userInfo } = state;
     const [stateError, setStateerror] = useState(false)
     const [loading, setLoading] = useState(false)
-    const { t, lang } = useTranslation('login')
+    const { t, lang } = useTranslation('common')
     const [message, setMessage] = useState(false)
 
     const {
@@ -50,7 +50,7 @@ export default function ResetPassword() {
         <div className="sm:max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
             <div className="max-w-lg mx-auto">
                 <div id='animation'></div>
-                <h1 className="text-2xl font-bold sm:text-6xl">Reset Password</h1>
+                <h1 className="text-2xl font-bold sm:text-6xl">{t('resetPassword')}</h1>
         </div>
         {stateError && 
         <div className="p-4 border rounded text-amber-700 bg-amber-50 border-amber-900/10" role="alert">
@@ -65,25 +65,25 @@ export default function ResetPassword() {
             <div className="relative">
                 <input type="email"
                 className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
-                placeholder="enter your email" {...register('email')}/>
+                placeholder={t('enterEmail')}{...register('email')}/>
             </div>
             </div>
 
             <div className="flex items-center justify-between">
             <p className="text-sm text-gray-500">
-                Don't have an account?
-                <Link className="underline" href="/signup"> Sign up</Link>
+              {t('noaccount')}
+                <a className="underline" href="/signup"> {t('signup')}</a>
             </p>
 
             <button type="submit" className="transition duration-700 ease-in-out inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg">
-                 <p>{loading ? "loading..." : "Send Reset Link" }</p>
+                 <p>{loading ?  t('load') : t('sendReset') }</p>
             </button>
             </div>
             { message && 
               <div className="p-4 text-green-700 border rounded border-green-900/10 bg-green-50"
               role="alert">
-                <strong className="text-sm font-medium"> Check your email! </strong>
-                <p className='text-base'>Please confirm your request within 3 minutes</p>
+                <strong className="text-sm font-medium"> {t('checkEmail')} </strong>
+                <p className='text-base'>{t('pleaseConfirm')}</p>
               </div>
             }
         </form>

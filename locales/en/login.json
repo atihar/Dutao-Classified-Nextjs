@@ -8,5 +8,6 @@
     "pemail": "Enter email",
     "ppwd": "Enter password",
     "pwd": "Password",
-    "load": "Loading..."
+    "load": "Loading...",
+    "forgotPassword" : "Forgot Password"
 }

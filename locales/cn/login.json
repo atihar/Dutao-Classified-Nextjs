@@ -8,5 +8,6 @@
     "pemail": "输入电子邮件",
     "ppwd": "输入密码",
     "pwd": "密码",
-    "load": "正在加载..."
+    "load": "正在加载...",
+    "forgotPassword" : "忘记密码"
 }

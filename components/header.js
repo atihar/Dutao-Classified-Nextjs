@@ -249,7 +249,7 @@ return (
                         <Link href={'/jobs/list?category=healthcare'}><li className='list-none cursor-pointer'>{t('healthcare')}</li></Link>
                         <Link href={'/jobs/list?category=information-tech'}><li className='list-none cursor-pointer'>{t('infoTech')}</li></Link>
                         <Link href={'/jobs/list?category=sales-and-marketing'}><li className='list-none cursor-pointer'>{t('salesAndMarketing')}</li></Link>
-                        <Link href={'/jobs/list?category=leagal-services'}><li className='list-none cursor-pointer'>{t('legalService')}</li></Link>
+                        <Link href={'/jobs/list?category=legal-services'}><li className='list-none cursor-pointer'>{t('legalService')}</li></Link>
                         <Link href={'/jobs/list?category=real-estate'}><li className='list-none cursor-pointer'>{t('realEstate')}</li></Link>
                     </div>
                   </div>
@@ -308,34 +308,34 @@ return (
                   <div className='text-left space-y-1'>
                     <h6 className='text-base font-bold'>{t('dubai')}</h6>
                     <hr/>
-                    <p>{t('bBay')}</p>
-                    <p>{t('safa')}</p>
-                    <p>{t('barsha')}</p>
-                    <p>{t('ranch3')}</p>
+                    <Link href={'/info-center'}><p>{t('bBay')}</p></Link>
+                    <Link href={'/info-center'}><p>{t('safa')}</p></Link>
+                    <Link href={'/info-center'}><p>{t('barsha')}</p></Link>
+                    <Link href={'/info-center'}><p>{t('ranch3')}</p></Link>
                   </div>
                   <div className='text-left space-y-1'>
                     <h6 className='text-base font-bold'>{t('morePlace')}</h6>
                     <hr/>
-                    <p>{t('dHill')}</p>
-                    <p>{t('bDubai')}</p>
-                    <p>{t('eHill')}</p>
-                    <p>{t('jAli')}</p>
+                    <Link href={'/info-center'}><p>{t('dHill')}</p></Link>
+                    <Link href={'/info-center'}><p>{t('bDubai')}</p></Link>
+                    <Link href={'/info-center'}><p>{t('eHill')}</p></Link>
+                    <Link href={'/info-center'}><p>{t('jAli')}</p></Link>
                   </div>
                   <div className='text-left space-y-1'>
                     <h6 className='text-base font-bold'>{t('morePlace')}</h6>
                     <hr/>
-                    <p>{t('jPark')}</p>
-                    <p>{t('jadaf')}</p>
-                    <p>{t('internet')}</p>
-                    <p>{t('dWater')}</p>
+                    <Link href={'/info-center'}><p>{t('jPark')}</p></Link>
+                    <Link href={'/info-center'}><p>{t('jadaf')}</p></Link>
+                    <Link href={'/info-center'}><p>{t('internet')}</p></Link>
+                    <Link href={'/info-center'}><p>{t('dWater')}</p></Link>
                   </div>
                   <div className='text-left space-y-1'>
                     <h6 className='text-base font-bold'>{t('morePlace')}</h6>
                     <hr/>
-                    <p>{t('quoz')}</p>
-                    <p>{t('spring')}</p>
-                    <p>{t('creek')}</p>
-                    <p>{t('suqeim')}</p>
+                    <Link href={'/info-center'}><p>{t('quoz')}</p></Link>
+                    <Link href={'/info-center'}><p>{t('spring')}</p></Link>
+                    <Link href={'/info-center'}><p>{t('creek')}</p></Link>
+                    <Link href={'/info-center'}><p>{t('suqeim')}</p></Link>
                   </div>
                    <div className='text-left space-y-1'>
                         <a className="inline-flex items-center px-8 py-3 text-red-500  focus:ring" href="/info-center">

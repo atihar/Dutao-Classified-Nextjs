@@ -6,7 +6,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import React, { useState, useEffect, useCallback } from 'react'
 import Map, { Marker, GeolocateControl } from 'react-map-gl'
 import axios from 'axios'
-
+import useTranslation from 'next-translate/useTranslation'
 
 export default function Example(props){
     const [cityName, setCityName] = useState('detecting ....');
@@ -17,6 +17,7 @@ export default function Example(props){
   })
   const [lat, setLat] = useState('');
   const [lng, setLng] = useState('');
+  const { t, lang } = useTranslation('common')
     // console.log(viewState);
 
     useEffect(()=>{
@@ -57,7 +58,7 @@ export default function Example(props){
         <Marker {...viewState} anchor="bottom">
             <div className='flex-column'>
               <img className='' width={20} src={"map-marker.svg"} /> 
-              <p className="font-bold absolute whitespace-nowrap ml-[-25px]">You are here</p>
+              <p className="font-bold absolute whitespace-nowrap ml-[-25px]">{t('youRHere')}</p>
             </div>           
         </Marker>
     </Map>

@@ -359,5 +359,21 @@
     "female" : "女性",
     "preferredNationality" : "首选国籍",
     "letEmployesKnow" : "让未来的员工知道您的公司提供什么来改善他们的生活",
-    "jobperks" : "工作津贴"
+    "jobperks" : "工作津贴",
+    "resetPassword" : "重设密码",
+    "enterEmail" : "输入你的电子邮箱",
+    "noaccount" : "没有帐户？",
+    "checkEmail" :"查看你的邮",
+    "pleaseConfirm" : "请检查您的电子邮件",
+    "sendReset" : "发送重置链接",
+    "signup" : "报名",
+    "changePassword" : "更改密码",
+    "enterNewP" : "输入新密码",
+    "confirmP" : "确认新密码",
+    "facingIssue" : "面临问题",
+    "contactUs" : "联系我们",
+    "updateProfile" : "更新个人信息",
+    "passChanged" : "密码已被更改",
+    "tryLogin" : "尝试登录",
+    "youRHere" : "你在这里"
   }

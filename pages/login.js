@@ -128,7 +128,7 @@ export default function Login() {
             </button>
             </div>
             <p className="text-sm text-gray-500">
-                <Link className="underline" href="/reset-password">Forgot password</Link>
+                <Link className="underline" href="/reset-password">{t('forgotPassword')}</Link>
             </p>
         </form>
         </div>

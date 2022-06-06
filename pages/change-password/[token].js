@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import Footer from '../../components/footer';
 import React, { useContext, useEffect, useState } from 'react';
 import { Store } from '../../lib/Store';
+import useTranslation from 'next-translate/useTranslation'
 
 export default function ChangePassword() {
     const router = useRouter();
@@ -15,6 +16,7 @@ export default function ChangePassword() {
     const[loading, setLoading] = useState(false)
     const { token } = router.query
     const [message, setMessage] = useState(false)
+    const { t, lang } = useTranslation('common')
 
 
     useEffect(() => {
@@ -54,7 +56,7 @@ export default function ChangePassword() {
          <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
         <div className="max-w-lg mx-auto">
 
-            <h1 className="text-2xl font-bold sm:text-6xl">Change Password</h1>
+            <h1 className="text-2xl font-bold sm:text-6xl">{t('changePassword')}</h1>
         </div>
         {/* get started finish */}
 
@@ -66,7 +68,7 @@ export default function ChangePassword() {
                 <input
                 type="password"
                 className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
-                placeholder="New password"
+                placeholder={t('enterNewP')}
                 {...register('password',{
                     minLength: {
                       value: 5,
@@ -83,29 +85,29 @@ export default function ChangePassword() {
                 <input
                 type="password"
                 className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
-                placeholder="Confirm password"
+                placeholder={t('confirmP')}
                 {...register('confirmPassword')}/>
             </div>
             </div>
 
             <div className="flex items-center justify-between py-4">
             <p className="text-sm text-gray-500">
-                Facing Issue?
-                <Link className="underline" href="/contact"> Contact Us</Link>
+                {t('facingIssue')}
+                <a className="underline" href="/contact"> {t('contactUs')}</a>
             </p>
 
             <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg">
-                {loading ? "processing..." : "Save Password" }
+                {loading ? t('load') : t('updateProfile') }
             </button>
             </div>
         </form>
 
         {/* on successful email send show success alert  */}
-        { message && 
+        { !message && 
               <div className="p-4 text-green-700 border rounded border-green-900/10 bg-green-50"
               role="alert">
-                <strong className="text-sm font-medium"> Password has been changed </strong>
-                <p className='text-base'>You can try login now</p>
+                <strong className="text-sm font-medium"> {t('passChanged')} </strong>
+                <p className='text-base'>{t('tryLogin')}</p>
               </div>
             }
         </div>
