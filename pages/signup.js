@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Footer from '../components/footer';
 import React, { useContext, useEffect, useState } from 'react';
 import { Store } from '../lib/Store';
+import useTranslation from 'next-translate/useTranslation'
 
 export default function Signup() {
     const router = useRouter();
@@ -14,6 +15,7 @@ export default function Signup() {
     const [success, setSuccess] = useState(false)
     const[loading, setLoading] = useState(false)
     const [duplicate, setDuplicate] = useState(false)
+    const { t, lang } = useTranslation('common')
 
 
     useEffect(() => {
@@ -74,9 +76,9 @@ export default function Signup() {
          <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8" data-aos="zoom-y-out">
         <div className="max-w-lg mx-auto">
 
-            <h1 className="text-2xl font-bold sm:text-6xl">Sign Up</h1>
+            <h1 className="text-2xl font-bold sm:text-6xl">{t('signup')}</h1>
             <p className="mt-4 text-gray-500 text-base">
-            Create a free account to Dutao and get more accessible and free platform
+            {t('createFreeAcc')}
             </p>
         </div>
         {/* get started finish */}
@@ -86,7 +88,7 @@ export default function Signup() {
             <label htmlFor="name" className="sr-only">Your Full Name</label>
 
             <div className="relative">
-                <input type="text" className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm" placeholder="Your Full Name"
+                <input type="text" className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm" placeholder={t('yourname')}
                 {...register('name')}/>
 
                 <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -104,7 +106,7 @@ export default function Signup() {
                 <input
                 type="email"
                 className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
-                placeholder="Enter email"
+                placeholder={t('yourEmail')}
                 {...register("email", {
                     required: 'Email Needs'
                   })}/>
@@ -126,7 +128,7 @@ export default function Signup() {
                 <input
                 type="password"
                 className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
-                placeholder="New password"
+                placeholder={t('newPass')}
                 {...register('password',{
                     minLength: {
                       value: 5,
@@ -135,28 +137,6 @@ export default function Signup() {
                   })}/>
                   {errors.password && <p className='text-[9px] text-red-500 px-4'>a strong password is needed which should be 5 character</p> }
 
-                <span className="absolute inset-y-0 inline-flex items-center right-4">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 text-gray-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                    />
-                </svg>
-                </span>
             </div>
             </div>
 
@@ -166,31 +146,9 @@ export default function Signup() {
                 <input
                 type="password"
                 className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
-                placeholder="Confirm password"
+                placeholder={t('confirmPass')}
                 {...register('confirmPassword')}/>
 
-                <span className="absolute inset-y-0 inline-flex items-center right-4">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 text-gray-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                    />
-                </svg>
-                </span>
             </div>
             </div>
 
@@ -198,9 +156,9 @@ export default function Signup() {
             <label htmlFor="phone" className="sr-only">Your Mobile Number</label>
             <div className="relative">
                 <input
-                type="number"
+                type="tel"
                 className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
-                placeholder="Your Mobile Number"
+                placeholder={t('phNo')}
                 {...register('phone')}/>
 
                 <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -210,16 +168,16 @@ export default function Signup() {
                 </span>
             </div>
             </div>
-            <p className='px-4 text-gray-500 text-sm'>By Signing up I agree to Dutao user's terms and conditions</p>
+            <p className='px-4 text-gray-500 text-sm'>{t('agreeToTerms')}</p>
 
             <div className="flex items-center justify-between py-4">
             <p className="text-sm text-gray-500">
-                Have already a account?
-                <Link className="underline" href="/login"> Sign in</Link>
+                {t('haveAcc')}
+                <a className="underline" href="/login"> {t('signin')}</a>
             </p>
 
             <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg">
-                {loading ? "processing..." : "Create account" }
+                {loading ? t('load') : t('createAcc')}
             </button>
             </div>
         </form>
@@ -228,8 +186,8 @@ export default function Signup() {
         { success && 
               <div className="p-4 text-green-700 border rounded border-green-900/10 bg-green-50"
               role="alert">
-                <strong className="text-sm font-medium"> Check your email! </strong>
-                <p className='text-base'>Please activate your account within next 3 minutes</p>
+                <strong className="text-sm font-medium"> {t('pleaseConfirm')} </strong>
+                <p className='text-base'>{t('activateYourAcc')}</p>
               </div>
             }
             {duplicate && 

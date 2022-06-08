@@ -375,5 +375,16 @@
     "updateProfile" : "更新个人信息",
     "passChanged" : "密码已被更改",
     "tryLogin" : "尝试登录",
-    "youRHere" : "你在这里"
+    "youRHere" : "你在这里",
+    "createFreeAcc" : "创建免费账户到度淘，获得更便捷、更免费的平台",
+    "yourname" : "你的全名",
+    "yourEmail" : "电子邮件",
+    "newPass" : "新密码",
+    "confirmPass" : "确认密码",
+    "agreeToTerms" : "注册即表示我同意度淘用户的条款和条件",
+    "haveAcc" : "已经有账号了",
+    "signin" : "登入",
+    "activateYourAcc" : "在接下来的 3 分钟内激活您的帐户",
+    "createAcc" : "创建账户",
+    "load": "正在加载..."
   }

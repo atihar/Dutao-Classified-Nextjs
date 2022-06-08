@@ -371,5 +371,16 @@
     "updateProfile" : "Update Profile",
     "passChanged" : "Password has been changed",
     "tryLogin" : "You can try login now",
-    "youRHere" : "You are here"
+    "youRHere" : "You are here",
+    "createFreeAcc" : "Create a free account to Dutao and get more accessible and free platform",
+    "yourname" : "Your Full Name",
+    "yourEmail" : "Your Email",
+    "newPass" : "New Password",
+    "confirmPass" : "Confrim Password",
+    "agreeToTerms" : "By Signing up I agree to Dutao user's terms and conditions",
+    "haveAcc" : "Have already a account?",
+    "signin" : "Sign in",
+    "activateYourAcc" : "activate your account within next 3 minutes",
+    "createAcc" : "Create Account",
+    "load": "Loading..."
   }
