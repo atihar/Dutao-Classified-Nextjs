@@ -21,7 +21,7 @@ function jobsIndex({jobList}) {
   return ( 
       <>
       <Header></Header>
-      <section className="overflow-hidden p-4 sm:p-10 sm:max-w-screen-xl m-auto text-gray-700">
+      <section className="overflow-hidden p-4 sm:p-10 sm:max-w-screen-xl m-auto text-gray-700" data-aos="zoom-y-out">
         <div className="relative p4 sm:p-10">
           <label className="sr-only" htmlFor="searchQuery"> "Job Title....." </label>
 

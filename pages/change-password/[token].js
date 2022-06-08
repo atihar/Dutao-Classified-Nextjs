@@ -38,6 +38,7 @@ export default function ChangePassword() {
          const { data } = await axios.put(`/api/user/change-password?token=${token}`, 
          { password, confirmPassword })
             setLoading(false)
+            router.push('/login')
        
           // router.push(redirect || '/');
         } catch (err) {

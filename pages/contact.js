@@ -67,16 +67,16 @@ export default function Contact() {
                 }
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>
-                <label className="sr-only" for="name">Name</label>
-                <input className="w-full p-3 text-sm border-gray-200 rounded-lg" placeholder="Name" 
+                <label className="sr-only" htmlFor="name">Name</label>
+                <input className="w-full p-3 text-sm border-gray-200 border-2 rounded-lg" placeholder="Name" 
                 type="text" id="name" {...register('name', { required: true, maxLength: 20 })}/>
             </div>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
-                <label className="sr-only" for="email">Email</label>
+                <label className="sr-only" htmlFor="email">Email</label>
                 <input
-                    className="w-full p-3 text-sm border-gray-200 rounded-lg"
+                    className="w-full p-3 text-sm border-gray-200 rounded-lg border-2"
                     placeholder="Email address"
                     type="email"
                     id="email" {...register('email')}
@@ -84,9 +84,9 @@ export default function Contact() {
                 </div>
 
                 <div>
-                <label className="sr-only" for="phone">Phone</label>
+                <label className="sr-only" htmlFor="phone">Phone</label>
                 <input
-                    className="w-full p-3 text-sm border-gray-200 rounded-lg"
+                    className="w-full p-3 text-sm border-gray-200 rounded-lg border-2"
                     placeholder="Phone Number" type="tel"
                     id="phone" {...register('phone', { required: true})}
                 />
@@ -115,9 +115,9 @@ export default function Contact() {
             </div>
 
             <div>
-                <label className="sr-only" for="message">Message</label>
+                <label className="sr-only" htmlFor="message">Message</label>
                 <textarea
-                className="w-full p-3 text-sm border-gray-200 rounded-lg"
+                className="w-full p-3 text-sm border-gray-200 rounded-lg border-2"
                 placeholder="Message" rows="8"
                 id="message" {...register('message', { required: true})}
                 ></textarea>

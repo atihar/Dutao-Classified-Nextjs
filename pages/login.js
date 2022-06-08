@@ -56,7 +56,7 @@ export default function Login() {
       {/* form */}
 
 
-        <div className="sm:max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
+        <div className="sm:max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8" data-aos="zoom-y-out">
         <div className="max-w-lg mx-auto">
             <div id='animation'></div>
 

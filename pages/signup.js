@@ -71,7 +71,7 @@ export default function Signup() {
       <Header></Header>
       
       {/* form */}
-         <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
+         <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8" data-aos="zoom-y-out">
         <div className="max-w-lg mx-auto">
 
             <h1 className="text-2xl font-bold sm:text-6xl">Sign Up</h1>

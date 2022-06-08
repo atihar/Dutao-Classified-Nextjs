@@ -63,7 +63,7 @@ export default function infoList(props) {
     <>
     <Header></Header>
     <section>
-          <div className="max-w-sm sm:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl w-full px-4 mx-auto sm:px-6 lg:px-6">
+          <div className="max-w-sm sm:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl w-full px-4 mx-auto sm:px-6 lg:px-6" data-aos="zoom-y-out">
             <h3 className='text-base'>{t('popularSearches')}</h3>
             <div className='overflow-y-scroll'>
               <div className='flex-inline space-x-5 w-max'>

@@ -68,7 +68,7 @@ export default function singlePropertySale({property}){
 
                                     <tr>
                                         <td className="p-4 font-medium whitespace-nowrap">{t('furnished')}</td>
-                                        <td className="p-4 text-gray-700 whitespace-nowrap">{t('No')}</td>
+                                        <td className="p-4 text-gray-700 whitespace-nowrap">{t('no')}</td>
                                     </tr>
 
                                     <tr>

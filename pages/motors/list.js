@@ -47,7 +47,7 @@ export default function Home(props) {
     <>
     <Header></Header>
     <section>
-          <div className="max-w-screen-xl w-full px-4 mx-auto sm:px-6 lg:px-6">
+          <div className="max-w-screen-xl w-full px-4 mx-auto sm:px-6 lg:px-6" data-aos="zoom-y-out">
           <Filter></Filter>
             <p className='text-sm text-gray-500 py-3'>{t('total')} {props.countProducts} {t('propFound')}</p>
           <div className='grid lg:grid-cols-[3fr_1fr] gap-4'>

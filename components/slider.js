@@ -18,7 +18,7 @@ export default function homeSlider(props){
     return(
     
     <section>
-        <div className="max-w-[350px] sm:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl mx-auto sm:px-6 lg:px-8">
+        <div className="max-w-[350px] sm:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl mx-auto sm:px-6 lg:px-8" data-aos="zoom-y-out">
           <Swiper pagination={true} modules={[Pagination, Autoplay ]} className="mySwiper" 
           autoplay={{
           delay: 3000,

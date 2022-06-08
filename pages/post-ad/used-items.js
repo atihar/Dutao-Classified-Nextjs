@@ -104,7 +104,7 @@ export default function propertyForSalePost({ children }) {
   return (
       <>     
     <Header></Header>
-        <section className='mb-20'>
+        <section className='mb-20' data-aos="zoom-y-out">
         {/*starting submission form */}
         <div className="max-w-lg text-center px-4 py-6 mx-auto sm:px-6 lg:px-8 sm:py-10">
             <h1 className="text-2xl font-bold text-red-600 sm:text-3xl">{t('enterDetails')}</h1>
@@ -298,7 +298,7 @@ export default function propertyForSalePost({ children }) {
                 <label htmlFor="phone" className="sr-only">Contact number</label>
                 <div className="relative">
                     <input
-                    type="number"
+                    type="tel"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm border-2"
                     placeholder={t('phNo')}
                     {...register('phone',{required:true})}/>

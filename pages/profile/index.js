@@ -33,7 +33,7 @@ function profile() {
   return (
       <>
         <Header></Header>
-        <div className='max-w-screen-xl w-screen mx-auto sm:py-4 px-8 sm:my-4 rounded-lg shadow '>
+        <div className='max-w-screen-xl w-screen mx-auto sm:py-4 px-8 sm:my-4 rounded-lg shadow' data-aos="zoom-y-out">
         <h2 className="font-bold py-5"> {t('dashboard')}</h2>
             <div className="grid lg:grid-cols-[1fr_3fr] gap-4">
                 <div>

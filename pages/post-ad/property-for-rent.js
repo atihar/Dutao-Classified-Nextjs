@@ -120,7 +120,7 @@ export default function propertyForRentPost({ children }) {
     <Header></Header>
         <section className='mb-20'>
         {/*starting submission form */}
-        <div className="max-w-lg text-center px-4 py-6 mx-auto sm:px-6 lg:px-8 sm:py-10">
+        <div className="max-w-lg text-center px-4 py-6 mx-auto sm:px-6 lg:px-8 sm:py-10" data-aos="zoom-y-out">
             <h1 className="text-2xl font-bold text-red-600 sm:text-3xl">{t('enterDetails')}</h1>
             <p className='text-base text-gray-400'>{t('propertyForRent')}</p>
         </div>
@@ -423,7 +423,7 @@ export default function propertyForRentPost({ children }) {
                 <label htmlFor="phone" className="sr-only">Contact number</label>
                 <div className="relative">
                     <input
-                    type="number"
+                    type="tel"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm border-2"
                     placeholder={t('phNo')}
                     {...register('phone',{required:true})}/>

@@ -46,7 +46,7 @@ export default function Example(props){
 
   return (
     <>
-    <p className='text-base'>Location: {cityName} </p>
+    {/* <p className='text-base'>Location: {cityName} </p> */}
     <Map {...viewState}
       // onMove={(evt) => setViewState(evt.viewState)}
       style={{maxWidth:"1200px", width: "90vw" , height: "30vh", margin:"2% 0%", overflow:"hidden"}}

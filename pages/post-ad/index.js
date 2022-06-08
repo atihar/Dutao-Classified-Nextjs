@@ -22,7 +22,7 @@ export default function PostAd() {
       <>
       <Header></Header>
       <section className="bg-white">
-            <div className="max-w-screen-lg px-4 py-6 mx-auto sm:px-6 lg:px-8 sm:py-10">
+            <div className="max-w-screen-lg px-4 py-6 mx-auto sm:px-6 lg:px-8 sm:py-10" data-aos="zoom-y-out">
                 <div className="max-w-xl mx-auto text-center">
                 <h2 className="text-xl font-bold tracking-tight sm:text-2xl">
                     {t('what-post')}
@@ -30,7 +30,7 @@ export default function PostAd() {
                 </div>
               </div>
 
-          <div className="max-w-screen-lg px-4 mx-auto sm:px-6 lg:px-16">
+          <div className="max-w-screen-lg px-4 mx-auto sm:px-6 lg:px-16" data-aos="zoom-y-out" data-aos-delay="300">
             {/* <div ><img className="z-0 w-full h-full absolute bg-cover"  src="/cat-bg.jpg"></img> </div> */}
             <div className=" max-w-screen-lg px-4 py-6 sm:px-6 lg:px-8 m-auto">
                 
