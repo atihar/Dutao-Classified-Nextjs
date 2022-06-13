@@ -56,7 +56,7 @@ function jobsIndex({jobList}) {
 
           <div className="py-5 grid grid-cols-2 space-x-4">
           <div className="relative">
-                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
+                <img alt="gallery" className="block object-cover object-center rounded-lg"
                   src="https://images.pexels.com/photos/392018/pexels-photo-392018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
                   <div className="duration-300 absolute inset-0 z-10 flex p-3 lg:p-12 lg:text-5xl text-white font-bold">
                     {t('empFind')}</div>
@@ -109,7 +109,7 @@ function jobsIndex({jobList}) {
       <section>
           <div className="max-w-screen-xl py-6 px-4 mx-auto sm:px-6 lg:px-8">
             <h2 className="font-bold py-6">{t('howTo')}</h2>
-            <p className="text-sm">{t('details')}
+            <p className="text-sm">{t('jobFindingDetails')}
             </p>
             <h2 className="font-bold py-6">{t('bestCV')}</h2>
             <p className="text-sm">{t('details')}

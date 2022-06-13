@@ -149,7 +149,7 @@
     "postedOn": "Posted on",
     "wherePin": "Where you'll be",
     "issue": "Is there any issue?",
-    "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis facere fuga illum, totam dolor odio ad sunt quidem similique sint",
+    "details": "It goes by many names; personal profile, supporting statement, CV statement, but whatever you call it, your cover letter is as important as your CV. Some could argue more important, because it is what the recruiter will see first, and could have a bearing on whether or not they continue to read your CV. And it would be such a pity if they didn’t, as you clearly match the job criteria (you made it through the ATS, after all). So it’s worth putting the time into making sure that your cover letter is an accurate reflection of you – not just your skills, but your personality as well. You want to make the recruiter remember you.",
     "report": "Report this ad now",
     "postedBy": "Posted by",
     "dedLicense": "DED license no",
@@ -199,7 +199,7 @@
     "recruiter": "I am a recruiter",
     "featComp": "Featured Companies",
     "howTo": "How to land your first job in Dubai?",
-    "bestCV": "Best practice for creating a CV",
+    "bestCV": "Best practice for writing a cover letter",
     "jobFound": "jobs found",
     "jobDetail": "Job details",
     "by": "by",
@@ -382,5 +382,6 @@
     "signin" : "Sign in",
     "activateYourAcc" : "activate your account within next 3 minutes",
     "createAcc" : "Create Account",
-    "load": "Loading..."
+    "load": "Loading...",
+    "jobFindingDetails" : "Finding a job in Dubai, and enjoying a fulfilling career in the UAE, does not have to be a frustrating and complicated process. Many thousands of people do it year on year and at The English Meeting Room, we are privileged to continue helping people to land great jobs in Dubai."
   }

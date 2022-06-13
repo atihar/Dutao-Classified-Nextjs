@@ -10,7 +10,7 @@ export default function footer() {
         <div className="hidden lg:block  max-w-screen-xl px-4 py-4 mx-auto sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             <div className=" lg:text-left text-center">
-            <Image src="/dutao.jpeg" alt="Picture of the author" width={200} height={63}/>
+            <Image src="/dutao.png" alt="Picture of the author" width={200} height={63}/>
       
               <p className="max-w-xs lg:mx-0 mx-auto mt-2 text-sm text-gray-500">
               {t('footerAbout')}

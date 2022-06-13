@@ -71,7 +71,7 @@ return (
           <div className="flex items-center justify-between space-x-4 lg:space-x-10">
             <Link href="/">
             <div className="flex lg:w-0 lg:flex-1">
-              <Image src="/dutao.jpeg" alt="Picture of the author" width={160} height={50}/>
+              <Image src="/dutao.png" alt="Picture of the author" width={160} height={50}/>
             </div>
             </Link>
 
