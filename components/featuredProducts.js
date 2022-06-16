@@ -59,8 +59,8 @@ export default function featuredProducts(props){
                                 src={`https://dutao-public.s3.amazonaws.com/`+ property.images[0]}
                                 alt="Picture of the author"
                                 layout="intrinsic"
-                                width={500}
-                                height={320}
+                                width={380}
+                                height={243}
                                 className="rounded-t-lg"
                             /> }
                                  {/* <img src={`https://dutao-public.s3.amazonaws.com/`+ property.images[0]}  alt="" className="rounded-t-lg" placeholder="blur"/>} */}

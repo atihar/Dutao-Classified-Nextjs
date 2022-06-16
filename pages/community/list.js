@@ -8,9 +8,10 @@ import Filter from '../../components/filters/community'
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image'
+import moment from 'moment';
 
 // number of post in 1 page
-const PAGE_SIZE = 3;
+const PAGE_SIZE = 10;
 
 
 export default function communityList(props) {
@@ -57,9 +58,10 @@ export default function communityList(props) {
                   <Image
                         src={`https://dutao-public.s3.amazonaws.com/${items.images[0]}`}
                         alt="list image"
-                        width={500}
+                        width={450}
                         height={320}
                         className="object-cover rounded-t-lg"
+                        loading='lazy'
                     />
                     <div className="py-4 px-6 w-full">
                       <div className="flex items-center justify-between mb-2">
@@ -85,7 +87,7 @@ export default function communityList(props) {
 
                       <p className="mb-1 text-lg font-bold text-red-600">AED {items.price}</p>
 
-                      <p className="text-gray-400 py-1 text-xs">{t('updateText')}</p>
+                      <p className="text-gray-400 py-1 text-xs">{moment(items.createdAt).startOf('hour').fromNow()}</p>
 
                         <p className='flex text-sm py-1 text-gray-500'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="18" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">

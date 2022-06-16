@@ -23,9 +23,25 @@ export default function popularItems(props) {
                 {t('popular')} {title}
             </h2>
 
-            <a href={btnLink} className="inline-block sm:px-6 py-4 sm:py-3 mt-1 sm:mt-6 text-sm sm:text-white sm:bg-red-600 rounded-lg">
+            <a href={btnLink} className="inline-flex sm:px-6 py-4 sm:py-3 mt-1 sm:mt-6 text-sm sm:text-white sm:bg-red-600 rounded-lg">
+            
             {t('viewMore')}
-            </a>
+            
+            <svg
+            className="w-5 h-5 ml-3"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </svg>
+          </a>
             </div>
         </div>
 
@@ -39,6 +55,7 @@ export default function popularItems(props) {
                         width={500}
                         height={320}
                         className="object-cover rounded-t-lg"
+                        loading='lazy'
                     />
                     <div className='mt-3 flex justify-between'>
                         <p className="flex text-sm text-blue-600">

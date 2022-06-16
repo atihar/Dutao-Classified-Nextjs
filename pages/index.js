@@ -56,7 +56,7 @@ export default function Index({property, motors}){
   </>
   )}
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   //connecting db
   await db.connect();
 
@@ -70,7 +70,7 @@ export async function getServerSideProps() {
   await db.disconnect();
   
 
-  //setting props for frontend
+  //setting static props for data generation for frontend
   return {
     props: { property, motors }
   };

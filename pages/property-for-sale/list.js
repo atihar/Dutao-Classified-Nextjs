@@ -8,9 +8,10 @@ import Filter from '../../components/filters/propertyFilter'
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image'
+import moment from 'moment';
 
 // number of post in 1 page
-const PAGE_SIZE = 3;
+const PAGE_SIZE = 10;
 
 
 export default function PropertyForSale(props) {
@@ -58,9 +59,10 @@ export default function PropertyForSale(props) {
                   <Image
                         src={`https://dutao-public.s3.amazonaws.com/${property.images[0]}`}
                         alt="list image"
-                        width={500}
+                        width={450}
                         height={320}
                         className="object-cover rounded-t-lg"
+                        loading='lazy'
                     />
                     {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}
                     
@@ -86,7 +88,7 @@ export default function PropertyForSale(props) {
 
                       <p className="mb-1 text-lg font-bold text-red-600">{t('aed')} {property.price}</p>
 
-                      <p className="text-gray-400 py-1 text-xs">{t('updateText')}</p>
+                      <p className="text-gray-400 py-1 text-xs">{moment(property.createdAt).startOf('hour').fromNow()}</p>
 
                       <p className="mb-2 text-sm pt-1 text-gray-500">{property.bedroom} {t('bed')} - {property.bathroom} {t('bath')} - {property.size}{t('sqft')}</p>
 

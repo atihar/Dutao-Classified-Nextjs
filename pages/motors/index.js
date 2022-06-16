@@ -16,7 +16,7 @@ export default function motors({motor}) {
       <section className="overflow-hidden max-w-screen-xl m-auto text-gray-700">
         <div className="h-[400px] p-2 lg:pt-21">
             <h1 className="py-4 font-bold">{t('motorSearch')}</h1>
-            <img className="rounded-xl" src="https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"></img>
+            <img className="rounded-xl" src="https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" loading='lazy'></img>
         </div>
         </section>
 

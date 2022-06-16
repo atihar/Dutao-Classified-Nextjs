@@ -8,9 +8,10 @@ import Filter from '../../components/filters/motorFilter';
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
+import moment from 'moment'
 
 // number of post in 1 page
-const PAGE_SIZE = 3;
+const PAGE_SIZE = 10;
 
 
 export default function Home(props) {
@@ -59,9 +60,10 @@ export default function Home(props) {
                   <Image
                         src={`https://dutao-public.s3.amazonaws.com/${motor.images[0]}`}
                         alt="Picture of the author"
-                        width={500}
+                        width={450}
                         height={320}
                         className="object-cover rounded-t-lg"
+                        loading='lazy'
                     />
                     <div className="py-4 px-6 w-full">
                       <div className="flex items-center justify-between mb-2">
@@ -85,7 +87,7 @@ export default function Home(props) {
 
                       <p className="mb-1 text-lg font-bold text-red-600">{t('aed')} {motor.price}</p>
 
-                      <p className="text-gray-400 py-1 text-xs">{t('updateText')}</p>
+                      <p className="text-gray-400 py-1 text-xs">{moment(motor.createdAt).startOf('hour').fromNow()}</p>
 
                       <p className="mb-2 text-sm pt-1 text-gray-500">{motor.marketYear} {t('builtYear')} - {motor.kilometers} {t('mileage')}</p>
 

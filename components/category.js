@@ -29,7 +29,7 @@ export default function categorySlider(props){
                 },
                 // when window width is >= 768px
                 768: {
-                  slidesPerView: 3,
+                  slidesPerView: 4,
                 },
               }}
             >
@@ -40,9 +40,10 @@ export default function categorySlider(props){
                             <Image
                                   src={x.image}
                                   alt="Picture of the category"
-                                  width={500}
-                                  height={320}
+                                  width={300}
+                                  height={200}
                                   className="object-cover rounded-t-lg"
+                                  loading='lazy'
                               />
                                 <div className="p-4">
                                     <h4 className="font-bold mb-2 text-base sm:text-lg text-red-600">{x.name}</h4>

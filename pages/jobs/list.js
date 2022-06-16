@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Filter from '../../components/filters/job';
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation';
+import moment from 'moment';
 
 
 // number of post in 1 page
@@ -90,7 +91,7 @@ export default function Home(props) {
                             />
                         </p>
 
-                      <p className="text-gray-400 py-1 text-xs">{t('updateText')}</p>
+                      <p className="text-gray-400 py-1 text-xs">{moment(job.createdAt).startOf('hour').fromNow()}</p>
 
                         <p className='flex text-sm py-1 text-gray-500'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="18" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
