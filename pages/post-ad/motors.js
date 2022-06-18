@@ -193,7 +193,6 @@ export default function propertyForSalePost({ children }) {
                     {errors.category && <p className='text-[9px] text-red-500 px-4'>select a category</p> }
                 </div>
             </div>
-            {   category.value === "cars" ? <p>Car Selected</p> : <p>Not selected</p>}
 
             <div>
                 <label htmlFor="address" className="sr-only"></label>
