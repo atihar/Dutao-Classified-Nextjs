@@ -158,7 +158,7 @@ return (
           </div>
         </div>
 
-        <div className="sm:max-w-screen-xl p-4 mx-auto flex-auto ">
+        <div className="sm:max-w-screen-xl p-2 mx-auto flex-auto ">
           <div className="hidden justify-around text-center text-sm font-medium md:flex text-gray-700">
 
           <div className="relative group">
@@ -168,9 +168,9 @@ return (
                 </Link>
                 </button>
 
-                <div className="absolute z-20 hidden w-40 bg-grey-200 group-hover:block">       
+                <div className="absolute z-20 hidden w-44 bg-grey-200 group-hover:block">       
                   <div className="px-2 pt-2 pb-4 bg-white-500 bg-gray-50 shadow-lg">
-                    <div className="flex-column text-left text-xs space-y-4 p-2 rounded">
+                    <div className="flex-column text-left text-xs space-y-4 p-4 rounded">
                           <Link href={'/property-for-rent/list?category=apartment'}><li className='list-none cursor-pointer'>{t('apartmentForRent')}</li></Link>
                           <Link href={'/property-for-rent/list?category=villa'}><li className='list-none cursor-pointer'>{t('villaHouse')}</li></Link>
                           <Link href={'/property-for-rent/list?category=studio'}><li className='list-none cursor-pointer'>{t('studioForRent')}</li></Link>
@@ -190,7 +190,7 @@ return (
                   </Link>
                 </button>
 
-                <div className="absolute z-30 hidden w-40 bg-grey-200 group-hover:block">       
+                <div className="absolute z-30 hidden w-44 bg-grey-200 group-hover:block">       
                   <div className="px-2 pt-2 group-hover:block pb-4 bg-white-500 bg-white-500 bg-gray-50 shadow-lg">
                     <div className="flex-column text-left text-xs space-y-5 p-2 rounded ">
                             <Link href={'/property-for-sale/list?category=apartment'}><li className='list-none cursor-pointer'>{t('apartmentForSale')}</li></Link>
@@ -212,7 +212,7 @@ return (
                   </span></Link>
                 </button>
 
-                <div className="absolute z-20 hidden w-40 bg-grey-200 group-hover:block">       
+                <div className="absolute z-20 hidden w-44 bg-grey-200 group-hover:block">       
                   <div className="px-2 pt-2 pb-4 bg-white-500 bg-gray-50 shadow-lg">
                     <div className="flex-column text-left text-xs space-y-4 p-2 rounded">
                         <Link href={'/motors/list?category=cars'}><li className='list-none cursor-pointer'>{t('cars')}</li></Link>
@@ -239,7 +239,7 @@ return (
                 <Link href={'/jobs'}><span> {t('jobs')} </span></Link>
                 </button>
 
-                <div className="absolute z-20 hidden w-60 bg-grey-200 group-hover:block">       
+                <div className="absolute z-20 hidden w-48 bg-grey-200 group-hover:block">       
                   <div className="px-2 pt-2 pb-4 bg-white-500 bg-gray-50 shadow-lg">
                     <div className="flex-column text-left text-xs space-y-4 p-2 rounded">
                         <Link href={'/jobs/list?category=accounting'}><li className='list-none cursor-pointer'>{t('accounting')}</li></Link>
@@ -261,7 +261,7 @@ return (
                 <Link href={'/community'}><span> {t('community')} </span></Link>
                 </button>
 
-                <div className="absolute z-20 hidden w-60 bg-grey-200 group-hover:block">       
+                <div className="absolute z-20 hidden w-48 bg-grey-200 group-hover:block">       
                   <div className="px-2 pt-2 pb-4 bg-white-500 bg-gray-50 shadow-lg">
                     <div className="flex-column text-left text-xs space-y-4 p-2 rounded">
                         <Link href={'/community/list?category=auto-service'}><li className='list-none cursor-pointer'>{t('autoService')}</li></Link>
@@ -282,7 +282,7 @@ return (
                 <Link href={'/used-items'}><span> {t('usedItems')} </span></Link>
                 </button>
 
-                <div className="absolute z-20 hidden w-60 bg-grey-200 group-hover:block">       
+                <div className="absolute z-20 hidden w-48 bg-grey-200 group-hover:block">       
                   <div className="px-2 pt-2 pb-4 bg-white-500 bg-gray-50 shadow-lg">
                     <div className="flex-column text-left text-xs space-y-4 p-2 rounded">
                         <Link href={'/used-items/list?category=electronics'}><li className='list-none cursor-pointer'>{t('electronics')}</li></Link>

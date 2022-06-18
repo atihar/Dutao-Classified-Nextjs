@@ -123,25 +123,25 @@ export default function PropertyForSale(props) {
 
       {/* pagination */}
 
-          <div className="w-30 m-auto inline-flex items-center justify-center py-1 my-4 text-white bg-red-600 rounded">
-            <a onClick={backPageHandler} className="inline-flex items-center justify-center w-8 h-8">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-            </a>
+        <div className="w-30 m-auto inline-flex items-center justify-center py-2 my-3 text-white bg-red-600 rounded">
+          <a onClick={backPageHandler} className="inline-flex items-center justify-center w-8 h-8">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+            </svg>
+          </a>
 
-            <span className="w-px h-4 bg-white/25"></span>
+          <span className="w-px h-4 bg-white/25"></span>
 
-            <input type="number" className="w-12 p-0 text-xs font-medium text-center bg-transparent border-none rounded no-spinners" min="1" readOnly value={props.page}/>
+          <input type="number" className="w-12 p-0 text-xs font-medium text-center bg-transparent border-none rounded no-spinners" min="1" readOnly value={props.page}/>
 
-            <span className="w-px h-4 bg-white/25"></span>
+          <span className="w-px h-4 bg-white/25"></span>
 
-            <a onClick={nextPageHandler} className="inline-flex items-center justify-center w-8 h-8">
-              <svg xmlns="http://www.w3.or802000/svg" className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-              </svg>
-            </a>
-          </div>
+          <a onClick={nextPageHandler} className="inline-flex items-center justify-center w-8 h-8">
+            <svg xmlns="http://www.w3.or802000/svg" className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+            </svg>
+          </a>
+        </div>
       {/* I have the access to total number of pages, current page number  */}
         <Footer></Footer>
       </>

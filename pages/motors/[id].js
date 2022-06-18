@@ -159,7 +159,7 @@ export default function singlePropertySale({motor}){
                         <div>
                             <div className="p-10 border border-gray-200 grid rounded-lg">
                             <img className="rounded-full h-[70px] mx-auto border-gray-300 border-2" src="https://stonegatesl.com/wp-content/uploads/2021/01/avatar-300x300.jpg" alt=""/>
-                                <p className="text-sm">{t('postedBy')} : Owner</p>
+                                <p className="text-sm">{t('postedBy')} : {motor.sellerType}</p>
                                 <h1 className="pb-3"></h1>
                                     <a className="inline-block space-x-2 text-center lg:px-12 py-3 text-sm font-medium text-white bg-red-600 border border-red-600 rounded active:text-red-500 hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring" 
                                     href={`tel:${motor.phone}`}>
