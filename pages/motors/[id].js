@@ -98,7 +98,7 @@ export default function singlePropertySale({motor}){
 
                                     <tr>
                                         <td className="p-4 font-medium whitespace-nowrap">{t('body')}</td>
-                                        <td className="p-4 text-gray-700 whitespace-nowrap">{motor.bodyCondition}</td>
+                                        <td className="p-4 text-gray-700 whitespace-nowrap">{motor.bodyType}</td>
                                     </tr>
 
                                     <tr>

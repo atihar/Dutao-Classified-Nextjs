@@ -312,7 +312,7 @@ export default function propertyForSalePost({ children }) {
                 <label htmlFor="phone" className="sr-only">Contact number</label>
                 <div className="relative">
                     <input
-                    type="number"
+                    type="tel"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                     placeholder="Business Contact Number"
                     {...register('phone')}/>

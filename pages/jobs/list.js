@@ -11,7 +11,7 @@ import moment from 'moment';
 
 
 // number of post in 1 page
-const PAGE_SIZE = 3;
+const PAGE_SIZE = 10;
 
 
 export default function Home(props) {
@@ -57,9 +57,9 @@ export default function Home(props) {
                   <div className="md:flex w-full rounded-lg bg-white shadow-lg">
                   {/* <img className="w-full md:h-auto md:w-80 rounded-t-lg md:rounded-2xl " 
                   src={`https://dutao-public.s3.amazonaws.com/`+job.images[0]} alt="" /> */}
-                    <img className="object-fill h-48 w-[470px] rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://www.karlmayer.com/ecomaXL/files/Professionals_distributor_568x282pix.png?max_w=438&box_crop=438,208" alt="jobs" />
+                    <img className="object-cover w-[360px] rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://www.karlmayer.com/ecomaXL/files/Professionals_distributor_568x282pix.png?max_w=438&box_crop=438,208" alt="jobs" />
                     
-                    <div className="py-3 px-6 w-full">
+                    <div className="py-4 px-6 w-full">
                       <div className="flex items-center justify-between mb-2">
                         <div>
                           <h5 className="text-gray-500 text-base lg:text-xl">
@@ -101,10 +101,10 @@ export default function Home(props) {
                         </p>  
                         <a className="inline-block text-center px-4 py-1 text-sm font-medium text-white bg-red-600 border border-red-600 rounded active:text-red-500 hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring" href="">
                           <div className="flex"> 
-                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" className="bi bi-telephone-fill" viewBox="0 0 16 16">
-                              <path fillRule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 
-                              1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-                              </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-card-text" viewBox="0 0 16 16">
+                              <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                              <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
                               
                               <span className="px-5">{t('jobDetail')}</span></div>
                           </a>                          

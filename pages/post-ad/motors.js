@@ -132,7 +132,7 @@ export default function propertyForSalePost({ children }) {
 
         <form onSubmit={handleSubmit(onSubmit)} action="" className="max-w-xl mx-auto mt-8 mb-0 space-y-4">
             {/* property images */}
-            <div className="">
+            <div>
                 <div className="mb-3 w-100 p-3">
                     <label htmlFor="formFileMultiple" className="form-label inline-block text-sm mb-2 text-gray-400 ">{t('addImage')}</label>
                     <input className="form-control
@@ -193,6 +193,7 @@ export default function propertyForSalePost({ children }) {
                     {errors.category && <p className='text-[9px] text-red-500 px-4'>select a category</p> }
                 </div>
             </div>
+            {   category.value === "cars" ? <p>Car Selected</p> : <p>Not selected</p>}
 
             <div>
                 <label htmlFor="address" className="sr-only"></label>
@@ -445,7 +446,7 @@ export default function propertyForSalePost({ children }) {
                 <label htmlFor="steeringSide" className="sr-only">Steering Space</label>
                 <div className="relative">
                     <input
-                    type="number"
+                    type=""
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('sSide')}
                     {...register('steeringSide')}/>

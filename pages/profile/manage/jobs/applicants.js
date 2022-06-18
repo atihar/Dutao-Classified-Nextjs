@@ -101,7 +101,7 @@ export default function applicants(){
                         {isLoading ? <div>Loading ...</div> : <></>}
 
                         <tbody className="divide-y divide-gray-100">
-                        {data && data.map((x, i) => {
+                        {data ? data && data.map((x, i) => {
                             return( <tr  key={i}>
                                 <td className="px-4 py-2 font-medium text-gray-600 ">{x && x.profileSummary}</td>
                                 <td className="px-4 py-2 text-gray-500">{x && x.jobExperience}</td>
@@ -127,7 +127,7 @@ export default function applicants(){
                                     </select>
                                 </td>
                               </tr>)                   
-                        })}
+                        }) : <tr><td>No applicants found for this job</td></tr>}
                         </tbody>
                     </table>
                     </div>

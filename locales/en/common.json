@@ -165,6 +165,7 @@
     "warranty": "Warranty",
     "color": "Color",
     "year": "Year",
+    "years": "Years",
     "aboutMotor": "About this motor",
     "moreInfo": "More Information",
     "bodyCon": "Body Condition",
@@ -384,5 +385,16 @@
     "createAcc" : "Create Account",
     "load": "Loading...",
     "jobFindingDetails" : "Finding a job in Dubai, and enjoying a fulfilling career in the UAE, does not have to be a frustrating and complicated process. Many thousands of people do it year on year and at The English Meeting Room, we are privileged to continue helping people to land great jobs in Dubai.",
-    "reportDetails" : "Let us know more about whats wrong with this ad."
+    "reportDetails" : "Let us know more about whats wrong with this ad.",
+    "detail" : "Details",
+    "isRemote" : "Remote Job",
+    "language" : "Language",
+    "expiryDate" : "Expiry Date",
+    "bizName" : "Business Name",
+    "bizLoc" : "Office address",
+    "continueApply" : "Continue to apply",
+    "haveExp" : "I have an releavant experience of",
+    "apply" : "Apply now",
+    "haveApplied" : "You Have Already Applied",
+    "profileCV" : "Profile CV"
   }

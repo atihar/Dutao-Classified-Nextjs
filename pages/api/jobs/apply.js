@@ -8,6 +8,7 @@ const handler = nc();
 
 // on every job post this API will be hitted to create one jobApplication object 
 handler.post(async (req, res) => {
+  console.log("hitting")
   await db.connect();
   const newJobApplication = new JobApplications({
     jobId : req.query.jobId,

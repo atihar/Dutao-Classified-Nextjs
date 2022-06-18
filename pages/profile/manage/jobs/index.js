@@ -91,8 +91,8 @@ export default function manageJobs() {
                 {posts && posts.map((job) => (
                 <div className="sm:flex justify-center' py-2" key={job._id} >
                   <div className="sm:flex w-full rounded-lg bg-white shadow-lg">
-                  <img className="object-fill h-48 w-[470px] rounded-t-lg md:rounded-2xl " src={`https://dutao-public.s3.amazonaws.com/`+ job.images[0]} alt="" />
-                    {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}
+                  {/* <img className="object-fill h-48 w-[470px] rounded-t-lg md:rounded-2xl " src={`https://dutao-public.s3.amazonaws.com/`+ job.images[0]} alt="" /> */}
+                    <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://www.karlmayer.com/ecomaXL/files/Professionals_distributor_568x282pix.png?max_w=438&box_crop=438,208" alt="" />
                     
                     <div className="py-4 px-6 w-full">
                       <div className="flex items-center justify-between mb-2">

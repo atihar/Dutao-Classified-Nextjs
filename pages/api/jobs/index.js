@@ -24,7 +24,7 @@ handler.post(async (req, res) => {
     employmentType:req.body.employmentType, //full-time, part-time, contract
     minWorkExp:req.body.minWorkExp, //minimum work experience required
     minEduLevel:req.body.minEduLevel,  //minimum educational requirement for job
-    listedBy:req.body.listedBy,
+    listedBy: req.body.listedBy,
     companySize:req.body.companySize,
     careerLevel:req.body.careerLevel,
     preferredGender:req.body.preferredGender,
