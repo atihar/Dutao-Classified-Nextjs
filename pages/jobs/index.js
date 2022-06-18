@@ -92,7 +92,8 @@ function jobsIndex({jobList}) {
             </div>
             <div className="sm:flex list-none sm:space-x-8 overflow-scroll ">
               { jobList && jobList.map((job, i) => 
-              <div className="bg-gray-50 w-full sm:w-1/4 m-3 p-4 rounded-lg shadow-lg" key={i}>
+              <Link href={`jobs/${job._id}`} key={i}>
+              <div className="bg-gray-50 w-full sm:w-1/4 m-3 p-4 rounded-lg shadow-lg">
                 <h4 className="text-base font-bold">
                   <TextTruncate
                         line={2}
@@ -102,7 +103,8 @@ function jobsIndex({jobList}) {
                   </h4>
                   <p className="text-sm">By - {job.company}</p>
                   <p className="text-sm">Type - {job.employmentType }</p>
-                </div>)}
+                </div></Link>
+                )}
             </div>
           </div>
         </section>

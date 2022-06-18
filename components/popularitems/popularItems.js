@@ -22,33 +22,36 @@ export default function popularItems(props) {
             <h2 className="text-base sm:text-2xl pt-5 sm:pt-0 font-bold">
                 {t('popular')} {title}
             </h2>
-
-            <a href={btnLink} className="inline-flex sm:px-6 py-4 sm:py-3 mt-1 sm:mt-6 text-sm sm:text-white sm:bg-red-600 rounded-lg">
             
-            {t('viewMore')}
+            <Link href={btnLink}>
+                <a className="inline-flex sm:px-6 py-4 sm:py-3 mt-1 sm:mt-6 text-sm sm:text-white sm:bg-red-600 rounded-lg">
             
-            <svg
-            className="w-5 h-5 ml-3"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            />
-          </svg>
-          </a>
+                {t('viewMore')}
+            
+                    <svg
+                    className="w-5 h-5 ml-3"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    >
+                    <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                </svg>
+                </a>
+            </Link>
             </div>
         </div>
 
         <div className="grid grid-cols-2 gap-4 lg:col-span-2 lg:py-8">
             {data && data.map((x,i) => {
                 return(
-                    <a href="" className="block" key={i}>
+                    <Link href={`${btnLink}/${x._id}`} key={i}>
+                    <a className="block" >
                     <Image
                         src={`https://dutao-public.s3.amazonaws.com/${x.images[0]}`}
                         alt="dutao image"
@@ -75,6 +78,7 @@ export default function popularItems(props) {
                             />
                     </h5>
                     </a>
+                    </Link>
             )})}
             
         </div>

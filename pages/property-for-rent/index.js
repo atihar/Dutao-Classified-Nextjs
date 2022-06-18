@@ -41,7 +41,7 @@ export default function propertyForRent({property}) {
       <Header></Header>
       <CategorySlider data={cat}></CategorySlider>
       <FeaturedPlace></FeaturedPlace>
-      <FeaturedProducts title={t('property')} data={property}></FeaturedProducts>
+      <FeaturedProducts title={t('property')} data={property} prefixLink={'property-for-rent'}></FeaturedProducts>
       <Footer></Footer>
       </>
   )

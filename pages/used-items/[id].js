@@ -9,7 +9,7 @@ import Slider from '../../components/singleProductPageSlider'
 import useTranslation from "next-translate/useTranslation";
 
 
-export default function singlePropertySale({items}){
+export default function singleUsedItems({items}){
     const postedDate = moment(items.createdAt).startOf('hour').fromNow();
     const {t} = useTranslation('common')
 
@@ -44,7 +44,7 @@ export default function singlePropertySale({items}){
 
 
                             <div>
-                            <a href="" className="block py-6 mt-16 text-center p-6 transition-shadow bg-white sm:pr-12 group hover:shadow-sm shadow-lg rounded">
+                            <a className="block py-6 mt-16 text-center p-6 transition-shadow bg-white sm:pr-12 group hover:shadow-sm shadow-lg rounded">
                                 <span className="inline-block p-2 text-white bg-red-600 rounded-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" className="bi bi-flag-fill" viewBox="0 0 16 16">
                                     <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 
@@ -57,7 +57,7 @@ export default function singlePropertySale({items}){
                                 <h2 className="mt-3 text-lg font-bold">{t('issue')}</h2>
 
                                 <p className="mt-3 text-sm text-gray-500">
-                                    {t('details')}
+                                    {t('reportDetails')}
                                 </p>
 
                                 <p className="relative inline-block text-sm font-bold text-red-600">
@@ -77,7 +77,7 @@ export default function singlePropertySale({items}){
                                 <h1 className="pb-3">{items.listedBy}</h1>
 
                                     <a className="inline-block space-x-2 text-center lg:px-12 py-3 text-sm font-medium text-white bg-red-600 border border-red-600 rounded active:text-red-500 hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring" 
-                                    href={`tel:${property.phone}`}>
+                                    href={`tel:${items.phone}`}>
                                     <div className="flex justify-center "> 
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-telephone-fill" viewBox="0 0 16 16">
                                         <path fillRule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>

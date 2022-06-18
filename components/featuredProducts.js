@@ -9,10 +9,12 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import TextTruncate from 'react-text-truncate';
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
+import Link from 'next/link';
 
 
 export default function featuredProducts(props){
+    const router = useRouter();
     const data = props.data
     const title = props.title
     const {t} = useTranslation('common')
@@ -53,6 +55,7 @@ export default function featuredProducts(props){
             >
                 {data && data.map((property, key) => (
                         <SwiperSlide key={key} className="swiper-slide">
+                            <Link href={`${router.pathname}/${property._id}`}>
                         <div className="bg-white rounded-lg shadow-lg">
                             {property.images &&
                                 <Image
@@ -62,6 +65,7 @@ export default function featuredProducts(props){
                                 width={380}
                                 height={243}
                                 className="rounded-t-lg"
+                                loading='lazy'
                             /> }
                                  {/* <img src={`https://dutao-public.s3.amazonaws.com/`+ property.images[0]}  alt="" className="rounded-t-lg" placeholder="blur"/>} */}
                                 <div className="p-2">
@@ -85,6 +89,7 @@ export default function featuredProducts(props){
                                     </p>                            
                                 </div>
                             </div>
+                            </Link>
                         </SwiperSlide>
                 ))}
             </Swiper>

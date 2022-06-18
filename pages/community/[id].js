@@ -4,7 +4,7 @@ import Footer from "../../components/footer";
 import db from '../../lib/dbConnect'
 import Community from '../../models/community'
 import moment from "moment";
-import Link from 'next/link'
+import Link from "next/link";
 import Slider from '../../components/singleProductPageSlider'
 import useTranslation from "next-translate/useTranslation";
 
@@ -43,7 +43,7 @@ export default function singlePropertySale({items}){
                             </ul> */}
 
                             <div>
-                            <a href="" className="block py-6 mt-16 text-center p-6 transition-shadow bg-white sm:pr-12 group hover:shadow-sm shadow-lg rounded">
+                            <a className="block py-6 mt-16 text-center p-6 transition-shadow bg-white sm:pr-12 group hover:shadow-sm shadow-lg rounded">
                                 <span className="inline-block p-2 text-white bg-red-600 rounded-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" className="bi bi-flag-fill" viewBox="0 0 16 16">
                                     <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 
@@ -56,7 +56,7 @@ export default function singlePropertySale({items}){
                                 <h2 className="mt-3 text-lg font-bold"> {t('issue')}</h2>
 
                                 <p className="mt-3 text-sm text-gray-500">
-                                    {t('details')}
+                                    {t('reportDetails')}
                                 </p>
 
                                 <p className="relative inline-block text-sm font-bold text-red-600">
@@ -72,7 +72,7 @@ export default function singlePropertySale({items}){
                         <div>
                             <div className="p-10 border border-gray-200 grid rounded-lg">
                             <img className="rounded-full h-[70px] mx-auto border-gray-300 border-2" src="https://stonegatesl.com/wp-content/uploads/2021/01/avatar-300x300.jpg" alt=""/>
-                                <p className="text-sm">{t('postedBy')} : Owner</p>
+                                <p className="text-sm">{t('postedBy')} : {items.postedBy}</p>
                                 <h1 className="pb-3">{items.propertyInfo}</h1>
                                     <a className="inline-block space-x-2 text-center lg:px-12 py-3 text-sm font-medium text-white bg-red-600 border border-red-600 rounded active:text-red-500 hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring" 
                                     href={`tel:${items.phone}`}>

@@ -182,10 +182,11 @@ export default function propertyForSalePost({ children }) {
                     focus:text-gray-500 focus:bg-white"
                     {...register('category',{required:true})}>
                         <option value="">{t('selectCategory')}</option>
+                        <option value="cars">{t('cars')}</option>
                         <option value="motorcycle">{t('motorcycle')}</option>
-                        <option value="accessories">{t('accessories')}</option>
                         <option value="heavy-vehicles">{t('heavyVehicles')}</option>
                         <option value="boats">{t('boats')}</option>
+                        <option value="accessories">{t('accessories')}</option>
                         <option value="number-plates">{t('numberPlates')}</option>
                         <option value="export-car">{t('exportCars')}</option>
                     </select>
