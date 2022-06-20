@@ -39,20 +39,23 @@ export default function Signup() {
         try {
           //waiting for data for being signed in and a jwt tokenized data will be set as {data} from response of the API
           setLoading(true)
-          const { data } = await axios.post(`/api/user/registration`, {
+           await axios.post(`/api/user/registration`, {
             name, email, password, phone })
             .then((response)=> {
+              const userid = response.data._id
+              console.log(response)
               if(response.status == 203){
                 console.log("duplicate email")
                 setDuplicate(true)
               }
               else{
+                console.log("user id is" + userid)
                 console.log('user created')
                 const oneYearFromNow = new Date();
                 oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
                 axios.post('/api/user/create-profile-data', {
                     name,
-                    userId : data._id,
+                    userId : userid,
                     subscription: 1,// 0-non. 1-basic, 2-standard, 3-premium (this will be set by the payment)
                     subscriptionDate: Date.now(),
                     subscriptionExpr: oneYearFromNow

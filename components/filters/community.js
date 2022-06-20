@@ -97,7 +97,7 @@ export default function communityFilter() {
                         <option value="freelancers">{t('freelancers')}</option>
                         <option value="health-service">{t('healthService')}</option>
                         <option value="home-maintenance">{t('homeMaintenance')}</option>
-                        <option value="health-service">{t('movers')}</option>
+                        <option value="movers">{t('movers')}</option>
                         <option value="restoration-service">{t('restoration')}</option>
                         <option value="tutor-service">{t('tutorService')}</option>
                         </select>

@@ -13,26 +13,32 @@ export default function CommunityMain({communityItems}) {
   const {t} = useTranslation('common')
   const cat = [{
     name : t('autoService'),
+    slug: "auto-service",
     image : "https://images.pexels.com/photos/4489749/pexels-photo-4489749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
     name : t('freelancers'),
+    slug : "freelancers",
     image : "https://images.pexels.com/photos/3184459/pexels-photo-3184459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
     name : t('tutorService'),
+    slug : "tutor-service",
     image: "https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
     name : t('maintenance'),
+    slug : "home-maintenance",
     image : "https://images.pexels.com/photos/3770215/pexels-photo-3770215.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
     name : t('restoration'),
+    slug : "restoration-service",
     image : "https://images.pexels.com/photos/5095282/pexels-photo-5095282.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 },
 {
     name : t('healthService'),
+    slug : "health-service",
     image: "https://images.pexels.com/photos/4021779/pexels-photo-4021779.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 }
 ]

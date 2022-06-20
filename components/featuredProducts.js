@@ -64,7 +64,7 @@ export default function featuredProducts(props){
                                 layout="intrinsic"
                                 width={380}
                                 height={243}
-                                className="rounded-t-lg"
+                                className="rounded-t-lg hover:scale-105 transition duration-300 ease-in-out"
                                 loading='lazy'
                             /> }
                                  {/* <img src={`https://dutao-public.s3.amazonaws.com/`+ property.images[0]}  alt="" className="rounded-t-lg" placeholder="blur"/>} */}

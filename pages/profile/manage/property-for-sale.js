@@ -114,7 +114,7 @@ export default function managePropertyForSale() {
                 <div>
                   <div className="flex flex-inline justify-between">
                     <p className="text-base text-gray-600">You have {postCount} posted Ads</p>
-                    <p className="text-sm text-gray-600">Manage them</p>
+                    <p className="text-sm text-gray-600">Manage ad</p>
                   </div> 
                   {loading && <p className="text-base">loading...</p>}
                   <hr></hr>
@@ -124,8 +124,8 @@ export default function managePropertyForSale() {
                   <Image
                         src={`https://dutao-public.s3.amazonaws.com/${property.images[0]}`}
                         alt="dutao image"
-                        width={500}
-                        height={320}
+                        width={380}
+                        height={240}
                         className="object-cover rounded-t-lg"
                     />
                     <div className="py-4 px-6 w-full">

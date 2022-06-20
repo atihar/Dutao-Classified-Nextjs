@@ -53,7 +53,7 @@ handler.post(async (req, res, err) => {
     subject: `Complete your account`,
     text: 'Hello,\n Welcome. Please click on the link to verify your account.\n',
     html: `
-   <!DOCTYPE html>
+    <!DOCTYPE html>
   <html>
   <head>
 
@@ -170,7 +170,7 @@ handler.post(async (req, res, err) => {
             <tr>
               <td align="center" valign="top" style="padding: 36px 10px;">
                 <a href="https://dutao.ae" target="_blank" style="display: inline-block;">
-                  <p style="font-size:36px; font-color:#10E5BC; font-weight:600">Dutao</>
+                 <img width="250" src="https://dutao.ae/_next/image?url=%2Fdutao.png&w=384&q=75">
                 </a>
               </td>
             </tr>
@@ -289,7 +289,7 @@ handler.post(async (req, res, err) => {
             <!-- start unsubscribe -->
             <tr>
               <td align="center" bgcolor="#e9ecef" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
-                <p style="margin: 0;">Do not reply this email. This is an auto generated computer guarded email</p>
+                <p style="margin: 0;">Do not reply this email. This is an auto generated computer guarded email</p><br>
                 <p style="margin: 0;">Dutao , Westburry Business Tower, Business Bay, Dubai</p>
               </td>
             </tr>

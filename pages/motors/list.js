@@ -62,7 +62,7 @@ export default function Home(props) {
                         alt="Picture of the author"
                         width={450}
                         height={320}
-                        className="object-cover rounded-t-lg"
+                        className="object-cover rounded-t-lg hover:scale-105 transition duration-300 ease-in-out"
                         loading='lazy'
                     />
                     <div className="py-4 px-6 w-full">

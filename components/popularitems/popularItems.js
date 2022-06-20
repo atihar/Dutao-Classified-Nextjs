@@ -24,7 +24,7 @@ export default function popularItems(props) {
             </h2>
             
             <Link href={btnLink}>
-                <a className="inline-flex sm:px-6 py-4 sm:py-3 mt-1 sm:mt-6 text-sm sm:text-white sm:bg-red-600 rounded-lg">
+                <a className="inline-flex sm:px-6 py-4 sm:py-3 mt-1 sm:mt-6 text-sm sm:text-white sm:bg-red-600 rounded-lg hover:bg-red-500 transition ease-in-out delay-150 hover:translate-x-1">
             
                 {t('viewMore')}
             
@@ -57,7 +57,7 @@ export default function popularItems(props) {
                         alt="dutao image"
                         width={500}
                         height={320}
-                        className="object-cover rounded-t-lg"
+                        className="object-cover rounded-t-lg hover:scale-105 transition duration-300 ease-in-out"
                         loading='lazy'
                     />
                     <div className='mt-3 flex justify-between'>

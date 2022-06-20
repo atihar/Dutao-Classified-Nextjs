@@ -8,6 +8,7 @@ const handler = nc();
 handler.post(async (req, res) => {
   await db.connect();
   const newUserInfo = new UserInfo({
+    userId: req.body.userId,
     name: req.body.name,
     gender: req.body.gender,
     nationality: req.body.nationality,
@@ -24,7 +25,6 @@ handler.post(async (req, res) => {
     cv: req.body.cvFile,
     profileSummary: req.body.profileSummary,
     videoLink : req.body.videoLink,
-    userId: req.body.userId,
     cv : req.body.cv,
     subscription: 1,// 0-non. 1-basic, 2-standard, 3-premium (this will be set by the payment)
     subscriptionDate: req.body.subscriptionDate,

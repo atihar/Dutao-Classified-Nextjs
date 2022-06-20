@@ -61,7 +61,7 @@ export default function communityList(props) {
                         alt="list image"
                         width={450}
                         height={320}
-                        className="object-cover rounded-t-lg"
+                        className="object-cover rounded-t-lg hover:scale-105 transition duration-300 ease-in-out"
                     />
                     <div className="py-4 px-6 w-full">
                       <div className="flex items-center justify-between mb-2">

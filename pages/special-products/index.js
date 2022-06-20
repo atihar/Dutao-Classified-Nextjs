@@ -39,8 +39,8 @@ export default function CommunityMain({communityItems}) {
   return (
       <>
       <Header></Header>
-      <CategorySlider data={cat}></CategorySlider>
-      <section className="overflow-hidden sm:max-w-screen-xl m-auto text-gray-700">
+      {/* <CategorySlider data={cat}></CategorySlider> */}
+      <section className="overflow-hidden sm:max-w-screen-xl m-auto text-gray-700 mt-10">
             <div className="h-[400px] w-full flex items-center lg:pt-21 bg-black rounded-xl">
                   <h1 className="text-yellow-500 text-5xl font-bold text-center w-screen">{t('specialDeal')}</h1>
               </div>

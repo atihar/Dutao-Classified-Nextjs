@@ -2,6 +2,7 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image'
+import Router, { useRouter } from 'next/router';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -13,6 +14,7 @@ import useTranslation from "next-translate/useTranslation"
 
 export default function categorySlider(props){
     const data = props.data;
+    const router = useRouter();
     const { t} = useTranslation('common')
     return(
     
@@ -36,19 +38,21 @@ export default function categorySlider(props){
                 {data && data.map((x, i)=>{
                     return (
                         <SwiperSlide key={i}>
+                          <Link href={`${router.pathname}/list?category=${x.slug}`}>
                             <div className="bg-white rounded-lg shadow-lg">
                             <Image
                                   src={x.image}
-                                  alt="Picture of the category"
+                                  alt="category-image"
                                   width={300}
                                   height={200}
-                                  className="object-cover rounded-t-lg"
+                                  className="object-cover rounded-t-lg hover:scale-105 transition duration-300 ease-in-out"
                                   loading='lazy'
                               />
                                 <div className="p-4">
                                     <h4 className="font-bold mb-2 text-base sm:text-lg text-red-600">{x.name}</h4>
                                 </div>
                             </div>
+                            </Link>
                     </SwiperSlide>
                     )
                 })}

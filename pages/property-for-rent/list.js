@@ -59,7 +59,7 @@ export default function PropertyForRent(props) {
                         alt="list image"
                         width={450}
                         height={320}
-                        className="object-cover rounded-t-lg"
+                        className="object-cover rounded-t-lg hover:scale-105 transition duration-300 ease-in-out"
                         loading='lazy'
                     />
                     {/* <img className="w-full h-1/6 md:h-auto md:w-80 rounded-t-lg md:rounded-none md:rounded-l-lg" src="https://i.pinimg.com/564x/51/d9/b5/51d9b5fb038fbe2a8959bcf1f42d2dea.jpg" alt="" /> */}

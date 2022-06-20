@@ -8,7 +8,7 @@ export default function pJobs() {
   return (
     <section className="flex justify-center">
       <div className="max-w-screen-xl align-center px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-16 lg:items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-16 lg:items-center ">
           <div className="max-w-lg mx-auto text-center p-8  lg:text-left lg:mx-0">
           <h2 className="text-2xl font-bold">
                   {t('findjob')}
@@ -20,7 +20,7 @@ export default function pJobs() {
 
             <Link href={'/jobs'}>
             <a
-              className="inline-flex items-center px-8 py-3 mt-8 text-white bg-red-600 border border-red-600 rounded-xl"
+              className="inline-flex items-center px-8 py-3 mt-8 text-white bg-red-600 border border-red-600 rounded-xl hover:bg-red-500 transition ease-in-out delay-150 hover:translate-x-1"
             >
               <span className="text-sm font-medium">{t('findJob')}</span>
 
