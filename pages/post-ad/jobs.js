@@ -96,12 +96,12 @@ export default function jobsPost({ children }) {
         </div>
         {/* get started finish */}
 
-        <form onSubmit={handleSubmit(onSubmit)} action="" className="max-w-xl mx-auto mt-8 mb-0 space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} action="" className="max-w-xl mx-auto mt-8 mb-0 space-y-4 px-4">
         <div>
             <label htmlFor="title" className="sr-only">{t('jobTitle')}</label>
 
             <div className="relative">
-                <input type="text" className="w-full p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm focus:outline-none" placeholder={t('jobTitle')}
+                <input type="text" className="w-full p-4 pr-12 text-sm border-2 rounded-lg bg-gray-50 shadow-sm focus:outline-none" placeholder={t('jobTitle')}
                 {...register('title')}/>
 
                 <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -119,7 +119,7 @@ export default function jobsPost({ children }) {
                 <div className="mb-3 xl:w-100">
                     <select className="form-select block
                     w-full
-                    p-3
+                    p-3 border-2
                     text-sm
                     text-gray-400
                     bg-clip-padding bg-no-repeat
@@ -154,7 +154,7 @@ export default function jobsPost({ children }) {
                 <div className="relative">
                     <input
                     type="text"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 rounded-lg shadow-sm focus:outline-none "
+                    className="w-full p-4 pr-12 text-sm border-2 bg-gray-50 rounded-lg shadow-sm focus:outline-none "
                     placeholder={t('address')}
                     {...register('address')}/>
 
@@ -183,7 +183,7 @@ export default function jobsPost({ children }) {
             <div>
             <label className="sr-only" htmlFor="description">Job Description</label>
             <textarea
-              className="w-full p-3 text-sm bg-gray-50 rounded-lg focus:outline-none"
+              className="w-full p-3 text-sm border-2 bg-gray-50 rounded-lg focus:outline-none"
               placeholder={t('description')}
               rows="8"
               id="description"
@@ -197,7 +197,7 @@ export default function jobsPost({ children }) {
                 <div className="relative">
                     <input
                     type="text"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 border-2 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('monthlySalary')}
                     {...register('salary')}/>
                 </div>
@@ -221,7 +221,7 @@ export default function jobsPost({ children }) {
                 <div className="relative">
                         <input
                         type="text"
-                        className="w-full p-4 pr-12 text-sm bg-gray-50 rounded-lg shadow-sm focus:outline-none "
+                        className="w-full p-4 pr-12 border-2 text-sm bg-gray-50 rounded-lg shadow-sm focus:outline-none "
                         placeholder={t('companyName')}
                         {...register('company')}/>
                 </div>
@@ -229,7 +229,7 @@ export default function jobsPost({ children }) {
 
             <div>
                 <div className="mb-3 xl:w-100">
-                    <select className="form-select block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
+                    <select className="form-select block border-2 w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('companySize')}>
                         <option value="">{t('companySize')}</option>
@@ -247,7 +247,7 @@ export default function jobsPost({ children }) {
                     <select className="form-select block
                     w-full
                     p-4
-                    text-sm
+                    text-sm border-2
                     text-gray-400
                     bg-clip-padding bg-no-repeat
                     rounded
@@ -272,7 +272,7 @@ export default function jobsPost({ children }) {
                     <select className="form-select block
                     w-full
                     p-4
-                    text-sm
+                    text-sm border-2
                     text-gray-400
                      bg-clip-padding bg-no-repeat
                     rounded
@@ -297,7 +297,7 @@ export default function jobsPost({ children }) {
                 <div className="mb-3 xl:w-100">
                     <select className="form-select block
                     w-full
-                    p-4
+                    p-4 border-2
                     text-sm
                     text-gray-400
                     bg-clip-padding bg-no-repeat
@@ -318,7 +318,7 @@ export default function jobsPost({ children }) {
 
             <div>
                 <div className="mb-3 xl:w-100">
-                    <select className="form-select block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
+                    <select className="form-select block w-full border-2 p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('employmentType')}>
                         <option value="">{t('empType')}</option>
@@ -332,7 +332,7 @@ export default function jobsPost({ children }) {
 
             <div>
                 <div className="mb-3 xl:w-100">
-                    <select className="form-select block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
+                    <select className="form-select block w-full border-2 p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('isRemote')}>
                         <option valu="">{t('isItRemote')}</option>
@@ -344,7 +344,7 @@ export default function jobsPost({ children }) {
 
             <div>
                 <div className="mb-3 xl:w-100">
-                    <select className="form-select block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
+                    <select className="form-select block w-full border-2 p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('minEduLevel')}>
                         <option value="">{t('minEdu')}</option>
@@ -359,7 +359,7 @@ export default function jobsPost({ children }) {
 
             <div>
                 <div className="mb-3 xl:w-100">
-                    <select className="form-select block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
+                    <select className="form-select block w-full p-4 border-2 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('minWorkExp')}>
                         <option value="">{t('minExp')}</option>
@@ -376,7 +376,7 @@ export default function jobsPost({ children }) {
 
             <div>
                 <div className="mb-3 xl:w-100">
-                    <select className="form-select block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
+                    <select className="form-select block w-full p-4 border-2 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('careerLevel')}>
                         <option value="">{t('careerLvl')}</option>
@@ -392,7 +392,7 @@ export default function jobsPost({ children }) {
 
             <div>
                 <div className="mb-3 xl:w-100">
-                    <select className="form-select block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
+                    <select className="form-select block w-full p-4 border-2 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('preferredGender')}>
                         <option value="">{t('preferredGender')}</option>
@@ -408,7 +408,7 @@ export default function jobsPost({ children }) {
                 <div className="relative">
                     <input
                     type="text"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 border-2 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('preferredNationality')}
                     {...register('reqNationality')}/>
                 </div>
@@ -420,7 +420,7 @@ export default function jobsPost({ children }) {
                 <div className="relative">
                     <input
                     type="tel"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm border-2 bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('phNo')}
                     {...register('phone')}/>
                 </div>
@@ -449,7 +449,7 @@ export default function jobsPost({ children }) {
             </div>
 
             <div className="flex items-center justify-between">
-            <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg">
+            <button type="submit" className="w-full inline-block px-5 py-3 text-sm font-medium text-white bg-red-500 rounded-lg">
                 {t('createAd')}
             </button>
             </div>

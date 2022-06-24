@@ -28,6 +28,10 @@ const propertyRentSchema = new mongoose.Schema({
     RERApermitNo: {type:Number},
     userEmail:{type:String},
     phone:{type:String},
+    views: {type:Number},
+    isPromoted : {type:Boolean},
+    businessLogo : {type:String},
+    businessName : {type:String}
     },
     {
     timestamps: true,

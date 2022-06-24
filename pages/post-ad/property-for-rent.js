@@ -7,12 +7,15 @@ import { Store } from '../../lib/Store';
 import React, { useContext, useEffect, useState } from 'react';
 import cityData from '../../lib/data.json'
 import useTranslation from 'next-translate/useTranslation'
+import moment from 'moment'
 
 export default function propertyForRentPost({ children }) {
     const router = useRouter();
     const { state } = useContext(Store);
     const { userInfo } = state;
     const [ userEmail, setUserEmail] = useState("");
+    const [ bizName, setBizName ] = useState("")
+    const [ bizLogo, setBizLogo ] = useState("")
     const [parent, setParent] = useState("");
     const [imageFiles, setImages] = useState([]);
     const { t, lang } = useTranslation('common')
@@ -24,8 +27,20 @@ export default function propertyForRentPost({ children }) {
             }
         else {
             setUserEmail(userInfo.email)
+            bizData()
             }
         }, []);
+
+    // fetching business data is existed and subscription is on
+    const bizData = async() => {
+        const { data } = await axios.get(`/api/user/biz-data/?id=${userInfo._id}`)
+        
+        //checking business account is activated and for which type
+        if(data.subscription == 2 && data.businessCategory == "car" && moment(data.subscriptionExpr) > moment()) {
+            setBizName(data.businessName);
+            setBizLogo(data.businessLogo)
+        }      
+    }
 
     const {
         register,
@@ -98,7 +113,9 @@ export default function propertyForRentPost({ children }) {
             furnished,
             maintenanceFee,
             userEmail: userEmail,
-            phone
+            phone,
+            businessName : bizName,
+            businessLogo : bizLogo
           },
           {
             headers: { authorization: `Bearer ${userInfo.token}` }
@@ -126,19 +143,18 @@ export default function propertyForRentPost({ children }) {
         </div>
         {/* get started finish */}
 
-        <form onSubmit={handleSubmit(onSubmit)} action="" className="max-w-xl mx-auto mt-8 mb-0 space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} action="" className="max-w-xl mx-auto mt-8 mb-0 space-y-4 px-3">
             {/* property images */}
             <div className="">
-                <div className="mb-3 w-100 p-3">
+                <div className="mb-3 w-100">
                     <label htmlFor="formFileMultiple" className="form-label inline-block text-sm mb-2 text-gray-400 ">{t('addImage')}</label>
                     <input className="form-control
                     block
                     w-full
-                    px-2
-                    py-1.5
+                    p-3
                     text-sm
-                    text-gray-400
-                    bg-white bg-clip-padding
+                    text-gray-100
+                    bg-red-600 bg-clip-padding
                     focus:outline-none
                     rounded
                     transition
@@ -434,7 +450,7 @@ export default function propertyForRentPost({ children }) {
             <div className='p-4'>
                 <h2 className='text-base'>{t('facilities')}</h2>
                 { locale == 'en' ?
-                <fieldset className='text-sm text-gray-400'>
+                <fieldset className='text-sm text-gray-500'>
                     {
                         amenity.map((c,i) => 
                         <div key={i} className='pr-10 py-3 inline-block'><label><input type="checkbox" value={c} {...register('amenities')} />&nbsp;{c}</label></div>
@@ -442,7 +458,7 @@ export default function propertyForRentPost({ children }) {
                     }
                 </fieldset>
                     : 
-                    <fieldset className='text-sm text-gray-400'>
+                    <fieldset className='text-sm text-gray-500'>
                     {
                         amenityCN.map((c,i) => 
                         <div key={i} className='pr-10 py-3 inline-block'><label><input type="checkbox" value={c} {...register('amenities')} />&nbsp;{c}</label></div>
@@ -453,7 +469,7 @@ export default function propertyForRentPost({ children }) {
             </div>
 
             <div className="flex items-center justify-between">
-            <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg">
+            <button type="submit" className="w-full inline-block px-5 py-3 text-sm font-medium text-white bg-red-500 rounded-lg">
                 {t('createAd')}
             </button>
             </div>

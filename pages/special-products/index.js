@@ -44,8 +44,8 @@ export default function CommunityMain({communityItems}) {
             <div className="h-[400px] w-full flex items-center lg:pt-21 bg-black rounded-xl">
                   <h1 className="text-yellow-500 text-5xl font-bold text-center w-screen">{t('specialDeal')}</h1>
               </div>
-          </section>
-          <section>
+      </section>
+      <section>
       <div className="max-w-screen-xl px-4 py-8 mx-auto">
         <div>
           <span className="inline-block w-12 h-1 bg-red-700"></span>

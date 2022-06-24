@@ -14,7 +14,6 @@ handler.post(async (req, res) => {
     category: req.body.category,
     property: req.body.property,
     verifiedOrNot: false,
-    isFeatured:false,
     city: req.body.city,
     area: req.body.area,
     markedOrNot: false,
@@ -35,17 +34,23 @@ handler.post(async (req, res) => {
     sellerTransferFee: req.body.sellerTransferFee,
     maintenanceFees: req.body.maintenanceFees,
     mapData:{
-        latitude: req.body.latitude,
-        longitude: req.body.longitude
+      latitude: req.body.latitude,
+      longitude: req.body.longitude
     },
     amenities: req.body.amenities,
     propertyInfo:{
-        apartmentFor:req.body.apartmentFor,
-        listedBy: req.body.listedBy,
-        propertyRef:req.body.propertyRef,
-        buildingName:req.body.buildingName,
-        RERApermitNo:req.body.RERApermitNo
-    }
+      apartmentFor:req.body.apartmentFor,
+      listedBy: req.body.listedBy,
+      propertyRef:req.body.propertyRef,
+      buildingName:req.body.buildingName,
+      RERApermitNo:req.body.RERApermitNo
+    },
+    isPromoted : false,
+    isFeatured:false,
+    businessLogo : req.body.businessLogo,
+    businessName : req.body.businessName,
+    views: 0,
+    isPromoted: false
   });
 
   const propertyForSale = await newPropertyForSale.save();

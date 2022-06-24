@@ -42,8 +42,8 @@ export default function Index({property, motors}){
    <Slider data={slider1}></Slider>
    <CategoryComponent></CategoryComponent>
    <Slider data={slider2}></Slider>
-   <PopularItemComponent title={t('property')} data={property} btnLink={"/property-for-sale"}></PopularItemComponent> 
-   <PopularItemComponent title={t('motors')} data={motors} btnLink={"/motors"}></PopularItemComponent> 
+   <PopularItemComponent title={t('popProperty')} data={property} btnLink={"/property-for-sale"}></PopularItemComponent> 
+   <PopularItemComponent title={t('popMotors')} data={motors} btnLink={"/motors"}></PopularItemComponent> 
    {/* <PSecondHand></PSecondHand> */}
    {/* <Slider data={slider3}></Slider> */}
    {/* <PSpecialProduct></PSpecialProduct> */}

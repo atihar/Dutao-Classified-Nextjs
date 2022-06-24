@@ -164,7 +164,7 @@ return (
           <div className="relative group">
                 <button className="flex flex-row items-center w-full mt-2 text-sm bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
                 <Link href={"/property-for-rent"}>
-                  {t('propertyForRent')}
+                  {t('propertyRent')}
                 </Link>
                 </button>
 

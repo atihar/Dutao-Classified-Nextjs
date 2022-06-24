@@ -112,19 +112,18 @@ export default function propertyForSalePost({ children }) {
         </div>
         {/* get started finish */}
 
-        <form onSubmit={handleSubmit(onSubmit)} action="" className="max-w-xl mx-auto mt-8 mb-0 space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} action="" className="max-w-xl mx-auto mt-8 mb-0 space-y-4 px-4">
             {/* property images */}
             <div className="">
-                <div className="mb-3 w-100 p-3">
+                <div className="mb-3 w-100">
                     <label htmlFor="formFileMultiple" className="form-label inline-block text-sm mb-2 text-gray-400 ">{t('addImage')}</label>
                     <input className="form-control
                     block
                     w-full
-                    px-2
-                    py-1.5
+                    p-3 bg-red-600
                     text-sm
-                    text-gray-400
-                    bg-white bg-clip-padding
+                    text-gray-100
+                    bg-clip-padding
                     focus:outline-none
                     rounded
                     transition
@@ -307,7 +306,7 @@ export default function propertyForSalePost({ children }) {
             </div>
 
             <div className="flex items-center justify-between">
-            <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg">
+            <button type="submit" className="w-full inline-block px-5 py-3 text-sm font-medium text-white bg-red-600 rounded-lg">
                 {t('createAd')}
             </button>
             </div>

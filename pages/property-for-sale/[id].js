@@ -122,21 +122,21 @@ export default function singlePropertySale({property}){
                     
                         <div>
                             <div className="p-10 border border-gray-200 grid rounded-lg">
-                            <img className="rounded-full h-[70px] mx-auto border-gray-300 border-2" src="https://stonegatesl.com/wp-content/uploads/2021/01/avatar-300x300.jpg" alt=""/>
-                                <p className="text-sm">{t('agent')}</p>
-                                <h1 className="pb-3">{property.propertyInfo.listedBy}</h1>
+                            <img className="h-[70px] mx-auto border-gray-300 border-2" src={ property.businessLogo ? property.businessLogo : "https://stonegatesl.com/wp-content/uploads/2021/01/avatar-300x300.jpg"} alt=""/>
+                            <p className="text-sm py-3">{t('postedBy')} : {property.businessName ? property.businessName : property.listedBy}</p>
+
                                 <p className="text-sm">{t('reraReg')} : {property.propertyInfo.RERApermitNo}</p>
                                 <p className="text-sm pb-5">{t('buildingName')} : {property.propertyInfo.buildingName}</p>
 
-                                    <a className="inline-block space-x-2 text-center lg:px-12 py-3 text-sm font-medium text-white bg-red-600 border border-red-600 rounded active:text-red-500 hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring" 
-                                    href={`tel:${property.phone}`}>
-                                    <div className="flex justify-center "> 
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-telephone-fill" viewBox="0 0 16 16">
-                                        <path fillRule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-                                        </svg>
-                                        
-                                        <span className="px-5">{t('call')}</span></div>
-                                    </a>
+                                <a className="inline-block space-x-2 text-center lg:px-12 py-3 text-sm font-medium text-white bg-red-600 border border-red-600 rounded active:text-red-500 hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring" 
+                                href={`tel:${property.phone}`}>
+                                <div className="flex justify-center "> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                    <path fillRule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                                    </svg>
+                                    
+                                    <span className="px-5">{t('call')}</span></div>
+                                </a>
 
                                 {/* <a className="inline-block lg:px-12 py-3 mt-5 text-center text-sm font-medium text-red-600 border border-red-600 rounded hover:bg-red-600 hover:text-white active:bg-red-500 focus:outline-none focus:ring" href="/download">
                                 <div className="flex justify-center ">

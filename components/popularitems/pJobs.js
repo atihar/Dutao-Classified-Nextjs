@@ -43,7 +43,7 @@ export default function pJobs() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+          <div className="lg:grid grid-cols-2 gap-4 sm:grid-cols-3 hidden">
             <Link href={'/jobs/list?category=accounting'}>
             <a className="block p-4 border border-gray-100 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
             >

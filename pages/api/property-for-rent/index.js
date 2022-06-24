@@ -34,6 +34,10 @@ handler.post(async (req, res) => {
         longitude: req.body.longitude
     },
     amenities: req.body.amenities,
+    businessName : req.body.businessName,
+    businessLogo : req.body.businessLogo,
+    views: 0,
+    isPromoted: false
   });
 
   const propertyForRent = await newPropertyForRent.save();

@@ -32,7 +32,11 @@ const motorSaleSchema = new mongoose.Schema({
     carInspection:{ type:String },
     accidentHistory:{ type:String },
     userEmail:{type:String},
-    phone:{type:String},    
+    phone:{type:String},
+    views: {type:Number},
+    businessLogo : {type:String},
+    businessName : {type:String},
+    isPromoted : {type:Boolean},
     },
     {
     timestamps: true,

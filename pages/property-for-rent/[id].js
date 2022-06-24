@@ -21,7 +21,7 @@ export default function singlePropertySale({property}){
                     <div className="grid sm:grid-cols-[2fr_1fr] gap-4">
                         <div>
                             <h1>{property.title}</h1>
-                            <p className="text-sm text-gray-500 mb-3">{t('dubai')}{`>`} {property.area}</p>
+                            <p className="text-sm text-gray-500 mb-3">{property.city}{`>`} {property.area}</p>
                            
                             <Slider data={property.images}/>  
                             
@@ -113,8 +113,8 @@ export default function singlePropertySale({property}){
                     
                         <div>
                             <div className="p-10 border border-gray-200 grid rounded-lg">
-                                <img className="rounded-full h-[70px] mx-auto border-gray-300 border-2" src="https://stonegatesl.com/wp-content/uploads/2021/01/avatar-300x300.jpg" alt=""/>
-                                <p className="text-sm">{('postedBy')} : {property.listedBy}</p>
+                                <img className="h-[70px] object-fill mx-auto border-gray-300 border-2" src={ property.businessLogo ? property.businessLogo : "https://stonegatesl.com/wp-content/uploads/2021/01/avatar-300x300.jpg"} alt=""/>
+                                <p className="text-sm py-3">{t('postedBy')} : {property.businessName ? property.businessName : property.postedBy}</p>
 
                                     <a className="inline-block space-x-2 text-center lg:px-12 py-3 text-sm font-medium text-white bg-red-600 border border-red-600 rounded active:text-red-500 hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring" 
                                     href={`tel:${property.phone}`}>

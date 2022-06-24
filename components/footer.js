@@ -17,7 +17,7 @@ export default function footer() {
               </p>
       
               <div className="flex mt-4 space-x-6 text-gray-500 lg:justify-start justify-center">
-                <a className="hover:opacity-75" href="" target="_blank" rel="noreferrer">
+                <a className="hover:opacity-75" href="https://www.facebook.com/dutao.ae/" target="_blank" rel="noreferrer">
                   <span className="sr-only"> Facebook </span>
       
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

@@ -1,13 +1,13 @@
 {
   "findjob": "寻找下一份工作",
   "findJobDescription": "当您的简历被查看，或者您最近的搜索中出现新工作时，您会收到推送通知。让您可以轻松地重新开始寻找工作",
-  "propertyRent" : "出租物业",
-  "propertySale" : "物业出售",
+  "propertyRent" : "房屋出租",
+  "propertySale" : "房屋出售",
   "motors" : "车辆",
-  "infoCenter" : "信息中心",
-  "specialProducts" : "特殊产品",
-  "jobs": "工作",
-  "usedItems" : "用过的物品",
-  "vipMember" : "什么是新的",
-  "community" : "社区"
+  "infoCenter" : "本地推荐",
+  "specialProducts" : "特价产品",
+  "jobs": "找工作",
+  "usedItems" : "二手物品",
+  "vipMember" : "超级会员",
+  "community" : "社团"
 }

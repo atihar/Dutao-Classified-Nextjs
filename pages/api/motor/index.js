@@ -42,6 +42,10 @@ handler.post(async (req, res) => {
     fuelType: req.body.fuelType,
     steeringSide: req.body.steeringSide,
     carinspection: req.body.carinspection,
+    businessLogo : req.body.businessLogo,
+    businessName : req.body.businessName,
+    views: 0,
+    isPromoted : false 
   });
 
   const Motor = await newMotor.save();

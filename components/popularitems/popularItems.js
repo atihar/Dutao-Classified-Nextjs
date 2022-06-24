@@ -20,7 +20,7 @@ export default function popularItems(props) {
         <div className="flex items-center p-1 sm:p-8 rounded w-full ">
             <div className="flex sm:block justify-between w-full">
             <h2 className="text-base sm:text-2xl pt-5 sm:pt-0 font-bold">
-                {t('popular')} {title}
+                {title}
             </h2>
             
             <Link href={btnLink}>

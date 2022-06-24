@@ -27,6 +27,7 @@ const jobsSchema = new mongoose.Schema({
     userEmail:{type:String},
     perks:[{type: String}],
     userApplied:{type:Array},
+    views: {type:Number}   
     },
     {
     timestamps: true,

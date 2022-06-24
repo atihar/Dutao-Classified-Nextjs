@@ -15,7 +15,7 @@ export default function featuredProducts(props){
     const data = props.data
 
     return(
-           <div className="max-w-3xl">
+           <div className="max-w-[350px] lg:max-w-3xl">
                 <Swiper modules={[Navigation]}
                 slidesPerView={1}
                 navigation
@@ -27,7 +27,8 @@ export default function featuredProducts(props){
                                 alt="Picture of the author"
                                 width={800}
                                 height={450}
-                                className="object-contain rounded-t-lg"
+                                layout="responsive"
+                                className="object-cover rounded-t-lg"
                             />
                         </SwiperSlide>
                     ))}

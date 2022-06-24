@@ -7,12 +7,15 @@ import { Store } from '../../lib/Store';
 import React, { useContext, useEffect, useState } from 'react';
 import cityData from '../../lib/data.json'
 import useTranslation from 'next-translate/useTranslation'
+import moment from 'moment';
 
 export default function propertyForSalePost({ children }) {
     const router = useRouter();
     const { state } = useContext(Store);
     const { userInfo } = state;
     const [ userEmail, setUserEmail] = useState("");
+    const [ bizName, setBizName ] = useState("")
+    const [ bizLogo, setBizLogo ] = useState("")
     const [parent, setParent] = useState("");
     const [imageFiles, setImages] = useState([]);
     const { t, lang } = useTranslation('common')
@@ -24,8 +27,21 @@ export default function propertyForSalePost({ children }) {
             }
         else {
             setUserEmail(userInfo.email)
+            bizData()
             }
         }, []);
+
+    // fetching business data is existed and subscription is on
+    const bizData = async() => {
+        const { data } = await axios.get(`/api/user/biz-data/?id=${userInfo._id}`)
+        
+        //checking business account is activated and for which type
+        if(data.subscription == 2 && data.businessCategory == "car" && moment(data.subscriptionExpr) > moment()) {
+            setBizName(data.businessName);
+            setBizLogo(data.businessLogo)
+        }      
+    }
+
 
     const {
         register,
@@ -74,7 +90,7 @@ export default function propertyForSalePost({ children }) {
     //   handling form on submit button
       const onSubmit = async ({ title, category, address, description,price, city, area, listedBy, 
         buildingName, propertyRef, RERApermitNo, amenities, developer, bathroom, bedroom,
-        size, annualCommunityFee, buyerTransferFee, sellerTransferFee, maintenanceFee, video}) => {
+        size, annualCommunityFee, buyerTransferFee, sellerTransferFee, maintenanceFee, video, phone}) => {
 
         try {
           const { data } = await axios.post('/api/property-for-sale', {
@@ -94,7 +110,6 @@ export default function propertyForSalePost({ children }) {
             latitude: "10.998877",
             longitude: "8798.789",
             video,
-            property: "dutao",
             developer,
             bathroom,
             bedroom,
@@ -104,7 +119,9 @@ export default function propertyForSalePost({ children }) {
             sellerTransferFee,
             maintenanceFee,
             userEmail: userEmail,
-            phone: "092910281",
+            phone,
+            businessName : bizName,
+            businessLogo : bizLogo
           },
           {
             headers: { authorization: `Bearer ${userInfo.token}` }
@@ -132,19 +149,18 @@ export default function propertyForSalePost({ children }) {
         </div>
         {/* get started finish */}
 
-        <form onSubmit={handleSubmit(onSubmit)} action="" className="max-w-xl mx-auto mt-8 mb-0 space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} action="" className="max-w-xl mx-auto mt-8 mb-0 space-y-4 px-4">
             {/* property images */}
             <div className="">
-                <div className="mb-3 w-100 p-3">
+                <div className="mb-3 w-100">
                     <label htmlFor="formFileMultiple" className="form-label inline-block text-sm mb-2 text-gray-400 ">{t('addImage')}</label>
                     <input className="form-control
                     block
                     w-full
-                    px-2
-                    py-1.5
+                    p-3 bg-red-600
                     text-sm
-                    text-gray-400
-                    bg-white bg-clip-padding
+                    text-gray-100
+                    bg-clip-padding
                     focus:outline-none
                     rounded
                     transition
@@ -526,7 +542,7 @@ export default function propertyForSalePost({ children }) {
             </div>
 
             <div className="flex items-center justify-between">
-            <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg">
+            <button type="submit" className="w-full inline-block px-5 py-3 text-sm font-medium text-white bg-red-500 rounded-lg">
             {t('createAd')}
             </button>
             </div>

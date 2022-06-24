@@ -151,7 +151,7 @@
     "issue": "Is there any issue?",
     "details": "It goes by many names; personal profile, supporting statement, CV statement, but whatever you call it, your cover letter is as important as your CV. Some could argue more important, because it is what the recruiter will see first, and could have a bearing on whether or not they continue to read your CV. And it would be such a pity if they didn’t, as you clearly match the job criteria (you made it through the ATS, after all). So it’s worth putting the time into making sure that your cover letter is an accurate reflection of you – not just your skills, but your personality as well. You want to make the recruiter remember you.",
     "report": "Report this ad now",
-    "postedBy": "Posted by",
+    "postedBy": "Listed by",
     "dedLicense": "DED license no",
     "inquire": "Inquire now",
     "sale": "Sale",
@@ -288,7 +288,7 @@
     "popular": "Popular",
     "enterDetails" : "Enter details for your ad",
     "addImage": "Add Images",
-    "title" : "Heading",
+    "title" : "Listing title",
     "propertyType" : "Property Type",
     "address" : "Address",
     "postingAs" : "Posting as a",
@@ -310,7 +310,7 @@
     "monthlyRent" :  "Monthly Rent (AED)",
     "createAd" :  "Create an ad now",
     "kmOnRoad" : "Kilometers on road",
-    "warrantyDays" : "Warranty Period (1 month , 3months...)",
+    "warrantyDays" : "Warranty Period",
     "doors" : "Doors",
     "cylinder" : "Cylinder",
     "sedan" : "Sedan",
@@ -396,5 +396,9 @@
     "haveExp" : "I have an releavant experience of",
     "apply" : "Apply now",
     "haveApplied" : "You Have Already Applied",
-    "profileCV" : "Profile CV"
+    "profileCV" : "Profile CV",
+    "popProperty" : "Popular property",
+    "popMotors" : "Popular Motors",
+    "propertyRent" : "Property for Rent",
+    "propertySale" : "Property for Sale"
   }

@@ -112,19 +112,18 @@ export default function propertyForSalePost({ children }) {
         </div>
         {/* get started finish */}
 
-        <form onSubmit={handleSubmit(onSubmit)} action="" className="max-w-xl mx-auto mt-8 mb-0 space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} action="" className="max-w-xl mx-auto mt-8 mb-0 space-y-4 px-4">
             {/* property images */}
             <div className="">
-                <div className="mb-3 w-100 p-3">
+                <div className="mb-3 w-100">
                     <label htmlFor="formFileMultiple" className="form-label inline-block text-sm mb-2 text-gray-400 ">{t('addImage')}</label>
                     <input className="form-control
                     block
                     w-full
-                    px-2
-                    py-1.5
+                    p-3
                     text-sm
-                    text-gray-400
-                    bg-white bg-clip-padding
+                    text-gray-100
+                    bg-red-600 bg-clip-padding
                     focus:outline-none
                     rounded
                     transition
@@ -302,12 +301,12 @@ export default function propertyForSalePost({ children }) {
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm border-2"
                     placeholder={t('phNo')}
                     {...register('phone',{required:true})}/>
-                    {errors.phone && <p className='text-[9px] text-red-500 px-4'>a contact number is required</p> }
+                    {errors.phone && <p className='text-[9px] text-red-600 px-4'>a contact number is required</p> }
                 </div>
             </div>
 
             <div className="flex items-center justify-between">
-            <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg">
+            <button type="submit" className="w-full inline-block px-5 py-3 text-sm font-medium text-white bg-red-600 rounded-lg">
              {t('createAd')}
             </button>
             </div>
