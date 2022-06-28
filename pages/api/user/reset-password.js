@@ -9,7 +9,7 @@ const handler = nc();
 handler.post(async (req, res, err) => {
 
     await db.connect();
-    console.log("coming here")
+    console.log("reset link has been sent to email")
     const user = await User.findOne({ email : req.body.email })
     const token = emailSignToken(user);
     await db.disconnect();

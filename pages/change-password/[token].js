@@ -35,10 +35,14 @@ export default function ChangePassword() {
         setLoading(true)
         try {
           //waiting for data for being signed in and a jwt tokenized data will be set as {data} from response of the API
-         const { data } = await axios.put(`/api/user/change-password?token=${token}`, 
+         await axios.put(`/api/user/change-password/?token=${token}`, 
          { password, confirmPassword })
+         .then((response)=> {
+           console.log(response)
             setLoading(false)
             router.push('/login')
+         })
+            
        
           // router.push(redirect || '/');
         } catch (err) {
@@ -104,7 +108,7 @@ export default function ChangePassword() {
         </form>
 
         {/* on successful email send show success alert  */}
-        { !message && 
+        { message && 
               <div className="p-4 text-green-700 border rounded border-green-900/10 bg-green-50"
               role="alert">
                 <strong className="text-sm font-medium"> {t('passChanged')} </strong>

@@ -6,6 +6,7 @@ import { Store } from '../../lib/Store'
 import Cookies from 'store-js';
 import React, { useContext, useEffect, useState } from 'react'
 import useTranslation from 'next-translate/useTranslation';
+import axios from "axios"
 
 function profile() {
     const router = useRouter();
@@ -19,6 +20,7 @@ function profile() {
             router.push('/login');
             }
             else {
+                axios.get('')
                 setUserData(userInfo)
             }
         }, []);

@@ -5,14 +5,13 @@ import jwt from 'jsonwebtoken';
 
 const handler = nc();
 
-handler.get(async (req, res, next) => {
+handler.post(async (req, res, next) => {
   const token = req.query.token;
   
   if ( token ) {
     jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
       if (err) {
         res.status(401).send({ message: 'Token is not valid' });
-        res.end()
       } else {
         req.user = decode;
         next();

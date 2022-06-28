@@ -43,14 +43,14 @@ export default function Signup() {
             name, email, password, phone })
             .then((response)=> {
               const userid = response.data._id
-              console.log(response)
+              // console.log(response)
               if(response.status == 203){
-                console.log("duplicate email")
+                // console.log("duplicate email")
                 setDuplicate(true)
               }
               else{
-                console.log("user id is" + userid)
-                console.log('user created')
+                // console.log("user id is" + userid)
+                // console.log('user created')
                 const oneYearFromNow = new Date();
                 oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
                 axios.post('/api/user/create-profile-data', {

@@ -4,6 +4,7 @@ import User from '../../../models/user';
 import db from '../../../lib/dbConnect';
 import { signToken } from '../../../lib/auth';
 
+
 const handler = nc();
 
 handler.post(async (req, res) => {
@@ -20,7 +21,10 @@ handler.post(async (req, res) => {
       isAdmin: user.isAdmin,
       activated : user.activated
     });
-  } else {
+  } else if(user && !user.activated && bcrypt.compareSync(req.body.password, user.password)){
+    res.status(401).json({ message: 'User is not activated' });
+  }
+  else {
     res.status(401).json({ message: 'Invalid email or password' });
   }
 });

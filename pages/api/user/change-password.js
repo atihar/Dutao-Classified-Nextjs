@@ -16,6 +16,7 @@ handler.put(async (req, res, next) => {
         console.log("not valid")
       } else {
         req.user = decode;
+        console.log(req.user)
         next();
       }
     });
@@ -24,14 +25,16 @@ handler.put(async (req, res, next) => {
     console.log("token not supplied")
   }  
 
-await db.connect();
-const info = await User.findOne({ email : req.user.email });
+  await db.connect();
+  const userEmail = await req.user.email;
+
+  const info = await User.findOne({ email : userEmail });
   if(info && info.activated){
       info.password = bcrypt.hashSync(req.body.password);
       await info.save();
-      await db.disconnect();
       console.log("password updated")
       res.status(200);
+      await db.disconnect();
   }
 });
 

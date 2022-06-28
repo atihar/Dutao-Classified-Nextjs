@@ -13,7 +13,7 @@ export default function verification() {
 
     useEffect(() => {
       if(token){
-         axios.get(`/api/user/verification?token=${token}`,)
+         axios.post(`/api/user/verification?token=${token}`,)
           .then(function (response) {
             setMessage(response.data.message)
           })

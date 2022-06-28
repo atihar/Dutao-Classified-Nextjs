@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Footer from '../components/footer';
 import axios from 'axios';
 import { Store } from '../lib/Store';
-import Cookies from 'store-js';
 import { useRouter } from 'next/router';
 import React, { useState, useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
@@ -13,7 +12,6 @@ export default function ResetPassword() {
     const router = useRouter();
     const { redirect } = router.query
     const { state, dispatch } = useContext(Store);
-    const { userInfo } = state;
     const [stateError, setStateerror] = useState(false)
     const [loading, setLoading] = useState(false)
     const { t, lang } = useTranslation('common')
@@ -42,6 +40,7 @@ export default function ResetPassword() {
         }
       };
 
+      // console.log(message)
   return (
       <>
       <Header></Header>
