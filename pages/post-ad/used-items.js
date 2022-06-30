@@ -16,6 +16,7 @@ export default function UsedItemPost({ children }) {
     const [parent, setParent] = useState("");
     const [imageFiles, setImages] = useState([]);
     const { t, lang } = useTranslation('common')
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         if (!userInfo) {
@@ -76,6 +77,7 @@ export default function UsedItemPost({ children }) {
          video, phone}) => {
 
         try {
+            setLoading(true)
           const { data } = await axios.post('/api/used-items', {
             title,
             category,
@@ -94,6 +96,7 @@ export default function UsedItemPost({ children }) {
             headers: { authorization: `Bearer ${userInfo.token}` }
           }
           );
+          setLoading(false)
           router.push('/used-items/list');
         } catch (err) {
             console.log(err.message)
