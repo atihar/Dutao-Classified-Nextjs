@@ -105,7 +105,7 @@ export default function SinglePropertySale({property}){
                                 <p className="relative inline-block text-sm font-bold text-red-600">
                                     <span className="absolute inset-x-0 bottom-0 transition-transform transform bg-red-100 h-2/3 group-hover:scale-110"
                                     ></span>
-                                     <Link href={'/report-ad'}><span className="relative">{t('report')}</span></Link>
+                                     <Link href={'/report-ad'}><span className="relative cursor-pointer">{t('report')}</span></Link>
                                 </p>
                                 </a>
                             </div>

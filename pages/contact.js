@@ -150,7 +150,6 @@ export default function Contact() {
     </section>
 
 
-
     <section>
         {/* For Search Bar */}
 
