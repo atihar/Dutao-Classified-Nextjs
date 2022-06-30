@@ -10,7 +10,7 @@ import  Link from 'next/link'
 
 
 
-export default function myUserInformation() {
+export default function MyUserInformation() {
     const router = useRouter();
     const { state } = useContext(Store);
     const { userInfo } = state;

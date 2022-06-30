@@ -14,7 +14,7 @@ import moment from 'moment';
 const PAGE_SIZE = 10;
 
 
-export default function PropertyForSale(props) {
+export default function PropertyForSaleList(props) {
   const router = useRouter();
   const {products} = props
   const {t} = useTranslation('common')
@@ -171,9 +171,9 @@ export async function getServerSideProps({ query }) {
   const price = query.price || '';
   const sort = query.sort || '';
   const searchQuery = query.searchQuery || '';
-  const size = query.area || '';
+  const size = query.size || '';
   const area = query.area || '';
-  const bed = query.area || '';
+  const bed = query.bed || '';
   const bath = query.bath || '';
 
 
@@ -218,9 +218,16 @@ export async function getServerSideProps({ query }) {
         }
       : {};
 
+  const bedFilter =
+    bed && bed !== 'all'
+      ? {
+          bedroom: bed,
+        }
+      : {};
+
   const order =
     sort === 'featured'
-      ? { featured: -1 }
+      ? { isFeatured: -1 }
       : sort === 'lowest'
       ? { price: 1 }
       : sort === 'highest'
@@ -229,7 +236,7 @@ export async function getServerSideProps({ query }) {
       ? { div: -1 }
       : sort === 'newest'
       ? { createdAt: -1 }
-      : { _id: -1 };
+      : { isFeatured: -1 , createdAt: -1 };
 
   const categories = await SaleProperty.find().distinct('category');
   const cities = await SaleProperty.find().distinct('city');
@@ -243,6 +250,7 @@ export async function getServerSideProps({ query }) {
       ...cityFilter,
       ...areaFilter,
       ...bathFilter,
+      ...bedFilter,
     },
   )
     .sort(order)
@@ -258,6 +266,7 @@ export async function getServerSideProps({ query }) {
     ...cityFilter,
     ...areaFilter,
     ...bathFilter,
+    ...bedFilter,
   });
   const products = await JSON.parse(JSON.stringify(productDocs));
   await db.disconnect();

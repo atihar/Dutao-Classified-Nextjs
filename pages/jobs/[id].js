@@ -13,7 +13,7 @@ import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation';
 
 
-export default function singleJobs({job}){
+export default function SingleJobs({job}){
     // moment configuration for posted date 
     const postedDate = moment(job.createdAt).format('MMM Do YY');
     // moment configuration for expire date , current value + 30 days

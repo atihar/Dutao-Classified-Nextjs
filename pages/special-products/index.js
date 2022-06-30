@@ -7,7 +7,7 @@ import Community from '../../models/community'
 import Link from 'next/link'
 import useTranslation from "next-translate/useTranslation"
 
-export default function CommunityMain({communityItems}) {
+export default function SpecialProduct({communityItems}) {
   const {t} = useTranslation('common')
 
   const cat = [{

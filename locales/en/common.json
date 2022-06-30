@@ -400,5 +400,6 @@
     "popProperty" : "Popular property",
     "popMotors" : "Popular Motors",
     "propertyRent" : "Property for Rent",
-    "propertySale" : "Property for Sale"
+    "propertySale" : "Property for Sale",
+    "popUsedItems" : "Popular Used Items"
   }

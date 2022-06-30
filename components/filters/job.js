@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import useTranslation from "next-translate/useTranslation";
 
 
-export default function jobFilter() {
+export default function JobsFilter() {
 
     const router = useRouter();
     const {t} = useTranslation('common')

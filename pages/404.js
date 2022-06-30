@@ -1,5 +1,6 @@
 import Header from '../components/header'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function NotFound() {
   return (
@@ -13,7 +14,7 @@ export default function NotFound() {
                 className="object-cover w-full h-64 rounded-lg"
             />
 
-            <p className="mt-6 text-gray-500">We can't find anything, try searching again.</p>
+            <p className="mt-6 text-gray-500">We can&apost find anything, try searching again.</p>
             
 
 

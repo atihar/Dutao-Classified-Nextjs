@@ -14,7 +14,7 @@ import moment from 'moment'
 const PAGE_SIZE = 10;
 
 
-export default function Home(props) {
+export default function MotorsList(props) {
   const router = useRouter();
   const {products} = props
   const {t} = useTranslation('common')
@@ -233,7 +233,7 @@ export async function getServerSideProps({ query }) {
       ? { div: -1 }
       : sort === 'newest'
       ? { createdAt: -1 }
-      : { _id: -1 };
+      : { isFeatured: -1 , createdAt: -1 };
 
   const categories = await Motors.find().distinct('category');
   const areas = await Motors.find().distinct('area');

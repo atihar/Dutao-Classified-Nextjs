@@ -11,7 +11,7 @@ import { Store } from '../../../../lib/Store';
 import { useRouter } from 'next/router';
 
 
-export default function manageJobs() {
+export default function ManageJobs() {
   const router = useRouter()
   const { state } = useContext(Store);
   const { userInfo } = state;

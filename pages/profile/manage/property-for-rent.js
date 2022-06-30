@@ -13,7 +13,7 @@ import Image from "next/image"
 import useTranslation from 'next-translate/useTranslation'
 
 
-export default function managePropertyForSale() {
+export default function ManagePropertyForRent() {
   const router = useRouter()
   const { state } = useContext(Store);
   const { userInfo } = state;

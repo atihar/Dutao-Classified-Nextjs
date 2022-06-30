@@ -3,7 +3,7 @@ import Footer from "../components/footer"
 import useTranslation from "next-translate/useTranslation"
 import Link from "next/link"
 
-function vip() {
+function Vip() {
   const { t} = useTranslation('common')
 
   return (
@@ -200,4 +200,4 @@ function vip() {
   )
 }
 
-export default vip
+export default Vip

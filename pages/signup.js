@@ -24,11 +24,7 @@ export default function Signup() {
       }
     }, []);
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-      } = useForm();
+    const { register, handleSubmit, formState: { errors }} = useForm();
 
     //   const onSubmit = (data) => console.log(data);
       const onSubmit = async ({ name, email, password, confirmPassword, phone }) => {
@@ -41,35 +37,33 @@ export default function Signup() {
           setLoading(true)
            await axios.post(`/api/user/registration`, {
             name, email, password, phone })
-            .then((response)=> {
-              const userid = response.data._id
-              // console.log(response)
-              if(response.status == 203){
-                // console.log("duplicate email")
-                setDuplicate(true)
+            .then((response) => {
+                const userid = (response.data._id)
+                setSuccess(true)
+
+                if(response.status == 203){
+                  // console.log("duplicate email")
+                  setDuplicate(true)
               }
-              else{
-                // console.log("user id is" + userid)
-                // console.log('user created')
+              
+              if(userid){
                 const oneYearFromNow = new Date();
                 oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
                 axios.post('/api/user/create-profile-data', {
-                    name,
                     userId : userid,
                     subscription: 1,// 0-non. 1-basic, 2-standard, 3-premium (this will be set by the payment)
                     subscriptionDate: Date.now(),
                     subscriptionExpr: oneYearFromNow
                   });
-                  setSuccess(true)
-              }
-            })    
+                    // console.log("user profile created")
+              }   
             setLoading(false)
+          })
           // router.push(redirect || '/');
         } catch (err) {
             console.log(err)
             setLoading(false)
-        }
-      };
+        }};
       
      return (
       <>

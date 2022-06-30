@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image';
 
 
-export default function popularItems(props) {
+export default function PopularItems(props) {
     //receiving props data and getting ready for mapping
     const data = props.data
     const title = props.title

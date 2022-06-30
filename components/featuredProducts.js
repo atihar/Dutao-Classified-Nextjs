@@ -13,7 +13,7 @@ import Router, { useRouter } from 'next/router';
 import Link from 'next/link';
 
 
-export default function featuredProducts(props){
+export default function FeaturedProducts(props){
     const router = useRouter();
     const data = props.data
     const title = props.title

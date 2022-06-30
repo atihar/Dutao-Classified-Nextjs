@@ -8,7 +8,7 @@ import Motors from '../../models/motors'
 import useTranslation from 'next-translate/useTranslation';
 
 
-export default function motors({motor}) {
+export default function Motor({motor}) {
   const {t} = useTranslation('common')
   return (
       <>

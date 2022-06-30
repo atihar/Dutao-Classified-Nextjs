@@ -7,7 +7,7 @@ import Cookies from 'store-js';
 import React, { useContext, useEffect, useState } from 'react'
 import useTranslation from 'next-translate/useTranslation';
 
-function profile() {
+function MyBusiness() {
     const router = useRouter();
     const { state, dispatch } = useContext(Store);
     const { userInfo } = state;
@@ -40,7 +40,7 @@ function profile() {
                 <div>
                     <ul className="text-base space-y-4">
                         <Link href={'/profile'}><li className="text-white py-2 px-4 rounded-lg active">{t('myProfile')}</li></Link>
-                        <Link href={'/profile/manage/property-for-sale'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('myAds')}</li></Link>
+                        <Link href={'/profile/business/ads'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('myAds')}</li></Link>
                         <Link href={'/profile/my-information'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('myInfo')}</li></Link>
                         {/* <Link href={'/profile/subscription'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg ">Subscription</li></Link> */}
                         <li onClick={logoutClickHandler} className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('logout')}</li>
@@ -78,4 +78,4 @@ function profile() {
   )
 }
 
-export default profile
+export default MyBusiness

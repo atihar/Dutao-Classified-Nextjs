@@ -1,8 +1,8 @@
 import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link'
 
-export default function pJobs() {
-  const { t} = useTranslation('common')
+export default function PopJobs() {
+  const { t } = useTranslation('common')
   
 
   return (

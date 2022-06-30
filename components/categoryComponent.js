@@ -2,7 +2,7 @@ import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation'
 
 
-export default function categoryComponent() {
+export default function CategoryComponent() {
   const { t, lang } = useTranslation('home')
 
   return (

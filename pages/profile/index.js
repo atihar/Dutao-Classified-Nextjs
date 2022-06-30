@@ -8,7 +8,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import useTranslation from 'next-translate/useTranslation';
 import axios from "axios"
 
-function profile() {
+function Profile() {
     const router = useRouter();
     const { state, dispatch } = useContext(Store);
     const { userInfo } = state;
@@ -79,4 +79,4 @@ function profile() {
   )
 }
 
-export default profile
+export default Profile

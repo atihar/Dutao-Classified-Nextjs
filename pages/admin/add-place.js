@@ -13,7 +13,7 @@ const DynamicMap = dynamic(() => import("../../components/map-add"), {
   ssr: false,
 });
 
-export default function propertyForSalePost({ children }) {
+export default function AddPlace({ children }) {
     const router = useRouter();
     const { state } = useContext(Store);
     const { userInfo } = state;

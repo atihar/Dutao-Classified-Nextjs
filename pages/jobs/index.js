@@ -9,7 +9,7 @@ import useTranslation from "next-translate/useTranslation"
 import TextTruncate from "react-text-truncate"
 
 
-function jobsIndex({jobList}) {
+function JobsIndex({jobList}) {
   const [keyword, setKeyword] = useState('')
   const [city, setCity] = useState('all')
 
@@ -123,7 +123,7 @@ function jobsIndex({jobList}) {
   )
 }
 
-export default jobsIndex
+export default JobsIndex
 
 
 

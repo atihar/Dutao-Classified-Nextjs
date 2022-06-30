@@ -8,7 +8,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import useTranslation from 'next-translate/useTranslation'
 import cityData from '../../lib/data.json'
 
-export default function jobsPost({ children }) {
+export default function JobsPost({ children }) {
     const router = useRouter();
     const { state } = useContext(Store);
     const { userInfo } = state;

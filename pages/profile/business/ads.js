@@ -13,7 +13,7 @@ import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
 
 
-export default function managePropertyForSale() {
+export default function ManageBizAds() {
   const router = useRouter()
   const { state } = useContext(Store);
   const { userInfo } = state;
@@ -22,15 +22,36 @@ export default function managePropertyForSale() {
   const [loading, setLoading] = useState(false)
   const [ popUp, setPopup] = useState(false)
   const { t, lang } = useTranslation('common')
+  const [bizCategory, setBizCategory] = useState('')
 
   useEffect(() => {
     if (!userInfo) {
       router.push('/login');
     }
-    fetchData();
-  }, []);
+    fetchUserData();
 
-  const fetchData = () => {
+    if(bizCategory == 'property'){
+      fetchPropertyData()
+    }
+    else if(bizCategory == 'motors'){
+      fetchMotorData()
+    }
+  }, [bizCategory]);
+
+  // Prefetch data to check the business account details of the user
+  const fetchUserData = async () => {
+    //doing CSR for fetching users posts using axios and setting data to state to render it
+    setLoading(true)
+    const userEmail = userInfo.email
+    const { data } = await axios.get(`/api/user/biz-data/?id=${userInfo._id}`,{
+      headers: { authorization: `Bearer ${userInfo.token}` }
+    })
+    // setting business cateogory which will lead to the category based data fetching
+    setBizCategory(data.businessCategory)
+ }
+ 
+
+  const fetchPropertyData = () => {
      //doing CSR for fetching users posts using axios and setting data to state to render it
      setLoading(true)
      const userEmail = userInfo.email
@@ -49,6 +70,26 @@ export default function managePropertyForSale() {
          setLoading(false)
        });
   }
+
+  const fetchMotorData = () => {
+    //doing CSR for fetching users posts using axios and setting data to state to render it
+    setLoading(true)
+    const userEmail = userInfo.email
+    axios.get(`/api/user/manage/motors/?userEmail=${userEmail}`,{
+      headers: { authorization: `Bearer ${userInfo.token}` }
+    })
+      .then(function (response) {
+        setPosts(response.data)
+        setPostCount(response.data.length)
+        setLoading(false)
+        // handle success
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+        setLoading(false)
+      });
+ }
 
   const showpopupHandler = () =>{
     setPopup(true)
@@ -90,15 +131,13 @@ export default function managePropertyForSale() {
 
         <div className='sm:max-w-screen-xl sm:w-screen mx-auto py-4 px-4 my-4 rounded-lg shadow' data-aos="zoom-y-out">
         <h2 className="font-bold py-0 sm:py-5"> {t('dashboard')} </h2>
+        <p className="pb-5">Business Name</p>
             <div className="grid lg:grid-cols-[1fr_4fr] gap-4">
                 <div>
                     <ul className="text-base space-y-4">
-                          <Link href={'/profile'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('myProfile')}</li></Link>
-                          <Link href={'/profile/manage/property-for-sale'}><li className="py-2 px-4 rounded-lg text-white active">{t('myAds')}</li></Link>
-                          <Link href={'/profile/manage/jobs'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('manageRecruit')}</li></Link>
+                          <Link href={'/profile/business'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('myProfile')}</li></Link>
+                          <Link href={'/profile/manage/business/ads'}><li className="py-2 px-4 rounded-lg text-white active">{t('myAds')}</li></Link>
                           <Link href={'/profile/my-information'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('myInfo')}</li></Link>
-                          <Link href={'/profile/my-searches'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('mySearches')}</li></Link>
-                          <Link href={'/profile/settings'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('settings')}</li></Link>
                           {/* <Link href={'/profile/subscription'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Subscription</li></Link> */}
                     </ul>
                 </div>
@@ -151,12 +190,15 @@ export default function managePropertyForSale() {
                         <td className="px-4 py-2 text-gray-700 whitespace-nowrap">
 
                             <div className="grid grid-cols-3 gap-x-2">
+                              <Link href={`/profile/business/promote/?title=${property.title}&price=${property.price}&id=${property._id}`}>
                                 <p className="flex border-black-600 border-2 uppercase px-3 py-2 rounded-lg text-xs tracking-wide hover:cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-graph-up-arrow" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z"/>
+                                <path fillRule="evenodd" d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z"/>
                                 </svg>
                                     <span className='pl-2'>Promote</span>
                                 </p>
+                              </Link>
+                                
 
                                 <p className="flex border-2 r-0 border-black-600  uppercase px-3 py-2 rounded-lg text-xs tracking-wide hover:cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star" viewBox="0 0 16 16">

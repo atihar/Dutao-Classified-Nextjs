@@ -1,4 +1,4 @@
-export default function featuredProduct(){
+export default function FeaturedProduct(){
     return(
         <>
         <div className="w-full md:w-1/3 p-2">

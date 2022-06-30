@@ -400,5 +400,6 @@
     "motors" : "车辆",
     "infoCenter" : "本地推荐",
     "specialProducts" : "特价产品",
-    "jobs": "找工作"
+    "jobs": "找工作",
+    "popUsedItems": "热门二手商品"
   }

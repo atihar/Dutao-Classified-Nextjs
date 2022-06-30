@@ -7,7 +7,7 @@ import moment from "moment";
 import Link from 'next/link'
 
 
-export default function singlePropertySale({property}){
+export default function SingleSpecialProductList({property}){
     const propertyInfo = property.propertyInfo;
     const postedDate = moment(property.createdAt).startOf('hour').fromNow();
 

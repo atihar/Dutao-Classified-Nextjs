@@ -8,7 +8,7 @@ import db from '../../lib/dbConnect'
 import SaleProperty from '../../models/propertyForSale'
 import useTranslation from "next-translate/useTranslation"
 
-function propertyForSale({property}) {
+function PropertyForSale({property}) {
   const { t} = useTranslation('common')
   const cat = [{
     name : t('apt'),
@@ -53,7 +53,7 @@ function propertyForSale({property}) {
   )
 }
 
-export default propertyForSale
+export default PropertyForSale
 
 
 

@@ -9,7 +9,7 @@ import cityData from '../../lib/data.json'
 import useTranslation from 'next-translate/useTranslation'
 import moment from 'moment';
 
-export default function propertyForSalePost({ children }) {
+export default function PropertyForSalePost({ children }) {
     const router = useRouter();
     const { state } = useContext(Store);
     const { userInfo } = state;

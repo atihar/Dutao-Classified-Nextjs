@@ -24,7 +24,7 @@ const DynamicMap = dynamic(() => import("../../components/map"), {
 const PAGE_SIZE = 10;
 
 
-export default function infoList(props) {
+export default function InfoList(props) {
 
   const {t} = useTranslation('common')
   const router = useRouter();

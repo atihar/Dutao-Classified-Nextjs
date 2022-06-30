@@ -9,7 +9,7 @@ import useTranslation from "next-translate/useTranslation";
 import Slider from '../../components/singleProductPageSlider'
 
 
-export default function singlePropertySale({property}){
+export default function SinglePropertySale({property}){
     const propertyInfo = property.propertyInfo;
     const postedDate = moment(property.createdAt).startOf('hour').fromNow();
     const {t} = useTranslation('common')

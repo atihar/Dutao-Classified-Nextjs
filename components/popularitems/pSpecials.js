@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import NavModules from '../navModules';
 
-export default function pSpecialProduct() {
+export default function PSpecialProduct() {
 
   return(
       <>

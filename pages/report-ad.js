@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import React, { useState, useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
-export default function reportAd() {
+export default function ReportAd() {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const { userInfo } = state;

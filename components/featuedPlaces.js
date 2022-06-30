@@ -3,7 +3,7 @@ import useTranslation from "next-translate/useTranslation"
 import Router, { useRouter } from 'next/router'
 import Link from 'next/link'
 
-export default function featuredPlace(){
+export default function FeaturedPlace(){
   const { t} = useTranslation('common')
   const router = useRouter();
     return(

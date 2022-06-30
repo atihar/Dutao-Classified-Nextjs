@@ -8,7 +8,7 @@ import Link from 'next/link'
 import useTranslation from "next-translate/useTranslation";
 
 
-export default function singlePropertySale({item}){
+export default function SinglePlace({item}){
     const itemInfo = item.itemInfo;
     const postedDate = moment(item.createdAt).startOf('hour').fromNow();
     const {t} = useTranslation('common')
@@ -48,7 +48,7 @@ export default function singlePropertySale({item}){
 
                                         {Object.entries(item.features).map(([key, value]) => {
                                             return (
-                                            <tr>
+                                            <tr key={key}>
                                                 <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap">{key}</td>
                                                 <td className="px-4 py-2 text-gray-700 whitespace-nowrap">{value}</td>
                                             </tr>

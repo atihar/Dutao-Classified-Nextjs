@@ -14,7 +14,7 @@ import moment from 'moment';
 const PAGE_SIZE = 10;
 
 
-export default function communityList(props) {
+export default function CommunityList(props) {
   const router = useRouter();
   const {products} = props
   const {t} = useTranslation('common')

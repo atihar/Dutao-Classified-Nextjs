@@ -15,7 +15,7 @@ import UsedItems from '../../models/usedItems'
 import Motors from '../../models/motors'
 import PlaceItems from '../../models/place'
 
-export default function dashboard(props) {
+export default function AdminDashboard(props) {
     const router = useRouter();
     const { state, dispatch } = useContext(Store);
     const { userInfo } = state;

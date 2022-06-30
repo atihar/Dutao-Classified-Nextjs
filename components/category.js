@@ -12,7 +12,7 @@ import 'swiper/css/scrollbar';
 import Link from 'next/link';
 import useTranslation from "next-translate/useTranslation"
 
-export default function categorySlider(props){
+export default function CategorySlider(props){
     const data = props.data;
     const router = useRouter();
     const { t} = useTranslation('common')

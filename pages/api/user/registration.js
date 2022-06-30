@@ -25,14 +25,14 @@ handler.post(async (req, res, err) => {
   console.log(err);
 
   const token = emailSignToken(user);
-  // res.send({
-  //   token,
-  //   _id: user.id,
-  //   name: user.name,
-  //   email: user.email,
-  //   isAdmin: user.isAdmin,
-  //   activated: user.activated
-  // });
+  res.send({
+    token,
+    _id: user.id,
+    name: user.name,
+    email: user.email,
+    isAdmin: user.isAdmin,
+    activated: user.activated
+  });
   console.log(user.id)
   
   // sending verification email 

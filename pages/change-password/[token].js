@@ -22,7 +22,7 @@ export default function ChangePassword() {
     useEffect(() => {
       if (userInfo) {
         router.push('/');
-    }}, []);
+    }}, [userInfo, router]);
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -98,7 +98,7 @@ export default function ChangePassword() {
             <div className="flex items-center justify-between py-4">
             <p className="text-sm text-gray-500">
                 {t('facingIssue')}
-                <a className="underline" href="/contact"> {t('contactUs')}</a>
+                <Link className="underline" href={'/contact'}> {t('contactUs')}</Link>
             </p>
 
             <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg">

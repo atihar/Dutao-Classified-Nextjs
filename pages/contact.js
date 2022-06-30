@@ -61,8 +61,8 @@ export default function Contact() {
 
         <div className="p-8 bg-white rounded-lg shadow-lg lg:p-12 lg:col-span-3">
         {message && 
-                <div class="p-4 text-green-700 border rounded border-green-900/10 bg-green-50" role="alert" >
-                <strong class="text-sm font-medium"> We have received the message.! Soon we will get back to you </strong>
+                <div className="p-4 text-green-700 border rounded border-green-900/10 bg-green-50" role="alert" >
+                <strong className="text-sm font-medium"> We have received the message.! Soon we will get back to you </strong>
                 </div>
                 }
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

@@ -9,7 +9,7 @@ import Footer from '../../../../components/footer'
 import Link from 'next/link'
 
 
-export default function applicants(){
+export default function Applicants(){
     const router = useRouter();
     const jobid = router.query.jobId
     const { state } = useContext(Store);

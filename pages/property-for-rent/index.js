@@ -8,7 +8,7 @@ import db from '../../lib/dbConnect'
 import RentProperty from '../../models/propertyForRent'
 import useTranslation from "next-translate/useTranslation"
 
-export default function propertyForRent({property}) {
+export default function PropertyForRent({property}) {
   const { t} = useTranslation('common')
   const cat = [{
     name : t('apt'),

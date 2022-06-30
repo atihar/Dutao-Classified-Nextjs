@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import useTranslation from "next-translate/useTranslation"
 
-export default function footer() {
+export default function Footer() {
   const { t} = useTranslation('common')
   
     return (

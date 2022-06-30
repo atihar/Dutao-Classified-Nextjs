@@ -6,7 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 
-function MyApp({ Component, pageProps }) {
+function App({ Component, pageProps }) {
 
     useEffect(() => {
         AOS.init({
@@ -26,4 +26,4 @@ function MyApp({ Component, pageProps }) {
   )
 }
 
-export default MyApp
+export default App

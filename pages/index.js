@@ -5,7 +5,7 @@ import PopularItemComponent from '../components/popularitems/popularItems'
 import Footer from '../components/footer'
 import VVIP from '../components/vvipHome'
 import Slider from '../components/slider'
-import PSecondHand from '../components/popularitems/pSecondHand'
+import UsedItems from '../models/usedItems'
 import PSpecialProduct from '../components/popularitems/pSpecials'
 import PHomeServices from '../components/popularitems/pHomeService'
 import PJobs from '../components/popularitems/pJobs'
@@ -34,7 +34,7 @@ const slider2 = [
 ];
 
 
-export default function Index({property, motors}){
+export default function Index({property, motors, usedItem}){
   const {t} = useTranslation('common')
   return(
   <>
@@ -44,6 +44,7 @@ export default function Index({property, motors}){
    <Slider data={slider2}></Slider>
    <PopularItemComponent title={t('popProperty')} data={property} btnLink={"/property-for-sale"}></PopularItemComponent> 
    <PopularItemComponent title={t('popMotors')} data={motors} btnLink={"/motors"}></PopularItemComponent> 
+   <PopularItemComponent title={t('popUsedItems')} data={usedItem} btnLink={"/motors"}></PopularItemComponent> 
    {/* <PSecondHand></PSecondHand> */}
    {/* <Slider data={slider3}></Slider> */}
    {/* <PSpecialProduct></PSpecialProduct> */}
@@ -64,6 +65,8 @@ export async function getStaticProps() {
   const data = await SaleProperty.find().limit(2).lean();
   const property = JSON.parse(JSON.stringify(data));
 
+  const usedItemData = await UsedItems.find().limit(2).lean();
+  const usedItem = JSON.parse(JSON.stringify(usedItemData))
   //setting data constant for the result for database
   const motorData = await Motors.find().limit(2).lean();
   const motors = JSON.parse(JSON.stringify(motorData));
@@ -72,6 +75,6 @@ export async function getStaticProps() {
 
   //setting static props for data generation for frontend
   return {
-    props: { property, motors }
+    props: { property, motors, usedItem }
   };
 }

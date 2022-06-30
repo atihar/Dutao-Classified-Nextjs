@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import NavModules from '../navModules';
 
-export default function pSecondHand() {
+export default function PSecondHand() {
 
   return(
       <>

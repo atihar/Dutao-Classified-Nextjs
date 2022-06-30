@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import useTranslation from "next-translate/useTranslation";
 
 
-export default function communityFilter(props) {
+export default function MapFilter(props) {
   const {t} = useTranslation('common')
   const locCity = props.data
   //user city is coming.. we need to pass it to filter in the future extending from here

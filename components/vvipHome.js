@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
 
-export default function vvipHome() {
-    const { t} = useTranslation('common')
+export default function VvipHome() {
+    const { t } = useTranslation('common')
   return (
     <section>
         <div className="hidden lg:block max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">

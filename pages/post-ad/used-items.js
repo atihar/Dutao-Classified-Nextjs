@@ -8,7 +8,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import cityData from '../../lib/data.json'
 import useTranslation from 'next-translate/useTranslation'
 
-export default function propertyForSalePost({ children }) {
+export default function UsedItemPost({ children }) {
     const router = useRouter();
     const { state } = useContext(Store);
     const { userInfo } = state;

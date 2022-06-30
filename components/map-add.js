@@ -3,7 +3,7 @@ import Map, {Marker } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 
-export default function map() {
+export default function MapDisplay() {
   const [x, setX] = useState('')
 
   const onMarkerDragEnd = (e) => {

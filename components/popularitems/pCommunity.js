@@ -2,7 +2,7 @@ import Link from 'next/link';
 import NavModules from '../navModules';
 
 
-export default function pCommunity() {
+export default function PCommunity() {
 
   return(
       <>

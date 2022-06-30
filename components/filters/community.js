@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import useTranslation from "next-translate/useTranslation";
 
 
-export default function communityFilter() {
+export default function CommunityFilter() {
     const {t} = useTranslation('common')
     const router = useRouter();
 

@@ -14,7 +14,7 @@ import moment from 'moment';
 const PAGE_SIZE = 10;
 
 
-export default function Home(props) {
+export default function JobsList(props) {
   const router = useRouter();
   const {jobs} = props
   const {t} = useTranslation('common')

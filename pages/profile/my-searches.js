@@ -6,7 +6,7 @@ import { Store } from '../../lib/Store'
 import Cookies from 'store-js';
 import React, { useContext, useEffect, useState } from 'react'
 
-export default function mySearches() {
+export default function MySearches() {
     const router = useRouter();
     const { state, dispatch } = useContext(Store);
     const { userInfo } = state;

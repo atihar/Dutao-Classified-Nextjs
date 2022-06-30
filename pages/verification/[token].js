@@ -5,7 +5,7 @@ import Header from '../../components/header'
 import Footer from '../../components/footer'
 import Link from 'next/link'
 
-export default function verification() {
+export default function Verification() {
     const router = useRouter()
     const { token } = router.query
     const [activated, setActivated] = useState(false)
@@ -20,7 +20,7 @@ export default function verification() {
           .catch(function (error) {
             console.log(error.response.data.message);
           });
-      }}, []);
+      }}, [token]);
 
 
   return (
@@ -34,7 +34,7 @@ export default function verification() {
         </svg></p>
         <p className='text-sm'>Welcome to dutao</p>
         <h1>Account is now active</h1>
-        <p className='text-base'>What's next? <Link href={'/login'}><span className='underline cursor-pointer'>continue login to account</span></Link></p>
+        <p className='text-base'>What&apos;s next? <Link href={'/login'}><span className='underline cursor-pointer'>continue login to account</span></Link></p>
       </div>
     {/* :
       <div className='flex flex-col items-center bg-red-50 py-8 px-14 rounded-xl'>

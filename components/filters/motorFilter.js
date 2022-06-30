@@ -5,7 +5,7 @@ import useTranslation from "next-translate/useTranslation"
 
 
 
-export default function motorFilter() {
+export default function MotorFilter() {
 
     const router = useRouter();
     const {t} = useTranslation('common')

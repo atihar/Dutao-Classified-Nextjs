@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
-function business() {
+function Business() {
   return (
    <>
    <Header/> 
@@ -86,4 +86,4 @@ function business() {
   )
 }
 
-export default business
+export default Business

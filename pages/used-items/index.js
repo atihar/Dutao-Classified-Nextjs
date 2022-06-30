@@ -8,7 +8,7 @@ import db from '../../lib/dbConnect'
 import UsedItems from '../../models/usedItems'
 import useTranslation from "next-translate/useTranslation"
 
-export default function CommunityMain({items}) {
+export default function UsedItem({items}) {
   const {t} = useTranslation('common')
   const cat = [{
     name : t('electronics'),
