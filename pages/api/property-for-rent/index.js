@@ -37,6 +37,7 @@ handler.post(async (req, res) => {
     businessName : req.body.businessName,
     businessLogo : req.body.businessLogo,
     views: 0,
+    phoneClick: 0,
     isPromoted: false
   });
 

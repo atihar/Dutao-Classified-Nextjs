@@ -23,6 +23,8 @@ handler.post(async (req, res) => {
     price: req.body.price,
     phone: req.body.phone,
     userEmail: req.body.userEmail,
+    views:0,
+    phoneClick: 0,
   });
 
   const usedItem = await newUsedItems.save();

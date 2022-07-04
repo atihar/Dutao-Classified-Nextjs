@@ -84,6 +84,7 @@ export default function Footer() {
                   <a className="hover:opacity-75" href="/contact"> {t('contact')} </a>
                   <a className="hover:opacity-75" href="/faq"> {t('faq')} </a>
                   <a className="hover:opacity-75" href="/contact"> {t('call')} </a>
+                  <a className="hover:opacity-75" href="/business"> For Business </a>
                 </nav>
               </div>
       

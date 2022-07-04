@@ -165,8 +165,12 @@ export default function SinglePropertySale({property}){
     await db.connect();
   
     //setting data constant for the result for database
-    const data = await SaleProperty.findById(req.query.id).lean();
-    const property = JSON.parse(JSON.stringify(data));
+    const info = await SaleProperty.findById(req.query.id).exec();
+    if(info && info.views !== undefined){
+       info.views++
+    }
+    await info.save();
+    const property = JSON.parse(JSON.stringify(info));
     await db.disconnect();
     
   

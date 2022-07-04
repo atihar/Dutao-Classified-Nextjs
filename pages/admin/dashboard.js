@@ -40,7 +40,7 @@ export default function AdminDashboard(props) {
   return (
     <>
     <Header></Header>
-    <div className='max-w-screen-xl mx-auto sm:py-4 px-8 sm:my-4 rounded-lg shadow bg-gray-100 '>
+    <div className='max-w-screen-2xl mx-auto sm:py-4 px-8 sm:my-4 rounded-lg shadow bg-gray-100 '>
     <h2 className="font-bold py-5"> Dutao Management Dashboard</h2>
         <div className="grid sm:grid-cols-[1fr_3fr] gap-4">
             <div>

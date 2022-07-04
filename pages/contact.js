@@ -150,12 +150,12 @@ export default function Contact() {
     </section>
 
 
-    <section>
+    <section className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
         {/* For Search Bar */}
 
-      <div className="container mx-auto">     
-        <div className=" p-4 grid grid-cols-1 lg:grid-cols-2 gap-3 mb-5 ">
-            <div className="grid grid-cols-1 p-4 mx-auto justify-items-start">
+      <div className="container">     
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-5 ">
+            <div className="grid grid-cols-1 justify-items-start">
                 <div className="flex items-center lg:justify-center mt-5">
                     <div>    
                         <svg className="h-6 mr-4 text-red-600 svg-icon fill-current" viewBox="0 0 20 20">
@@ -163,7 +163,7 @@ export default function Contact() {
                         </svg>
                     </div>
                     <div className="grid grid-cols-1">  
-                        <span  className="text-xl font-bold">Office:</span>  
+                        <span  className="text-xl font-bold">Corporate Office:</span>  
                         <span  className="text-sm">Floor 31, Westburry Towers,<br/> Business Bay, Downtown, Dubai.</span>
                     </div>
                 </div>
@@ -174,7 +174,7 @@ export default function Contact() {
                         </svg>
                     </div>
                     <div className="grid grid-cols-1">
-                        <span  className="text-xl font-bold">Email:</span>
+                        <span  className="text-xl font-bold">Reach us out:</span>
                         <span  className="text-sm hover:text-blue-600 transition duration-200"><a href="">hello@dutao.ae</a></span>
                     </div>
                 </div>
@@ -185,7 +185,7 @@ export default function Contact() {
                         </svg>
                     </div>
                     <div className="grid grid-cols-1">
-                        <span className="text-xl font-bold">Social:</span>
+                        <span className="text-xl font-bold">Follow us :</span>
                         <span className="grid grid-cols-3">
                             <a href=""><svg className="w-6 h-6 m-2 text-gray-500 svg-icon fill-current" viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/>

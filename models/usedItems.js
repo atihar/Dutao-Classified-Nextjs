@@ -13,7 +13,8 @@ const useditemSchema = new mongoose.Schema({
     description:{type:String},
     price:{type:Number},
     userEmail:{type:String},
-    phone:{type:String}
+    phone:{type:String},
+    phoneClick: {type:Number},
     },
     {
     timestamps: true,

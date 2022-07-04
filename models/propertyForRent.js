@@ -29,6 +29,7 @@ const propertyRentSchema = new mongoose.Schema({
     userEmail:{type:String},
     phone:{type:String},
     views: {type:Number},
+    phoneClick: {type:Number},
     isPromoted : {type:Boolean},
     businessLogo : {type:String},
     businessName : {type:String}

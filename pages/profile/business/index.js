@@ -6,6 +6,7 @@ import { Store } from '../../../lib/Store'
 import Cookies from 'store-js';
 import React, { useContext, useEffect, useState } from 'react'
 import useTranslation from 'next-translate/useTranslation';
+import axios from "axios"
 
 function MyBusiness() {
     const router = useRouter();
@@ -13,15 +14,23 @@ function MyBusiness() {
     const { userInfo } = state;
     const [ userData, setUserData] = useState({})
     const {t} = useTranslation('common')
+    const [bizData, setBizData] = useState({})
 
     useEffect(() => {
         if (!userInfo) {
             router.push('/login');
-            }
-            else {
+        }
+        else {
+                getBusinessData();
                 setUserData(userInfo)
             }
         }, []);
+
+    const getBusinessData = async () => {
+        const { data } = await axios.get(`/api/user/biz-data/?id=${userInfo._id}`)
+        setBizData(data)
+        console.log(bizData)
+    }
 
     const logoutClickHandler = () => {
         dispatch({ type: 'USER_LOGOUT' });
@@ -35,13 +44,12 @@ function MyBusiness() {
         <Header></Header>
         <div className='max-w-screen-xl w-screen mx-auto sm:py-4 px-8 sm:my-4 rounded-lg shadow' data-aos="zoom-y-out">
         <h2 className="font-bold pt-5"> Dutao Business Dashboard</h2>
-        <p className="pb-5">Business Name</p>
+        <p className="pb-5">{bizData.businessName}</p>
             <div className="grid lg:grid-cols-[1fr_3fr] gap-4">
                 <div>
                     <ul className="text-base space-y-4">
                         <Link href={'/profile'}><li className="text-white py-2 px-4 rounded-lg active">{t('myProfile')}</li></Link>
                         <Link href={'/profile/business/ads'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('myAds')}</li></Link>
-                        <Link href={'/profile/my-information'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('myInfo')}</li></Link>
                         {/* <Link href={'/profile/subscription'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg ">Subscription</li></Link> */}
                         <li onClick={logoutClickHandler} className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('logout')}</li>
                     </ul>
@@ -54,7 +62,7 @@ function MyBusiness() {
                         </div>
                         <div className="flex-1 text-center px-6 py-4 bg-red-600 text-white rounded-lg">
                             <p className="text-base">{t('mySearches')}</p>
-                            <p className="font-bold">4</p>
+                            <p className="font-bold">0</p>
                         </div>                                         
                     </div>
 

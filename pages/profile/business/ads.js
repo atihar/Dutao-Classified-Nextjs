@@ -11,6 +11,7 @@ import { Store } from '../../../lib/Store';
 import { useRouter } from 'next/router';
 import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
+import moment from "moment"
 
 
 export default function ManageBizAds() {
@@ -23,6 +24,11 @@ export default function ManageBizAds() {
   const [ popUp, setPopup] = useState(false)
   const { t, lang } = useTranslation('common')
   const [bizCategory, setBizCategory] = useState('')
+  const [propertyType, setPropertyType] = useState('sale')
+  const [bizData, setBizData] = useState({})
+  const [selected, setSelected] = useState({})
+  const [images, setImages] = useState([])
+
 
   useEffect(() => {
     if (!userInfo) {
@@ -31,27 +37,29 @@ export default function ManageBizAds() {
     fetchUserData();
 
     if(bizCategory == 'property'){
-      fetchPropertyData()
+      propertyType == 'sale' ? fetchPropertySaleData()
+     : fetchPropertyRentData()
     }
     else if(bizCategory == 'motors'){
       fetchMotorData()
     }
-  }, [bizCategory]);
+  }, [bizCategory, propertyType]);
+
 
   // Prefetch data to check the business account details of the user
   const fetchUserData = async () => {
     //doing CSR for fetching users posts using axios and setting data to state to render it
     setLoading(true)
-    const userEmail = userInfo.email
     const { data } = await axios.get(`/api/user/biz-data/?id=${userInfo._id}`,{
       headers: { authorization: `Bearer ${userInfo.token}` }
     })
     // setting business cateogory which will lead to the category based data fetching
     setBizCategory(data.businessCategory)
+    setBizData(data)
  }
  
 
-  const fetchPropertyData = () => {
+  const fetchPropertySaleData = () => {
      //doing CSR for fetching users posts using axios and setting data to state to render it
      setLoading(true)
      const userEmail = userInfo.email
@@ -70,6 +78,27 @@ export default function ManageBizAds() {
          setLoading(false)
        });
   }
+
+
+  const fetchPropertyRentData = () => {
+    //doing CSR for fetching users posts using axios and setting data to state to render it
+    setLoading(true)
+    const userEmail = userInfo.email
+    axios.get(`/api/user/manage/property-for-rent/?userEmail=${userEmail}`,{
+      headers: { authorization: `Bearer ${userInfo.token}` }
+    })
+      .then(function (response) {
+        setPosts(response.data)
+        setPostCount(response.data.length)
+        setLoading(false)
+        // handle success
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+        setLoading(false)
+      });
+ }
 
   const fetchMotorData = () => {
     //doing CSR for fetching users posts using axios and setting data to state to render it
@@ -91,13 +120,6 @@ export default function ManageBizAds() {
       });
  }
 
-  const showpopupHandler = () =>{
-    setPopup(true)
-  }
-  const hidepopupHandler = () => {
-    setPopup(false)
-  }
-
   const deletePhoto = async (e) => {
     try{
       const myFileList = e;
@@ -113,17 +135,19 @@ export default function ManageBizAds() {
 
  const deleteHandler = async (productId, productImages) => {
     try {
-      setLoading(true)
-      // await deletePhoto(productImages);
-      await axios.delete(`/api/user/manage/property-for-sale/?id=${productId}`);
-      await deletePhoto(productImages);
-      setLoading(false)
-      router.reload()
+      setPopup(true);
+      setSelected(productId)
+      setImages(productImages)
     } catch (err) {
       console.log(err)
     }
   };
 
+  const deleteFn = async() => {
+    await axios.delete(`/api/user/manage/property-for-sale/?id=${selected}`);
+    await deletePhoto(images);
+    router.reload()
+  }
 
   return (
       <>
@@ -131,17 +155,22 @@ export default function ManageBizAds() {
 
         <div className='sm:max-w-screen-xl sm:w-screen mx-auto py-4 px-4 my-4 rounded-lg shadow' data-aos="zoom-y-out">
         <h2 className="font-bold py-0 sm:py-5"> {t('dashboard')} </h2>
-        <p className="pb-5">Business Name</p>
+        <p className="pb-5">{bizData.businessName}</p>
             <div className="grid lg:grid-cols-[1fr_4fr] gap-4">
                 <div>
                     <ul className="text-base space-y-4">
                           <Link href={'/profile/business'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('myProfile')}</li></Link>
                           <Link href={'/profile/manage/business/ads'}><li className="py-2 px-4 rounded-lg text-white active">{t('myAds')}</li></Link>
-                          <Link href={'/profile/my-information'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('myInfo')}</li></Link>
                           {/* <Link href={'/profile/subscription'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Subscription</li></Link> */}
                     </ul>
                 </div>
                 <div>
+                  {bizCategory == 'property' ? 
+                  <div className="flex space-x-2 text-sm mb-3">
+                    <p onClick={() => setPropertyType('rent')}  className="cursor-pointer border-b-2 px-6 py-2 bg-red-50 border-b-red-200"> Rentals</p>
+                    <p onClick={() => setPropertyType('sale')} className="cursor-pointer border-b-2 px-6 py-2 bg-red-50 border-b-red-200"> On Sales</p>
+                  </div>
+                  : <div></div> }
                   <div className="flex flex-inline justify-between">
                     <p className="text-base text-gray-600">You have {postCount} posted Ads</p>
                     <p className="text-sm text-gray-600">Manage ad</p>
@@ -185,8 +214,8 @@ export default function ManageBizAds() {
                         </div>
                         
                         </td>
-                        <td className="px-4 py-2 text-gray-700 whitespace-nowrap">22 days</td>
-                        <td className="px-4 py-2 text-gray-700 whitespace-nowrap">0</td>
+                        <td className="px-4 py-2 text-gray-700 whitespace-nowrap">{moment(property.createdAt).format("DD MMM YYYY")}</td>
+                        <td className="px-4 py-2 text-gray-700 whitespace-nowrap">{property.views ? property.views : 0}</td>
                         <td className="px-4 py-2 text-gray-700 whitespace-nowrap">
 
                             <div className="grid grid-cols-3 gap-x-2">
@@ -211,25 +240,28 @@ export default function ManageBizAds() {
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash-fill" viewBox="0 0 16 16">
                                         <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                                     </svg>
-                                    <button onClick={showpopupHandler} className='pl-2'>Remove</button>
+                                    <button onClick={()=> deleteHandler(property._id, property.images)} className='pl-2'>Remove</button>
                                 </p>
-                                { popUp && 
-                                <div className="absolute left-[30%] top-[30%] max-w-screen-sm  p-8 bg-white rounded-lg shadow-2xl">
-                                    <h2 className="text-lg font-bold">Are you sure you want to do that?</h2>
-                                    <p className="mt-2 text-sm text-gray-500">
-                                        Doing that could have cause some issues elsewhere, are you 100% sure it's OK?
-                                    </p>
-                                    <div className="flex items-center justify-end mt-8 text-xs">
-                                        <button type="button" onClick={() => deleteHandler(property._id, property.images)} className="px-4 py-2 font-medium text-green-600 rounded bg-green-50">Yes, I'm sure</button>
-                                        <button type="button" onClick={hidepopupHandler} className="px-4 py-2 ml-2 font-medium text-gray-600 rounded bg-gray-50">No, go back</button>
-                                    </div>
-                                </div>}
                             </div>
                             </td>
                         </tr>
                         ))}
+                        
                     </tbody>
                 </table>
+                {/* ----------- popup starts ----------- */}
+                { popUp && 
+                    <div className="absolute left-[30%] top-[30%] max-w-screen-sm  p-8 bg-white rounded-lg shadow-2xl">
+                        <h2 className="text-lg font-bold">Are you sure you want to do that?</h2>
+                        <p className="mt-2 text-sm text-gray-500">
+                            Doing that could have cause some issues elsewhere, are you 100% sure it's OK?
+                        </p>
+                        <div className="flex items-center justify-end mt-8 text-xs">
+                            <button type="button" onClick={() => deleteFn()} className="px-4 py-2 font-medium text-green-600 rounded bg-green-50">Yes, I'm sure</button>
+                            <button type="button" onClick={() => setPopup(false)} className="px-4 py-2 ml-2 font-medium text-gray-600 rounded bg-gray-50">No, go back</button>
+                        </div>
+                    </div>}
+                    {/* ---------- popup ends ---------------  */}
                 </div>              
                 </div>        
             </div>

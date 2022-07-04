@@ -111,7 +111,11 @@ export default function SingleCommunity({items}){
     await db.connect();
   
     //setting data constant for the result for database
-    const data = await Community.findById(req.query.id).lean();
+    const data = await Community.findById(req.query.id).exec();
+    if(data && data.views !== undefined){
+        data.views++
+     }
+    await data.save();
     const items = JSON.parse(JSON.stringify(data));
     await db.disconnect();
     

@@ -14,7 +14,8 @@ const communitySchema = new mongoose.Schema({
     price:{type:Number},
     userEmail:{type:String},
     phone:{type:String},
-    views: {type:Number}
+    views: {type:Number},
+    phoneClick: {type:Number},
     },
     {
     timestamps: true,

@@ -34,6 +34,7 @@ const motorSaleSchema = new mongoose.Schema({
     userEmail:{type:String},
     phone:{type:String},
     views: {type:Number},
+    phoneClick: {type:Number},
     businessLogo : {type:String},
     businessName : {type:String},
     isPromoted : {type:Boolean},

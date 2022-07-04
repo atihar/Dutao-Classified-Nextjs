@@ -194,7 +194,11 @@ export default function SingleMotors({motor}){
     await db.connect();
   
     //setting data constant for the result for database
-    const data = await Motors.findById(req.query.id).lean();
+    const data = await Motors.findById(req.query.id).exec();
+    if(data && data.views !== undefined){
+        data.views++
+     }
+    await data.save();
     const motor = JSON.parse(JSON.stringify(data));
     await db.disconnect();
     

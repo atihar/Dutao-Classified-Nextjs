@@ -14,23 +14,30 @@ function Profile() {
     const { userInfo } = state;
     const [ userData, setUserData] = useState({})
     const {t} = useTranslation('common')
+    const [accountType, setAccountType] = useState('')
 
     useEffect(() => {
         if (!userInfo) {
             router.push('/login');
             }
             else {
-                axios.get('')
+                getBusinessData();
                 setUserData(userInfo)
             }
         }, []);
+    
+    const getBusinessData = async () => {
+        const { data } = await axios.get(`/api/user/biz-data/?id=${userInfo._id}`)
+        setAccountType(data.subscription)
+        console.log(accountType)
+    }
+
 
     const logoutClickHandler = () => {
         dispatch({ type: 'USER_LOGOUT' });
         Cookies.remove('userInfo');
         router.push('/');
         };
-
         
   return (
       <>
@@ -41,6 +48,7 @@ function Profile() {
                 <div>
                     <ul className="text-base space-y-4">
                         <Link href={'/profile'}><li className="text-white py-2 px-4 rounded-lg active">{t('myProfile')}</li></Link>
+                        { accountType == 2 ? <Link href={'/profile/business'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Access Business Tool</li></Link> : <div></div> }
                         <Link href={'/profile/manage/property-for-sale'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('myAds')}</li></Link>
                         <Link href={'/profile/manage/jobs'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('manageRecruit')}</li></Link>
                         <Link href={'/profile/my-information'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('myInfo')}</li></Link>
@@ -58,7 +66,7 @@ function Profile() {
                         </div>
                         <div className="flex-1 text-center px-6 py-4 bg-red-600 text-white rounded-lg">
                             <p className="text-base">{t('mySearches')}</p>
-                            <p className="font-bold">4</p>
+                            <p className="font-bold">0</p>
                         </div>                                         
                     </div>
 

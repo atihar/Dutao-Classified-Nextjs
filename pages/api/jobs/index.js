@@ -34,6 +34,8 @@ handler.post(async (req, res) => {
     description:req.body.description,
     userEmail:req.body.userEmail,
     perks: req.body.perks,
+    views:0,
+    phoneClick: 0
   });
   const job = await newJob.save();
   await db.disconnect();

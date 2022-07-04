@@ -19,7 +19,7 @@ export default function CategorySlider(props){
     return(
     
     <section>
-        <div className="max-w-[350px] sm:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+        <div className="max-w-[350px] sm:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl px-0 mx-auto sm:px-6 lg:px-8">
             <h1 className="py-4 font-bold">{t('pCategories')}</h1>
           <Swiper 
             modules={[]}
