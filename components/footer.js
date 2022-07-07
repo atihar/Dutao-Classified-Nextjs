@@ -81,10 +81,10 @@ export default function Footer() {
                 </p>
       
                 <nav className="flex flex-col mt-2 space-y-2 text-sm text-gray-500">
-                  <Link href={`contact`}><a className="hover:opacity-75" > {t('contact')} </a></Link>  
+                  <Link href={`/contact`}><a className="hover:opacity-75" > {t('contact')} </a></Link>  
                   <a className="hover:opacity-75" href={`faq`}> {t('faq')} </a>
-                  <Link href={`contact`}><a className="hover:opacity-75" >{t('call')} </a></Link>
-                  <Link href={'business'}><a className="hover:opacity-75"> {t('forBusiness')} </a></Link>
+                  <Link href={`/contact`}><a className="hover:opacity-75" >{t('call')} </a></Link>
+                  <Link href={'/business'}><a className="hover:opacity-75"> {t('forBusiness')} </a></Link>
                 </nav>
               </div>
       
