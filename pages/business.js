@@ -1,42 +1,42 @@
 import React from 'react'
 import Header from '../components/header'
 import Footer from '../components/footer'
+import useTranslation from 'next-translate/useTranslation'
+
 
 function Business() {
+  const { t, lang } = useTranslation('common')
   return (
    <>
    <Header/> 
    <section className="overflow-hidden sm:max-w-screen-xl m-auto text-gray-700 mt-10">
             <div className="h-[400px] w-full flex items-center lg:pt-21 bg-black rounded-xl">
-                  <h1 className="text-yellow-500 text-5xl font-bold text-center w-screen">Dutao for business</h1>
+                  <h1 className="text-yellow-500 text-5xl font-bold text-center w-screen">{t('dutaoBusiness')}</h1>
               </div>
       </section>
       <section className='sm:max-w-screen-xl mx-auto'>
         <div className='grid grid-cols-3 mt-6 gap-x-8'>
           <div className='bg-gray-50 p-6'>
-            <h2 className='text-bold py-2'>For car dealers</h2>
-            <p className='text-base'>Increase your business revenue by listing your car in dutao</p>
+            <h2 className='text-bold py-2'>{t('forCarDealer')}</h2>
+            <p className='text-base'>{t('carDetails')}</p>
           </div>
           <div className='bg-gray-50 p-6'>
-            <h2 className='text-bold py-2'>For property agents</h2>
-            <p className='text-base'>Increase your business revenue by listing your car in dutao</p>
+            <h2 className='text-bold py-2'>{t('forRealtors')}</h2>
+            <p className='text-base'>{t('realtorDetails')}</p>
           </div>
           <div className='bg-yellow-300 p-6'>
-            <h2 className='text-bold py-2'>For advertisement</h2>
-            <p className='text-base'>Increase your business visibility by reaching thousands of users</p>
+            <h2 className='text-bold py-2'>{t('forAdvert')}</h2>
+            <p className='text-base'>{t('advertDetails')}</p>
           </div>
           </div>
         </section>
         <section className='max-w-screen-xl w-full mx-auto py-4 mt-8'>
           <div className='grid grid-cols-2 gap-x-8'>
             <div className='p-6 rounded-xl'>
-              <h2>Tell us more about you</h2>
+              <h2>{t('tellUsMore')}</h2>
               <p className='text-base pt-3'>
-              Whether you want to promote real estate, cars, or simply looking for new customers for your business; reach out and tell us what you’re after. We’ll find a way to help!
-
-              There’s a reason thousands of businesses in the UAE already trust us.<br/>
-
-              Note: please use this form to submit business inquiries only. If you have other inquiries, please email us at info@dutao.ae
+              {t('tellUsDetails')}<br/>
+              {t('businessNotes')}
               </p>
             </div>
             <div>

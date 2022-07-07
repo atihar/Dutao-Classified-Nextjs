@@ -64,12 +64,12 @@ return (
 
       {/* Navbar */}
 
-      <header className="shadow-sm">
-        <div className="sm:max-w-screen-xl p-4 mx-auto mt-3 sm:mt-0">
+      <header className="shadow-sm mb-16 mg:mb-0">
+        <div className="max-w-screen-xl pt-4 px-2 fixed lg:relative z-50 w-full bg-white mx-auto lg:mt-3 sm:mt-0">
           <div className="flex items-center justify-between space-x-4 lg:space-x-10">
             <div className="flex items-center lg:w-0 lg:flex-1">
               {router.pathname !== '/' ? <p onClick={()=> router.back()} className="flex lg:hidden mb-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" className="bi bi-arrow-left-circle bg-black rounded-full" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" className="bi bi-arrow-left-circle bg-black rounded-full" viewBox="0 0 16 16">
                     <path fillRule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
                   </svg>
               </p> : ''}

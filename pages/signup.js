@@ -170,7 +170,7 @@ export default function Signup() {
             <div className="flex items-center justify-between py-4">
             <p className="text-sm text-gray-500">
                 {t('haveAcc')}
-                <a className="underline" href="/login"> {t('signin')}</a>
+                <a className="underline" href={`login`}> {t('signin')}</a>
             </p>
 
             <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg">

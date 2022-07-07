@@ -3,13 +3,11 @@
 
 import Header from "../../../components/header"
 import Footer from "../../../components/footer"
-import Link from "next/link"
 import TextTruncate from 'react-text-truncate'
 import axios from "axios"
 import React, { useEffect,useState, useContext, useReducer } from 'react';
 import { Store } from '../../../lib/Store';
 import { useRouter } from 'next/router';
-import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
 import { useForm } from 'react-hook-form';
 
@@ -73,19 +71,20 @@ const onSubmit = async ({ category, adBudget, adDuration, status}) => {
         <Header></Header>
 
         <div className='sm:max-w-screen-xl sm:w-screen mx-auto py-4 px-4 my-4 rounded-lg shadow' data-aos="zoom-y-out">
-        <h2 className="font-bold py-0 sm:py-5"> {t('dashboard')} </h2>
+        <h2 className="font-bold py-0 sm:py-5"> {t('manageBizAds')} </h2>
             <div className="grid gap-4">
                 <div>
                     <p onClick={()=> router.back()} className="flex"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" className="bi bi-arrow-left-circle bg-black rounded-full" viewBox="0 0 16 16">
                     <path fillRule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
-                    </svg><span className="text-lg ml-2">Go back</span></p>
+                    </svg><span className="text-lg ml-2">{t('goBack')} </span></p>
                 <div className="overflow-hidden max-w-screen-md mx-auto overflow-x-auto border border-gray-100 rounded">
-                <h3>Promote your ad</h3>
+                <h3>{t('promoteAd')}</h3>
+                <p className="text-sm pb-4">{t('acrossMultiple')}</p>
                 <table className="min-w-full text-sm divide-y divide-gray-200">
                     <thead>
-                        <tr className="bg-gray-50">
-                        <th className="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">Ad Title</th>
-                        <th>Ref id</th>
+                        <tr className="bg-gray-100">
+                        <th className="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">{t('title')}</th>
+                        <th>{t('referenceId')}</th>
                         </tr>
                         
                     </thead>
@@ -111,37 +110,36 @@ const onSubmit = async ({ category, adBudget, adDuration, status}) => {
                         </div>
                         
                         </td>
-                        <td>{id}</td>
+                        <td className="text-center">{id}</td>
                         </tr>
                     </tbody>
                 </table>
                 <form onSubmit={handleSubmit(onSubmit)} action="">
-                    <div className="grid grid-cols-2 gap-x-4">
+                    <div className="grid grid-cols-2 gap-x-4 pt-4">
                         <div className="mb-3">
-                            <label className="text-base">For how many days you want to run the ad?</label>
+                            <label className="text-base">{t('daysToRunAd')}</label>
                             <select className="form-select border-2 block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                             rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                             {...register('adDuration', {required:true})}>
-                                <option value="">select one</option>
+                                <option value="">{t('selectOne')}</option>
                                 <option value="7">7 days</option>
                                 <option value="15">15 days</option>
                                 <option value="30">30 days</option>
                             </select>
                         </div>
                         <div className="mb-3 text-right">
-                            <label className="text-base">Whats your budget?</label>
+                            <label className="text-base">{t('whatsYourBudget')}</label>
                             <select className="form-select border-2 block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
                             rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white" onChange={handleBudget}
                             {...register('adBudget', {required:true})}>
-                                <option value="">select one</option>
+                                <option value="">{t('selectOne')}</option>
                                 <option value="5000">AED 5000</option>
                                 <option value="10000">AED 10000</option>
                                 <option value="15000">AED 15000</option>
                             </select>
                             <p className="w-full text-base pt-5 text-gray-500">Estimated Reach : {x}</p>
-                            <p className="w-full text-sm pb-5 text-gray-500">via Dutao smart network</p>
                             <button type="submit" className="inline-flex items-center justify-center px-5 py-3 text-white bg-black rounded-lg sm:w-auto">
-                            <span className="text-base">&#9889; Start Campaign </span>
+                            <span className="text-base">&#9889; {t('startCampaign')} </span>
 
                             { !loading ?
                             <svg xmlns="http://www.w3.org/2000/svg"
