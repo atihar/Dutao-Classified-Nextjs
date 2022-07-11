@@ -85,7 +85,7 @@ export default function Signup() {
             <label htmlFor="name" className="sr-only">Your Full Name</label>
 
             <div className="relative">
-                <input type="text" className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm" placeholder={t('yourname')}
+                <input type="text" className="w-full p-4 pr-12 text-sm focus:text-[16px] border-gray-200 rounded-lg shadow-sm" placeholder={t('yourname')}
                 {...register('name')}/>
 
                 <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -102,7 +102,7 @@ export default function Signup() {
             <div className="relative">
                 <input
                 type="email"
-                className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+                className="w-full p-4 pr-12 text-sm focus:text-[16px] border-gray-200 rounded-lg shadow-sm"
                 placeholder={t('yourEmail')}
                 {...register("email", {
                     required: 'Email Needs'
@@ -124,7 +124,7 @@ export default function Signup() {
             <div className="relative">
                 <input
                 type="password"
-                className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+                className="w-full p-4 pr-12 text-sm focus:text-[16px] border-gray-200 rounded-lg shadow-sm"
                 placeholder={t('newPass')}
                 {...register('password',{
                     minLength: {
@@ -142,7 +142,7 @@ export default function Signup() {
             <div className="relative">
                 <input
                 type="password"
-                className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+                className="w-full p-4 pr-12 text-sm focus:text-[16px] border-gray-200 rounded-lg shadow-sm"
                 placeholder={t('confirmPass')}
                 {...register('confirmPassword')}/>
 
@@ -154,7 +154,7 @@ export default function Signup() {
             <div className="relative">
                 <input
                 type="tel"
-                className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+                className="w-full p-4 pr-12 text-sm focus:text-[16px] border-gray-200 rounded-lg shadow-sm"
                 placeholder={t('phNo')}
                 {...register('phone')}/>
 
@@ -167,13 +167,13 @@ export default function Signup() {
             </div>
             <p className='px-4 text-gray-500 text-sm'>{t('agreeToTerms')}</p>
 
-            <div className="flex items-center justify-between py-4">
+            <div className="md:flex items-center justify-between py-4">
             <p className="text-sm text-gray-500">
                 {t('haveAcc')}
                 <a className="underline" href={`login`}> {t('signin')}</a>
             </p>
 
-            <button type="submit" className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg">
+            <button type="submit" className="inline-block w-full md:w-1/2 px-5 py-3 mt-3 md:mt-0 md:ml-3 text-sm font-medium text-white bg-red-500 rounded-lg">
                 {loading ? t('load') : t('createAcc')}
             </button>
             </div>

@@ -8,7 +8,7 @@ module.exports = {
     extend: {},
   },
   plugins: [require('@tailwindcss/aspect-ratio',
-   '@tailwindcss/forms')],
+   '@tailwindcss/forms','@tailwindcss/custom-forms')],
    variants: {
     display: ['responsive', 'group-hover', 'group-focus'],
     animation: ['group-hover'],

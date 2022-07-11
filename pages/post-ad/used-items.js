@@ -124,7 +124,7 @@ export default function UsedItemPost({ children }) {
                     block
                     w-full
                     p-3 bg-red-600
-                    text-sm
+                    text-sm focus:text-[16px]
                     text-gray-100
                     bg-clip-padding
                     focus:outline-none
@@ -143,7 +143,7 @@ export default function UsedItemPost({ children }) {
             <label htmlFor="title" className="sr-only">Ad Title</label>
 
             <div className="relative">
-                <input type="text" className="w-full p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm focus:outline-none border-2" placeholder={t('title')}
+                <input type="text" className="w-full p-4 pr-12 text-sm focus:text-[16px] rounded-lg bg-gray-50 shadow-sm focus:outline-none border-2" placeholder={t('title')}
                 {...register('title',{required:true})}/>
                 {errors.title && <p className='text-[9px] text-red-500 px-4'>ad title is required</p> }
             </div>
@@ -184,7 +184,7 @@ export default function UsedItemPost({ children }) {
                 <div className="relative">
                     <input
                     type="text"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 rounded-lg shadow-sm focus:outline-none border-2"
+                    className="w-full p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 rounded-lg shadow-sm focus:outline-none border-2"
                     placeholder={t('address')}
                     {...register('address')}/>
 
@@ -199,7 +199,7 @@ export default function UsedItemPost({ children }) {
             <div>
             <label className="sr-only" htmlFor="description">Service Description</label>
             <textarea
-              className="w-full p-3 text-sm bg-gray-50 rounded-lg focus:outline-none border-2"
+              className="w-full p-3 text-sm focus:text-[16px] bg-gray-50 rounded-lg focus:outline-none border-2"
               placeholder={t('description')}
               rows="8"
               id="description"
@@ -214,7 +214,7 @@ export default function UsedItemPost({ children }) {
                     <select className="form-select block
                     w-full
                     p-4
-                    text-sm
+                    text-sm focus:text-[16px]
                     text-gray-400
                     bg-clip-padding bg-no-repeat
                     rounded
@@ -289,7 +289,7 @@ export default function UsedItemPost({ children }) {
                 <div className="relative">
                     <input
                     type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm border-2"
+                    className="w-full p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 focus:outline-none rounded-lg shadow-sm border-2"
                     placeholder={t('service-fee')}
                     {...register('price',{required:true})}/>
                     {errors.price && <p className='text-[9px] text-red-500 px-4'>sale price is required</p> }
@@ -301,7 +301,7 @@ export default function UsedItemPost({ children }) {
                 <div className="relative">
                     <input
                     type="tel"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm border-2"
+                    className="w-full p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 focus:outline-none rounded-lg shadow-sm border-2"
                     placeholder={t('phNo')}
                     {...register('phone',{required:true})}/>
                     {errors.phone && <p className='text-[9px] text-red-500 px-4'>a contact number is required</p> }

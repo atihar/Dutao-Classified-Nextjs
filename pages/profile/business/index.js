@@ -194,7 +194,7 @@ export default function ManageBizAds() {
                     <thead>
                         <tr className="bg-gray-50">
                         <th className="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">{t('list')}</th>
-                        <th className="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">{t('lastUpdates')}</th>
+                        {/* <th className="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">{t('lastUpdates')}</th> */}
                         <th className="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">{t('views')}</th>
                         <th className="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">{t('actions')}</th>
                         </tr>
@@ -204,6 +204,7 @@ export default function ManageBizAds() {
                     {posts && posts.map((property) => (
                         <tr key={property._id}>
                         <td className="flex px-4 py-2 font-medium text-gray-900">
+                        <div className="hidden md:block">
                         <Image
                             src={`https://dutao-public.s3.amazonaws.com/${property.images[0]}`}
                             alt="dutao image"
@@ -211,7 +212,8 @@ export default function ManageBizAds() {
                             height={70}
                             className="object-cover rounded-lg"
                         />
-                        <div className="pl-4">
+                        </div>
+                        <div className="pl-0 sm:pl-4">
                         <h5 className="text-gray-500 text-base font-light">
                             <TextTruncate
                             line={1}
@@ -224,11 +226,11 @@ export default function ManageBizAds() {
                         </div>
                         
                         </td>
-                        <td className="px-4 py-2 text-gray-700 whitespace-nowrap">{moment(property.createdAt).format("DD MMM YYYY")}</td>
+                        {/* <td className="px-4 py-2 text-gray-700 whitespace-nowrap">{moment(property.createdAt).format("DD MMM YY")}</td> */}
                         <td className="px-4 py-2 text-gray-700 whitespace-nowrap">{property.views ? property.views : 0}</td>
                         <td className="px-4 py-2 text-gray-700 whitespace-nowrap justify-end">
 
-                            <div className="grid grid-cols-3 gap-x-2">
+                            <div className="grid lg:grid-cols-3 gap-x-2">
                             <Link href={`/profile/business/promote/?title=${property.title}&price=${property.price}&id=${property._id}`}>
                                 <p className="flex border-black-600 border-2 uppercase px-3 py-2 rounded-lg text-xs tracking-wide hover:cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-graph-up-arrow" viewBox="0 0 16 16">

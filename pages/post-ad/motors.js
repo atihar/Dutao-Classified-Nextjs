@@ -159,7 +159,8 @@ export default function MotorPost({ children }) {
                     block
                     w-full
                     p-3
-                    text-sm bg-red-600
+                    text-sm focus:text-[16px]
+                    bg-red-600
                     text-gray-100
                     bg-clip-padding
                     focus:outline-none
@@ -178,7 +179,7 @@ export default function MotorPost({ children }) {
             <label htmlFor="title" className="sr-only">Ad Title</label>
 
             <div className="relative">
-                <input type="text" className="w-full border-2 p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm focus:outline-none" placeholder={t('title')}
+                <input type="text" className="w-full border-2 p-4 pr-12 text-sm focus:text-[16px] rounded-lg bg-gray-50 shadow-sm focus:outline-none" placeholder={t('title')}
                 {...register('title',{required:true})}/>
                 {errors.title && <p className='text-[9px] text-red-500 px-4'>ad title is required</p> }
             </div>
@@ -219,7 +220,7 @@ export default function MotorPost({ children }) {
                 <div className="relative">
                     <input
                     type="text"
-                    className="w-full border-2 p-4 pr-12 text-sm bg-gray-50 rounded-lg shadow-sm focus:outline-none "
+                    className="w-full border-2 p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 rounded-lg shadow-sm focus:outline-none "
                     placeholder={t('address')}
                     {...register('address',{required:true})}/>
                     {errors.address && <p className='text-[9px] text-red-500 px-4'>your address is required</p> }
@@ -230,7 +231,7 @@ export default function MotorPost({ children }) {
             <div>
                 <label className="sr-only" htmlFor="description">Ad Description</label>
                 <textarea
-                className="w-full border-2 p-3 text-sm bg-gray-50 rounded-lg focus:outline-none"
+                className="w-full border-2 p-3 text-sm focus:text-[16px] bg-gray-50 rounded-lg focus:outline-none"
                 placeholder={t('description')}
                 rows="8"
                 id="description"
@@ -311,7 +312,7 @@ export default function MotorPost({ children }) {
             <div className="relative">
                 <input
                 type="number"
-                className="w-full border-2 p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                className="w-full border-2 p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                 placeholder={t('kmOnRoad')}
                 {...register('kilometers')}/>
             </div>
@@ -361,7 +362,7 @@ export default function MotorPost({ children }) {
             <div className="relative">
                 <input
                 type="text"
-                className="w-full border-2 p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                className="w-full border-2 p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                 placeholder={t('manufacturingYear')}
                 {...register('marketYear',{required:true})}/>
                 {errors.marketYear && <p className='text-[9px] text-red-500 px-4'>select a released year</p> }
@@ -399,7 +400,7 @@ export default function MotorPost({ children }) {
                 <div className="relative">
                     <input
                     type="number"
-                    className="w-full border-2 p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full border-2 p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('price')}
                     {...register('price',{required:true})}/>
                     {errors.price && <p className='text-[9px] text-red-500 px-4'>sale price is required</p> }
@@ -426,7 +427,7 @@ export default function MotorPost({ children }) {
                 <div className="relative">
                     <input
                     type="text"
-                    className="w-full border-2 p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full border-2 p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('videoLink')}
                     {...register('video')}/>
                 </div>
@@ -517,7 +518,7 @@ export default function MotorPost({ children }) {
                 <div className="relative">
                     <input
                     type="tel"
-                    className="w-full border-2 p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full border-2 p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('phNo')}
                     {...register('phone', {required:true})}/>
                     {errors.phone && <p className='text-[9px] text-red-500 px-4'>a contact number is required</p> }

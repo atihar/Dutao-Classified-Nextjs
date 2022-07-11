@@ -18,27 +18,27 @@ export default function PropertyForRent({property}) {
 {
     name : t('dup'),
     slug: "duplex",
-    image : "https://images.pexels.com/photos/3288103/pexels-photo-3288103.png?auto=compress&cs=tinysrgb&w=400&h=350&dpr=1"
+    image : "https://images.pexels.com/photos/3288103/pexels-photo-3288103.png?auto=compress&cs=tinysrgb&w=500&h=350&dpr=1"
 },
 {
     name : t('townhouse'),
     slug : "townhouse",
-    image: "https://images.pexels.com/photos/5731086/pexels-photo-5731086.jpeg?auto=compress&cs=tinysrgb&w=4000&h=750&dpr=1"
+    image: "https://images.pexels.com/photos/2079434/pexels-photo-2079434.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=2"
 },
 {
     name : t('villa'),
     slug : "villa",
-    image : "https://images.pexels.com/photos/5731086/pexels-photo-5731086.jpeg?auto=compress&cs=tinysrgb&w=4000&h=750&dpr=1"
+    image : "https://images.pexels.com/photos/53610/large-home-residential-house-architecture-53610.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=1"
 },
 {
     name : t('commercial'),
     slug : "commercial",
-    image : "https://images.pexels.com/photos/5731086/pexels-photo-5731086.jpeg?auto=compress&cs=tinysrgb&w=4000&h=750&dpr=1"
+    image : "https://images.pexels.com/photos/1024248/pexels-photo-1024248.jpeg?auto=compress&cs=tinysrgb&w=640&h=300&dpr=2"
 },
 {
     name : t('penthouse'),
     slug: "penthouse",
-    image: "https://images.pexels.com/photos/5731086/pexels-photo-5731086.jpeg?auto=compress&cs=tinysrgb&w=4000&h=750&dpr=1"
+    image: "https://images.pexels.com/photos/12289356/pexels-photo-12289356.jpeg?auto=compress&cs=tinysrgb&w=640&h=300&dpr=2"
 }
 ]
 

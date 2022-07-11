@@ -79,7 +79,7 @@ export default function Login() {
             <div className="relative">
                 <input
                 type="email"
-                className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+                className="w-full p-4 pr-12 text-sm focus:text-[16px] border-gray-200 rounded-lg shadow-sm"
                 placeholder={t('pemail')}
                 {...register('email')}
                 />
@@ -108,20 +108,20 @@ export default function Login() {
             <div className="relative">
                 <input
                 type="password"
-                className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+                className="w-full p-4 pr-12 text-sm focus:text-[16px] border-gray-200 rounded-lg shadow-sm"
                 placeholder={t('ppwd')}
                 {...register('password')}
                 />
             </div>
             </div>
 
-            <div className="flex items-center justify-between">
+            <div className="md:flex items-center justify-between">
             <p className="text-sm text-gray-500">
                 {t('noaccount')}
                 <Link className="underline" href="/signup">{t('signup')}</Link>
             </p>
 
-            <button type="submit" className="transition duration-700 ease-in-out inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-red-500 rounded-lg"
+            <button type="submit" className="transition duration-700 w-full md:w-1/2 ease-in-out inline-block mt-3 md:mt-0 px-5 py-3 md:ml-3 text-sm font-medium text-white bg-red-500 rounded-lg"
              >
                  <p>{loading ? t('load') : t('signin') }</p>
 

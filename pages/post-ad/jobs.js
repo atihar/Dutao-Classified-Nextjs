@@ -104,7 +104,7 @@ export default function JobsPost({ children }) {
             <label htmlFor="title" className="sr-only">{t('jobTitle')}</label>
 
             <div className="relative">
-                <input type="text" className="w-full p-4 pr-12 text-sm border-2 rounded-lg bg-gray-50 shadow-sm focus:outline-none" placeholder={t('jobTitle')}
+                <input type="text" className="w-full p-4 pr-12 text-sm focus:text-[16px] border-2 rounded-lg bg-gray-50 shadow-sm focus:outline-none" placeholder={t('jobTitle')}
                 {...register('title')}/>
 
                 <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -157,7 +157,7 @@ export default function JobsPost({ children }) {
                 <div className="relative">
                     <input
                     type="text"
-                    className="w-full p-4 pr-12 text-sm border-2 bg-gray-50 rounded-lg shadow-sm focus:outline-none "
+                    className="w-full p-4 pr-12 text-sm focus:text-[16px] border-2 bg-gray-50 rounded-lg shadow-sm focus:outline-none "
                     placeholder={t('address')}
                     {...register('address')}/>
 
@@ -186,7 +186,7 @@ export default function JobsPost({ children }) {
             <div>
             <label className="sr-only" htmlFor="description">Job Description</label>
             <textarea
-              className="w-full p-3 text-sm border-2 bg-gray-50 rounded-lg focus:outline-none"
+              className="w-full p-3 text-sm focus:text-[16px] border-2 bg-gray-50 rounded-lg focus:outline-none"
               placeholder={t('description')}
               rows="8"
               id="description"
@@ -200,7 +200,7 @@ export default function JobsPost({ children }) {
                 <div className="relative">
                     <input
                     type="text"
-                    className="w-full p-4 pr-12 border-2 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 border-2 text-sm focus:text-[16px] bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('monthlySalary')}
                     {...register('salary')}/>
                 </div>
@@ -212,7 +212,7 @@ export default function JobsPost({ children }) {
                 <div className="relative">
                     <input
                     type="text"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('neighbourhood')}
                     {...register('neighbourhood')}/>
                 </div>
@@ -224,7 +224,7 @@ export default function JobsPost({ children }) {
                 <div className="relative">
                         <input
                         type="text"
-                        className="w-full p-4 pr-12 border-2 text-sm bg-gray-50 rounded-lg shadow-sm focus:outline-none "
+                        className="w-full p-4 pr-12 border-2 text-sm focus:text-[16px] bg-gray-50 rounded-lg shadow-sm focus:outline-none "
                         placeholder={t('companyName')}
                         {...register('company')}/>
                 </div>
@@ -232,7 +232,7 @@ export default function JobsPost({ children }) {
 
             <div>
                 <div className="mb-3 xl:w-100">
-                    <select className="form-select block border-2 w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
+                    <select className="form-select block border-2 w-full p-4 text-sm focus:text-[16px] text-gray-400 bg-clip-padding bg-no-repeat
                     rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
                     {...register('companySize')}>
                         <option value="">{t('companySize')}</option>
@@ -411,7 +411,7 @@ export default function JobsPost({ children }) {
                 <div className="relative">
                     <input
                     type="text"
-                    className="w-full p-4 pr-12 border-2 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 border-2 text-sm focus:text-[16px] bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('preferredNationality')}
                     {...register('reqNationality')}/>
                 </div>
@@ -423,7 +423,7 @@ export default function JobsPost({ children }) {
                 <div className="relative">
                     <input
                     type="tel"
-                    className="w-full p-4 pr-12 text-sm border-2 bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm focus:text-[16px] border-2 bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('phNo')}
                     {...register('phone')}/>
                 </div>

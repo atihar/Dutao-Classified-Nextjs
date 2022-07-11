@@ -161,7 +161,7 @@ export default function PropertyForSalePost({ children }) {
                     block
                     w-full
                     p-3 bg-red-600
-                    text-sm
+                    text-sm focus:text-[16px]
                     text-gray-100
                     bg-clip-padding
                     focus:outline-none
@@ -180,7 +180,7 @@ export default function PropertyForSalePost({ children }) {
             {/* title  */}
             <label htmlFor="title" className="sr-only">Ad Title</label>
             <div className="relative">
-                <input type="text" className="w-full p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm border-2 focus:outline-none" placeholder={t('title')}
+                <input type="text" className="w-full p-4 pr-12 text-sm  focus:text-[16px] rounded-lg bg-gray-50 shadow-sm border-2 focus:outline-none" placeholder={t('title')}
                 {...register('title', {required:true})}/>
                 {errors.title && <p className='text-[9px] text-red-500 px-4'>a ad title is required</p> }
             </div>
@@ -192,7 +192,7 @@ export default function PropertyForSalePost({ children }) {
                     <select className="form-select block
                     w-full
                     p-3
-                    text-sm
+                    text-sm focus:text-[16px]
                     text-gray-400
                     bg-clip-padding bg-no-repeat
                     rounded focus:outline-none
@@ -217,7 +217,7 @@ export default function PropertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="text"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 rounded-lg shadow-sm border-2 focus:outline-none "
+                    className="w-full p-4 pr-12 text-sm  focus:text-[16px] bg-gray-50 rounded-lg shadow-sm border-2 focus:outline-none "
                     placeholder={t('address')}
                     {...register('address',{required: true})}/>
                     {errors.city && <p className='text-[9px] text-red-500 px-4'>property address is required</p> }
@@ -245,7 +245,7 @@ export default function PropertyForSalePost({ children }) {
             <div>
             <label className="sr-only" htmlFor="description">Property Description</label>
             <textarea
-              className="w-full p-3 text-sm bg-gray-50 rounded-lg border-2 focus:outline-none"
+              className="w-full p-3 text-sm focus:text-[16px] bg-gray-50 rounded-lg border-2 focus:outline-none"
               placeholder={t('description')}
               rows="8"
               id="description"
@@ -385,7 +385,7 @@ export default function PropertyForSalePost({ children }) {
             <div className="relative">
                 <input
                 type="number"
-                className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none border-2 rounded-lg shadow-sm"
+                className="w-full p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 focus:outline-none border-2 rounded-lg shadow-sm"
                 placeholder={t('propertySize')}
                 {...register('size',{required:true})}/>
                 {errors.size && <p className='text-[9px] text-red-500 px-4'>property area size is required</p> }
@@ -397,7 +397,7 @@ export default function PropertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('price')}
                     {...register('price',{required:true})}/>
                     {errors.price && <p className='text-[9px] text-red-500 px-4'>sale price is required</p> }
@@ -409,7 +409,7 @@ export default function PropertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('annualCommunityFee')}
                     {...register('annualCommunityFee')}/>
 
@@ -421,7 +421,7 @@ export default function PropertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 focus:text-[16px] bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('buyerTransferFee')}
                     {...register('buyerTransferFee')}/>
 
@@ -433,7 +433,7 @@ export default function PropertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('sellerTransferFee')}
                     {...register('sellerTransferFee')}/>
 
@@ -445,7 +445,7 @@ export default function PropertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="number"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('maintenanceFee')}
                     {...register('maintenanceFee')}/>
 
@@ -457,7 +457,7 @@ export default function PropertyForSalePost({ children }) {
             <div className="relative">
                 <input
                 type="text"
-                className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
+                className="w-full p-4 pr-12 text-sm focus:text-[16px]bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                 placeholder={t('developer')}
                 {...register('developer')}/>
             </div>
@@ -468,7 +468,7 @@ export default function PropertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="text"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('videoLink')}
                     {...register('video')}/>
                 </div>
@@ -483,7 +483,7 @@ export default function PropertyForSalePost({ children }) {
             <div className="relative">
                 <input
                 type="text"
-                className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
+                className="w-full p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                 placeholder={t('buildingName')}
                 {...register('buildingName')}/>
             </div>
@@ -494,7 +494,7 @@ export default function PropertyForSalePost({ children }) {
             <div className="relative">
                 <input
                 type="number"
-                className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
+                className="w-full p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                 placeholder={t('propertyReference')}
                 {...register('propertyRef')}/>
             </div>
@@ -516,7 +516,7 @@ export default function PropertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="tel"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('phNo')}
                     {...register('phone', {required:true})}/>
                     {errors.phone && <p className='text-[9px] text-red-500 px-4'>contact number is required</p> }

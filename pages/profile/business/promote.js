@@ -23,23 +23,23 @@ export default function PromoteBizAds() {
   const {title, id} = router.query
 //   console.log(router.query.price)
 
-  useEffect(() => {
-    if (!userInfo) {
-      router.push('/login');
-    }
-    // fetchData(); 
-  }, []);
+useEffect(() => {
+if (!userInfo) {
+    router.push('/login');
+}
+// fetchData(); 
+}, []);
 
-  const {
+
+const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+} = useForm();
 
-const handleBudget = (e) => {
-    setBudget(e.target.value)
-}
+
 let x = (50 * budget);
+console.log(budget)
 
 const onSubmit = async ({ category, adBudget, adDuration, status}) => {
 
@@ -130,8 +130,8 @@ const onSubmit = async ({ category, adBudget, adDuration, status}) => {
                         <div className="mb-3 text-right">
                             <label className="text-base">{t('whatsYourBudget')}</label>
                             <select className="form-select border-2 block w-full p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
-                            rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white" onChange={handleBudget}
-                            {...register('adBudget', {required:true})}>
+                            rounded transition ease-in-out bg-gray-50 focus:outline-none m-0 focus:text-gray-500 focus:bg-white"
+                            {...register('adBudget', {required:true})} onChange={(e)=>setBudget(e.target.value)}>
                                 <option value="">{t('selectOne')}</option>
                                 <option value="5000">AED 5000</option>
                                 <option value="10000">AED 10000</option>
