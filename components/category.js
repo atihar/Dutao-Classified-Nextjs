@@ -39,7 +39,7 @@ export default function CategorySlider(props){
                     return (
                         <SwiperSlide key={i}>
                           <Link href={`${router.pathname}/list?category=${x.slug}`}>
-                            <div className="bg-white rounded-lg shadow-lg">
+                            <div className="bg-white rounded-lg shadow-lg cursor-pointer ">
                             <Image
                                   src={x.image}
                                   alt="category-image"
