@@ -4,9 +4,11 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
 import LocationView from '../components/locationView'
+import useTranslation from 'next-translate/useTranslation'
 
 export default function Contact() {
     const mapInfo = {latitude:'25.185944', longitude:'55.274911'}
+    const { t, lang } = useTranslation('common')
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState("")
     const {
@@ -48,9 +50,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
         <div className="lg:py-12 lg:col-span-2">
             <p className="max-w-xl text-lg">
-            We facilitate our customers in any industry
-            to buy and sell various products by just entering its details. We also give you free services through our platform.
-            If you have anything to know from us write us using the form. We will be happy to assist you.
+            {t('contactDetails')}
             </p>
 
             <div className="mt-8">

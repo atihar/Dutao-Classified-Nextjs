@@ -64,7 +64,7 @@ return (
 
       {/* Navbar */}
 
-      <header className="shadow-sm mb-16 mg:mb-0">
+      <header className="shadow-sm mb-16 md:mb-1">
         <div className="max-w-screen-xl pt-4 px-2 fixed lg:relative z-50 w-full bg-white mx-auto lg:mt-3 sm:mt-0">
           <div className="flex items-center justify-between space-x-4 lg:space-x-10">
             <div className="flex items-center lg:w-0 lg:flex-1">
