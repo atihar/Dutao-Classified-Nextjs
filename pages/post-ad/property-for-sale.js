@@ -37,7 +37,7 @@ export default function PropertyForSalePost({ children }) {
         const { data } = await axios.get(`/api/user/biz-data/?id=${userInfo._id}`)
         
         //checking business account is activated and for which type
-        if(data.subscription == 2 && data.businessCategory == "car" && moment(data.subscriptionExpr) > moment()) {
+        if(data.subscription == 2 && data.businessCategory == "property" && moment(data.subscriptionExpr) > moment()) {
             setBizName(data.businessName);
             setBizLogo(data.businessLogo)
         }      
@@ -421,7 +421,7 @@ export default function PropertyForSalePost({ children }) {
                 <div className="relative">
                     <input
                     type="number"
-                    className="w-full p-4 pr-12 focus:text-[16px] bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm focus:text-[16px] bg-gray-50 border-2 focus:outline-none rounded-lg shadow-sm"
                     placeholder={t('buyerTransferFee')}
                     {...register('buyerTransferFee')}/>
 
