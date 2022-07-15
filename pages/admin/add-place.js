@@ -13,12 +13,13 @@ const DynamicMap = dynamic(() => import("../../components/map-add"), {
   ssr: false,
 });
 
-export default function AddPlace({ children }) {
+export default function AddPlace() {
     const router = useRouter();
     const { state } = useContext(Store);
     const { userInfo } = state;
     const [ userEmail, setUserEmail] = useState("");
     const [parent, setParent] = useState("");
+    const [locP, setLPin] = useState({})
 
     useEffect(() => {
         if (!userInfo) {
@@ -26,23 +27,29 @@ export default function AddPlace({ children }) {
             }
         else if(userInfo && userInfo.isAdmin){
             setUserEmail(userInfo.email)
-            console.log("wokring")
         }
         else {
             router.push('/profile');
             }
         }, []);
 
+        
+        
+    //form starting
     const {
         register,
         handleSubmit,
+        setValue,
         formState: { errors },
-      } = useForm();
-
-   
-    // handling onchange photo upload
-    const imgFiles = [];
-    const userData = { userInfo }
+    } = useForm();
+        
+        //map data from child component DynamicData
+    const passData = (data) => {
+        setLPin(data)
+    }
+        
+        // handling onchange photo upload
+        const imgFiles = [];
     const uploadPhoto = async (e) => {
       try{
         const myFileList = e.target.files;
@@ -143,7 +150,8 @@ export default function AddPlace({ children }) {
             <label htmlFor="title" className="sr-only">Ad Title</label>
 
             <div className="relative">
-                <input type="text" className="w-full p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm focus:outline-none" placeholder="Enter Ad Title"
+                <input type="text" className="w-full border-2 p-4 pr-12 text-sm rounded-lg bg-gray-50 shadow-sm focus:outline-none" 
+                placeholder="Place/Business title"
                 {...register('title')}/>
             </div>
             </div>
@@ -154,7 +162,7 @@ export default function AddPlace({ children }) {
                     <select className="form-select block
                     w-full
                     p-3
-                    text-sm
+                    text-sm border-2
                     text-gray-400
                     bg-clip-padding bg-no-repeat
                     rounded focus:outline-none
@@ -186,7 +194,7 @@ export default function AddPlace({ children }) {
                 <div className="relative">
                     <input
                     type="text"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 rounded-lg shadow-sm focus:outline-none "
+                    className="w-full p-4 pr-12 border-2 text-sm bg-gray-50 rounded-lg shadow-sm focus:outline-none "
                     placeholder="Office Address"
                     {...register('address')}/>
 
@@ -215,8 +223,8 @@ export default function AddPlace({ children }) {
             <div>
             <label className="sr-only" htmlFor="description">Service Description</label>
             <textarea
-              className="w-full p-3 text-sm bg-gray-50 rounded-lg focus:outline-none"
-              placeholder="Property Description"
+              className="w-full p-3 text-sm bg-gray-50 rounded-lg border-2 focus:outline-none"
+              placeholder="Business description"
               rows="8"
               id="place description"
               {...register('description')}
@@ -228,7 +236,7 @@ export default function AddPlace({ children }) {
                 <div className="mb-3 xl:w-100">
                     <select className="form-select block
                     w-full
-                    p-4
+                    p-4 border-2
                     text-sm
                     text-gray-400
                     bg-clip-padding bg-no-repeat
@@ -251,7 +259,7 @@ export default function AddPlace({ children }) {
                 <div className="mb-3 xl:w-100">
                     <select className="form-select block
                     w-full
-                    p-4
+                    p-4 border-2
                     text-sm
                     text-gray-400
                      bg-clip-padding bg-no-repeat
@@ -278,7 +286,7 @@ export default function AddPlace({ children }) {
                 <div className="mb-3 xl:w-100">
                     <select className="form-select block
                     w-full
-                    p-4
+                    p-4 border-2
                     text-sm
                     text-gray-400
                     bg-clip-padding bg-no-repeat
@@ -302,7 +310,7 @@ export default function AddPlace({ children }) {
                 <div className="relative">
                     <input
                     type="text"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 border-2 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                     placeholder="Website URL"
                     {...register('website')}/>
                 </div>
@@ -313,12 +321,12 @@ export default function AddPlace({ children }) {
                 <div className="relative">
                     <input
                     type="tel"
-                    className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
+                    className="w-full p-4 pr-12 text-sm border-2 bg-gray-50 focus:outline-none rounded-lg shadow-sm"
                     placeholder="Business Contact Number"
                     {...register('phone')}/>
                 </div>
             </div>
-            <DynamicMap/>
+            <DynamicMap passdata={passData}/>
 
             <div>
                 <label htmlFor="latitude" className="sr-only">Latitude</label>
@@ -326,7 +334,7 @@ export default function AddPlace({ children }) {
                     <input
                     type="text"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="Enter Place Latitude"
+                    placeholder="Enter longitude"
                     {...register('latitude')}/>
                 </div>
             </div>
@@ -337,7 +345,7 @@ export default function AddPlace({ children }) {
                     <input
                     type="text"
                     className="w-full p-4 pr-12 text-sm bg-gray-50 focus:outline-none rounded-lg shadow-sm"
-                    placeholder="Enter Place Longitude"
+                    placeholder="Enter longitude"
                     {...register('longitude')}/>
                 </div>
             </div>

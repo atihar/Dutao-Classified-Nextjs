@@ -30,6 +30,7 @@ export default function ReportAd() {
         try {
           const { data } = await axios.post(`/api/report`, {
             adId,
+            name : userInfo.name,
             category,
             report,
           });

@@ -11,6 +11,7 @@ handler.post(async (req, res) => {
   const newReport = new Reports({
     adId: req.body.adId,
     category: req.body.category,
+    name: req.body.name,
     email: "atihar@dutao.org",
     report: req.body.report,
     status: "open"
@@ -19,14 +20,15 @@ handler.post(async (req, res) => {
   const Report = await newReport.save();
   await db.disconnect();
 
-  res.send(Report).status(201);
+  res.status(201).send(Report);
 });
 
-handler.get(async (req, res, id) => {
+handler.get(async (req, res ) => {
   await db.connect();
-  const Report = await Reports.find(id);
+  const Report = await Reports.find({});
   await db.disconnect();
   res.send(Report);
+
 });
 
 handler.delete(async (req, res) => {

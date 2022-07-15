@@ -28,7 +28,7 @@ handler.get(async (req, res, id) => {
   await db.connect();
   const Contact = await ContactForm.find();
   await db.disconnect();
-  res.send(Contact);
+  res.status(200).send(Contact);
 });
 
 handler.delete(async (req, res) => {

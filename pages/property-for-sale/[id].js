@@ -93,8 +93,8 @@ export default function SinglePropertySale({property}){
                                     </tbody>
                                 </table>
 
-                                <h3 className="pt-4">{t('wherePin')}</h3>
-                                <p className="text-sm text-gray-500">Dubai {`>`} Business Bay</p>
+                                {/* <h3 className="pt-4">{t('wherePin')}</h3>
+                                <p className="text-sm text-gray-500">{property.city} {`>`} {property.area}</p> */}
                             </div>
                             <div>
                             <a className="block py-6 mt-16 text-center p-6 transition-shadow bg-white sm:pr-12 group hover:shadow-sm shadow-lg rounded">
@@ -114,7 +114,7 @@ export default function SinglePropertySale({property}){
                                     <span
                                     className="absolute inset-x-0 bottom-0 transition-transform transform bg-red-100 h-2/3 group-hover:scale-110"
                                     ></span>
-                                     <Link href={'/report-ad'}><span className="relative cursor-pointer">{t('report')}</span></Link>
+                                     <Link href={'/report-ad/'}><span className="relative cursor-pointer">{t('report')}</span></Link>
                                 </p>
                                 </a>
                             </div>

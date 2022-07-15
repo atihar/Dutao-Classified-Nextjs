@@ -5,8 +5,8 @@ import useTranslation from "next-translate/useTranslation"
 
 
 
-export default function MotorFilter() {
-
+export default function MotorFilter(props) {
+    const productCategory = (props.data)
     const router = useRouter();
     const {t} = useTranslation('common')
 
@@ -105,14 +105,8 @@ export default function MotorFilter() {
                     <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4">
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" 
                         {...register("category")}>
-                        <option value="all">{t('selectCategory')}</option>
-                        <option value="cars">{t('cars')}</option>
-                        <option value="motorcycle">{t('motorcycle')}</option>
-                        <option value="heavy-vehicle">{t('heavyVehicles')}</option>
-                        <option value="accessories">{t('accessories')}</option>
-                        <option value="boats">{t('boats')}</option>
-                        <option value="number-plates">{t('numberPlates')}</option>
-                        <option value="export-cars">{t('exportCars')}</option>
+                          <option value="all">{t('selectCategory')}</option>
+                          {productCategory && productCategory.map((x,i) => <option value={x} key={i}>{x}</option> )}
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
@@ -127,7 +121,7 @@ export default function MotorFilter() {
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("price")}>
                         <option value="">{t('anyPrice')}</option>
-                        <option value="0-2000">{t('upto')} 3000 dhs</option>
+                        <option value="0-3000">{t('upto')} 3000 dhs</option>
                         <option value="3001-7000">3000 {t('to')} 7000 dhs</option>
                         <option value="7001-50000">7000 {t('to')} 50000 dhs</option>
                         </select>
@@ -156,7 +150,7 @@ export default function MotorFilter() {
                         {...register("seller")}>
                         <option value="all">{t('sellerType')}</option>
                         <option value="owner">{t('owner')}</option>
-                        <option value="agent">{t('agent')}</option>
+                        <option value="agency">{t('agent')}</option>
                         </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"

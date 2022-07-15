@@ -163,7 +163,7 @@ return (
           </div>
         </div>
 
-        <div className="sm:max-w-screen-xl p-2 mx-auto flex-auto ">
+        <div className="sm:max-w-screen-xl py-5 mx-auto flex-auto ">
           <div className="hidden justify-around text-center text-sm font-medium md:flex text-gray-700">
 
           <div className="relative group">
@@ -313,34 +313,34 @@ return (
                   <div className='text-left space-y-1'>
                     <h6 className='text-base font-bold'>{t('dubai')}</h6>
                     <hr/>
-                    <Link href={'/info-center'}><p>{t('bBay')}</p></Link>
-                    <Link href={'/info-center'}><p>{t('safa')}</p></Link>
-                    <Link href={'/info-center'}><p>{t('barsha')}</p></Link>
-                    <Link href={'/info-center'}><p>{t('ranch3')}</p></Link>
+                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('bBay')}</p></Link>
+                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('safa')}</p></Link>
+                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('barsha')}</p></Link>
+                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('ranch3')}</p></Link>
                   </div>
                   <div className='text-left space-y-1'>
                     <h6 className='text-base font-bold'>{t('morePlace')}</h6>
                     <hr/>
-                    <Link href={'/info-center'}><p>{t('dHill')}</p></Link>
-                    <Link href={'/info-center'}><p>{t('bDubai')}</p></Link>
-                    <Link href={'/info-center'}><p>{t('eHill')}</p></Link>
-                    <Link href={'/info-center'}><p>{t('jAli')}</p></Link>
+                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('dHill')}</p></Link>
+                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('bDubai')}</p></Link>
+                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('eHill')}</p></Link>
+                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('jAli')}</p></Link>
                   </div>
                   <div className='text-left space-y-1'>
                     <h6 className='text-base font-bold'>{t('morePlace')}</h6>
                     <hr/>
-                    <Link href={'/info-center'}><p>{t('jPark')}</p></Link>
-                    <Link href={'/info-center'}><p>{t('jadaf')}</p></Link>
-                    <Link href={'/info-center'}><p>{t('internet')}</p></Link>
-                    <Link href={'/info-center'}><p>{t('dWater')}</p></Link>
+                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('jPark')}</p></Link>
+                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('jadaf')}</p></Link>
+                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('internet')}</p></Link>
+                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('dWater')}</p></Link>
                   </div>
                   <div className='text-left space-y-1'>
                     <h6 className='text-base font-bold'>{t('morePlace')}</h6>
                     <hr/>
-                    <Link href={'/info-center'}><p>{t('quoz')}</p></Link>
-                    <Link href={'/info-center'}><p>{t('spring')}</p></Link>
-                    <Link href={'/info-center'}><p>{t('creek')}</p></Link>
-                    <Link href={'/info-center'}><p>{t('suqeim')}</p></Link>
+                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('quoz')}</p></Link>
+                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('spring')}</p></Link>
+                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('creek')}</p></Link>
+                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('suqeim')}</p></Link>
                   </div>
                    <div className='text-left space-y-1'>
                         <a className="inline-flex items-center px-8 py-3 text-red-500  focus:ring" href="/info-center">

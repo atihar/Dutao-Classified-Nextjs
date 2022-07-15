@@ -49,7 +49,7 @@ export default function MotorsList(props) {
     <Header></Header>
     <section>
           <div className="max-w-screen-xl w-full px-4 mx-auto sm:px-6 lg:px-6" data-aos="zoom-y-out">
-          <Filter></Filter>
+          <Filter data={props.categories}></Filter>
             <p className='text-sm text-gray-500 py-3'>{t('total')} {props.countProducts} {t('propFound')}</p>
           <div className='grid lg:grid-cols-[3fr_1fr] gap-4'>
             <div className=''>
@@ -189,7 +189,7 @@ export async function getServerSideProps({ query }) {
   const categoryFilter = category && category !== 'all' ? { category } : {};
   const areaFilter = area && area !== 'all' ? { area } : {};
   const sellerTypeFilter = sellerType && sellerType !== 'all' ? { sellerType } : {};
-  const verifiedFilter = verified && verified !== 'all' ? { verified } : {};
+  const verifiedFilter = verified && verified !== 'all' ? { verifiedOrNot : verified } : {};
 
   const priceFilter =
     price && price !== 'all'

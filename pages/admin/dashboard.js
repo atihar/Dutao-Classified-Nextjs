@@ -22,11 +22,15 @@ export default function AdminDashboard(props) {
     const [ userData, setUserData] = useState({})
 
     useEffect(() => {
-        if (!userInfo) {
-            router.push('/login');
+        if(!userInfo){
+            router.push('/login')
+        }
+        else if (!userInfo.isAdmin) {
+            router.push('/profile');
             }
-            else {
-                setUserData(userInfo)
+        else {
+            setUserData(userInfo)
+            console.log(userInfo)
             }
         }, []);
 
@@ -40,14 +44,18 @@ export default function AdminDashboard(props) {
   return (
     <>
     <Header></Header>
-    <div className='max-w-screen-2xl mx-auto sm:py-4 px-8 sm:my-4 rounded-lg shadow bg-gray-100 '>
+    <div className='max-w-screen-xl w-full mx-auto sm:py-4 px-8 sm:my-4 rounded-lg shadow bg-gray-100 '>
     <h2 className="font-bold py-5"> Dutao Management Dashboard</h2>
         <div className="grid sm:grid-cols-[1fr_3fr] gap-4">
             <div>
                 <ul className="text-base space-y-4">
                     <Link href={'#'}><li className="text-white py-2 px-4 rounded-lg active">Overview</li></Link>
                     <Link href={'#'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Manage Ads</li></Link>
-                    <Link href={'#'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Manage Users</li></Link>
+                    <Link href={'/admin/users'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">View Users</li></Link>
+                    <Link href={'/admin/add-place'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">Add Place</li></Link>
+                    <Link href={'/admin/promotions'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">Promotion Requests</li></Link>
+                    <Link href={'/admin/contacts'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">Contact Submissions</li></Link>
+                    <Link href={'/admin/reports'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">Fraud Reports</li></Link>
                     <Link href={'#'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Trending Searches</li></Link>
                     <Link href={'#'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Global Settings</li></Link>
                     <li onClick={logoutClickHandler} className="hover:bg-gray-100 py-2 px-4 rounded-lg">Logout</li>
