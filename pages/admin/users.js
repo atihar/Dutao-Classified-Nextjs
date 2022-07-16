@@ -50,7 +50,6 @@ export default function AdminUserDashboard(props) {
             }
         else {
             fetchUserHandler();
-            setUserData(userInfo)
             }
         }, []);
 

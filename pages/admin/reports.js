@@ -42,6 +42,7 @@ export default function AdminUserDashboard(props) {
         try {
             const resp = await axios.get('/api/report/');
             setReportsD(resp.data);
+            setPending(false)
         } catch (err) {
             // Handle Error Here
             console.error(err);
