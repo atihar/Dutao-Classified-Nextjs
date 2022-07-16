@@ -30,7 +30,6 @@ export default function AdminDashboard(props) {
             }
         else {
             setUserData(userInfo)
-            console.log(userInfo)
             }
         }, []);
 

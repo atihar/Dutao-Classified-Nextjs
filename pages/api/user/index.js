@@ -1,17 +1,15 @@
-import User from "../../../models/user"
+import nc from 'next-connect';
+import User from '../../../models/user';
 import db from '../../../lib/dbConnect';
 
 
-export default async (req, res) => {
-    await db.connect
+const handler = nc();
 
-    if(req.method === 'GET'){
-        // finding all the users from the database
-        let user = await User.find({});
-        res.status(200).json(user)
-    }
-    else{
-        res.status(400).json({ message:"Bad Request" })
-    }
-    
-}
+handler.get(async (req, res) => {
+  await db.connect();
+  const user = await User.find().lean();
+  await db.disconnect();
+  res.status(201).json(user);
+});
+
+export default handler;

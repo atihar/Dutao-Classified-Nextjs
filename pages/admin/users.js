@@ -5,7 +5,6 @@ import { useRouter } from "next/router"
 import { Store } from '../../lib/Store'
 import Cookies from 'store-js';
 import React, { useContext, useEffect, useState } from 'react'
-import db from '../../lib/dbConnect';
 import axios from "axios"
 import DataTable from 'react-data-table-component';
 
@@ -14,7 +13,6 @@ export default function AdminUserDashboard(props) {
     const router = useRouter();
     const { state, dispatch } = useContext(Store);
     const { userInfo } = state;
-    const [ userData, setUserData] = useState({})
     const [usersD, setUsersD] = useState({})
     const [pending, setPending] = useState(true)
 
@@ -42,7 +40,6 @@ export default function AdminUserDashboard(props) {
     ];
     
     const data = Object.values(usersD)
-    console.log(usersD)
 
     useEffect(() => {
         if(!userInfo){
@@ -52,8 +49,8 @@ export default function AdminUserDashboard(props) {
             router.push('/profile');
             }
         else {
-            setUserData(userInfo)
             fetchUserHandler();
+            setUserData(userInfo)
             }
         }, []);
 
@@ -67,11 +64,14 @@ export default function AdminUserDashboard(props) {
 
     //fetch user handler
     const fetchUserHandler = async () => {
-        await axios.get('/api/user/')
-        .then((response) =>{
-        setUsersD(response.data)
-        setPending(false)
-        })
+        try {
+            const resp = await axios.get('/api/user/');
+            setUsersD(resp.data);
+            setPending(false)
+        } catch (err) {
+            // Handle Error Here
+            console.error(err);
+        }
     };
 
 
@@ -96,8 +96,9 @@ export default function AdminUserDashboard(props) {
                 </ul>
             </div>
             <div>
-            <DataTable columns={columns} data={data} progressPending={pending} 
+            <DataTable columns={columns} data={data}
             selectableRows
+            progressPending={pending} 
             pagination
             />
             </div>

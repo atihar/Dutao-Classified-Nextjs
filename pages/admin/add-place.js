@@ -7,6 +7,7 @@ import { Store } from '../../lib/Store';
 import React, { useContext, useEffect, useState } from 'react';
 import dynamic from "next/dynamic";
 import cityData from '../../lib/data.json'
+import Link from 'next/link'
 
 const DynamicMap = dynamic(() => import("../../components/map-add"), {
   loading: () => <h1>Loading...</h1>,
@@ -118,6 +119,7 @@ export default function AddPlace() {
         {/*starting submission form */}
         <div className="max-w-lg text-center px-4 py-6 mx-auto sm:px-6 lg:px-8 sm:py-10">
             <h1 className="text-2xl font-bold text-red-600 sm:text-3xl">Enter details of your new local place to add to the info center</h1>
+        <Link href={'/admin/dashboard'}><p className='text-base py-1 px-3 bg-gray-100 cursor-pointer'>Go back to dashboard</p></Link>
         </div>
         {/* get started finish */}
 

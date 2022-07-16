@@ -5,7 +5,6 @@ import { useRouter } from "next/router"
 import { Store } from '../../lib/Store'
 import Cookies from 'store-js';
 import React, { useContext, useEffect, useState } from 'react'
-import db from '../../lib/dbConnect';
 import axios from "axios"
 import DataTable from 'react-data-table-component';
 
@@ -14,10 +13,40 @@ export default function AdminUserDashboard(props) {
     const router = useRouter();
     const { state, dispatch } = useContext(Store);
     const { userInfo } = state;
-    const [ userData, setUserData] = useState({})
-    const [usersD, setUsersD] = useState({})
+    const [reportD, setReportsD] = useState({})
     const [pending, setPending] = useState(true)
 
+
+    useEffect(() => {
+        if(!userInfo){
+            router.push('/login')
+        }
+        else if (!userInfo.isAdmin) {
+            router.push('/profile');
+            }
+        else {
+            fetchReportHandler();
+            }
+        }, []);
+
+    
+    //logout click handler
+    const logoutClickHandler = () => {
+        dispatch({ type: 'USER_LOGOUT' });
+        Cookies.remove('userInfo');
+        router.push('/');
+        };
+
+      //fetch user handler
+      const fetchReportHandler = async () => {
+        try {
+            const resp = await axios.get('/api/report/');
+            setReportsD(resp.data);
+        } catch (err) {
+            // Handle Error Here
+            console.error(err);
+        }
+    };
     const columns = [
         {
             name: 'Ref ID',
@@ -65,38 +94,7 @@ export default function AdminUserDashboard(props) {
         },
     ];
     
-    const data = Object.values(usersD)
-    console.log(usersD)
-
-    useEffect(() => {
-        if(!userInfo){
-            router.push('/login')
-        }
-        else if (!userInfo.isAdmin) {
-            router.push('/profile');
-            }
-        else {
-            setUserData(userInfo)
-            fetchContactFormDataHandler();
-            }
-        }, []);
-
-    
-    //logout click handler
-    const logoutClickHandler = () => {
-        dispatch({ type: 'USER_LOGOUT' });
-        Cookies.remove('userInfo');
-        router.push('/');
-        };
-
-    //fetch user handler
-    const fetchContactFormDataHandler = async () => {
-        await axios.get('/api/report/')
-        .then((response) =>{
-        setUsersD(response.data)
-        setPending(false)
-        })
-    };
+    const data = Object.values(reportD)
 
 
   return (
@@ -120,11 +118,7 @@ export default function AdminUserDashboard(props) {
                 </ul>
             </div>
             <div className="overflow-auto">
-            <DataTable 
-            title="Listing Report Submissions"
-            columns={columns} 
-            data={data} 
-            progressPending={pending} 
+            <DataTable columns={columns} data={data}
             selectableRows
             pagination
             />

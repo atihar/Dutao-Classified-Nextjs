@@ -27,7 +27,7 @@ handler.get(async (req, res ) => {
   await db.connect();
   const Report = await Reports.find({});
   await db.disconnect();
-  res.send(Report);
+  res.status(201).send(Report);
 
 });
 

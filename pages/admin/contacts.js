@@ -5,7 +5,6 @@ import { useRouter } from "next/router"
 import { Store } from '../../lib/Store'
 import Cookies from 'store-js';
 import React, { useContext, useEffect, useState } from 'react'
-import db from '../../lib/dbConnect';
 import axios from "axios"
 import DataTable from 'react-data-table-component';
 
@@ -61,7 +60,6 @@ export default function AdminUserDashboard(props) {
     ];
     
     const data = Object.values(usersD)
-    console.log(usersD)
 
     useEffect(() => {
         if(!userInfo){
@@ -71,8 +69,8 @@ export default function AdminUserDashboard(props) {
             router.push('/profile');
             }
         else {
-            setUserData(userInfo)
             fetchContactFormDataHandler();
+            setUserData(userInfo)
             }
         }, []);
 
@@ -84,13 +82,16 @@ export default function AdminUserDashboard(props) {
         router.push('/');
         };
 
-    //fetch user handler
-    const fetchContactFormDataHandler = async () => {
-        await axios.get('/api/contact/')
-        .then((response) =>{
-        setUsersD(response.data)
-        setPending(false)
-        })
+      //fetch user handler
+      const fetchContactFormDataHandler = async () => {
+        try {
+            const resp = await axios.get('/api/contact/');
+            setUsersD(resp.data);
+            setPending(false)
+        } catch (err) {
+            // Handle Error Here
+            console.error(err);
+        }
     };
 
 
