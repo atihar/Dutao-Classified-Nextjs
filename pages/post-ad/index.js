@@ -17,10 +17,7 @@ export default function PostAd() {
     const isUserValide = async (userInfo) => {
         await axios.post(`/api/user/auth?token=${userInfo.token}`)
         .then(response => {
-          if(response.status==200){
-              console.log('green')
-          }
-          else if(response.status==201){
+        if(response.status==201){
             dispatch({ type: 'USER_LOGOUT' });
             Cookies.remove('userInfo');
             router.push('login');

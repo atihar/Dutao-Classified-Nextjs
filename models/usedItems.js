@@ -15,6 +15,7 @@ const useditemSchema = new mongoose.Schema({
     userEmail:{type:String},
     phone:{type:String},
     phoneClick: {type:Number},
+    views: {type:Number}
     },
     {
     timestamps: true,

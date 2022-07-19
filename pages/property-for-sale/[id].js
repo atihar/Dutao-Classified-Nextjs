@@ -165,13 +165,13 @@ export default function SinglePropertySale({property}){
     await db.connect();
   
     //setting data constant for the result for database
-    const info = await SaleProperty.findById(req.query.id).exec();
+    const info = await SaleProperty.findById(req.query.id);
     if(info && info.views !== undefined){
        info.views++
     }
     await info.save();
     const property = JSON.parse(JSON.stringify(info));
-    // // await db.disconnect();
+    // await db.disconnect();
     
   
     //setting props for frontend
