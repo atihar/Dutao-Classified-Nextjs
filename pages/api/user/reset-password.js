@@ -14,7 +14,7 @@ handler.post(async (req, res, err) => {
     const token = emailSignToken(user);
     await db.disconnect();
     // database error log in the console 
-    console.log(err);
+    // console.log(err);
 
 
   // sending verification email 
