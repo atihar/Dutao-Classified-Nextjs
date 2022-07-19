@@ -9,7 +9,7 @@ handler.get(async (req, res, id) => {
   await db.connect();
   const propertyForSale = await PropertyForSale.find(id);
   await db.disconnect();
-  res.send(propertyForSale);
+  res.status(201).send(propertyForSale);
 });
 
 handler.delete(async (req, res) => {

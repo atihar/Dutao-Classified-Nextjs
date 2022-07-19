@@ -52,7 +52,7 @@ handler.post(async (req, res) => {
   const Motor = await newMotor.save();
   await db.disconnect();
 
-  res.send(Motor).status(201);
+  res.status(201).send(Motor);
 });
 
 handler.get(async (req, res, id) => {

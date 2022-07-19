@@ -30,7 +30,7 @@ handler.post(async (req, res) => {
   const usedItem = await newUsedItems.save();
   await db.disconnect();
 
-  res.send(usedItem).status(201);
+  res.status(201).send(usedItem);
 });
 
 

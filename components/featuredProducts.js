@@ -39,11 +39,14 @@ export default function FeaturedProducts(props){
             {/* <!-- Slider main container --> */}
             <Swiper 
             modules={[Navigation]}
-            spaceBetween={50}
+            spaceBetween={15}
             breakpoints={{
+                320: {
+                    slidesPerView: 2,
+                  },
                 // when window width is >= 640px
                 640: {
-                  slidesPerView: 1,
+                  slidesPerView: 2,
                 },
                 // when window width is >= 768px
                 768: {

@@ -30,7 +30,7 @@ handler.post(async (req, res) => {
   const community = await newCommunity.save();
   await db.disconnect();
 
-  res.send(community).status(201);
+  res.status(201).send(community);
 });
 
 
@@ -38,7 +38,7 @@ handler.get(async (req, res, id) => {
   await db.connect();
   const community = await Community.find(id);
   await db.disconnect();
-  res.send(community);
+  res.status(201).send(community);
 });
 
 
@@ -48,7 +48,7 @@ handler.delete(async (req, res) => {
   if (product) {
     await product.remove();
     await db.disconnect();
-    res.send({ message: 'Product Deleted' });
+    res.status(201).send({ message: 'Product Deleted' });
   } else {
     await db.disconnect();
     res.status(404).send({ message: 'Product Not Found' });

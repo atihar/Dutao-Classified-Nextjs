@@ -23,11 +23,11 @@ export default function CategorySlider(props){
             <h1 className="py-4 font-bold">{t('pCategories')}</h1>
           <Swiper 
             modules={[]}
-            spaceBetween={50}
+            spaceBetween={15}
             breakpoints={{
                 // when window width is >= 640px
                 320: {
-                  slidesPerView: 2,
+                  slidesPerView: 3,
                 },
                 // when window width is >= 768px
                 768: {
@@ -49,7 +49,7 @@ export default function CategorySlider(props){
                                   loading='lazy'
                               />
                                 <div className="p-4">
-                                    <h4 className="font-bold mb-2 text-base sm:text-lg text-red-600">{x.name}</h4>
+                                    <h4 className="font-bold mb-2 text-sm sm:text-lg text-red-600">{x.name}</h4>
                                 </div>
                             </div>
                             </Link>

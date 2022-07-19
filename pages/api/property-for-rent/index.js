@@ -44,7 +44,7 @@ handler.post(async (req, res) => {
   const propertyForRent = await newPropertyForRent.save();
   await db.disconnect();
 
-  res.send(propertyForRent).status(201);
+  res.status(201).send(propertyForRent);
 });
 
 handler.get(async (req, res, id) => {

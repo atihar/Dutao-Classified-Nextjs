@@ -16,7 +16,7 @@ handler.delete(async (req, res) => {
     if (data) {
         await data.remove();
         await db.disconnect();
-      res.send({ message: 'Application status updated of the Job Successfully' });
+      res.status(201).send({ message: 'Application status updated of the Job Successfully' });
     } else {
       await db.disconnect();
       res.status(404).send({ message: 'application information could not Found' });

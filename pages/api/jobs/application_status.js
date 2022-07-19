@@ -31,7 +31,7 @@ handler.put(async (req, res) => {
         data.markModified('applications');
         await data.save();
         await db.disconnect();
-      res.send({ message: 'Application status updated of the Job Successfully' });
+      res.status(201).send({ message: 'Application status updated of the Job Successfully' });
     } else {
       await db.disconnect();
       res.status(404).send({ message: 'application information could not Found' });
@@ -46,7 +46,7 @@ handler.get(async (req, res) => {
   await db.connect();
   const propertyForSale = await JobApplications.findOne({jobId});
   await db.disconnect();
-  res.send(propertyForSale);
+  res.status(201).send(propertyForSale);
 });
 
 

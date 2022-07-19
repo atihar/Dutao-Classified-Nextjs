@@ -40,14 +40,14 @@ handler.post(async (req, res) => {
   const job = await newJob.save();
   await db.disconnect();
 
-  res.send(job).status(201);
+  res.status(201).send(job);
 });
 
 handler.get(async (req, res, id) => {
   await db.connect();
   const job = await Jobs.find(id);
   await db.disconnect();
-  res.send(job);
+  res.status(201).send(job);
 });
 
 handler.delete(async (req, res) => {
@@ -56,7 +56,7 @@ handler.delete(async (req, res) => {
   if (job) {
     await job.remove();
     await db.disconnect();
-    res.send({ message: 'job Deleted' });
+    res.status(201).send({ message: 'job Deleted' });
   } else {
     await db.disconnect();
     res.status(404).send({ message: 'job Not Found' });

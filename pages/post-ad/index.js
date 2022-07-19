@@ -4,18 +4,38 @@ import Footer from '../../components/footer'
 import { useRouter } from 'next/router'
 import { Store } from '../../lib/Store'
 import useTranslation from 'next-translate/useTranslation'
-
+import Cookies from 'store-js';
+import axios from 'axios';
 
 export default function PostAd() {
     const router = useRouter();
-    const { state } = useContext(Store);
-    const { userInfo } = state;
     const { t, lang } = useTranslation('post-ad')
+    const { state, dispatch } = useContext(Store);
+    const { userInfo } = state;
+
+
+    const isUserValide = async (userInfo) => {
+        await axios.post(`/api/user/auth?token=${userInfo.token}`)
+        .then(response => {
+          if(response.status==200){
+              console.log('green')
+          }
+          else if(response.status==201){
+            dispatch({ type: 'USER_LOGOUT' });
+            Cookies.remove('userInfo');
+            router.push('login');
+        }
+          else {
+            console.log('something')
+          }
+        })
+    }
     
     useEffect(() => {
         if (!userInfo) {
         router.push('/login');
         }
+        isUserValide(userInfo)
     }, []);
 
   return (

@@ -1,3 +1,4 @@
+//api for user verify check and then activated
 import nc from 'next-connect';
 import User from '../../../models/user';
 import db from '../../../lib/dbConnect';

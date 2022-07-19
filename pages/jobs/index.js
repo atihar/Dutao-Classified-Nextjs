@@ -23,28 +23,41 @@ function JobsIndex({jobList}) {
       <Header></Header>
       <section className="overflow-hidden p-4 sm:p-10 sm:max-w-screen-xl m-auto text-gray-700" data-aos="zoom-y-out">
         <div className="relative p4 sm:p-10">
-          <label className="sr-only" htmlFor="searchQuery"> "Job Title....." </label>
-
-          <input
-            className="w-1/2 py-4 pl-3 pr-6 sm:pr-16 text-sm border-2 border-gray-200 rounded-lg"
-            id="searchQuery"
-            type="text"
-            placeholder={t('searchType')} onChange={searchHandler}/>
-                  <select className="w-1/2 border-2 p-4 text-sm text-gray-400 bg-clip-padding bg-no-repeat
-                      rounded transition ease-in-out focus:outline-none m-0" onChange={cityHandler}>
+          <div className="grid sm:grid-cols-[3fr_3fr_1fr] grid-cols-1">
+            <div className="mb-3 xl:w-100">
+                <input
+                  className="w-full py-4 pl-3 pr-6 sm:pr-16 text-sm border-2 border-gray-200 rounded-lg"
+                  id="searchQuery"
+                  type="text"
+                  placeholder={t('searchType')} onChange={searchHandler}/>
+              </div>
+              <div className="mb-3 xl:w-100">
+                  <select className="form-select block
+                              w-full
+                              p-4 border-2
+                              text-sm
+                              text-gray-400
+                              bg-clip-padding bg-no-repeat
+                              rounded focus:outline-none
+                              transition
+                              ease-in-out
+                              bg-gray-50
+                              m-0
+                              focus:text-gray-500 focus:bg-white" onChange={cityHandler}>
                       <option value="all">{t('where')}</option>
                       <option value="dubai">{t('dubai')}</option>
                       <option value="abu-dhabi">{t('abu')}</option>
                       <option value="sharjah">{t('shj')}</option>
                       <option value="ajman">{t('ajm')}</option>
                   </select>
+                  </div>  
+                
 
-                <Link href ={`/jobs/list/?searchQuery=${keyword}&city=${city}`}><button className="absolute p-3 sm:p-6 text-white -translate-y-1/2 bg-red-600 rounded-full top-1/2 right-1 sm:right-4" type="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
-                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                  </svg>
+                <Link href ={`/jobs/list/?searchQuery=${keyword}&city=${city}`}>
+                  <button className="p-2 text-sm mb-3 text-white bg-red-600 rounded-lg" type="button">Search
                 </button>
                 </Link>
+                </div>
             </div>
 
           <div className="relative">

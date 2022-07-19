@@ -57,14 +57,14 @@ handler.post(async (req, res) => {
   const propertyForSale = await newPropertyForSale.save();
   await db.disconnect();
 
-  res.send(propertyForSale).status(201);
+  res.status(201).send(propertyForSale);
 });
 
 handler.get(async (req, res, id) => {
   await db.connect();
   const propertyForSale = await PropertyForSale.find(id);
   await db.disconnect();
-  res.send(propertyForSale);
+  res.status(201).send(propertyForSale);
 });
 
 handler.delete(async (req, res) => {
@@ -73,7 +73,7 @@ handler.delete(async (req, res) => {
   if (product) {
     await product.remove();
     await db.disconnect();
-    res.send({ message: 'Product Deleted' });
+    res.status(201).send({ message: 'Product Deleted' });
   } else {
     await db.disconnect();
     res.status(404).send({ message: 'Product Not Found' });
