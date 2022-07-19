@@ -55,7 +55,7 @@ export async function getServerSideProps() {
   //setting data constant for the result for database
   const data = await UsedItems.find().limit(7).lean();
   const items = JSON.parse(JSON.stringify(data));
-  // await db.disconnect();
+  // // await db.disconnect();
   
 
   //setting props for frontend

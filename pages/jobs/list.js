@@ -238,7 +238,7 @@ export async function getServerSideProps({ query }) {
     ...employmentTypeFilter,
   });
   const jobs = JSON.parse(JSON.stringify(productDocs));
-  await db.disconnect();
+  // await db.disconnect();
 
 
   return {

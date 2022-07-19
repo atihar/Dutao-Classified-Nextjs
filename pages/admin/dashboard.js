@@ -125,7 +125,7 @@ export async function getServerSideProps({ query }) {
     const jobs = await Jobs.find().lean();
     const motors = await Motors.find().lean();
     const places = await PlaceItems.find().lean();
-    await db.disconnect();
+    // await db.disconnect();
     
     const usersNumber = user.length
     const communityNumber = community.length

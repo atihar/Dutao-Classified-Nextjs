@@ -38,7 +38,7 @@ handler.post(async (req, res) => {
     phoneClick: 0
   });
   const job = await newJob.save();
-  await db.disconnect();
+  // await db.disconnect();
 
   res.status(201).send(job);
 });
@@ -46,7 +46,7 @@ handler.post(async (req, res) => {
 handler.get(async (req, res, id) => {
   await db.connect();
   const job = await Jobs.find(id);
-  await db.disconnect();
+  // await db.disconnect();
   res.status(201).send(job);
 });
 
@@ -55,10 +55,10 @@ handler.delete(async (req, res) => {
   const job = await Jobs.findById(req.query.id);
   if (job) {
     await job.remove();
-    await db.disconnect();
+    // await db.disconnect();
     res.status(201).send({ message: 'job Deleted' });
   } else {
-    await db.disconnect();
+    // await db.disconnect();
     res.status(404).send({ message: 'job Not Found' });
   }
 });

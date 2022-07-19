@@ -159,7 +159,7 @@ export default function SinglePropertySale({property}){
      }
     await data.save();
     const property = JSON.parse(JSON.stringify(data));
-    // await db.disconnect();
+    // // await db.disconnect();
     
   
     //setting props for frontend

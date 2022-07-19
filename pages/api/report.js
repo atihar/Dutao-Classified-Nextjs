@@ -18,7 +18,7 @@ handler.post(async (req, res) => {
   });
 
   const Report = await newReport.save();
-  await db.disconnect();
+  // await db.disconnect();
 
   res.status(201).send(Report);
 });
@@ -26,7 +26,7 @@ handler.post(async (req, res) => {
 handler.get(async (req, res ) => {
   await db.connect();
   const Report = await Reports.find({});
-  await db.disconnect();
+  // await db.disconnect();
   res.status(201).send(Report);
 
 });
@@ -36,10 +36,10 @@ handler.delete(async (req, res) => {
   const report = await Reports.findById(req.query.id);
   if (report) {
     await report.remove();
-    await db.disconnect();
+    // await db.disconnect();
     res.send({ message: 'Report Removed/Resolved' });
   } else {
-    await db.disconnect();
+    // await db.disconnect();
     res.status(404).send({ message: 'Report Not Found' });
   }
 });

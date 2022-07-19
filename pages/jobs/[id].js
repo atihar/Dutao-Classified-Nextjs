@@ -302,7 +302,7 @@ export default function SingleJobs({job}){
     //setting data constant for the result for database
     const data = await Jobs.findById(req.query.id).lean();
     const job = JSON.parse(JSON.stringify(data));
-    await db.disconnect();
+    // await db.disconnect();
     
   
     //setting props for frontend

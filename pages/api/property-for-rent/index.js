@@ -42,7 +42,7 @@ handler.post(async (req, res) => {
   });
 
   const propertyForRent = await newPropertyForRent.save();
-  await db.disconnect();
+  // await db.disconnect();
 
   res.status(201).send(propertyForRent);
 });
@@ -50,7 +50,7 @@ handler.post(async (req, res) => {
 handler.get(async (req, res, id) => {
   await db.connect();
   const propertyForRent = await PropertyForRent.find(id);
-  await db.disconnect();
+  // await db.disconnect();
   res.send(propertyForRent);
 });
 
@@ -59,10 +59,10 @@ handler.delete(async (req, res) => {
   const product = await PropertyForRent.findById(req.query.id);
   if (product) {
     await product.remove();
-    await db.disconnect();
+    // await db.disconnect();
     res.send({ message: 'Product Deleted' });
   } else {
-    await db.disconnect();
+    // await db.disconnect();
     res.status(404).send({ message: 'Product Not Found' });
   }
 });

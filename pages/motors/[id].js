@@ -200,7 +200,7 @@ export default function SingleMotors({motor}){
      }
     await data.save();
     const motor = JSON.parse(JSON.stringify(data));
-    // await db.disconnect();
+    // // await db.disconnect();
     
   
     //setting props for frontend

@@ -12,7 +12,7 @@ handler.get(async (req, res, id) => {
   const userID = req.query.id;
   await db.connect();
   const info = await UserInfo.findOne( { userId : userID });
-  await db.disconnect();
+  // await db.disconnect();
   res.send(info);
 });
 
@@ -22,10 +22,10 @@ handler.delete(async (req, res) => {
   const userInfo = await UserInfo.findById(req.query.id);
   if (userInfo) {
     await userInfo.remove();
-    await db.disconnect();
+    // await db.disconnect();
     res.send({ message: 'User Info Cleared' });
   } else {
-    await db.disconnect();
+    // await db.disconnect();
     res.status(404).send({ message: 'User Info` Not Found' });
   }
 });
@@ -52,10 +52,10 @@ handler.put(async (req, res) => {
     info.videoLink = req.body.videoLink,
     info.cv = req.body.cv,
     await info.save();
-    await db.disconnect();
+    // await db.disconnect();
     res.send({ message: 'Information Updated Successfully' });
   } else {
-    await db.disconnect();
+    // await db.disconnect();
     res.status(404).send({ message: 'user information not Found' });
   }
 });

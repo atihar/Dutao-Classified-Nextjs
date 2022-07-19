@@ -32,7 +32,7 @@ handler.post(async (req, res) => {
   });
 
   const userInfo = await newUserInfo.save();
-  await db.disconnect();
+  // await db.disconnect();
 });
 
 

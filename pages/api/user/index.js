@@ -8,7 +8,7 @@ const handler = nc();
 handler.get(async (req, res) => {
   await db.connect();
   const user = await User.find().lean();
-  await db.disconnect();
+  // await db.disconnect();
   res.status(201).json(user);
 });
 

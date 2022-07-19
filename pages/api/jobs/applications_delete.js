@@ -15,10 +15,10 @@ handler.delete(async (req, res) => {
     const data = await JobApplications.findOne({ jobId });
     if (data) {
         await data.remove();
-        await db.disconnect();
+        // await db.disconnect();
       res.status(201).send({ message: 'Application status updated of the Job Successfully' });
     } else {
-      await db.disconnect();
+      // await db.disconnect();
       res.status(404).send({ message: 'application information could not Found' });
     }
   });
@@ -30,7 +30,7 @@ handler.get(async (req, res) => {
   const jobId = req.query.jobId
   await db.connect();
   const propertyForSale = await JobApplications.findOne({jobId});
-  await db.disconnect();
+  // await db.disconnect();
   res.send(propertyForSale);
 });
 

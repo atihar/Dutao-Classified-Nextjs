@@ -19,7 +19,7 @@ handler.post(async (req, res, err) => {
       activated: false
     });
     const user = await newUser.save();
-    await db.disconnect();
+    // await db.disconnect();
   
   // database error log in the console 
   console.log(err);
@@ -150,7 +150,7 @@ handler.post(async (req, res, err) => {
   <body style="background-color: #e9ecef;">
 
     <!-- start preheader -->
-    <div class="preheader" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
+    <div className="preheader" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
       Verify your account on dutao
     </div>
     <!-- end preheader -->

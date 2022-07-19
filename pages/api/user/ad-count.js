@@ -25,7 +25,7 @@ handler.get(async (req, res) => {
   const job = await Jobs.find({ userEmail: email }).count();
   const totalad = propertySale + propertyRent + motor + usedItems + community + job;
   // console.log("sale :"+ propertySale + "rent :" + propertyRent + "motor :"  + motor + "usedItems :" + usedItems + "community :" + community)
-  await db.disconnect();
+  // await db.disconnect();
   res.status(200).json({ totalad })
 });
 

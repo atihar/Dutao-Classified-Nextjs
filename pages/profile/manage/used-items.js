@@ -79,11 +79,11 @@ export default function ManageUsedItems() {
   return (
       <>
         <Header></Header>
-        <div className='max-w-screen-xl w-screen mx-auto py-4 px-8 my-4 rounded-lg shadow '>
+        <div className='max-w-screen-xl w-screen mx-auto md:py-4 px-8 md:my-4 rounded-lg shadow '>
         <h2 className="font-bold py-5"> {t('dashboard')} </h2>
             <div className="grid lg:grid-cols-[1fr_1fr_4fr] gap-4">
                 <div>
-                    <ul className="text-base space-y-4">
+                    <ul className="text-base space-y-0 md:space-y-4">
                           <Link href={'/profile'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('myProfile')}</li></Link>
                           <Link href={'/profile/my-ads'}><li className="py-2 px-4 rounded-lg text-white active">{t('myAds')}</li></Link>
                           <Link href={'/profile/manage/jobs'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('manageRecruit')}</li></Link>
@@ -93,8 +93,8 @@ export default function ManageUsedItems() {
                           {/* <Link href={'/profile/subscription'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Subscription</li></Link> */}
                     </ul>
                 </div>
-                <div>
-                  <ul className="ml-10 lg:ml-0 text-base space-y-4">
+                <div className="overflow-scroll lg:overflow-auto">
+                  <ul className="inline-flex lg:block whitespace-nowrap lg:ml-0 text-base space-y-0 md:space-y-4">
                           <Link href={'/profile/manage/property-for-sale'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">{t('propertyForSale')}</li></Link>
                           <Link href={'/profile/manage/property-for-rent'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">{t('propertyForRent')}</li></Link>
                           <Link href={'/profile/manage/motors'}><li className="hover:bg-gray-100  py-2 px-4 rounded-lg ">{t('motors')}</li></Link>

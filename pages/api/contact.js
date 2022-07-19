@@ -19,7 +19,7 @@ handler.post(async (req, res) => {
   });
 
   const contact = await newMessage.save();
-  await db.disconnect();
+  // await db.disconnect();
 
   res.status(201).end();
 });
@@ -27,7 +27,7 @@ handler.post(async (req, res) => {
 handler.get(async (req, res, id) => {
   await db.connect();
   const Contact = await ContactForm.find();
-  await db.disconnect();
+  // await db.disconnect();
   res.status(200).send(Contact);
 });
 
@@ -36,10 +36,10 @@ handler.delete(async (req, res) => {
   const Contact = await ContactForm.findById(req.query.id);
   if (Contact) {
     await Contact.remove();
-    await db.disconnect();
+    // await db.disconnect();
     res.send({ message: 'Contact Message Removed/Resolved' });
   } else {
-    await db.disconnect();
+    // await db.disconnect();
     res.status(404).send({ message: 'Report Not Found' });
   }
 });

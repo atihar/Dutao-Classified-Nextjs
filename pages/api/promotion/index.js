@@ -22,7 +22,7 @@ handler.post(async (req, res) => {
   });
 
   const promotedAd = await newPromotion.save();
-  await db.disconnect();
+  // await db.disconnect();
   res.status(200).send(promotedAd);
 });
 
@@ -30,7 +30,7 @@ handler.post(async (req, res) => {
 handler.get(async (req, res, id) => {
   await db.connect();
   const promotion = await Promotion.find();
-  await db.disconnect();
+  // await db.disconnect();
   res.send(promotion);
 });
 
@@ -39,10 +39,10 @@ handler.delete(async (req, res) => {
   const promotion = await Promotion.findById(req.query.id);
   if (prodpromotionuct) {
     await promotion.remove();
-    await db.disconnect();
+    // await db.disconnect();
     res.send({ message: 'Promotion Removed' });
   } else {
-    await db.disconnect();
+    // await db.disconnect();
     res.status(404).send({ message: 'Product Not Found' });
   }
 });

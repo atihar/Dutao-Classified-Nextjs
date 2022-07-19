@@ -27,7 +27,7 @@ const info = await User.findOne({ email : req.user.email });
   if(info && !info.activated){
       info.activated = true;
       await info.save();
-      await db.disconnect();
+      // await db.disconnect();
       res.status(200).send({ message: 'user is now active' });
       res.end();
   }

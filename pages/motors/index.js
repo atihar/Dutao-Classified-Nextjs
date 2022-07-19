@@ -36,7 +36,7 @@ export async function getServerSideProps() {
   //setting data constant for the result for database
   const data = await Motors.find().limit(7).lean();
   const motor = JSON.parse(JSON.stringify(data));
-  // await db.disconnect();
+  // // await db.disconnect();
   
 
   //setting props for frontend

@@ -269,7 +269,7 @@ export async function getServerSideProps({ query }) {
     ...bedFilter,
   });
   const products = await JSON.parse(JSON.stringify(productDocs));
-  // await db.disconnect();
+  // // await db.disconnect();
 
 
   return {

@@ -16,7 +16,7 @@ handler.post(async (req, res) => {
   });
 
   const application = await newJobApplication.save();
-  await db.disconnect();
+  // await db.disconnect();
   res.status(201).send(application);
 
 });
@@ -36,10 +36,10 @@ handler.put(async (req, res) => {
        let obj = newApplication
        application.push(obj)
         await data.save();
-        await db.disconnect();
+        // await db.disconnect();
       res.status(201).send({ message: 'Application posted to the Job Successfully' });
     } else {
-      await db.disconnect();
+      // await db.disconnect();
       res.status(404).send({ message: 'user information not Found' });
     }
   });
@@ -51,7 +51,7 @@ handler.get(async (req, res) => {
   const jobId = req.query.jobId
   await db.connect();
   const propertyForSale = await JobApplications.findOne({jobId});
-  await db.disconnect();
+  // await db.disconnect();
   res.status(201).send(propertyForSale);
 });
 
@@ -63,10 +63,10 @@ handler.delete(async (req, res) => {
   const product = await Product.findById(req.query.id);
   if (product) {
     await product.remove();
-    await db.disconnect();
+    // await db.disconnect();
     res.status(201).send({ message: 'Product Deleted' });
   } else {
-    await db.disconnect();
+    // await db.disconnect();
     res.status(404).send({ message: 'Product Not Found' });
   }
 });

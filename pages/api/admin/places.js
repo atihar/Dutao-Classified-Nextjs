@@ -28,7 +28,7 @@ handler.post(async (req, res) => {
   });
 
   const place = await newPlace.save();
-  await db.disconnect();
+  // await db.disconnect();
 
   res.send(place).status(201);
 });
@@ -37,7 +37,7 @@ handler.post(async (req, res) => {
 handler.get(async (req, res, id) => {
   await db.connect();
   const Motor = await Place.find(id);
-  await db.disconnect();
+  // await db.disconnect();
   res.send(Motor);
 });
 
@@ -46,10 +46,10 @@ handler.delete(async (req, res) => {
   const product = await Place.findById(req.query.id);
   if (product) {
     await product.remove();
-    await db.disconnect();
+    // await db.disconnect();
     res.send({ message: 'Product Deleted' });
   } else {
-    await db.disconnect();
+    // await db.disconnect();
     res.status(404).send({ message: 'Product Not Found' });
   }
 });

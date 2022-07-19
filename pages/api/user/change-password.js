@@ -34,7 +34,7 @@ handler.put(async (req, res, next) => {
       await info.save();
       console.log("password updated")
       res.status(200);
-      await db.disconnect();
+      // await db.disconnect();
   }
 });
 

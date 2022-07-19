@@ -108,7 +108,7 @@ export async function getServerSideProps() {
   
     //setting data constant for the result for database
     const data = await SaleProperty.find().limit(5).lean();;
-    await db.disconnect();
+    // await db.disconnect();
     const allProperties = JSON.parse(JSON.stringify(data));
   
     //setting props for frontend
