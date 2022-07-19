@@ -151,7 +151,7 @@ export default function SinglePlace({item}){
     //setting data constant for the result for database
     const data = await LocationItems.findById(req.query.id).lean();
     const item = JSON.parse(JSON.stringify(data));
-    await db.disconnect();
+    // await db.disconnect();
     
   
     //setting props for frontend

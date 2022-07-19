@@ -4,7 +4,6 @@ const nextTranslate = require('next-translate')
     webpack: (config, { isServer, webpack }) => {
       return config;
     },
-    future: { webpack5: true },
     reactStrictMode: true,
     swcMinify: true,
     images: {

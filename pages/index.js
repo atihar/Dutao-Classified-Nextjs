@@ -70,7 +70,7 @@ export async function getStaticProps() {
   //setting data constant for the result for database
   const motorData = await Motors.find().limit(2).lean();
   const motors = JSON.parse(JSON.stringify(motorData));
-  await db.disconnect();
+  // await db.disconnect();
   
 
   //setting static props for data generation for frontend
