@@ -6,8 +6,8 @@ export default function Terms() {
   return (
     <>
     <Header/>
-    <section className='max-w-screen-xl mx-auto my-5 sm:my-10 text-base'>
-    <h2><strong>Terms and Conditions</strong></h2>
+    <section className='max-w-screen-xl px-3 mx-auto my-5 sm:my-10 text-base'>
+    <h2 className='font-bold text-xl'><strong>Terms and Conditions</strong></h2>
 
         <p>Welcome to Dutao!</p>
 
