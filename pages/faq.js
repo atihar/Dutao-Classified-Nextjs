@@ -64,7 +64,7 @@ export default function Faqpage() {
             </summary>
 
             <p className="px-4 mt-4 leading-relaxed text-gray-700">
-            There are 2 types of account(indivisual). One is free and another one comes 
+            There are 2 types of account(individual). One is free and another one comes 
             with a membership plan named "Dutao Vip!. The difference is that you can get all 
             the benefits from our platform on both type of account while access to 
             special discounts, dutao events, special products is only for the Vip members
