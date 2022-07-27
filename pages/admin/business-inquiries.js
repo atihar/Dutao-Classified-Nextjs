@@ -24,18 +24,18 @@ export default function AdminUserDashboard(props) {
             sortable: true,
         },
         {
-            name: 'Name of user',
+            name: 'Contact name',
             selector: row => row.name,
             sortable: true,
         },
         {
-            name: 'Category',
-            selector: row => row.category,
+            name: 'Industry',
+            selector: row => row.industry,
             sortable: true,
         },
         {
             name: 'Message',
-            selector: row => row.message,
+            selector: row => row.requirementText,
             sortable: true,
             maxWidth: '600px',
             width: '400px',
@@ -43,18 +43,13 @@ export default function AdminUserDashboard(props) {
             
         },
         {
-            name: 'status',
+            name: 'Status',
             selector: row => row.status,
             sortable: true,
         },
         {
-            name: 'Email',
+            name: 'Contact email',
             selector: row => row.email,
-            sortable: true,
-        },
-        {
-            name: 'Phone',
-            selector: row => row.phone,
             sortable: true,
         },
     ];
@@ -85,7 +80,7 @@ export default function AdminUserDashboard(props) {
       //fetch user handler
       const fetchContactFormDataHandler = async () => {
         try {
-            const resp = await axios.get('/api/contact/');
+            const resp = await axios.get('/api/biz-inquiry/');
             setUsersD(resp.data);
             setPending(false)
         } catch (err) {
@@ -107,8 +102,8 @@ export default function AdminUserDashboard(props) {
                     <Link href={'#'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">Manage Ads</li></Link>
                     <Link href={'/admin/users'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">View Users</li></Link>
                     <Link href={'/admin/promotions'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">Promotion Requests</li></Link>
-                    <Link href={'#'}><li className="py-2 px-4 rounded-lg cursor-pointer text-white active">Contact Submissions</li></Link>
-                    <Link href={'/admin/business-inquiries'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">Business Inquiries</li></Link>
+                    <Link href={'/admin/business-inquiries'}><li className="py-2 px-4 rounded-lg cursor-pointer text-white active">Business Inquiries</li></Link>
+                    <Link href={'#'}><li className="hover:bg-gray-50 py-2 px-4 rounded-lg cursor-pointer">Contact Submissions</li></Link>
                     <Link href={'/admin/reports'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">Fraud Reports</li></Link>
                     <Link href={'#'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">Trending Searches</li></Link>
                     <Link href={'#'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">Global Settings</li></Link>
@@ -117,7 +112,7 @@ export default function AdminUserDashboard(props) {
             </div>
             <div className="overflow-auto">
             <DataTable 
-            title="Contact Form Submissions"
+            title="Business Inquiries"
             columns={columns} 
             data={data} 
             progressPending={pending} 

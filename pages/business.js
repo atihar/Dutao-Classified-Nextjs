@@ -1,11 +1,46 @@
-import React from 'react'
+import React , {useState} from 'react'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import useTranslation from 'next-translate/useTranslation'
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 
 function Business() {
   const { t, lang } = useTranslation('common')
+  const [loading, setLoading] = useState(false)
+    const [message, setMessage] = useState("")
+    const {
+        register,
+        handleSubmit,
+        errors,
+        formState
+      } = useForm();
+
+     // const onSubmit = (data) => console.log(data);
+      const onSubmit = async ({ businessName, industry, name, email, requirementText }) => {
+       // console.log({ name, email, subject, category, message });
+        try{
+            setLoading(true)
+            await axios.post('/api/biz-inquiry', {
+              businessName,
+              name, 
+              email, 
+              industry, 
+              requirementText 
+            })
+            .then(function (response) {
+                // handle success
+                setMessage("Successfully submitted") 
+                setLoading(false)
+              })
+              
+        }catch (err) {
+            console.log(err.message)
+            setLoading(false)
+        }
+      };
+
   return (
    <>
    <Header/> 
@@ -40,10 +75,12 @@ function Business() {
               </p>
             </div>
             <div>
-              <form className='px-2'>
+               <form onSubmit={handleSubmit(onSubmit)} className="px-2 space-y-4">
                     <div className='space-y-4'>
                     <input type="text" placeholder="Company Name"
-                    className="w-full border-2 p-4 pr-12 text-sm focus:text-[16px] border-gray-200 rounded-lg shadow-sm" />
+                    className="w-full border-2 p-4 pr-12 text-sm focus:text-[16px] border-gray-200 rounded-lg shadow-sm" 
+                    {...register('businessName', { required: true, maxLength: 50 })}/>
+
                    <select className="form-select block
                       w-full
                       p-4
@@ -55,7 +92,8 @@ function Business() {
                       ease-in-out
                       bg-gray-50 focus:outline-none
                       m-0 border-2
-                      focus:text-gray-500 focus:bg-white">
+                      focus:text-gray-500 focus:bg-white" 
+                      {...register('industry', { required: true })}>
                           <option defaultValue>Industry</option>
                           <option value="car-new">New car sales</option>
                           <option value="car-used">Used car sales</option>
@@ -65,12 +103,16 @@ function Business() {
                           <option value="others">others</option>
                       </select>
                       <input type="text" placeholder="Contact Name"
-                    className="w-full border-2 p-4 pr-12 text-sm focus:text-[16px] border-gray-200 rounded-lg shadow-sm" />
-                    <input type="email" placeholder="Company Email"
-                    className="w-full border-2 p-4 pr-12 text-sm focus:text-[16px] border-gray-200 rounded-lg shadow-sm" />
+                    className="w-full border-2 p-4 pr-12 text-sm focus:text-[16px] border-gray-200 rounded-lg shadow-sm" 
+                    {...register('name', { required: true, maxLength: 50 })}/>
+
+                    <input type="email" placeholder="Contact Email"
+                    className="w-full border-2 p-4 pr-12 text-sm focus:text-[16px] border-gray-200 rounded-lg shadow-sm" 
+                    {...register('email', { required: true})}/>
 
                     <textarea type="text" placeholder="Requirement"
-                    className="w-full border-2 p-4 pr-12 text-sm focus:text-[16px] border-gray-200 rounded-lg shadow-sm" />
+                    className="w-full border-2 p-4 pr-12 text-sm focus:text-[16px] border-gray-200 rounded-lg shadow-sm" 
+                    {...register('requirementText', { required: true})}/>
                     </div>
 
                     <button type="submit"

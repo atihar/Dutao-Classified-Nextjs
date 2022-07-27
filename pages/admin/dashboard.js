@@ -53,6 +53,7 @@ export default function AdminDashboard(props) {
                     <Link href={'/admin/users'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">View Users</li></Link>
                     <Link href={'/admin/add-place'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">Add Place</li></Link>
                     <Link href={'/admin/promotions'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">Promotion Requests</li></Link>
+                    <Link href={'/admin/business-inquiries'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">Business Inquiries</li></Link>
                     <Link href={'/admin/contacts'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">Contact Submissions</li></Link>
                     <Link href={'/admin/reports'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg cursor-pointer">Fraud Reports</li></Link>
                     <Link href={'#'}><li className="hover:bg-gray-100 py-2 px-4 rounded-lg">Trending Searches</li></Link>
