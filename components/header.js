@@ -92,7 +92,7 @@ return (
                         <div className="px-2 pt-2 group-hover:block pb-4 bg-white-500 bg-white-500 bg-gray-50 rounded-lg shadow-lg">
                           <div className="flex-column text-left text-xs space-y-4 p-2 rounded text-gray-700">
                              <div><button onClick={async () => await setLanguage('en')}>English</button></div>
-                             <div><button onClick={async () => await setLanguage('cn')}>Chinese</button></div>
+                             <div><button onClick={async () => await setLanguage('cn')}>中国人</button></div>
                           </div>
                         </div>
                     </div>
@@ -153,7 +153,7 @@ return (
                   <div className="px-2 pt-2 group-hover:block pb-4 bg-white-500 bg-white-500 bg-gray-50 rounded-lg shadow-lg">
                     <div className="flex-column text-left text-xs space-y-4 p-2 rounded text-gray-700">
                         <div><button onClick={async () => await setLanguage('en')}>English</button></div>
-                        <div><button onClick={async () => await setLanguage('cn')}>Chinese</button></div>
+                        <div><button onClick={async () => await setLanguage('cn')}>中国人</button></div>
                     </div>
                   </div>
               </div>
@@ -313,37 +313,38 @@ return (
                   <div className='text-left space-y-1'>
                     <h6 className='text-base font-bold'>{t('dubai')}</h6>
                     <hr/>
-                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('bBay')}</p></Link>
-                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('safa')}</p></Link>
-                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('barsha')}</p></Link>
-                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('ranch3')}</p></Link>
+                    <Link href={'/info-center'}><p className="cursor-pointer">{t('bBay')}</p></Link>
+                    <Link href={'/info-center'}><p className="cursor-pointer">{t('safa')}</p></Link>
+                    <Link href={'/info-center'}><p className="cursor-pointer">{t('barsha')}</p></Link>
+                    <Link href={'/info-center'}><p className="cursor-pointer">{t('ranch3')}</p></Link>
                   </div>
                   <div className='text-left space-y-1'>
                     <h6 className='text-base font-bold'>{t('morePlace')}</h6>
                     <hr/>
-                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('dHill')}</p></Link>
-                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('bDubai')}</p></Link>
-                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('eHill')}</p></Link>
-                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('jAli')}</p></Link>
+                    <Link href={'/info-center'}><p className="cursor-pointer">{t('dHill')}</p></Link>
+                    <Link href={'/info-center'}><p className="cursor-pointer">{t('bDubai')}</p></Link>
+                    <Link href={'/info-center'}><p className="cursor-pointer">{t('eHill')}</p></Link>
+                    <Link href={'/info-center'}><p className="cursor-pointer">{t('jAli')}</p></Link>
                   </div>
                   <div className='text-left space-y-1'>
                     <h6 className='text-base font-bold'>{t('morePlace')}</h6>
                     <hr/>
-                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('jPark')}</p></Link>
-                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('jadaf')}</p></Link>
-                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('internet')}</p></Link>
-                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('dWater')}</p></Link>
+                    <Link href={'/info-center'}><p className="cursor-pointer">{t('jPark')}</p></Link>
+                    <Link href={'/info-center'}><p className="cursor-pointer">{t('jadaf')}</p></Link>
+                    <Link href={'/info-center'}><p className="cursor-pointer">{t('internet')}</p></Link>
+                    <Link href={'/info-center'}><p className="cursor-pointer">{t('dWater')}</p></Link>
                   </div>
                   <div className='text-left space-y-1'>
                     <h6 className='text-base font-bold'>{t('morePlace')}</h6>
                     <hr/>
-                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('quoz')}</p></Link>
-                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('spring')}</p></Link>
-                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('creek')}</p></Link>
-                    <Link className="cursor-pointer" href={'/info-center'}><p>{t('suqeim')}</p></Link>
+                    <Link href={'/info-center'}><p className="cursor-pointer">{t('quoz')}</p></Link>
+                    <Link href={'/info-center'}><p className="cursor-pointer">{t('spring')}</p></Link>
+                    <Link href={'/info-center'}><p className="cursor-pointer"> {t('creek')}</p></Link>
+                    <Link href={'/info-center'}><p className="cursor-pointer">{t('suqeim')}</p></Link>
                   </div>
                    <div className='text-left space-y-1'>
-                        <a className="inline-flex items-center px-8 py-3 text-red-500  focus:ring" href="/info-center">
+                   <Link href="/info-center">
+                        <a className="inline-flex items-center px-8 py-3 text-red-500">
                           <span className="text-sm font-medium">
                             {t('viewMore')}
                           </span>
@@ -352,6 +353,7 @@ return (
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                           </svg>
                         </a>
+                        </Link>
                     </div>
                   </div>
               </div>

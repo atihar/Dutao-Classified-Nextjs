@@ -29,6 +29,7 @@ export default function Example(props){
         });
         setLat(satelite.coords.latitude)
         setLng(satelite.coords.longitude)
+        // console.log(satelite.coords)
 
       });
 
@@ -49,7 +50,7 @@ export default function Example(props){
     {/* <p className='text-base'>Location: {cityName} </p> */}
     <Map {...viewState}
       // onMove={(evt) => setViewState(evt.viewState)}
-      style={{maxWidth:"1200px", width: "90vw" , height: "30vh", margin:"2% 0%", overflow:"hidden"}}
+      style={{maxWidth:"1200px", width: "100%" , height: "30vh", margin:"2% 0%", overflow:"hidden"}}
       mapStyle="mapbox://styles/mahir890/cl2fzigrh002e14mrs18gfxr1"
       mapboxAccessToken='pk.eyJ1IjoibWFoaXI4OTAiLCJhIjoiY2wxcnJwZGQ1MGgzMDNjcGExaTlzeXJhaiJ9.T9UNMgUmU1t1gDvWEwzLig'
       attributionControl={false}

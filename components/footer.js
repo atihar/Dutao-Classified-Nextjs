@@ -52,12 +52,12 @@ export default function Footer() {
                 </p>
       
                 <nav className="flex flex-col mt-2 space-y-2 text-sm text-gray-500">
-                  <a className="hover:opacity-75" href="/property-for-rent/list?category=villa"> {t('villaR')} </a>
-                  <a className="hover:opacity-75" href="/jobs"> {t('jobsD')} </a>
-                  <a className="hover:opacity-75" href="/community/list?category=home-maintenance"> {t('homeMaintain')} </a>
-                  <a className="hover:opacity-75" href="/jobs/list?category=sales-and-marketing"> {t('jobsMarketing')} </a>
-                  <a className="hover:opacity-75" href="/info-center?category=bar&city=all&area=all"> {t('bars')} </a>
-                  <a className="hover:opacity-75" href="/info-center?category=Restaurants&city=all&area=creek"> {t('restCreek')} </a>
+                <Link href={`/property-for-rent/list?category=villa`}><a className="hover:opacity-75"> {t('villaR')} </a></Link>
+                <Link href={`/property-for-rent/list?category=villa`}><a className="hover:opacity-75"> {t('jobsD')} </a></Link>
+                <Link href="/community/list?category=home-maintenance"><a className="hover:opacity-75"> {t('homeMaintain')} </a></Link>
+                <Link href="/jobs/list?category=sales-and-marketing"><a className="hover:opacity-75" > {t('jobsMarketing')} </a></Link>
+                <Link href="/info-center?category=bar&city=all&area=all"><a className="hover:opacity-75" > {t('bars')} </a></Link>
+                <Link href="/info-center?category=Restaurants&city=all&area=creek"><a className="hover:opacity-75"> {t('restCreek')} </a></Link>
                 </nav>
               </div>
       

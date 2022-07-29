@@ -106,8 +106,15 @@ export default function MotorFilter(props) {
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" 
                         {...register("category")}>
                           <option value="all">{t('selectCategory')}</option>
-                          {productCategory && productCategory.map((x,i) => <option value={x} key={i}>{x}</option> )}
-                        </select>
+                          {/* {productCategory && productCategory.map((x,i) => <option value={x} key={i}>{x}</option> )} */}
+                          <option value="cars">{t('cars')}</option>
+                          <option value="motorcycle">{t('motorcycle')}</option>
+                          <option value="heavy-vehicles">{t('heavyVehicles')}</option>
+                          <option value="boats">{t('boats')}</option>
+                          <option value="accessories">{t('accessories')}</option>
+                          <option value="number-plates">{t('numberPlates')}</option>
+                          <option value="export-car">{t('exportCars')}</option>
+                          </select>
 
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                         {...register("year")}>

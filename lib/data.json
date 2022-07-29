@@ -1,5 +1,5 @@
 {
-    "categories" : [ "Bar", "Malls", "Hotels", "Restaurants", "Banks", "Pharmacy", "Gas", "Coffee", "Groceries", "Exchanges", "Typing Center"],
+    "categories" : [ "bar", "malls", "hotels", "restaurants", "banks", "pharmacy", "gas", "coffee", "groceries", "exchanges", "typing-center"],
     "categoriesCN" : [ "酒吧", "购物中心", "酒店", "餐厅", "银行", "药店", "气体", "咖啡", "杂货", "货币兑换", "打字中心"],
     "cities": [
         {

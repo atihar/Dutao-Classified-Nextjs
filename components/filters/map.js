@@ -67,7 +67,7 @@ export default function MapFilter(props) {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="relative">
                    
-                    <div className="grid grid-cols-3 md:grid-cols-3 xl:grid-cols-5 gap-4 mt-4">
+                    <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4 mt-4">
                         <select className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" 
                         {...register("category")}>
                               <option value="all">{t('selectCategory')}</option>
@@ -109,13 +109,14 @@ export default function MapFilter(props) {
                         </select>
                    
                         <div className="flex">  
-                            <button type="submit" className="w-screen px-7 py-2 text-sm font-medium text-white bg-red-600 rounded-lg">
-                                {t('filter')}
-                            </button>
-                        </div>
-                        <button onClick={resetQuery} type="reset" className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
+                        <button type="submit" className="w-full px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg">
+                            {t('filter')}
+                        </button>
+                        
+                        <button onClick={resetQuery} type="reset" className="w-full px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
                           {t('resetFilter')}
                         </button>
+                        </div>
                     </div>
                 </div>
             </form>
